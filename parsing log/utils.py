@@ -17,7 +17,7 @@ class Session:
         with open((filename),'r') as f:
             try:
                 data=json.load(f)
-                parse_data()
+                self.parse_data(data)
             except:
                 pass
         f.close()
@@ -55,14 +55,22 @@ class Session:
 
 
 #HOW TO USE THE SESSION CLASS?
+
     # filename = "log_data_1_student_example.json"
-    # session = Session(filename)
+    # session = Session(filename) where filename is a file with a single json element
+    # or
+    # session = Session()
+    # session.parse_data(line_json) where line_json is a loaded json element
+
+    # then we can do fun things:
     # print session.student_id
     # print len(session.all_events)
     # session.clean_events()
     # print len(session.events)
     # session.create_walk()
     # session.export_walk()
+
+
 
 
 
