@@ -47,6 +47,5 @@ with open(os.path.join(datapath+rawfile),'r') as f:
 f.close()
 
 # TO DO!!
-# add comments everywhere, especially Session class
 # check that all the stepSimulations and inputEvent look the same to make sure we are removing what we think we are removing
 # start with table events? start findout out all the type of events related to the table and documenting where the relevant info is stored
