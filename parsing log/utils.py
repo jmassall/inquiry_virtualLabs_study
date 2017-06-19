@@ -8,6 +8,7 @@ extracts relevant information from log data from a PhET sim
 import os
 import json
 import getpass
+import math
 
 folder = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\raw study data\\log data\\'
 
@@ -15,7 +16,7 @@ folder = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_ski
 
 samplefile = '5a257a80-aa82-471d-b75c-f1113f314da1.log'
 raw_file_path = os.path.join(folder+samplefile)
-output_file = "log_data_1_student_example.txt"
+output_file = "log_data_1_student_example.json"
 def get_one_line(raw_file_path,output_file):
     ''' opens a raw data file, grabs the first line and outpuots
      it in pretty print format in a new file.'''
@@ -36,6 +37,18 @@ def get_one_line(raw_file_path,output_file):
     out.close()
     return None
 
+
+import datetime
+def convert_unix_time(t):
+    ''' Take a unix time stamp in milliseconds and convert to date and time'''
+    return datetime.datetime.fromtimestamp(int(t)/1000.0).strftime('%Y-%m-%d_%H.%M.%S')
+
+
+def check_student_id(student_id):
+    '''checks that the student id recorded is valid''' 
+    digits = int(math.log10(int(student_id)))+1
+    if digits !=8:
+        raise ValueError('This student id is not 8 digits long',student_id)
 
 class Session:
     ''' A class to organize and standardize the information
@@ -71,7 +84,9 @@ class Session:
 
         self.events = data['events']
         self.student_id = data['session']['learner_id']
+        check_student_id(self.student_id)
         self.session_id = data['session']['session_id']
+        self.date = convert_unix_time(self.session_id.split('@')[1])
         self.sim = data['session']['widget_id']
 
     def clean_events(self):
@@ -84,7 +99,7 @@ class Session:
                 pass
             else:
                 cleaned_events.append(event)
-        self.events = clean_events
+        self.events = cleaned_events
         return None
 
     def create_walk(self):

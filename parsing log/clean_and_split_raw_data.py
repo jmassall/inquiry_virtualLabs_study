@@ -7,7 +7,7 @@ This script cleans raw log files and splits them into individual session files s
 import os
 import sys
 import json
-from utils import Session
+from utils import *
 import getpass
 datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\raw study data\\log data\\'
 outpath =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
@@ -17,14 +17,8 @@ split_data_path = os.path.join(outpath,'cleaned_and_split_' + rawfile.split('.')
 if not os.path.exists(split_data_path):
     os.makedirs(split_data_path)
 
-import datetime
-def convert_time(t):
-    ''' Take a unix time stamp in milliseconds and convert to date and time'''
-    return datetime.datetime.fromtimestamp(int(t)/1000.0).strftime('%Y-%m-%d_%H.%M.%S')
+print "Parsing file", rawfile
 
-session = Session(os.path.join(datapath,rawfile))
-
-sys.exit()
 with open(os.path.join(datapath+rawfile),'r') as f:
     for line in f:
         try:
@@ -35,14 +29,13 @@ with open(os.path.join(datapath+rawfile),'r') as f:
         session = Session()
         session.parse_data(line_json)
         session.clean_events()
-        date = convert_time(session.session_id.split('@')[1])
-        outname = "log_{0}_{1}_{2}.json".format(session.sim, session.student_id, date)
+        outname = "log_{0}_{1}_{2}.json".format(session.sim, session.student_id, session.date)
         with open(os.path.join(split_data_path,outname), 'w') as outfile:
             #if you want pretty print, use print >> as below
             # print >> outfile, json.dumps(sesion.events, indent=4, sort_keys=True)
             #else this works:
             json.dump(session.events, outfile)
-
+        print "Parsing session in sim {0} from student {1} on {2})".format(session.sim, session.student_id, session.date)
         outfile.close()
 f.close()
 
