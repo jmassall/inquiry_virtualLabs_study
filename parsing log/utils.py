@@ -5,6 +5,7 @@ data: june 14 2017
 This file contains functions and classes used by parsers to 
 extracts relevant information from log data from a PhET sim
 '''
+import sys
 import os
 import json
 import getpass
@@ -48,12 +49,61 @@ def check_id_start(student_id):
     start  = int(student_id[0])
     return (start == 1)
 
+STEP_EVENT_CHILDREN = set(["data","event","index","timestamp","type"])
+STEP_EVENT_DATA_CHILDREN = set(["componentType","event","eventType","messageIndex","parameters","phetioID",'time'])
+
 def check_step_event(event):
     '''check that event has correct structure, else print'''
+    children = set(event.keys())
+    if children != STEP_EVENT_CHILDREN:
+        print "Step event has different children:"
+        print json.dumps(event)
+        sys.exit()
+    data_children = set(event['data'].keys())
+    if data_children != STEP_EVENT_DATA_CHILDREN:
+        print "Step event has different 'data' children:"
+        print json.dumps(event)
+        sys.exit()
+    if event['data']['event'] != 'stepSimulation':
+        print "Step event's data['event'] item looks different:"
+        print json.dumps(event)
+        sys.exit()
+    if event['data']['parameters'].keys() != ['dt']:
+        print "Step event'd data['parameters'] looks different:"
+        print json.dumps(event)
+        sys.exit()
     return None
 
+INPUT_EVENT_CHILDREN = set(["data","event","index","timestamp","type"])
+INPUT_EVENT_DATA_CHILDREN = set(["componentType","event","eventType","messageIndex","parameters","phetioID","time"])
 def check_input_event(event):
     '''check that event has correct structure, else print'''
+    children = set(event.keys())
+    if children != INPUT_EVENT_CHILDREN:
+        print "Input event has different children:"
+        print json.dumps(event)
+        sys.exit()
+    data_children = set(event['data'].keys())
+    if data_children != INPUT_EVENT_DATA_CHILDREN:
+        print "Input event has different 'data' children:"
+        print json.dumps(event)
+        sys.exit()
+    if event['data']['event'] != 'inputEvent':
+        print "Input event's data['event'] item looks different:"
+        print json.dumps(event)
+        sys.exit()
+    if ("validatePointers" not in str(event['data']['parameters']['string']) and
+        "mouseMove" not in str(event['data']['parameters']['string']) and
+        "mouseOver" not in str(event['data']['parameters']['string']) and
+        "mouseDown" not in str(event['data']['parameters']['string']) and
+        "mouseUp" not in str(event['data']['parameters']['string']) and
+        "wheel" not in str(event['data']['parameters']['string']) and
+        "keyDown" not in str(event['data']['parameters']['string']) and
+        "keyUp" not in str(event['data']['parameters']['string']) and
+        "mouseOut" not in str(event['data']['parameters']['string']) ):
+        print "Input event's data['parameters'] looks different:"
+        print json.dumps(event)
+        sys.exit()
     return None
 
 
@@ -104,10 +154,13 @@ class Session:
         cleaned_events = []
         for event in self.events:
             if event['event'] == 'phetio.stepSimulation':
-                check_step_event(event)
-            elif event['event'] == 'phetio.inputEvent':
+                # this was run on all events in a raw data file for testing purposes.
+                # check_step_event(event) 
                 pass
-                #check_input_event(event)
+            elif event['event'] == 'phetio.inputEvent':
+                # this was run on all events in a raw data file for testing purposes.
+                # check_input_event(event)
+                pass
             else:
                 cleaned_events.append(event)
         self.events = cleaned_events
