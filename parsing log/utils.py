@@ -116,22 +116,28 @@ class Session:
     data file.)
     '''
 
-    def __init__(self, filename=None):
-        ''' if a filename is provided  when class is declared,
+    def __init__(self, single_session_file=None):
+        ''' if a single_session_file is provided  when class is declared,
         then we parse the metadata for that session there '''
 
-        if filename:
-            self.get_session_data_from_file(filename)
+        if single_session_file:
+            self.get_session_data_from_file(single_session_file)
+
+        self.events =   None
+        self.student_id =   None
+        self.session_id =   None
+        self.date = None
+        self.sim =  None
+
+        return None
 
 
-    def get_session_data_from_file(self,filename):
+    def get_session_data_from_file(self,single_session_file):
         ''' Opens file, loads element as JSON and parses 
         the data and metadata'''
-
-        with open((filename),'r') as f:
+        with open(single_session_file,'r') as f:
             try:
-                data=json.load(f)
-                self.parse_data(data)
+                self.events=json.load(f)
             except:
                 pass
         f.close()

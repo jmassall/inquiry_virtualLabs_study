@@ -41,9 +41,10 @@ with open(os.path.join(datapath+rawfile),'r') as f:
         outname = "log_{0}_{1}_{2}.json".format(session.sim, session.student_id, session.date)
         with open(os.path.join(split_data_path,outname), 'w') as outfile:
             #if you want pretty print, use print >> as below instead of just json.dump
-            # print >> outfile, json.dumps(sesion.events, indent=4, sort_keys=True)
+            # print >> outfile, json.dumps(session.events, indent=4, sort_keys=True)
             json.dump(session.events, outfile)
         #we report the metadata on all the session in a separate file.
+        sys.exit()
         report.write('\n')
         report.write('\t'.join([session.session_id,session.student_id,str(check_id_length(session.student_id)), str(check_id_start(session.student_id)),session.sim, session.date,str(before_cleaning), str(len(session.events)), outname]))
         outfile.close()
@@ -52,5 +53,4 @@ f.close()
 report.close()
 
 # TO DO!!
-# check that all the stepSimulations and inputEvent look the same to make sure we are removing what we think we are removing
-# start with table events? start findout out all the type of events related to the table and documenting where the relevant info is stored
+# start findout out all the type of events and documenting where the relevant info is stored. Maybe start with table events? 
