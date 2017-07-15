@@ -107,8 +107,6 @@ def check_input_event(event):
     return None
 
 
-
-
 class Session:
     ''' A class to organize and standardize the information
     contained in a single session with a PhET virtual lab

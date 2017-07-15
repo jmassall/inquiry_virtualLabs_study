@@ -1,0 +1,88 @@
+filename	notesC:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_10105157_2017-03-22_11.41.17.json	When concentration was the only factor changed in the experiment, and it was doubled, concentration doubled accordingly. When the path length (cuvette width) doubled, absorbance also doubled accordingly. Therefore, both path length and concentration of the analyte in the cuvette are directly proportional to absorbance and can be equated to absorbance with a proportionality constant, epsilon (molar absorptivity).
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_10537160_2017-03-21_18.25.09.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_10708152_2017-03-20_16.24.15.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_11384795_2017-03-20_16.24.15.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_11394167_2017-03-21_17.28.45.json	More copper sulfate means more absorbency. 
+But there is a big difference in absorbency that depends entirely on the colors.
+For example if we put the copper sulfate to its full consideration of 200mM then test the different colors. the colors on the right side of the spectrum that are red and maroon hues are absorbed almost completely and barely able to pass any light though.
+ 
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_11691167_2017-03-22_11.40.23.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_11777163_2017-03-21_18.25.08.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12017165_2017-03-22_16.24.54.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12288167_2017-03-22_11.40.14.json	As wavelength goes to either side of the visible light spectrum, the light absorbance is at its minimum when the wavelength is same color as the solution.
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12345678_2017-03-21_12.56.02.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12345678_2017-03-28_14.01.44.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12345678_2017-03-28_14.02.20.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12665164_2017-03-21_17.29.02.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12816168_2017-03-21_18.25.29.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12816168_2017-03-21_18.30.06.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_12907149_2017-03-21_17.28.26.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13134165_2017-03-20_16.24.52.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13140165_2017-03-21_18.25.14.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13310139_2017-03-22_11.40.17.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13407169_2017-03-21_18.25.07.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13493169_2017-03-22_11.40.21.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13578154_2017-03-22_16.24.51.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13660166_2017-03-28_15.28.56.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13870641_2017-03-21_17.28.31.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_13945160_2017-03-21_18.25.20.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_14055131_2017-03-21_18.25.03.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_14088168_2017-03-20_16.24.46.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_14261165_2017-03-21_18.25.05.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_14565169_2017-03-22_11.40.07.json	for a green wavelength at 136mM, absorbance did not change with beaker size change. with lower concentrations, absorbance went to 0 at wider widths, with higher concentrations, absorbance changed slightly with a change in width
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15026512_2017-03-20_16.24.15.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15160164_2017-03-21_18.25.28.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15457134_2017-03-20_16.24.37.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15482152_2017-03-22_11.40.10.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15496161_2017-03-20_16.24.20.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15677161_2017-03-22_11.40.03.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15749160_2017-03-23_14.25.38.json	As predicted, Absorbance vs. Concentration plots a linear curve, supporting the supposition that there is a linear relationship.
+
+Again, as expected, Absorbance vs. length plots a linear curve, supporting the expectation of a linear relationship
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_15884161_2017-03-23_13.25.49.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16136159_2017-03-20_15.32.58.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16233163_2017-03-21_18.25.00.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16233163_2017-03-21_18.26.58.json	increase wavelegnth, concentration, and beaker width=more absorbance
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16317166_2017-03-21_17.17.42.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16317166_2017-03-21_17.28.42.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16328144_2017-03-23_13.25.52.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16606167_2017-03-20_15.32.40.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16657165_2017-03-21_18.25.15.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16901162_2017-03-21_18.25.03.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_16961152_2017-03-21_18.25.01.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17112137_2017-03-23_14.25.27.json	Wider the beaker, more absorbed as you move further away from laser
+
+Longer wavelength (red) = more absorbed
+
+higher concen
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17168593_2017-03-21_18.25.18.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17168593_2017-03-21_18.42.59.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17290166_2017-03-22_11.40.01.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17290166_2017-03-22_11.41.20.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17347163_2017-03-21_18.25.04.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17576140_2017-03-22_15.28.40.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17655165_2017-03-28_16.20.43.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17691169_2017-03-20_15.33.07.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_17701169_2017-03-21_17.29.24.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_18174154_2017-03-20_16.24.48.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_18527162_2017-03-20_16.24.27.json	LASER IS NEEDED TO START THE ABSORBANCE DETECTOR.
+increasing [CuSO4] makes the solution more blue
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_18854165_2017-03-22_11.42.45.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_18854165_2017-03-22_12.33.49.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_18866165_2017-03-20_15.32.56.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19018165_2017-03-21_17.28.18.json	all factors equal, dark red is at 1, violet at 0.02
+
+All wave lengths =/= red gives 0.01, assumption that violet contained a bit of red
+
+More volume = more absorbency
+
+More concentration = more absorbency
+
+higher wavelengths still not absorbing
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19053161_2017-03-28_15.28.57.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19416160_2017-03-20_16.24.16.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19436162_2017-03-22_15.28.51.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19470169_2017-03-22_16.25.24.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19618321_2017-03-22_15.28.45.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19913165_2017-03-28_15.28.49.json	
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1\log_lab-book-beers-law-lab_19989152_2017-03-20_15.32.48.json	
