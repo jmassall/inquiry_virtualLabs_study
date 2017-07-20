@@ -211,5 +211,29 @@ class Session:
 
 
 
+# HOW TO GET ALL FINAL NOTES FROM FILES
+#let's iterate thorugh all raw files for beerslaw and capture the last note state for all students. Yeah!
+
+# datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data\\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1'
+# session_file = 'log_lab-book-beers-law-lab_12288167_2017-03-22_11.40.14.json'
+# test_json =  os.path.join(datapath,session_file)
+
+
+# notes_report = open('reports_on_notes.txt','w')
+# notes_report.write('\t'.join(['filename','notes']))
+# for file in os.listdir(datapath):
+#     if file.endswith(".json"):
+#         notes_report.write('\n')
+#         session_file = os.path.join(datapath, file)
+#         notes_report.write(file)
+#         session = Session()
+#         session.get_session_data_from_file(session_file)
+#         notes = ''
+#         for i,event in enumerate(session.events):
+#             if detect_notesActivity(event):
+#                 notes = parse_notesActivity(event)
+#         notes_report.write('\t')
+#         notes_report.write(notes)
+
 
 
