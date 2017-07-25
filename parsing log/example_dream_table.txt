@@ -2606,9 +2606,9 @@ test	light	1490049384769	24201	user	dragging	cuvetteNode	dragged
 test	light	1490049384873	24210	user	dragging	cuvetteNode	dragged														
 test	light	1490049384890	24213	user	dragging	cuvetteNode	dragEnded														
 test	light	1490049393045	25378	model	gettingValues	sim	none														
-test	light	1490049393057	25380	user	recording data	none	none								[{"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 0.961, "Detector location": {"y": 2, "x": 5.793103448275863}, "Width": 0.5, "trialNumber": 1, "inGraph": false, "Wavelength": 780, "Concentration": 0.2, "Laser on status": true}]						
+test	light	1490049393057	25380	user	recording data	none	none								{"1": {"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 0.961, "Detector location": {"y": 2, "x": 5.793103448275863}, "Width": 0.5, "trialNumber": 1, "inGraph": false, "Wavelength": 780, "Concentration": 0.2, "Laser on status": true}}						
 test	light	1490049395833	25547	user	expanding table	table	none														
-test	light	1490049400794	25844																		
+test	light	1490049400794	25844	user	Adding data to graph	trialNumber 1	Error: failed to add trial.								{"1": {"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 0.961, "Detector location": {"y": 2, "x": 5.793103448275863}, "Width": 0.5, "trialNumber": 1, "inGraph": false, "Wavelength": 780, "Concentration": 0.2, "Laser on status": true}}						
 test	light																				
 test	light																				
 test	light																				

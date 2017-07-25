@@ -6,6 +6,7 @@ This captures the recorded data from a single student's activity file
 '''
 import os
 import sys
+import re
 import traceback
 import json
 import numpy as np
@@ -162,14 +163,34 @@ def detect_drag_item(event):
     drag_item = event.split('.')[3]
     return drag_item
 
+def get_checkbox_status(event):
+    try: 
+        return get_args(event)[0]['parameters']['checked']
+    except KeyError:
+        print "Error: event has no 'data > parameters > args > parameters > checked'"
+        traceback.print_exc()
+        sys.exit()
+
+def is_checkbox_error(event):
+    try: 
+        error = get_args(event)[0]['parameters']['error']
+        if error == "Cannot add this data point to the plot.  Either the data is empty, you have not selected an axis feature, or the data point is not defined for the selected scale.":
+            return True
+    except KeyError:
+        return False
+
+def update_checkstatus_in_table(current_table, trial_added, check_status):
+    new_table = current_table.copy()
+    new_table[trial_added]['inGraph'] = check_status
+    return new_table
+
 EVENTS_INITIALIZING = ["beersLawLab.sim.simStarted","beersLawLab.sim.barrierRectangle.fired","beersLawLab.navigationBar.phetButton.fired"]
 INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
 
 def mega_parser(header, events):
     dreamtable = initialize_dreamtable(header,len(events),events[0])
-    table = [] 
+    table = {}
     for i,event in enumerate(events):
-        print i, event['index']
         parsed = False
         method = None
         phetioID = None
@@ -213,8 +234,29 @@ def mega_parser(header, events):
                         dreamtable[i+1,header.index("Event")] = 'recording data'
                         dreamtable[i+1,header.index("Item")] = 'none'
                         dreamtable[i+1,header.index("Action")] = 'none'
-                        table.append(extract_new_datapoint(event))
+                        new_data_point = extract_new_datapoint(event)
+                        table[new_data_point['trialNumber']] = new_data_point
                         dreamtable[i+1,header.index("Table")] = json.dumps(table)
+                    if "labBook.addToGraphCheckBox" in phetioID:
+                        parsed = True
+                        trial_added_to_graph = int(re.search(r'\d+', phetioID).group())
+                        checked = get_checkbox_status(event)
+                        if is_checkbox_error(event):
+                            dreamtable[i+1,header.index("Event")] = 'Adding data to graph'
+                            dreamtable[i+1,header.index("Action")] = 'Error: failed to add trial.'
+                            checked = False
+                        elif checked:
+                            dreamtable[i+1,header.index("Event")] = 'Adding data to graph'
+                            dreamtable[i+1,header.index("Action")] = 'Data added to graph successfully.'
+                        else:
+                            dreamtable[i+1,header.index("Event")] = 'Removing data from graph'
+                            dreamtable[i+1,header.index("Action")] = 'Data removed from graph.'
+                        dreamtable[i+1,header.index("User or Model?")] = 'user'
+                        dreamtable[i+1,header.index("Item")] = 'trialNumber ' + str(trial_added_to_graph)
+                        table = update_checkstatus_in_table(table, trial_added_to_graph, checked)
+                        dreamtable[i+1,header.index("Table")] = json.dumps(table)
+
+
 
         elif event['event'] in EVENTS_INITIALIZING:
             parsed = True
