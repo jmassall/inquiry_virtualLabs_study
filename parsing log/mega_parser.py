@@ -228,6 +228,29 @@ def mega_parser(header, events):
                         dreamtable[i+1,header.index("Event")] = 'collapsing table'
                         dreamtable[i+1,header.index("Item")] = 'table'
                         dreamtable[i+1,header.index("Action")] = 'none'
+                    if phetioID == "labBook.graphExpandButton":
+                        parsed = True
+                        dreamtable[i+1,header.index("User or Model?")] = 'user'
+                        dreamtable[i+1,header.index("Event")] = 'expanding graph'
+                        dreamtable[i+1,header.index("Item")] = 'graph'
+                        dreamtable[i+1,header.index("Action")] = 'none'
+                    if phetioID == "labBook.graphCollapseButton":
+                        parsed = True
+                        dreamtable[i+1,header.index("User or Model?")] = 'user'
+                        dreamtable[i+1,header.index("Event")] = 'collapsing graph'
+                        dreamtable[i+1,header.index("Item")] = 'graph'
+                        dreamtable[i+1,header.index("Action")] = 'none'
+                    if "Feature" in phetioID:
+                        parsed = True
+                        selection = get_args(event)[0]['parameters']['feature']
+                        variable_selected, axis = selection.split('_')
+                        axis = axis.capitalize()
+                        dreamtable[i+1,header.index("User or Model?")] = 'user'
+                        dreamtable[i+1,header.index("Event")] = 'Selecting '+axis+'-axis'
+                        dreamtable[i+1,header.index("Item")] = axis+'-axis dropdown menu'
+                        dreamtable[i+1,header.index("Action")] = axis+'-axis changed to '+ variable_selected
+                        dreamtable[i+1,header.index(axis+" axis")] = variable_selected
+
                     if phetioID == "labBook.recordDataButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
@@ -300,7 +323,8 @@ def mega_parser(header, events):
             print "Error: new event type encountered at event number", i, "with index", event['index']
             break
 
-    np.savetxt('example_dream_table.txt', dreamtable, delimiter='\t', fmt='%s')  
+    np.savetxt('example_dream_table.txt', dreamtable, delimiter='\t', fmt='%s')
+    print "Done parsing."  
     return None
 
 
@@ -308,7 +332,6 @@ header = ["User","Sim","Timestamp","Index","User or Model?","Event","Item","Acti
 test_json = 'example_cleaned_student_data_file.json'
 session = Session()
 session.get_session_data_from_file(test_json)
-print header
 mega_parser(header, session.events)
 
 
