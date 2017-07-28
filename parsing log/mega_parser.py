@@ -157,8 +157,6 @@ def extract_new_datapoint(event):
     datapoint["Concentration"] = round(get_children_parameters(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],3)
     datapoint["trialNumber"] = get_children_parameters(event)["trialNumber"]
     datapoint["inGraph"] = get_children_parameters(event)["visible"]
-    print datapoint
-
     return datapoint
 
 def detect_drag_event(event):
@@ -189,6 +187,11 @@ def update_checkstatus_in_table(current_table, trial_added, check_status):
     new_table = current_table.copy()
     new_table[trial_added]['inGraph'] = check_status
     return new_table
+
+def remove_from_table(current_table, trial_removed):
+    new_table = current_table.copy()
+    del new_table[trial_removed]
+    return new_table 
 
 EVENTS_INITIALIZING = ["beersLawLab.sim.simStarted","beersLawLab.sim.barrierRectangle.fired","beersLawLab.navigationBar.phetButton.fired"]
 INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
@@ -228,25 +231,25 @@ def mega_parser(header, events):
                         dreamtable[i+1,header.index("Event")] = 'expanding table'
                         dreamtable[i+1,header.index("Item")] = 'table'
                         dreamtable[i+1,header.index("Action")] = 'none'
-                    if phetioID == "labBook.tableCollapseButton":
+                    elif phetioID == "labBook.tableCollapseButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'collapsing table'
                         dreamtable[i+1,header.index("Item")] = 'table'
                         dreamtable[i+1,header.index("Action")] = 'none'
-                    if phetioID == "labBook.graphExpandButton":
+                    elif phetioID == "labBook.graphExpandButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'expanding graph'
                         dreamtable[i+1,header.index("Item")] = 'graph'
                         dreamtable[i+1,header.index("Action")] = 'none'
-                    if phetioID == "labBook.graphCollapseButton":
+                    elif phetioID == "labBook.graphCollapseButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'collapsing graph'
                         dreamtable[i+1,header.index("Item")] = 'graph'
                         dreamtable[i+1,header.index("Action")] = 'none'
-                    if "Feature" in phetioID:
+                    elif "Feature" in phetioID:
                         parsed = True
                         selection = get_args(event)[0]['parameters']['feature']
                         variable_selected, axis = selection.split('_')
@@ -257,7 +260,7 @@ def mega_parser(header, events):
                         dreamtable[i+1,header.index("Action")] = axis+'-axis changed to '+ variable_selected
                         dreamtable[i+1,header.index(axis+" axis")] = variable_selected
 
-                    if phetioID == "labBook.recordDataButton":
+                    elif phetioID == "labBook.recordDataButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'recording data'
@@ -266,7 +269,7 @@ def mega_parser(header, events):
                         new_data_point = extract_new_datapoint(event)
                         table[new_data_point['trialNumber']] = new_data_point
                         dreamtable[i+1,header.index("Table")] = json.dumps(table)
-                    if "labBook.addToGraphCheckBox" in phetioID:
+                    elif "labBook.addToGraphCheckBox" in phetioID:
                         parsed = True
                         trial_added_to_graph = int(re.search(r'\d+', phetioID).group())
                         checked = get_checkbox_status(event)
@@ -283,6 +286,16 @@ def mega_parser(header, events):
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Item")] = 'trialNumber ' + str(trial_added_to_graph)
                         table = update_checkstatus_in_table(table, trial_added_to_graph, checked)
+                        dreamtable[i+1,header.index("Table")] = json.dumps(table)
+                    
+                    elif "labBook.deleteButton" in phetioID:
+                        parsed = True
+                        trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
+                        dreamtable[i+1,header.index("Event")] = 'Removing data from table'
+                        dreamtable[i+1,header.index("Action")] = 'Data removed from from table'
+                        dreamtable[i+1,header.index("User or Model?")] = 'user'
+                        dreamtable[i+1,header.index("Item")] = 'trialNumber ' + str(trial_removed_from_table)
+                        table = remove_from_table(table, trial_removed_from_table)
                         dreamtable[i+1,header.index("Table")] = json.dumps(table)
 
 
@@ -335,7 +348,8 @@ def mega_parser(header, events):
 
 
 header = ["User","Sim","Timestamp","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis property","Y axis property","Experiment #s included","Notes"]
-test_json = 'example_cleaned_student_data_file.json'
+# test_json = 'example_cleaned_student_data_file.json'
+test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_14088168_2017-03-20_16.24.46.json'
 session = Session()
 session.get_session_data_from_file(test_json)
 mega_parser(header, session.events)
