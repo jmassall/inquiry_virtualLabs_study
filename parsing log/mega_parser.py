@@ -144,15 +144,21 @@ def get_children_parameters(event):
 
 def extract_new_datapoint(event):
     datapoint = {}
-    datapoint["Width"] = get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.cuvette.widthProperty"]
-    datapoint["Detector location"] = get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"]
-    datapoint["Absorption"] = get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+    #CHECK IN ACTUAL SIM
+    #sim rounds up to 3 decimal places
+    datapoint["Width"] = round(get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],3)
+    datapoint["Detector location"] = {k:round(v,2) for k,v in get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"].iteritems()}
+    #sim rounds up to 2 decimal places
+    datapoint["Absorption"] = round(get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"],2)
     datapoint["Laser on status"] = get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.light.onProperty"]
     datapoint["Wavelength"] = get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
-    datapoint["Ruler location"] = get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
-    datapoint["Concentration"] = get_children_parameters(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]
+    datapoint["Ruler location"] = {k:round(v,2) for k,v in get_children_parameters(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"].iteritems()}
+    #sim rounds up to 3 decimal places
+    datapoint["Concentration"] = round(get_children_parameters(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],3)
     datapoint["trialNumber"] = get_children_parameters(event)["trialNumber"]
     datapoint["inGraph"] = get_children_parameters(event)["visible"]
+    print datapoint
+
     return datapoint
 
 def detect_drag_event(event):
