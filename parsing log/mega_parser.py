@@ -167,6 +167,17 @@ def detect_drag_item(event):
     drag_item = event.split('.')[3]
     return drag_item
 
+def get_drag_direction(event):
+	new,old = get_new_old_values(event)
+	if new > old:
+		return 'increasing'
+	else:
+		return 'decreasing'
+
+def get_new_old_values(event):
+	values = get_children_parameters(event)
+	return values['newValue'],values['oldValue']
+
 def get_checkbox_status(event):
     try: 
         return get_args(event)[0]['parameters']['checked']
@@ -201,10 +212,6 @@ def mega_parser(header, events):
     table = {}
     for i,event in enumerate(events):
         parsed = False
-        method = None
-        phetioID = None
-        drag_event = None
-        drag_item = None
         dreamtable[i+1,header.index("Timestamp")] = event['timestamp']
         dreamtable[i+1,header.index("Index")] = event['index']
 
@@ -327,9 +334,16 @@ def mega_parser(header, events):
             drag_item = detect_drag_item(event['event'])
 
             dreamtable[i+1,header.index("User or Model?")] = 'user'
-            dreamtable[i+1,header.index("Event")] = "dragging"
+            dreamtable[i+1,header.index("Event")] = drag_event
             dreamtable[i+1,header.index("Item")] = drag_item
-            dreamtable[i+1,header.index("Action")] = drag_event
+            dreamtable[i+1,header.index("Action")] = 'none'
+            if drag_event == 'dragged':
+            	try:
+            		direction = get_drag_direction(event)
+            		dreamtable[i+1,header.index("Action")] = direction
+            	except:
+            		pass
+
         
         elif event['event'] == "beersLawLab.beersLawScreen.view.lightNode.button.toggled":
             parsed = True
