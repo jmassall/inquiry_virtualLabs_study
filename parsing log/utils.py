@@ -40,14 +40,20 @@ def convert_unix_time(t):
 def check_id_length(student_id):
     '''check that the student id recorded 
     has the right number of digits''' 
-    digits = int(math.log10(int(student_id)))+1
-    return (digits == 8)
+    if student_id == 'student1': #this is only the case for really old log data
+        return 'NA'
+    else:
+        digits = int(math.log10(int(student_id)))+1
+        return (digits == 8)
 
 def check_id_start(student_id):
     '''check that the student id recorded 
     starts with a 1 or not''' 
-    start  = int(student_id[0])
-    return (start == 1)
+    if student_id == 'student1': #this is only the case for really old log data
+        return 'NA'
+    else:
+        start  = int(student_id[0])
+        return (start == 1)
 
 STEP_EVENT_CHILDREN = set(["data","event","index","timestamp","type"])
 STEP_EVENT_DATA_CHILDREN = set(["componentType","event","eventType","messageIndex","parameters","phetioID",'time'])
