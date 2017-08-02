@@ -153,7 +153,7 @@ def get_children_parameters(event, verbatim = True):
 
 def get_notes(event, verbatim = True):
     try:
-        return get_data_parameters(event, verbatim)['text']
+        return get_data_parameters(event, verbatim)['text'].replace('\n','\\n')
     except KeyError:
         if verbatim:
             print "Error: event",event['index']," has no 'data > parameters > text'"
@@ -493,7 +493,13 @@ def mega_parser(header, events):
             dreamtable[i+1,header.index("Item")] = 'notepad'
             dreamtable[i+1,header.index("Action")] = 'none'
             dreamtable[i+1,header.index("Notes")] = get_notes(event)
-
+        
+        elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
+            parsed = True
+            dreamtable[i+1,header.index("User or Model?")] = 'user'
+            dreamtable[i+1,header.index("Event")] = 'ignore'
+            dreamtable[i+1,header.index("Item")] = 'Absorance text on'
+            dreamtable[i+1,header.index("Action")] = 'user clicked on text on detector body. Ignore!'
 
         if not parsed:
             # print "Error: new event type encountered at event number", i, "with index", event['index']
@@ -508,6 +514,7 @@ def mega_parser(header, events):
 header = ["User","Sim","Timestamp","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
 # test_json = 'example_cleaned_student_data_file.json'
 test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
+# test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
 session = Session()
 session.get_session_data_from_file(test_json)
 mega_parser(header, session.events)

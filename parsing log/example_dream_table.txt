@@ -173,8 +173,7 @@ test		1484680990329	2492	user	editing notes	notepad	none														Increase w
 test		1484680990687	2515	user	editing notes	notepad	none														Increase width = increase absorba
 test		1484680990841	2525	user	editing notes	notepad	none														Increase width = increase absorbanc
 test		1484680990960	2533	user	editing notes	notepad	none														Increase width = increase absorbance
-test		1484680991929	2592	user	editing notes	notepad	none														Increase width = increase absorbance
-
+test		1484680991929	2592	user	editing notes	notepad	none														Increase width = increase absorbance\n
 test		1484680993951	2854	user	dragStarted	wavelengthControls	none														
 test		1484680994375	2883	user	dragged	wavelengthControls	decreasing														
 test		1484680994380	2886	user	dragged	wavelengthControls	decreasing														
@@ -1434,129 +1433,46 @@ test		1484681015889	7533	user	dragged	wavelengthControls	none
 test		1484681015896	7536	user	dragged	wavelengthControls	none														
 test		1484681015905	7540	user	dragged	wavelengthControls	none														
 test		1484681016196	7560	user	dragEnded	wavelengthControls	none														
-test		1484681020166	7806	user	editing notes	notepad	none														Increase width = increase absorbance
-
-
-test		1484681020526	7828	user	editing notes	notepad	none														Increase width = increase absorbance
-
-A
-test		1484681021286	7875	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Ab
-test		1484681021403	7883	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Abs
-test		1484681021529	7891	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Abso
-test		1484681021642	7899	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absor
-test		1484681021857	7913	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorba
-test		1484681022038	7925	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbanc
-test		1484681022154	7933	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance
-test		1484681022347	7945	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance 
-test		1484681022772	7972	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance h
-test		1484681022954	7984	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance hi
-test		1484681023039	7990	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance hig
-test		1484681023133	7997	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance high
-test		1484681023287	8007	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highe
-test		1484681023507	8021	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest
-test		1484681023733	8036	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest 
-test		1484681024206	8065	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest i
-test		1484681024396	8077	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in
-test		1484681024546	8087	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in 
-test		1484681025716	8159	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in re
-test		1484681025989	8176	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red
-test		1484681026746	8222	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red 
-test		1484681027031	8240	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (
-test		1484681029697	8401	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (7
-test		1484681030008	8421	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (70
-test		1484681030130	8429	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700
-test		1484681030377	8445	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700n
-test		1484681030527	8455	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm
-test		1484681030677	8465	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm 
-test		1484681031952	8543	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wa
-test		1484681032177	8557	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wav
-test		1484681032319	8567	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavel
-test		1484681032495	8578	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavele
-test		1484681032591	8585	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm waveleng
-test		1484681032805	8599	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelengt
-test		1484681032901	8606	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength
-test		1484681033633	8651	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-test		1484681047677	9489	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-test		1484681048069	9514	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-
+test		1484681020166	7806	user	editing notes	notepad	none														Increase width = increase absorbance\n\n
+test		1484681020526	7828	user	editing notes	notepad	none														Increase width = increase absorbance\n\nA
+test		1484681021286	7875	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAb
+test		1484681021403	7883	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbs
+test		1484681021529	7891	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbso
+test		1484681021642	7899	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsor
+test		1484681021857	7913	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorba
+test		1484681022038	7925	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbanc
+test		1484681022154	7933	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance
+test		1484681022347	7945	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance 
+test		1484681022772	7972	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance h
+test		1484681022954	7984	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance hi
+test		1484681023039	7990	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance hig
+test		1484681023133	7997	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance high
+test		1484681023287	8007	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highe
+test		1484681023507	8021	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest
+test		1484681023733	8036	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest 
+test		1484681024206	8065	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest i
+test		1484681024396	8077	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in
+test		1484681024546	8087	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in 
+test		1484681025716	8159	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in re
+test		1484681025989	8176	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red
+test		1484681026746	8222	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red 
+test		1484681027031	8240	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (
+test		1484681029697	8401	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (7
+test		1484681030008	8421	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (70
+test		1484681030130	8429	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700
+test		1484681030377	8445	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700n
+test		1484681030527	8455	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm
+test		1484681030677	8465	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm 
+test		1484681031952	8543	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wa
+test		1484681032177	8557	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wav
+test		1484681032319	8567	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavel
+test		1484681032495	8578	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavele
+test		1484681032591	8585	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm waveleng
+test		1484681032805	8599	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelengt
+test		1484681032901	8606	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength
+test		1484681033633	8651	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)
+test		1484681047677	9489	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n
+test		1484681048069	9514	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\n
 test		1484681055885	10599	user	dragStarted	wavelengthControls	none														
 test		1484681055917	10602	user	dragged	wavelengthControls	decreasing														
 test		1484681055933	10604	model	updating state	none	none	True	775	2	0.1	1.854	{u'y': 2, u'x': 6.3}	{u'y': 3.58, u'x': 3.3}							
@@ -1924,439 +1840,74 @@ test		1484681062076	11797	model	updating state	none	none	True	538	2	0.1	0.014	{u
 test		1484681062259	11811	user	dragged	wavelengthControls	decreasing														
 test		1484681062286	11813	model	updating state	none	none	True	528	2	0.1	0.01	{u'y': 2, u'x': 6.3}	{u'y': 3.58, u'x': 3.3}							
 test		1484681063292	11877	user	dragEnded	wavelengthControls	none														
-test		1484681065560	12032	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-L
-test		1484681065722	12043	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lo
-test		1484681065994	12060	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowe
-test		1484681066434	12088	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest
-test		1484681066725	12106	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest 
-test		1484681067296	12141	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest i
-test		1484681067506	12155	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in
-test		1484681067663	12165	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in 
-test		1484681067976	12185	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in g
-test		1484681068263	12203	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in gr
-test		1484681068368	12211	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in gre
-test		1484681068530	12221	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in gree
-test		1484681068660	12230	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green
-test		1484681069504	12282	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green 
-test		1484681069730	12296	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (
-test		1484681070590	12349	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (4
-test		1484681070791	12362	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (45
-test		1484681071084	12381	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450
-test		1484681071925	12432	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450n
-test		1484681072082	12442	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm
-test		1484681072950	12496	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-test		1484681074359	12581	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-test		1484681074469	12589	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-
-test		1484681075619	12659	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-I
-test		1484681075804	12671	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-In
-test		1484681075915	12678	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Inc
-test		1484681076202	12697	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Incre
-test		1484681076400	12709	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increas
-test		1484681076520	12718	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increase
-test		1484681076690	12729	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases
-test		1484681077131	12756	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases 
-test		1484681077302	12768	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases i
-test		1484681078361	12832	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases 
-test		1484681078675	12852	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at
-test		1484681078912	12867	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at 
-test		1484681079590	12909	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at b
-test		1484681079659	12914	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at bl
-test		1484681079852	12927	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blu
-test		1484681080016	12938	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue
-test		1484681080375	12960	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-
-test		1484681081350	13020	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-i
-test		1484681081515	13030	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-in
-test		1484681081762	13046	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-ini
-test		1484681082018	13063	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-inig
-test		1484681082115	13069	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-inigo
-test		1484681082640	13102	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-inig
-test		1484681082766	13111	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-ini
-test		1484681083117	13133	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-in
-test		1484681083296	13144	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-ind
-test		1484681083406	13152	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indi
-test		1484681083571	13163	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indig
-test		1484681083634	13168	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo
-test		1484681083801	13179	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo 
-test		1484681084207	13204	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo we
-test		1484681084529	13224	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo wei
-test		1484681084659	13233	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weir
-test		1484681084805	13243	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weird
-test		1484681085262	13271	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdl
-test		1484681085646	13295	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly
-test		1484681085844	13308	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly 
-test		1484681086571	13353	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly (
-test		1484681087193	13391	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly (4
-test		1484681087269	13397	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly (40
-test		1484681087400	13406	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly (400
-test		1484681088024	13444	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly (400n
-test		1484681088101	13450	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly (400nm
-test		1484681088797	13492	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly (400nm)
-test		1484681091867	13678	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
+test		1484681065560	12032	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nL
+test		1484681065722	12043	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLo
+test		1484681065994	12060	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowe
+test		1484681066434	12088	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest
+test		1484681066725	12106	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest 
+test		1484681067296	12141	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest i
+test		1484681067506	12155	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in
+test		1484681067663	12165	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in 
+test		1484681067976	12185	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in g
+test		1484681068263	12203	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in gr
+test		1484681068368	12211	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in gre
+test		1484681068530	12221	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in gree
+test		1484681068660	12230	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green
+test		1484681069504	12282	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green 
+test		1484681069730	12296	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (
+test		1484681070590	12349	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (4
+test		1484681070791	12362	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (45
+test		1484681071084	12381	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450
+test		1484681071925	12432	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450n
+test		1484681072082	12442	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm
+test		1484681072950	12496	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)
+test		1484681074359	12581	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n
+test		1484681074469	12589	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\n
+test		1484681075619	12659	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nI
+test		1484681075804	12671	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIn
+test		1484681075915	12678	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nInc
+test		1484681076202	12697	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncre
+test		1484681076400	12709	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreas
+test		1484681076520	12718	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncrease
+test		1484681076690	12729	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases
+test		1484681077131	12756	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases 
+test		1484681077302	12768	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases i
+test		1484681078361	12832	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases 
+test		1484681078675	12852	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at
+test		1484681078912	12867	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at 
+test		1484681079590	12909	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at b
+test		1484681079659	12914	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at bl
+test		1484681079852	12927	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blu
+test		1484681080016	12938	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue
+test		1484681080375	12960	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-
+test		1484681081350	13020	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-i
+test		1484681081515	13030	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-in
+test		1484681081762	13046	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-ini
+test		1484681082018	13063	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-inig
+test		1484681082115	13069	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-inigo
+test		1484681082640	13102	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-inig
+test		1484681082766	13111	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-ini
+test		1484681083117	13133	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-in
+test		1484681083296	13144	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-ind
+test		1484681083406	13152	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indi
+test		1484681083571	13163	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indig
+test		1484681083634	13168	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo
+test		1484681083801	13179	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo 
+test		1484681084207	13204	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo we
+test		1484681084529	13224	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo wei
+test		1484681084659	13233	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weir
+test		1484681084805	13243	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weird
+test		1484681085262	13271	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdl
+test		1484681085646	13295	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly
+test		1484681085844	13308	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly 
+test		1484681086571	13353	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly (
+test		1484681087193	13391	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly (4
+test		1484681087269	13397	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly (40
+test		1484681087400	13406	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly (400
+test		1484681088024	13444	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly (400n
+test		1484681088101	13450	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly (400nm
+test		1484681088797	13492	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly (400nm)
+test		1484681091867	13678	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)
 test		1484681093373	13907	user	dragStarted	wavelengthControls	none														
 test		1484681093390	13911	user	dragged	wavelengthControls	decreasing														
 test		1484681093412	13913	model	updating state	none	none	True	526	2	0.1	0.01	{u'y': 2, u'x': 6.3}	{u'y': 3.58, u'x': 3.3}							
@@ -3843,890 +3394,94 @@ test		1484681138898	21609	user	dragged	solutionControls	none
 test		1484681138906	21613	user	dragged	solutionControls	none														
 test		1484681138915	21616	user	dragged	solutionControls	none														
 test		1484681139268	21641	user	dragEnded	solutionControls	none														
-test		1484681142681	22012	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-test		1484681142952	22030	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-
-test		1484681145243	22168	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-A
-test		1484681145386	22178	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Ab
-test		1484681145664	22195	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Abs
-test		1484681145893	22210	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Abso
-test		1484681145999	22217	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absor
-test		1484681146217	22232	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorb
-test		1484681146356	22241	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorba
-test		1484681146419	22246	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbanc
-test		1484681146556	22255	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance
-test		1484681148834	22393	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance 
-test		1484681149178	22414	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance l
-test		1484681149308	22423	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance le
-test		1484681149539	22438	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance lev
-test		1484681149670	22447	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance leve
-test		1484681149730	22451	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level
-test		1484681149926	22464	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level 
-test		1484681150285	22487	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level m
-test		1484681150448	22497	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level me
-test		1484681150646	22510	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level meas
-test		1484681150785	22520	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measu
-test		1484681150956	22531	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measure
-test		1484681151226	22548	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured
-test		1484681151408	22560	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured 
-test		1484681151852	22588	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured b
-test		1484681151975	22596	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by
-test		1484681152456	22626	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by 
-test		1484681152699	22641	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by t
-test		1484681152894	22654	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by tra
-test		1484681153039	22664	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by tran
-test		1484681153196	22674	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by trans
-test		1484681153642	22702	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transm
-test		1484681153818	22714	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmi
-test		1484681153870	22718	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmit
-test		1484681154028	22728	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitt
-test		1484681154130	22735	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitte
-test		1484681154312	22747	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted
-test		1484681154453	22757	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted 
-test		1484681154842	22781	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted ra
-test		1484681155020	22793	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-test		1484681158345	22993	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-test		1484681158490	23003	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-
-test		1484681159503	23065	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-I
-test		1484681159677	23076	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-In
-test		1484681159778	23083	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Inc
-test		1484681160039	23100	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Incre
-test		1484681160279	23115	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increas
-test		1484681160350	23121	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase
-test		1484681160595	23136	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase 
-test		1484681160973	23160	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase i
-test		1484681161149	23172	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in
-test		1484681161231	23177	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in 
-test		1484681161361	23186	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in c
-test		1484681161419	23191	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in co
-test		1484681161613	23203	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in conc
-test		1484681161846	23218	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in conce
-test		1484681161997	23228	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concen
-test		1484681162526	23261	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concent
-test		1484681162709	23273	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentra
-test		1484681162927	23287	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentrai
-test		1484681163279	23309	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentra
-test		1484681163410	23318	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentrat
-test		1484681163514	23325	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentrati
-test		1484681163668	23336	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentratio
-test		1484681163826	23346	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration
-test		1484681164279	23374	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration 
-test		1484681164510	23389	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration =
-test		1484681164660	23399	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = 
-test		1484681165190	23432	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = i
-test		1484681165374	23444	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = in
-test		1484681165490	23452	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = inc
-test		1484681165786	23471	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = incr
-test		1484681166010	23485	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increa
-test		1484681166169	23496	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increas
-test		1484681166293	23504	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase
-test		1484681166608	23524	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase 
-test		1484681167465	23576	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase i
-test		1484681167679	23590	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in
-test		1484681167801	23599	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in 
-test		1484681167934	23608	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in a
-test		1484681168121	23620	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in ab
-test		1484681168384	23637	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in abs
-test		1484681168486	23644	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in abso
-test		1484681168668	23656	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in absor
-test		1484681169040	23678	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in absorba
-test		1484681169210	23690	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in absorbanc
-test		1484681169327	23698	user	editing notes	notepad	none														Increase width = increase absorbance
-
-Absorbance highest in red (700nm wavelength)
-
-Lowest in green (450nm)
-
-Increases at blue-indigo weirdly? (400nm)
-
-Absorbance level measured by transmitted rays
-
-Increase in concentration = increase in absorbance
+test		1484681142681	22012	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n
+test		1484681142952	22030	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\n
+test		1484681145243	22168	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nA
+test		1484681145386	22178	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAb
+test		1484681145664	22195	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbs
+test		1484681145893	22210	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbso
+test		1484681145999	22217	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsor
+test		1484681146217	22232	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorb
+test		1484681146356	22241	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorba
+test		1484681146419	22246	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbanc
+test		1484681146556	22255	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance
+test		1484681148834	22393	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance 
+test		1484681149178	22414	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance l
+test		1484681149308	22423	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance le
+test		1484681149539	22438	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance lev
+test		1484681149670	22447	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance leve
+test		1484681149730	22451	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level
+test		1484681149926	22464	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level 
+test		1484681150285	22487	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level m
+test		1484681150448	22497	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level me
+test		1484681150646	22510	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level meas
+test		1484681150785	22520	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measu
+test		1484681150956	22531	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measure
+test		1484681151226	22548	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured
+test		1484681151408	22560	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured 
+test		1484681151852	22588	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured b
+test		1484681151975	22596	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by
+test		1484681152456	22626	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by 
+test		1484681152699	22641	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by t
+test		1484681152894	22654	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by tra
+test		1484681153039	22664	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by tran
+test		1484681153196	22674	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by trans
+test		1484681153642	22702	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transm
+test		1484681153818	22714	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmi
+test		1484681153870	22718	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmit
+test		1484681154028	22728	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitt
+test		1484681154130	22735	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitte
+test		1484681154312	22747	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted
+test		1484681154453	22757	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted 
+test		1484681154842	22781	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted ra
+test		1484681155020	22793	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays
+test		1484681158345	22993	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n
+test		1484681158490	23003	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\n
+test		1484681159503	23065	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nI
+test		1484681159677	23076	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIn
+test		1484681159778	23083	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nInc
+test		1484681160039	23100	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncre
+test		1484681160279	23115	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncreas
+test		1484681160350	23121	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease
+test		1484681160595	23136	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease 
+test		1484681160973	23160	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease i
+test		1484681161149	23172	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in
+test		1484681161231	23177	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in 
+test		1484681161361	23186	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in c
+test		1484681161419	23191	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in co
+test		1484681161613	23203	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in conc
+test		1484681161846	23218	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in conce
+test		1484681161997	23228	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concen
+test		1484681162526	23261	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concent
+test		1484681162709	23273	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentra
+test		1484681162927	23287	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentrai
+test		1484681163279	23309	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentra
+test		1484681163410	23318	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentrat
+test		1484681163514	23325	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentrati
+test		1484681163668	23336	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentratio
+test		1484681163826	23346	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration
+test		1484681164279	23374	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration 
+test		1484681164510	23389	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration =
+test		1484681164660	23399	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = 
+test		1484681165190	23432	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = i
+test		1484681165374	23444	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = in
+test		1484681165490	23452	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = inc
+test		1484681165786	23471	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = incr
+test		1484681166010	23485	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increa
+test		1484681166169	23496	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increas
+test		1484681166293	23504	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase
+test		1484681166608	23524	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase 
+test		1484681167465	23576	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase i
+test		1484681167679	23590	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in
+test		1484681167801	23599	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in 
+test		1484681167934	23608	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in a
+test		1484681168121	23620	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in ab
+test		1484681168384	23637	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in abs
+test		1484681168486	23644	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in abso
+test		1484681168668	23656	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in absor
+test		1484681169040	23678	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in absorba
+test		1484681169210	23690	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in absorbanc
+test		1484681169327	23698	user	editing notes	notepad	none														Increase width = increase absorbance\n\nAbsorbance highest in red (700nm wavelength)\n\nLowest in green (450nm)\n\nIncreases at blue-indigo weirdly? (400nm)\n\nAbsorbance level measured by transmitted rays\n\nIncrease in concentration = increase in absorbance
 test		1484681178696	24570	user	recording data	none	none								{"1": {"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 3.84, "Detector location": {"y": 2.0, "x": 6.18}, "Width": 2.0, "trialNumber": 1, "inGraph": false, "Wavelength": 780, "Concentration": 0.2, "Laser on status": true}}						
 test		1484681181060	24714	user	expanding table	table	none														
 test		1484681185573	25088	user	dragStarted	solutionControls	none														
