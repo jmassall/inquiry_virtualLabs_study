@@ -62,13 +62,15 @@ from utils import *
 #             previous_notes = notes
 #     return None
 
-def initialize_dreamtable(header, number_of_events,first_event):
+def initialize_dreamtable(studentid, header, number_of_events,first_event):
     dreamtable = np.chararray(shape=(number_of_events+1,len(header)), itemsize=100000)
     dreamtable[0,:] = header
-    dreamtable[1:,header.index("User")] = 'test'
-    if first_event["event"] == "beersLawLab.simIFrameAPI.invoked":
-        dreamtable[1:,header.index("Sim")] = 'light'
-    return dreamtable
+    dreamtable[1:,header.index("User")] = studentid
+    if "beersLaw" in first_event["event"]:
+        sim = 'light'
+        dreamtable[1:,header.index("Sim")] = sim
+    start_time = first_event['timestamp']
+    return sim, start_time, dreamtable
 
 def get_data(event, verbatim = True):
     try: 
@@ -167,7 +169,9 @@ def extract_new_datapoint(event, get_record_data_method):
     datapoint["Width"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
     datapoint["Detector location"] = {k:round(v,2) for k,v in get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"].iteritems()}
     #sim rounds up to 2 decimal places
-    datapoint["Absorption"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"],2)
+    absorption = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+    if absorption != None:
+        datapoint["Absorption"] = round(absorption,2)
     datapoint["Laser on status"] = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.onProperty"]
     datapoint["Wavelength"] = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
     datapoint["Ruler location"] = {k:round(v,2) for k,v in get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"].iteritems()}
@@ -247,12 +251,12 @@ EVENTS_INITIALIZING = ["beersLawLab.sim.simStarted",
                         "beersLawLab.navigationBar.titleTextNode.textChanged"]
 INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
 
-def mega_parser(header, events):
-    dreamtable = initialize_dreamtable(header,len(events),events[0])
+def mega_parser(studentid, header, events):
+    sim, first_time_stamp, dreamtable = initialize_dreamtable(studentid, header,len(events),events[0])
     table = {}
     for i,event in enumerate(events):
         parsed = False
-        dreamtable[i+1,header.index("Timestamp")] = event['timestamp']
+        dreamtable[i+1,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,1)
         dreamtable[i+1,header.index("Index")] = event['index']
 
         if event['event'] == "beersLawLab.simIFrameAPI.invoked":
@@ -261,7 +265,6 @@ def mega_parser(header, events):
                 dreamtable[i+1,header.index("User or Model?")] = 'model'
                 dreamtable[i+1,header.index("Event")] = 'gettingValues'
                 dreamtable[i+1,header.index("Item")] = 'sim'
-                dreamtable[i+1,header.index("Action")] = 'none'
             else:
                 method = get_method(event)
                 if method in INITIALIZING_METHODS:
@@ -278,25 +281,21 @@ def mega_parser(header, events):
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'expanding table'
                         dreamtable[i+1,header.index("Item")] = 'table'
-                        dreamtable[i+1,header.index("Action")] = 'none'
                     elif phetioID == "labBook.tableCollapseButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'collapsing table'
                         dreamtable[i+1,header.index("Item")] = 'table'
-                        dreamtable[i+1,header.index("Action")] = 'none'
                     elif phetioID == "labBook.graphExpandButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'expanding graph'
                         dreamtable[i+1,header.index("Item")] = 'graph'
-                        dreamtable[i+1,header.index("Action")] = 'none'
                     elif phetioID == "labBook.graphCollapseButton":
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'collapsing graph'
                         dreamtable[i+1,header.index("Item")] = 'graph'
-                        dreamtable[i+1,header.index("Action")] = 'none'
                     elif "Feature" in phetioID:
                         parsed = True
                         selection = get_args(event)[0]['parameters']['feature']
@@ -312,8 +311,6 @@ def mega_parser(header, events):
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'recording data'
-                        dreamtable[i+1,header.index("Item")] = 'none'
-                        dreamtable[i+1,header.index("Action")] = 'none'
                         new_data_point = extract_new_datapoint(event, get_children_parameters)
                         table[new_data_point['trialNumber']] = new_data_point
                         dreamtable[i+1,header.index("Table")] = json.dumps(table)
@@ -353,8 +350,6 @@ def mega_parser(header, events):
             #ALWAYS update the two in the same way
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = 'recording data'
-            dreamtable[i+1,header.index("Item")] = 'none'
-            dreamtable[i+1,header.index("Action")] = 'none'
             new_data_point = extract_new_datapoint(event, get_data_parameters)
             table[new_data_point['trialNumber']] = new_data_point
             dreamtable[i+1,header.index("Table")] = json.dumps(table)
@@ -364,25 +359,21 @@ def mega_parser(header, events):
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = 'expanding table'
             dreamtable[i+1,header.index("Item")] = 'table'
-            dreamtable[i+1,header.index("Action")] = 'none'
         elif event['event'] == "labBook.tableCollapseButton.pressed":
             parsed = True
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = 'collapsing table'
             dreamtable[i+1,header.index("Item")] = 'table'
-            dreamtable[i+1,header.index("Action")] = 'none'
         elif event['event'] == "labBook.graphExpandButton.pressed":
             parsed = True
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = 'expanding graph'
             dreamtable[i+1,header.index("Item")] = 'graph'
-            dreamtable[i+1,header.index("Action")] = 'none'
         elif event['event'] == "labBook.graphCollapseButton.pressed":
             parsed = True
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = 'collapsing graph'
             dreamtable[i+1,header.index("Item")] = 'graph'
-            dreamtable[i+1,header.index("Action")] = 'none'
         elif "Feature" in event['event']:
             parsed = True
             selection = get_data_parameters(event)['feature']
@@ -452,15 +443,15 @@ def mega_parser(header, events):
             parsed = True
             dreamtable[i+1,header.index("User or Model?")] = 'model'
             dreamtable[i+1,header.index("Event")] = 'updating state'
-            dreamtable[i+1,header.index("Item")] = 'none'
-            dreamtable[i+1,header.index("Action")] = 'none'
-            dreamtable[i+1,header.index("Width")] = get_state(event)["beersLawLab.beersLawScreen.model.cuvette.widthProperty"]
+            dreamtable[i+1,header.index("Width")] = round(get_state(event)["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
             dreamtable[i+1,header.index("Detector location")] = get_state(event)["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"]
-            dreamtable[i+1,header.index("Absorption")] = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+            absorption = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+            if absorption != None:
+                dreamtable[i+1,header.index("Absorption")] = round(absorption,2)
             dreamtable[i+1,header.index("Laser on status")] = get_state(event)["beersLawLab.beersLawScreen.model.light.onProperty"]
             dreamtable[i+1,header.index("Wavelength")] = get_state(event)["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
             dreamtable[i+1,header.index("Ruler location")] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
-            dreamtable[i+1,header.index("Concentration")] = get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]
+            dreamtable[i+1,header.index("Concentration")] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
         
         elif "drag" in event['event']:
             parsed = True
@@ -470,7 +461,6 @@ def mega_parser(header, events):
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = drag_event
             dreamtable[i+1,header.index("Item")] = drag_item
-            dreamtable[i+1,header.index("Action")] = 'none'
             if drag_event == 'dragged':
                 try:
                     direction = get_drag_direction(event)
@@ -484,14 +474,12 @@ def mega_parser(header, events):
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = 'toggle laser'
             dreamtable[i+1,header.index("Item")] = 'laser button'
-            dreamtable[i+1,header.index("Action")] = 'none'
 
         elif event['event'] == "labBook.textArea.changed":
             parsed = True
             dreamtable[i+1,header.index("User or Model?")] = 'user'
             dreamtable[i+1,header.index("Event")] = 'editing notes'
             dreamtable[i+1,header.index("Item")] = 'notepad'
-            dreamtable[i+1,header.index("Action")] = 'none'
             dreamtable[i+1,header.index("Notes")] = get_notes(event)
         
         elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
@@ -506,17 +494,18 @@ def mega_parser(header, events):
             print '\t'+event['event'], event['index']
             # break
 
-    np.savetxt('example_dream_table.txt', dreamtable, delimiter='\t', fmt='%s')
+    np.savetxt('dream_table_{0}_{1}.txt'.format(studentid,sim), dreamtable, delimiter='\t', fmt='%s')
     print "Done parsing."  
     return None
 
 
-header = ["User","Sim","Timestamp","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
+header = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
 # test_json = 'example_cleaned_student_data_file.json'
 test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
 # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
+studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
 session = Session()
 session.get_session_data_from_file(test_json)
-mega_parser(header, session.events)
+mega_parser(studentid, header, session.events)
 
 
