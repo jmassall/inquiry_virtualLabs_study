@@ -7,162 +7,145 @@ This captures the recorded data from a single student's activity file
 import os
 import sys
 import re
-import traceback
+# import traceback
 import json
 import numpy as np
 from utils import *
 
-# def detect_recordData(event):
-#     if event['event'] == "beersLawLab.simIFrameAPI.invoked":
-#         if 'children' in event['data']:
-#             if event['data']['children'][0]['phetioID'] == "labBook.recordDataButton":
-#                 return True
-#     return False
-
-# def detect_notesActivity(event):
-#     if event['event'] == "beersLawLab.simIFrameAPI.invoked":
-#         if 'children' in event['data']:
-#             if event['data']['children'][0]['phetioID'] == "labBook.textArea":
-#                 return True
-#     return False
-
-# def parse_recordData(event):
-#     data = {}
-#     meat = event['data']['children'][0]['parameters']
-#     data['Trial'] = meat['trialNumber']
-#     data['Wavelength'] = meat['wavelength']
-#     data['Width'] = meat['cuvetteWidth']
-#     data['Concentration'] = meat['concentration']
-#     data['Absorbance'] = meat['absorbance']
-#     data['inGraph'] = meat['visible']
-#     return data
-
-# def parse_notesActivity(event):
-#     notes = event['data']['children'][0]['parameters']['text']
-#     return notes
-
-# #used for testing purposes to print recordings and notes
-# def iterate_and_parse(events):
-#     state = 'increasing'
-#     previous_notes = ''
-#     print '\t'.join(['Width','inGraph?','Trial','Absorbance','Wavelength','Concentration'])
-#     for i,event in enumerate(events):
-#         if detect_recordData(event):
-#           data = parse_recordData(event)
-#           print '\t'.join([str(x) for x in data.values()])
-#         if detect_notesActivity(event):
-#             notes = parse_notesActivity(event)
-#             print state, len(notes),len(previous_notes), notes+'.'
-#             if state == 'increasing' and len(notes)<len(previous_notes):
-#                 print 'out\t', notes
-#                 state = 'decreasing'
-#             if state == 'decreasing' and len(notes)>len(previous_notes):
-#                 print 'out\t', notes
-#                 state = 'increasing'
-#             previous_notes = notes
-#     return None
-
 def initialize_dreamtable(studentid, header, number_of_events,first_event):
+    '''
+    Creates a numpy array with as many columns as the length of the header of the table
+    and as many rows as the number of events (+1 for header)
+    It also uses the first event to find the sim. It then populates the sim and studentid column.
+    It returns the sim, the first time stamp and the initialized table.
+    '''
     dreamtable = np.chararray(shape=(number_of_events+1,len(header)), itemsize=100000)
     dreamtable[0,:] = header
     dreamtable[1:,header.index("User")] = studentid
     if "beersLaw" in first_event["event"]:
-        sim = 'light'
-        dreamtable[1:,header.index("Sim")] = sim
+        sim = 'light absorbance'
+    else:
+        sim = 'capacitor charge'
+    dreamtable[1:,header.index("Sim")] = sim
     start_time = first_event['timestamp']
     return sim, start_time, dreamtable
 
-def get_data(event, verbatim = True):
+def get_data(event, print_error = True):
+    '''
+    Grabs the information under the first event key "data"
+    '''
     try: 
         return event['data']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_data_parameters(event, verbatim = True):
+def get_data_parameters(event, print_error = True):
+    '''
+    Grabs the information under the event's data > parameters
+    '''
     try: 
-        return get_data(event, verbatim)['parameters']
+        return get_data(event, print_error)['parameters']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_messages(event, verbatim = True):
+def get_messages(event, print_error = True):
+    '''
+    Grabs the information under the event's data > parameters > messages
+    '''
     try: 
-        return get_data_parameters(event, verbatim)['messages']
+        return get_data_parameters(event, print_error)['messages']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > messages'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_method(event, verbatim = True):
+def get_method(event, print_error = True):
+    '''
+    Grabs the information under the event's data > parameters > method
+    '''
     try: 
-        return get_data_parameters(event, verbatim)['method']
+        return get_data_parameters(event, print_error)['method']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > method'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_state(event, verbatim = True):
+def get_state(event, print_error = True):
+    '''
+    Grabs the state information under the event's data > parameters > state
+    '''
     try: 
-        return get_data_parameters(event, verbatim)['state']
+        return get_data_parameters(event, print_error)['state']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > state'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_args(event, verbatim = True):
+def get_data_parameters_args(event, print_error = True):
+    '''
+    Grabs the information under the event's data > parameterers > args
+    '''
     try: 
-        return get_data_parameters(event, verbatim)['args']
+        return get_data_parameters(event, print_error)['args']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > args'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_args_phetioID(event, verbatim = True):
+def get_args_phetioID(event, print_error = True):
+    '''
+    Grabs the information under the event's data > parameters > args > phetioID
+    '''
     try: 
-        return get_args(event, verbatim)[0]['phetioID']
+        return get_data_parameters_args(event, print_error)[0]['phetioID']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > args > phetioID'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_children(event, verbatim = True):
+def get_data_children(event, print_error = True):
+    '''
+    Grabs the information under the event's data > children
+    '''
     try: 
-        return get_data(event, verbatim)['children']
+        return get_data(event, print_error)['children']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > children'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_children_parameters(event, verbatim = True):
+def get_data_children_parameters(event, print_error = True):
+    '''
+    Grabs the information under the event's data > children > parameters
+    '''
     try: 
-        return get_children(event, verbatim)[0]['parameters']
+        return get_data_children(event, print_error)[0]['parameters']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > children > parameters'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_notes(event, verbatim = True):
+def get_notes(event, print_error = True):
+    '''
+    Grabs the notes under the event's data > parameters > text
+    '''
     try:
-        return get_data_parameters(event, verbatim)['text'].replace('\n','\\n')
+        return get_data_parameters(event, print_error)['text'].replace('\n','\\n')
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > text'"
             # traceback.print_exc()
-        # sys.exit()
 
 def extract_new_datapoint(event, get_record_data_method):
+    '''
+    Grabs the data for the recorded datapoint. Where this data lives depends on if the log file is
+    from before or after March 20th.
+    Some datapoint's values are formated to match what the students sees (ie. how many decimal places)
+    '''
     datapoint = {}
     #CHECK IN ACTUAL SIM
     #sim rounds up to 3 decimal places
@@ -181,15 +164,26 @@ def extract_new_datapoint(event, get_record_data_method):
     datapoint["inGraph"] = get_record_data_method(event)["visible"]
     return datapoint
 
-def detect_drag_event(event):
-    drag_type = event.split('.')[-1]
+def detect_drag_event(event_name):
+    '''
+    Detects the type of drag event
+    '''
+    drag_type = event_name.split('.')[-1]
     return drag_type
 
-def detect_drag_item(event):
-    drag_item = event.split('.')[3]
+def detect_drag_item(event_name):
+    '''
+    Detects what item is being dragged.
+    '''
+    drag_item = event_name.split('.')[3]
     return drag_item
 
 def get_drag_direction(event):
+    '''
+    Finds the drag direction given the difference between the old
+    and new value of the item being dragged (when old and new value
+    are available in the event's log)
+    '''
     new,old = get_new_old_values(event)
     if new > old:
         return 'increasing'
@@ -197,37 +191,54 @@ def get_drag_direction(event):
         return 'decreasing'
 
 def get_new_old_values(event):
-    values = get_children_parameters(event, verbatim = False)
+    '''
+    Detects the old and new value of the item being dragged when they
+    are available in the event's log, otherwise no error is printed.
+    '''
+    values = get_data_children_parameters(event, print_error = False)
     return values['newValue'],values['oldValue']
 
-def get_checkbox_status1(event, verbatim = True):
+def get_checkbox_status1(event, print_error = True):
+    '''
+    Detects the status of the checkbox that was clicked.
+    This method is used when the log file is from BEFORE March 20th.
+    '''
     try: 
-        return get_args(event)[0]['parameters']['checked']
+        return get_data_parameters_args(event)[0]['parameters']['checked']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > args > parameters > checked'"
             # traceback.print_exc()
-        # sys.exit()
 
-def get_checkbox_status2(event, verbatim = True):
+def get_checkbox_status2(event, print_error = True):
+    '''
+    Detects the status of the checkbox that was clicked.
+    This method is used when the log file is from AFTER March 20th.
+    '''
     try: 
         return get_data_parameters(event)['checked']
     except KeyError:
-        if verbatim:
+        if print_error:
             print "Error: event",event['index']," has no 'data > parameters > args > parameters > checked'"
             # traceback.print_exc()
-        # sys.exit()
-
 
 def is_checkbox_error1(event):
+    '''
+    Detects if clicking the checkbox outputted an error.
+    This method is used when the log file is from BEFORE March 20th.
+    '''
     try: 
-        error = get_args(event)[0]['parameters']['error']
+        error = get_data_parameters_args(event)[0]['parameters']['error']
         if error == "Cannot add this data point to the plot.  Either the data is empty, you have not selected an axis feature, or the data point is not defined for the selected scale.":
             return True
     except KeyError:
         return False
 
 def is_checkbox_error2(event):
+    '''
+    Detects if clicking the checkbox outputted an error.
+    This method is used when the log file is from AFTER March 20th.
+    '''
     try: 
         error = get_data_parameters(event)['error']
         if error == "Cannot add this data point to the plot.  Either the data is empty, you have not selected an axis feature, or the data point is not defined for the selected scale.":
@@ -235,23 +246,40 @@ def is_checkbox_error2(event):
     except KeyError:
         return False
 
-def update_checkstatus_in_table(current_table, trial_added, check_status):
+def update_checkstatus_in_table(current_table, trial_added_or_removed, check_status):
+    '''
+    When a datapoint is added or removed from the graph, we update the "inGraph"
+    status of that point. It's new status is check_status, and the dataoint's
+    trial number is trial_added_or_removed
+    '''
     new_table = current_table.copy()
-    new_table[trial_added]['inGraph'] = check_status
+    new_table[trial_added_or_removed]['inGraph'] = check_status
     return new_table
 
 def remove_from_table(current_table, trial_removed):
+    '''
+    When a datapoint is added or removed from the table, we update our version 
+    of the table. The dataoint's trial number is trial_removed
+    '''
     new_table = current_table.copy()
     del new_table[trial_removed]
     return new_table 
 
+#All of the event['event'] that relate to the sim initializing
 EVENTS_INITIALIZING = ["beersLawLab.sim.simStarted",
                         "beersLawLab.sim.barrierRectangle.fired",
                         "beersLawLab.navigationBar.phetButton.fired",
                         "beersLawLab.navigationBar.titleTextNode.textChanged"]
+#All of the event['data']['parameters']['method'] that relate to the sim initializing
 INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
 
 def mega_parser(studentid, header, events):
+    '''
+    This function parses the log file line by line in a 1 to 1 fashion.
+    First the numy array is initialized.
+    Then for each event, we tests a few if statements to try to parse the event.
+    the output is saved as a tab delimited file.
+    '''
     sim, first_time_stamp, dreamtable = initialize_dreamtable(studentid, header,len(events),events[0])
     table = {}
     for i,event in enumerate(events):
@@ -298,7 +326,7 @@ def mega_parser(studentid, header, events):
                         dreamtable[i+1,header.index("Item")] = 'graph'
                     elif "Feature" in phetioID:
                         parsed = True
-                        selection = get_args(event)[0]['parameters']['feature']
+                        selection = get_data_parameters_args(event)[0]['parameters']['feature']
                         variable_selected, axis = selection.split('_')
                         axis = axis.capitalize()
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
@@ -311,12 +339,12 @@ def mega_parser(studentid, header, events):
                         parsed = True
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
                         dreamtable[i+1,header.index("Event")] = 'recording data'
-                        new_data_point = extract_new_datapoint(event, get_children_parameters)
+                        new_data_point = extract_new_datapoint(event, get_data_children_parameters)
                         table[new_data_point['trialNumber']] = new_data_point
                         dreamtable[i+1,header.index("Table")] = json.dumps(table)
                     elif "labBook.addToGraphCheckBox" in phetioID:
                         parsed = True
-                        trial_added_to_graph = int(re.search(r'\d+', phetioID).group())
+                        trial_added_or_removed_to_graph = int(re.search(r'\d+', phetioID).group())
                         checked = get_checkbox_status1(event)
                         if is_checkbox_error1(event):
                             dreamtable[i+1,header.index("Event")] = 'Adding data to graph'
@@ -329,8 +357,8 @@ def mega_parser(studentid, header, events):
                             dreamtable[i+1,header.index("Event")] = 'Removing data from graph'
                             dreamtable[i+1,header.index("Action")] = 'Data removed from graph.'
                         dreamtable[i+1,header.index("User or Model?")] = 'user'
-                        dreamtable[i+1,header.index("Item")] = 'trialNumber ' + str(trial_added_to_graph)
-                        table = update_checkstatus_in_table(table, trial_added_to_graph, checked)
+                        dreamtable[i+1,header.index("Item")] = 'trialNumber ' + str(trial_added_or_removed_to_graph)
+                        table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
                         dreamtable[i+1,header.index("Table")] = json.dumps(table)
                     
                     elif "labBook.deleteButton" in phetioID:
@@ -395,7 +423,7 @@ def mega_parser(studentid, header, events):
             dreamtable[i+1,header.index(axis+" axis scale")] = scale
         elif "labBook.addToGraphCheckBox" in event['event']:
             parsed = True
-            trial_added_to_graph = int(re.search(r'\d+', event['event']).group())
+            trial_added_or_removed_to_graph = int(re.search(r'\d+', event['event']).group())
             checked = get_checkbox_status2(event)
             if is_checkbox_error2(event):
                 dreamtable[i+1,header.index("Event")] = 'Adding data to graph'
@@ -408,8 +436,8 @@ def mega_parser(studentid, header, events):
                 dreamtable[i+1,header.index("Event")] = 'Removing data from graph'
                 dreamtable[i+1,header.index("Action")] = 'Data removed from graph.'
             dreamtable[i+1,header.index("User or Model?")] = 'user'
-            dreamtable[i+1,header.index("Item")] = 'trialNumber ' + str(trial_added_to_graph)
-            table = update_checkstatus_in_table(table, trial_added_to_graph, checked)
+            dreamtable[i+1,header.index("Item")] = 'trialNumber ' + str(trial_added_or_removed_to_graph)
+            table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
             dreamtable[i+1,header.index("Table")] = json.dumps(table)
         elif "labBook.deleteButton" in event['event']:
             parsed = True
