@@ -284,7 +284,7 @@ def mega_parser(studentid, header, events):
     table = {}
     for i,event in enumerate(events):
         parsed = False
-        dreamtable[i+1,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,1)
+        dreamtable[i+1,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,2)
         dreamtable[i+1,header.index("Index")] = event['index']
 
         if event['event'] == "beersLawLab.simIFrameAPI.invoked":
@@ -537,3 +537,5 @@ session.get_session_data_from_file(test_json)
 mega_parser(studentid, header, session.events)
 
 
+#test sime with this link
+# https://phet-io.colorado.edu/sims/beers-law-lab/1.6.3-phetio/wrappers/login/login.html?wrapper=lab-book&validationRule=validateDigits&numberOfDigits=8&sim=beers-law-lab&console&publisher_id=0c82b6bf&application_id=1d0612a8397e8b1dbf4993bc58869fa1&widget_id=lab-book-beers-law-lab&phetioEmitStates=true&phetioEmitInputEvents=false
