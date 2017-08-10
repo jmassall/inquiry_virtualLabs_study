@@ -536,15 +536,15 @@ def mega_parser(studentid, header, events):
     print "Done parsing."  
     return None
 
-
-header = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
-# test_json = 'example_cleaned_student_11111111_data_file.json'
-test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
-# test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
-studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
-session = Session()
-session.get_session_data_from_file(test_json)
-mega_parser(studentid, header, session.events)
+if __name__ == '__main__':
+    header = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
+    # test_json = 'example_cleaned_student_11111111_data_file.json'
+    test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
+    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
+    studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
+    session = Session()
+    session.get_session_data_from_file(test_json)
+    mega_parser(studentid, header, session.events)
 
 
 #test sime with this link
