@@ -39,6 +39,12 @@ class TestParsingIndividualEvents(unittest.TestCase):
         self.assertEqual(get_data_parameters(logsample.state_event), logsample.state_event_DATA_PARAMETERS)
         self.assertEqual(get_data_parameters(logsample.getting_values_event), logsample.getting_values_event_DATA_PARAMETERS)
 
+    def test_get_drag_direction(self):
+        '''
+        Tests the function get_data_chidlren_parameters() on different events.
+        '''
+        self.assertEqual(get_drag_direction(logsample.drag_event), logsample.drag_event_DIRECTION)
+
     def test_get_data_parameters_args(self):
         '''
         Tests the function get_data_parameters_args() on different events.
@@ -58,6 +64,9 @@ class TestParsingIndividualEvents(unittest.TestCase):
         '''
         self.assertEqual(get_args_phetioID(logsample.record_event), logsample.record_event_PHETIOID)
         self.assertEqual(get_args_phetioID(logsample.axis_event), logsample.axis_event_PHETIOID)
+        self.assertEqual(get_args_phetioID(logsample.table_collapse_event), logsample.table_collapse_event_PHETIOID)
+        self.assertEqual(get_args_phetioID(logsample.delete_table_event), logsample.delete_table_event_PHETIOID)
+        self.assertEqual(get_args_phetioID(logsample.graph_checkbox_event), logsample.graph_checkbox_event_PHETIOID)
 
     def test_get_state(self):
         '''
@@ -78,55 +87,6 @@ class TestParsingIndividualEvents(unittest.TestCase):
         Tests the function get_notes()
         '''
         self.assertEqual(get_notes(logsample.notes_event), logsample.notes_event_NOTES)
-
-    # def test_get_messages(self):
-    #     '''
-    #     Grabs the information under the event's data > parameters > messages
-    #     '''
-    #     get_messages(logsample.state_event, print_error = True)
-    #     try: 
-    #         return get_data_parameters(event, print_error)['messages']
-    #     except KeyError:
-    #         if print_error:
-    #             print "Error: event",event['index']," has no 'data > parameters > messages'"
-    #             # traceback.print_exc()
-
-
-    # def test_get_args_phetioID(self):
-    #     '''
-    #     Grabs the information under the event's data > parameters > args > phetioID
-    #     '''
-    #     get_args_phetioID(logsample.state_event, print_error = True)
-    #     try: 
-    #         return get_data_parameters_args(event, print_error)[0]['phetioID']
-    #     except KeyError:
-    #         if print_error:
-    #             print "Error: event",event['index']," has no 'data > parameters > args > phetioID'"
-    #             # traceback.print_exc()
-
-    # def test_get_data_children(self):
-    #     '''
-    #     Grabs the information under the event's data > children
-    #     '''
-    #     get_data_children(logsample.state_event, print_error = True)
-    #     try: 
-    #         return get_data(event, print_error)['children']
-    #     except KeyError:
-    #         if print_error:
-    #             print "Error: event",event['index']," has no 'data > children'"
-    #             # traceback.print_exc()
-
-    # def test_get_data_children_parameters(self):
-    #     '''
-    #     Grabs the information under the event's data > children > parameters
-    #     '''
-    #     get_data_children_parameters(logsample.state_event, print_error = True)
-    #     try: 
-    #         return get_data_children(event, print_error)[0]['parameters']
-    #     except KeyError:
-    #         if print_error:
-    #             print "Error: event",event['index']," has no 'data > children > parameters'"
-    #             # traceback.print_exc()
 
 if __name__ == '__main__':
     unittest.main()

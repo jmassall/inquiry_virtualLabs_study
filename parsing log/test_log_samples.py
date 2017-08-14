@@ -809,3 +809,330 @@ notes_event = json.loads('''    {
     }''')
 
 notes_event_NOTES = "Increase width = increase absorbance"
+
+drag_event = json.loads('''{
+        "data": {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "componentType": "TDerivedProperty", 
+                            "event": "changed", 
+                            "eventType": "model", 
+                            "messageIndex": 25556, 
+                            "parameters": {
+                                "newValue": 0.04931200000000001, 
+                                "oldValue": 0.05078400000000001
+                            }, 
+                            "phetioID": "beersLawLab.beersLawScreen.model.detector.valueProperty", 
+                            "time": 1490049377521
+                        }
+                    ], 
+                    "componentType": "TProperty", 
+                    "event": "changed", 
+                    "eventType": "model", 
+                    "messageIndex": 25555, 
+                    "parameters": {
+                        "newValue": 1.072, 
+                        "oldValue": 1.104
+                    }, 
+                    "phetioID": "beersLawLab.beersLawScreen.model.cuvette.widthProperty", 
+                    "time": 1490049377520
+                }
+            ], 
+            "componentType": "TTandemDragHandler", 
+            "event": "dragged", 
+            "eventType": "user", 
+            "messageIndex": 25554, 
+            "parameters": {
+                "x": 286, 
+                "y": 227
+            }, 
+            "phetioID": "beersLawLab.beersLawScreen.view.cuvetteNode.cuvetteDragHandler", 
+            "time": 1490049377520
+        }, 
+        "event": "beersLawLab.beersLawScreen.view.cuvetteNode.cuvetteDragHandler.dragged", 
+        "index": 22633, 
+        "timestamp": 1490049377311, 
+        "type": "model"
+    }''')
+
+drag_event_DIRECTION = "decreasing"
+
+table_collapse_event = json.loads('''{
+        "data": {
+            "children": [
+                {
+                    "componentType": "TButton", 
+                    "event": "pressed", 
+                    "eventType": "user", 
+                    "messageIndex": 29331, 
+                    "phetioID": "labBook.tableCollapseButton", 
+                    "time": 1490049406025
+                }
+            ], 
+            "componentType": "TSimIFrameAPI", 
+            "event": "invoked", 
+            "eventType": "wrapper", 
+            "messageIndex": 29330, 
+            "parameters": {
+                "args": [
+                    {
+                        "componentType": {
+                            "events": [
+                                "pressed"
+                            ], 
+                            "typeName": "TButton"
+                        }, 
+                        "event": "pressed", 
+                        "eventType": "user", 
+                        "phetioID": "labBook.tableCollapseButton"
+                    }
+                ], 
+                "messageID": 11, 
+                "method": "triggerEvent", 
+                "phetioID": "phetio", 
+                "protocol": "phet-io-0.0.1"
+            }, 
+            "phetioID": "beersLawLab.simIFrameAPI", 
+            "time": 1490049406025
+        }, 
+        "event": "beersLawLab.simIFrameAPI.invoked", 
+        "index": 26147, 
+        "timestamp": 1490049405826, 
+        "type": "model"
+    }''')
+
+table_collapse_event_PHETIOID = "labBook.tableCollapseButton"
+
+graph_checkbox_event = json.loads('''{
+        "data": {
+            "children": [
+                {
+                    "componentType": "TCheckBox", 
+                    "event": "changed", 
+                    "eventType": "user", 
+                    "messageIndex": 29027, 
+                    "parameters": {
+                        "checked": true, 
+                        "error": "Cannot add this data point to the plot.  Either the data is empty, you have not selected an axis feature, or the data point is not defined for the selected scale.", 
+                        "userData": [
+                            {
+                                "absorbance": 0.961, 
+                                "absorbance_x": 0.961, 
+                                "absorbance_y": 0.961, 
+                                "concentration": 200, 
+                                "concentration_x": 200, 
+                                "concentration_y": 200, 
+                                "cuvetteWidth": 0.5, 
+                                "cuvetteWidth_x": 0.5, 
+                                "cuvetteWidth_y": 0.5, 
+                                "image": {}, 
+                                "state": {
+                                    "beersLawLab.beersLawScreen.model.cuvette.widthProperty": 0.5, 
+                                    "beersLawLab.beersLawScreen.model.detector.body.locationProperty": {
+                                        "x": 6.3, 
+                                        "y": 0.2
+                                    }, 
+                                    "beersLawLab.beersLawScreen.model.detector.modeProperty": "absorbance", 
+                                    "beersLawLab.beersLawScreen.model.detector.probe.locationProperty": {
+                                        "x": 5.793103448275863, 
+                                        "y": 2
+                                    }, 
+                                    "beersLawLab.beersLawScreen.model.detector.valueProperty": 0.961, 
+                                    "beersLawLab.beersLawScreen.model.light.onProperty": true, 
+                                    "beersLawLab.beersLawScreen.model.light.wavelengthProperty": 780, 
+                                    "beersLawLab.beersLawScreen.model.ruler.locationProperty": {
+                                        "x": 3.3, 
+                                        "y": 3.58
+                                    }, 
+                                    "beersLawLab.beersLawScreen.model.solutionProperty": "beersLawLab.beersLawScreen.solutions.copperSulfate", 
+                                    "beersLawLab.beersLawScreen.solutions.cobaltChloride.concentrationProperty": 0.1, 
+                                    "beersLawLab.beersLawScreen.solutions.cobaltIINitrate.concentrationProperty": 0.1, 
+                                    "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty": 0.2, 
+                                    "beersLawLab.beersLawScreen.solutions.drinkMix.concentrationProperty": 0.1, 
+                                    "beersLawLab.beersLawScreen.solutions.nickelIIChloride.concentrationProperty": 0.1, 
+                                    "beersLawLab.beersLawScreen.solutions.potassiumChromate.concentrationProperty": 0.0001, 
+                                    "beersLawLab.beersLawScreen.solutions.potassiumDichromate.concentrationProperty": 0.0001, 
+                                    "beersLawLab.beersLawScreen.solutions.potassiumPermanganate.concentrationProperty": 0.0001, 
+                                    "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthProperty": true, 
+                                    "beersLawLab.sim.activeProperty": true, 
+                                    "beersLawLab.sim.screenIndexProperty": 0, 
+                                    "beersLawLab.sim.showHomeScreenProperty": false
+                                }, 
+                                "trialNumber": 1, 
+                                "trialNumber_x": 1, 
+                                "trialNumber_y": 1, 
+                                "visible": false, 
+                                "wavelength": 780, 
+                                "wavelength_x": 780, 
+                                "wavelength_y": 780
+                            }
+                        ]
+                    }, 
+                    "phetioID": "labBook.addToGraphCheckBox1", 
+                    "time": 1490049400993
+                }
+            ], 
+            "componentType": "TSimIFrameAPI", 
+            "event": "invoked", 
+            "eventType": "wrapper", 
+            "messageIndex": 29026, 
+            "parameters": {
+                "args": [
+                    {
+                        "componentType": {
+                            "events": [
+                                "changed"
+                            ], 
+                            "typeName": "TCheckBox"
+                        }, 
+                        "event": "changed", 
+                        "eventType": "user", 
+                        "parameters": {
+                            "checked": true, 
+                            "error": "Cannot add this data point to the plot.  Either the data is empty, you have not selected an axis feature, or the data point is not defined for the selected scale.", 
+                            "userData": [
+                                {
+                                    "absorbance": 0.961, 
+                                    "absorbance_x": 0.961, 
+                                    "absorbance_y": 0.961, 
+                                    "concentration": 200, 
+                                    "concentration_x": 200, 
+                                    "concentration_y": 200, 
+                                    "cuvetteWidth": 0.5, 
+                                    "cuvetteWidth_x": 0.5, 
+                                    "cuvetteWidth_y": 0.5, 
+                                    "image": {}, 
+                                    "state": {
+                                        "beersLawLab.beersLawScreen.model.cuvette.widthProperty": 0.5, 
+                                        "beersLawLab.beersLawScreen.model.detector.body.locationProperty": {
+                                            "x": 6.3, 
+                                            "y": 0.2
+                                        }, 
+                                        "beersLawLab.beersLawScreen.model.detector.modeProperty": "absorbance", 
+                                        "beersLawLab.beersLawScreen.model.detector.probe.locationProperty": {
+                                            "x": 5.793103448275863, 
+                                            "y": 2
+                                        }, 
+                                        "beersLawLab.beersLawScreen.model.detector.valueProperty": 0.961, 
+                                        "beersLawLab.beersLawScreen.model.light.onProperty": true, 
+                                        "beersLawLab.beersLawScreen.model.light.wavelengthProperty": 780, 
+                                        "beersLawLab.beersLawScreen.model.ruler.locationProperty": {
+                                            "x": 3.3, 
+                                            "y": 3.58
+                                        }, 
+                                        "beersLawLab.beersLawScreen.model.solutionProperty": "beersLawLab.beersLawScreen.solutions.copperSulfate", 
+                                        "beersLawLab.beersLawScreen.solutions.cobaltChloride.concentrationProperty": 0.1, 
+                                        "beersLawLab.beersLawScreen.solutions.cobaltIINitrate.concentrationProperty": 0.1, 
+                                        "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty": 0.2, 
+                                        "beersLawLab.beersLawScreen.solutions.drinkMix.concentrationProperty": 0.1, 
+                                        "beersLawLab.beersLawScreen.solutions.nickelIIChloride.concentrationProperty": 0.1, 
+                                        "beersLawLab.beersLawScreen.solutions.potassiumChromate.concentrationProperty": 0.0001, 
+                                        "beersLawLab.beersLawScreen.solutions.potassiumDichromate.concentrationProperty": 0.0001, 
+                                        "beersLawLab.beersLawScreen.solutions.potassiumPermanganate.concentrationProperty": 0.0001, 
+                                        "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthProperty": true, 
+                                        "beersLawLab.sim.activeProperty": true, 
+                                        "beersLawLab.sim.screenIndexProperty": 0, 
+                                        "beersLawLab.sim.showHomeScreenProperty": false
+                                    }, 
+                                    "trialNumber": 1, 
+                                    "trialNumber_x": 1, 
+                                    "trialNumber_y": 1, 
+                                    "visible": false, 
+                                    "wavelength": 780, 
+                                    "wavelength_x": 780, 
+                                    "wavelength_y": 780
+                                }
+                            ]
+                        }, 
+                        "phetioID": "labBook.addToGraphCheckBox1"
+                    }
+                ], 
+                "messageID": 10, 
+                "method": "triggerEvent", 
+                "phetioID": "phetio", 
+                "protocol": "phet-io-0.0.1"
+            }, 
+            "phetioID": "beersLawLab.simIFrameAPI", 
+            "time": 1490049400993
+        }, 
+        "event": "beersLawLab.simIFrameAPI.invoked", 
+        "index": 25844, 
+        "timestamp": 1490049400794, 
+        "type": "model"
+    }''')
+
+graph_checkbox_event_PHETIOID = "labBook.addToGraphCheckBox1"
+
+delete_table_event = json.loads('''{
+        "data": {
+            "componentType": "TButton", 
+            "event": "pressed", 
+            "eventType": "user", 
+            "messageIndex": 56473, 
+            "parameters": {
+                "userData": [
+                    {
+                        "absorbance": 1.9302844827586205, 
+                        "absorbance_x": 1.9302844827586205, 
+                        "absorbance_y": 1.9302844827586205, 
+                        "concentration": 100.43103448275862, 
+                        "concentration_x": 100.43103448275862, 
+                        "concentration_y": 100.43103448275862, 
+                        "cuvetteWidth": 2, 
+                        "cuvetteWidth_x": 2, 
+                        "cuvetteWidth_y": 2, 
+                        "image": {}, 
+                        "state": {
+                            "beersLawLab.beersLawScreen.model.cuvette.widthProperty": 2, 
+                            "beersLawLab.beersLawScreen.model.detector.body.locationProperty": {
+                                "x": 6.3, 
+                                "y": 0.2
+                            }, 
+                            "beersLawLab.beersLawScreen.model.detector.modeProperty": "absorbance", 
+                            "beersLawLab.beersLawScreen.model.detector.probe.locationProperty": {
+                                "x": 6.184137931034483, 
+                                "y": 2
+                            }, 
+                            "beersLawLab.beersLawScreen.model.detector.valueProperty": 1.9302844827586205, 
+                            "beersLawLab.beersLawScreen.model.light.onProperty": true, 
+                            "beersLawLab.beersLawScreen.model.light.wavelengthProperty": 780, 
+                            "beersLawLab.beersLawScreen.model.ruler.locationProperty": {
+                                "x": 3.3, 
+                                "y": 3.58
+                            }, 
+                            "beersLawLab.beersLawScreen.model.solutionProperty": "beersLawLab.beersLawScreen.solutions.copperSulfate", 
+                            "beersLawLab.beersLawScreen.solutions.cobaltChloride.concentrationProperty": 0.1, 
+                            "beersLawLab.beersLawScreen.solutions.cobaltIINitrate.concentrationProperty": 0.1, 
+                            "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty": 0.10043103448275861, 
+                            "beersLawLab.beersLawScreen.solutions.drinkMix.concentrationProperty": 0.1, 
+                            "beersLawLab.beersLawScreen.solutions.nickelIIChloride.concentrationProperty": 0.1, 
+                            "beersLawLab.beersLawScreen.solutions.potassiumChromate.concentrationProperty": 0.0001, 
+                            "beersLawLab.beersLawScreen.solutions.potassiumDichromate.concentrationProperty": 0.0001, 
+                            "beersLawLab.beersLawScreen.solutions.potassiumPermanganate.concentrationProperty": 0.0001, 
+                            "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthProperty": true, 
+                            "beersLawLab.sim.activeProperty": true, 
+                            "beersLawLab.sim.screenIndexProperty": 0, 
+                            "beersLawLab.sim.showHomeScreenProperty": false
+                        }, 
+                        "trialNumber": 2, 
+                        "trialNumber_x": 2, 
+                        "trialNumber_y": 2, 
+                        "visible": true, 
+                        "wavelength": 780, 
+                        "wavelength_x": 780, 
+                        "wavelength_y": 780
+                    }
+                ]
+            }, 
+            "phetioID": "labBook.deleteButton1", 
+            "time": 1484681586848
+        }, 
+        "event": "labBook.deleteButton1.pressed", 
+        "index": 51744, 
+        "timestamp": 1484681586691, 
+        "type": "model"
+    }''')
+
+delete_table_event_PHETIOID = "labBook.deleteButton1"
