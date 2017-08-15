@@ -11,8 +11,6 @@ so for example:
 is a string containing the contents of the key "data" in the event of type phetio.state
 """
 
-import json
-
 state_event = json.loads('''{
         "data": {
             "componentType": "TPhETIO", 
@@ -1065,73 +1063,53 @@ graph_checkbox_event = json.loads('''{
 
 graph_checkbox_event_PHETIOID = "labBook.addToGraphCheckBox1"
 
-delete_table_event = json.loads('''{
+delete_table_event = json.loads('''    {
         "data": {
-            "componentType": "TButton", 
-            "event": "pressed", 
-            "eventType": "user", 
-            "messageIndex": 56473, 
+            "children": [
+                {
+                    "componentType": "TButton", 
+                    "event": "pressed", 
+                    "eventType": "user", 
+                    "messageIndex": 3684, 
+                    "parameters": {
+                        "userData": []
+                    }, 
+                    "phetioID": "labBook.deleteButton1", 
+                    "time": 1490145951959
+                }
+            ], 
+            "componentType": "TSimIFrameAPI", 
+            "event": "invoked", 
+            "eventType": "wrapper", 
+            "messageIndex": 3683, 
             "parameters": {
-                "userData": [
+                "args": [
                     {
-                        "absorbance": 1.9302844827586205, 
-                        "absorbance_x": 1.9302844827586205, 
-                        "absorbance_y": 1.9302844827586205, 
-                        "concentration": 100.43103448275862, 
-                        "concentration_x": 100.43103448275862, 
-                        "concentration_y": 100.43103448275862, 
-                        "cuvetteWidth": 2, 
-                        "cuvetteWidth_x": 2, 
-                        "cuvetteWidth_y": 2, 
-                        "image": {}, 
-                        "state": {
-                            "beersLawLab.beersLawScreen.model.cuvette.widthProperty": 2, 
-                            "beersLawLab.beersLawScreen.model.detector.body.locationProperty": {
-                                "x": 6.3, 
-                                "y": 0.2
-                            }, 
-                            "beersLawLab.beersLawScreen.model.detector.modeProperty": "absorbance", 
-                            "beersLawLab.beersLawScreen.model.detector.probe.locationProperty": {
-                                "x": 6.184137931034483, 
-                                "y": 2
-                            }, 
-                            "beersLawLab.beersLawScreen.model.detector.valueProperty": 1.9302844827586205, 
-                            "beersLawLab.beersLawScreen.model.light.onProperty": true, 
-                            "beersLawLab.beersLawScreen.model.light.wavelengthProperty": 780, 
-                            "beersLawLab.beersLawScreen.model.ruler.locationProperty": {
-                                "x": 3.3, 
-                                "y": 3.58
-                            }, 
-                            "beersLawLab.beersLawScreen.model.solutionProperty": "beersLawLab.beersLawScreen.solutions.copperSulfate", 
-                            "beersLawLab.beersLawScreen.solutions.cobaltChloride.concentrationProperty": 0.1, 
-                            "beersLawLab.beersLawScreen.solutions.cobaltIINitrate.concentrationProperty": 0.1, 
-                            "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty": 0.10043103448275861, 
-                            "beersLawLab.beersLawScreen.solutions.drinkMix.concentrationProperty": 0.1, 
-                            "beersLawLab.beersLawScreen.solutions.nickelIIChloride.concentrationProperty": 0.1, 
-                            "beersLawLab.beersLawScreen.solutions.potassiumChromate.concentrationProperty": 0.0001, 
-                            "beersLawLab.beersLawScreen.solutions.potassiumDichromate.concentrationProperty": 0.0001, 
-                            "beersLawLab.beersLawScreen.solutions.potassiumPermanganate.concentrationProperty": 0.0001, 
-                            "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthProperty": true, 
-                            "beersLawLab.sim.activeProperty": true, 
-                            "beersLawLab.sim.screenIndexProperty": 0, 
-                            "beersLawLab.sim.showHomeScreenProperty": false
+                        "componentType": {
+                            "events": [
+                                "pressed"
+                            ], 
+                            "typeName": "TButton"
                         }, 
-                        "trialNumber": 2, 
-                        "trialNumber_x": 2, 
-                        "trialNumber_y": 2, 
-                        "visible": true, 
-                        "wavelength": 780, 
-                        "wavelength_x": 780, 
-                        "wavelength_y": 780
+                        "event": "pressed", 
+                        "eventType": "user", 
+                        "parameters": {
+                            "userData": []
+                        }, 
+                        "phetioID": "labBook.deleteButton1"
                     }
-                ]
+                ], 
+                "messageID": 9, 
+                "method": "triggerEvent", 
+                "phetioID": "phetio", 
+                "protocol": "phet-io-0.0.1"
             }, 
-            "phetioID": "labBook.deleteButton1", 
-            "time": 1484681586848
+            "phetioID": "beersLawLab.simIFrameAPI", 
+            "time": 1490145951959
         }, 
-        "event": "labBook.deleteButton1.pressed", 
-        "index": 51744, 
-        "timestamp": 1484681586691, 
+        "event": "beersLawLab.simIFrameAPI.invoked", 
+        "index": 3648, 
+        "timestamp": 1490145951813, 
         "type": "model"
     }''')
 

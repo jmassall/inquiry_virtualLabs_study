@@ -12,6 +12,8 @@ import json
 import numpy as np
 from utils import *
 
+HEADER = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
+
 def initialize_dreamtable(studentid, header, number_of_events,first_event):
     '''
     Creates a numpy array with as many columns as the length of the header of the table
@@ -347,7 +349,7 @@ def mega_parser(studentid, header, events):
                         dreamtable[row,header.index("Action")] = axis+'-axis changed to '+ variable_selected
                         dreamtable[row,header.index(axis+" axis")] = variable_selected
 
-                    elif phetioID == "labBook.recordDataButton": #for log data before March 20th 2017
+                    elif phetioID == "labBook.recordDataButton": #for log data after March 20th 2017
                         parsed = True
                         dreamtable[row,header.index("User or Model?")] = 'user'
                         dreamtable[row,header.index("Event")] = 'recording data'
@@ -537,15 +539,13 @@ def mega_parser(studentid, header, events):
     return None
 
 if __name__ == '__main__':
-    header = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
     # test_json = 'example_cleaned_student_11111111_data_file.json'
     test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
     # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
     studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
     session = Session()
     session.get_session_data_from_file(test_json)
-    mega_parser(studentid, header, session.events)
-
+    mega_parser(studentid, HEADER, session.events)
 
 #test sime with this link
 # https://phet-io.colorado.edu/sims/beers-law-lab/1.6.3-phetio/wrappers/login/login.html?wrapper=lab-book&validationRule=validateDigits&numberOfDigits=8&sim=beers-law-lab&console&publisher_id=0c82b6bf&application_id=1d0612a8397e8b1dbf4993bc58869fa1&widget_id=lab-book-beers-law-lab&phetioEmitStates=true&phetioEmitInputEvents=false

@@ -58,9 +58,9 @@ class TestParsingIndividualEvents(unittest.TestCase):
         self.assertEqual(get_data_parameters_args_parameters(logsample.record_event), logsample.record_event_DATA_PARAMETERS_ARGS_PARAMETERS)
         self.assertEqual(get_data_parameters_args_parameters(logsample.axis_event), logsample.axis_event_DATA_PARAMETERS_ARGS_PARAMETERS)
 
-    def test_get_args_phetioID(self):
+    def test_get_args_phetioID(self): #for events from log after March 20th
         '''
-        Grabs the information under the event's data > parameters > args > phetioID
+        Tests the function get_args_phetioID() on diffferent events.
         '''
         self.assertEqual(get_args_phetioID(logsample.record_event), logsample.record_event_PHETIOID)
         self.assertEqual(get_args_phetioID(logsample.axis_event), logsample.axis_event_PHETIOID)
@@ -87,6 +87,18 @@ class TestParsingIndividualEvents(unittest.TestCase):
         Tests the function get_notes()
         '''
         self.assertEqual(get_notes(logsample.notes_event), logsample.notes_event_NOTES)
+
+
+# class TestFullParsing(unittest.TestCase):
+#     """
+#     Basic test class for all parsing functions
+#     """
+#     def test_mega_parser(self): #for log data after March 20th
+#         '''
+#         Tests the function mega parser() on frabricated log data.
+#         '''
+#         from frabricated_log_events import fabricated_log_data_beers_post_march_20th
+#         mega_parser('00000000',HEADER,fabricated_log_data_beers_post_march_20th)
 
 if __name__ == '__main__':
     unittest.main()
