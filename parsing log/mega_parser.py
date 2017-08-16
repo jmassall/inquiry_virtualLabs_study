@@ -25,9 +25,9 @@ def initialize_dreamtable(studentid, header, number_of_events,first_event):
     dreamtable[0,:] = header
     dreamtable[1:,header.index("User")] = studentid
     if "beersLaw" in first_event["event"]:
-        sim = 'light absorbance'
+        sim = 'light_absorbance'
     else:
-        sim = 'capacitor charge'
+        sim = 'capacitor_charge'
     dreamtable[1:,header.index("Sim")] = sim
     start_time = first_event['timestamp']
     return sim, start_time, dreamtable
@@ -530,22 +530,22 @@ def mega_parser(studentid, header, events):
             dreamtable[row,header.index("Action")] = 'user clicked on text on detector body. Ignore!'
 
         if not parsed:
-            # print "Error: new event type encountered at event number", i, "with index", event['index']
+            print "Error: new event type encountered at event number", i, "with index", event['index']
             print '\t'+event['event'], event['index']
-            # break
-
-    np.savetxt('dream_table_{0}_{1}.txt'.format(studentid,sim), dreamtable, delimiter='\t', fmt='%s')
-    print "Done parsing."  
-    return None
+            break
+    
+    return sim, dreamtable
 
 if __name__ == '__main__':
     # test_json = 'example_cleaned_student_11111111_data_file.json'
-    test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
-    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
+    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
+    test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
+    #test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_90447168_2017-01-17_12.17.41.json'
     studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
     session = Session()
     session.get_session_data_from_file(test_json)
-    mega_parser(studentid, HEADER, session.events)
+    sim, dreamtable = mega_parser(studentid, HEADER, session.events)
+    np.savetxt('dream_table_{0}_{1}.txt'.format(studentid,sim), dreamtable, delimiter='\t', fmt='%s')
 
 #test sime with this link
 # https://phet-io.colorado.edu/sims/beers-law-lab/1.6.3-phetio/wrappers/login/login.html?wrapper=lab-book&validationRule=validateDigits&numberOfDigits=8&sim=beers-law-lab&console&publisher_id=0c82b6bf&application_id=1d0612a8397e8b1dbf4993bc58869fa1&widget_id=lab-book-beers-law-lab&phetioEmitStates=true&phetioEmitInputEvents=false

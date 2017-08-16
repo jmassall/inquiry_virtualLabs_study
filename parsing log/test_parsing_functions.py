@@ -5,7 +5,7 @@ data: june 14 2017
 This script cleans raw log files and splits them into individual session files stored in the log data folder
 '''
 import unittest
-from utils import convert_unix_time
+from utils import convert_unix_time,Session
 from mega_parser import *
 import test_log_samples as logsample
 
@@ -89,16 +89,21 @@ class TestParsingIndividualEvents(unittest.TestCase):
         self.assertEqual(get_notes(logsample.notes_event), logsample.notes_event_NOTES)
 
 
-# class TestFullParsing(unittest.TestCase):
-#     """
-#     Basic test class for all parsing functions
-#     """
-#     def test_mega_parser(self): #for log data after March 20th
-#         '''
-#         Tests the function mega parser() on frabricated log data.
-#         '''
-#         from frabricated_log_events import fabricated_log_data_beers_post_march_20th
-#         mega_parser('00000000',HEADER,fabricated_log_data_beers_post_march_20th)
+class TestFullParsing(unittest.TestCase):
+    """
+    Basic test class for all parsing functions
+    """
+    def test_mega_parser(self): #for log data after March 20th
+        '''
+        Tests the function mega parser() on frabricated log data.
+        '''
+        test_table = np.genfromtxt('sample_beers_log_dreamtable.txt', delimiter='\t', dtype='string', skip_header=1)
+        test_log_json = 'sample_beers_log.json'
+        session = Session()
+        session.get_session_data_from_file(test_log_json)
+        sim,table = mega_parser('90447168',HEADER,session.events)
+        self.assertEqual(sim,'light_absorbance')
+        np.testing.assert_array_equal(table[1:,:],test_table)
 
 if __name__ == '__main__':
     unittest.main()

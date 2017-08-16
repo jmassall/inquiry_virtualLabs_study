@@ -10,6 +10,7 @@ so for example:
 
 is a string containing the contents of the key "data" in the event of type phetio.state
 """
+import json
 
 state_event = json.loads('''{
         "data": {
