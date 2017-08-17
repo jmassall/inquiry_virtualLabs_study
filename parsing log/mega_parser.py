@@ -289,14 +289,13 @@ INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
 
 def parse_event(event, simstate, table, graphstate, notes):
     parsed = True
-    print event['event']
 
     if event['event'] == "beersLawLab.simIFrameAPI.invoked":
         if 'messages' in get_data_parameters(event).keys():
             user_or_model = 'model'
             simevent = 'gettingValues'
             item = 'sim'
-            action = None
+            action = ''
         else:
             method = get_method(event)
             if method in INITIALIZING_METHODS:
@@ -311,22 +310,22 @@ def parse_event(event, simstate, table, graphstate, notes):
                     user_or_model = 'user'
                     simevent = 'expanding table'
                     item = 'table'
-                    action = None
+                    action = ''
                 elif phetioID == "labBook.tableCollapseButton":
                     user_or_model = 'user'
                     simevent = 'collapsing table'
                     item = 'table'
-                    action = None
+                    action = ''
                 elif phetioID == "labBook.graphExpandButton":
                     user_or_model = 'user'
                     simevent = 'expanding graph'
                     item = 'graph'
-                    action = None
+                    action = ''
                 elif phetioID == "labBook.graphCollapseButton":
                     user_or_model = 'user'
                     simevent = 'collapsing graph'
                     item = 'graph'
-                    action = None
+                    action = ''
                 elif "Feature" in phetioID:
                     selection = get_data_parameters_args(event)[0]['parameters']['feature']
                     variable_selected, axis = selection.split('_')
@@ -339,6 +338,8 @@ def parse_event(event, simstate, table, graphstate, notes):
                 elif phetioID == "labBook.recordDataButton": #for log data after March 20th 2017
                     user_or_model = 'user'
                     simevent = 'recording data'
+                    item = ''
+                    action = ''
                     new_data_point = extract_new_datapoint(event, get_data_parameters_args_parameters)
                     table[new_data_point['trialNumber']] = new_data_point
                 elif "labBook.addToGraphCheckBox" in phetioID:
@@ -356,43 +357,43 @@ def parse_event(event, simstate, table, graphstate, notes):
                         action = 'Data removed from graph.'
                     user_or_model = 'user'
                     item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-                    action = None
-                    table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
+                    table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
                 elif "labBook.deleteButton" in phetioID:
                     trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
-                    simevent = 'Removing data from table'
-                    action = 'Data removed from from table'
                     user_or_model = 'user'
+                    simevent = 'Removing data from table'
                     item = 'trialNumber ' + str(trial_removed_from_table)
-                    action = None
-                    table = remove_from_table(table, trial_removed_from_table)
+                    action = 'Data removed from from table'
+                    table = remove_from_table(table.copy(), trial_removed_from_table)
 
     #the following are for log files after March 20th
     elif event['event'] == "labBook.recordDataButton.pressed":
         user_or_model = 'user'
         simevent = 'recording data'
+        item = ''
+        action = ''
         new_data_point = extract_new_datapoint(event, get_data_parameters)
         table[new_data_point['trialNumber']] = new_data_point
     elif event['event'] == "labBook.tableExpandButton.pressed":
         user_or_model = 'user'
         simevent = 'expanding table'
         item = 'table'
-        action = None
+        action = ''
     elif event['event'] == "labBook.tableCollapseButton.pressed":
         user_or_model = 'user'
         simevent = 'collapsing table'
         item = 'table'
-        action = None
+        action = ''
     elif event['event'] == "labBook.graphExpandButton.pressed":
         user_or_model = 'user'
         simevent = 'expanding graph'
         item = 'graph'
-        action = None
+        action = ''
     elif event['event'] == "labBook.graphCollapseButton.pressed":
         user_or_model = 'user'
         simevent = 'collapsing graph'
         item = 'graph'
-        action = None
+        action = ''
     elif "Feature" in event['event']:
         selection = get_data_parameters(event)['feature']
         variable_selected, axis = selection.split('_')
@@ -425,25 +426,23 @@ def parse_event(event, simstate, table, graphstate, notes):
             action = 'Data removed from graph.'
         user_or_model = 'user'
         item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-        action = None
-        table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
+        table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
     elif "labBook.deleteButton" in event['event']:
         trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
-        simevent = 'Removing data from table'
-        action = 'Data removed from from table'
         user_or_model = 'user'
+        simevent = 'Removing data from table'
         item = 'trialNumber ' + str(trial_removed_from_table)
-        action = None
-        table = remove_from_table(table, trial_removed_from_table)
+        action = 'Data removed from from table'
+        table = remove_from_table(table.copy(), trial_removed_from_table)
     elif "concentrationControl.slider.plusButton" in event['event']:
         user_or_model = 'user'
         simevent = 'Changed concentration'
-        item = None #"concentration slider"
+        item = '' #"concentration slider"
         action = 'Pressed increment button'
     elif "concentrationControl.slider.minusButton" in event['event']:
         user_or_model = 'user'
         simevent = 'Changed concentration'
-        item = None #"concentration slider"
+        item = '' #"concentration slider"
         action = 'Pressed decrement button'
     elif event['event'] in EVENTS_INITIALIZING:
         user_or_model = 'model'
@@ -453,8 +452,8 @@ def parse_event(event, simstate, table, graphstate, notes):
     elif event['event'] == "phetio.state":
         user_or_model = 'model'
         simevent = 'updating state'
-        item = None
-        action = None
+        item = ''
+        action = ''
         simstate["Width"] = round(get_state(event)["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
         simstate["Detector location"] = get_state(event)["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"]
         absorption = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
@@ -468,11 +467,10 @@ def parse_event(event, simstate, table, graphstate, notes):
     elif "drag" in event['event']:
         drag_event = detect_drag_event(event['event'])
         drag_item = detect_drag_item(event['event'])
-        action = None
         user_or_model = 'user'
         simevent = drag_event
         item = drag_item
-        action = None
+        action = ''
         if drag_event == 'dragged':
             try:
                 direction = get_drag_direction(event)
@@ -484,18 +482,17 @@ def parse_event(event, simstate, table, graphstate, notes):
         user_or_model = 'user'
         simevent = 'toggle laser'
         item = 'laser button'
-        action = None
+        action = ''
     elif event['event'] == "labBook.textArea.changed":
         user_or_model = 'user'
         simevent = 'editing notes'
         item = 'notepad'
-        action = None
+        action = ''
         notes = get_notes(event)
     elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
         user_or_model = 'user'
         simevent = 'ignore'
         item = 'Absorance text on'
-        action = None
         action = 'user clicked on text on detector body. Ignore!'
     else:
         #Didn't detect any kind of event
@@ -512,24 +509,36 @@ def mega_parser(studentid, header, events):
     '''
     sim, first_time_stamp, dreamtable = initialize_dreamtable(studentid, header,len(events),events[0])
 
+    eventypes = []
     #initialize all variables
     parsed = False
     user_or_model = ''
     simevent = ''
     item = ''
     action = ''
-    simstate = {"Laser on status":None,"Wavelength":None,"Width":None,"Concentration":None,"Absorption":None,"Detector location":None,"Ruler location":None}
-    table = {}
-    graphstate = {"X axis":None,"Y axis":None,"X axis scale":None,"Y axis scale":None,"Experiment #s included":None}
+    simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
+    datatable = {}
+    graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
     notes = ''
 
     for i,event in enumerate(events):
         row = i+1
 
-        #we parse events given previous state
-        parsed, user_or_model, simevent, item, action, simstate, table, graphstate, notes = parse_event(event, simstate, table, graphstate, notes)
 
-        if parsed: #if we managed to parse, we update the table
+        #initialize all variables
+        parsed = False
+        user_or_model = ''
+        simevent = ''
+        item = ''
+        action = ''
+        simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
+        # datatable = {}
+        graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
+        notes = ''
+        #we parse events given previous state
+        parsed, user_or_model, simevent, item, action, simstate, NEWdatatable, graphstate, notes = parse_event(event, simstate.copy(), datatable.copy(), graphstate.copy(), notes)
+
+        if parsed: #if we managed to parse, we update the dreamtable
             dreamtable[row,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,2)
             dreamtable[row,header.index("Index")] = event['index']
             dreamtable[row,header.index("User or Model?")] = user_or_model
@@ -540,24 +549,32 @@ def mega_parser(studentid, header, events):
             for variable in simstate:
                 dreamtable[row,header.index(variable)] = simstate[variable]
 
-            dreamtable[row,header.index("Table")] = json.dumps(table)
+            if NEWdatatable != datatable or 'success' in action:
+                dreamtable[row,header.index("Table")] = json.dumps(NEWdatatable)
+                datatable = NEWdatatable.copy()
 
             for variable in graphstate:
                 dreamtable[row,header.index(variable)] = graphstate[variable]
 
-            dreamtable[row,header.index("Notes")] = get_notes(event)
+            dreamtable[row,header.index("Notes")] = notes
 
         else:
             print "Error: new event type encountered at event number", i, "with index", event['index']
             print '\t'+event['event'], event['index']
             break
     
+        # if simevent not in eventypes:
+        #     eventypes.append(simevent)
+        #     print simevent
+        #     for x in [user_or_model, simevent, item, action, simstate, NEWtable, graphstate, notes]:
+        #         print '\t',x
+        #     print '\n\n\n'
     return sim, dreamtable
 
 if __name__ == '__main__':
     # test_json = 'example_cleaned_student_11111111_data_file.json'
-    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
-    test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
+    test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
+    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
     # test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_90447168_2017-01-17_12.17.41.json'
     studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
     session = Session()
