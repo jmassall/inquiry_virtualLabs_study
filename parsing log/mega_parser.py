@@ -282,9 +282,226 @@ def remove_from_table(current_table, trial_removed):
 EVENTS_INITIALIZING = ["beersLawLab.sim.simStarted",
                         "beersLawLab.sim.barrierRectangle.fired",
                         "beersLawLab.navigationBar.phetButton.fired",
-                        "beersLawLab.navigationBar.titleTextNode.textChanged"]
+                        "beersLawLab.navigationBar.titleTextNode.textChanged",
+                        ]
 #All of the event['data']['parameters']['method'] that relate to the sim initializing
 INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
+
+def parse_event(event, simstate, table, graphstate, notes):
+    parsed = True
+    print event['event']
+
+    if event['event'] == "beersLawLab.simIFrameAPI.invoked":
+        if 'messages' in get_data_parameters(event).keys():
+            user_or_model = 'model'
+            simevent = 'gettingValues'
+            item = 'sim'
+            action = None
+        else:
+            method = get_method(event)
+            if method in INITIALIZING_METHODS:
+                user_or_model = 'model'
+                simevent = 'initializing'
+                item = 'sim'
+                action = method
+            else:
+                #the following are for log files after March 20th
+                phetioID = get_args_phetioID(event)
+                if phetioID == "labBook.tableExpandButton":
+                    user_or_model = 'user'
+                    simevent = 'expanding table'
+                    item = 'table'
+                    action = None
+                elif phetioID == "labBook.tableCollapseButton":
+                    user_or_model = 'user'
+                    simevent = 'collapsing table'
+                    item = 'table'
+                    action = None
+                elif phetioID == "labBook.graphExpandButton":
+                    user_or_model = 'user'
+                    simevent = 'expanding graph'
+                    item = 'graph'
+                    action = None
+                elif phetioID == "labBook.graphCollapseButton":
+                    user_or_model = 'user'
+                    simevent = 'collapsing graph'
+                    item = 'graph'
+                    action = None
+                elif "Feature" in phetioID:
+                    selection = get_data_parameters_args(event)[0]['parameters']['feature']
+                    variable_selected, axis = selection.split('_')
+                    axis = axis.capitalize()
+                    user_or_model = 'user'
+                    simevent = 'Selecting '+axis+'-axis'
+                    item = axis+'-axis dropdown menu'
+                    action = axis+'-axis changed to '+ variable_selected
+                    graphstate[axis+" axis"] = variable_selected
+                elif phetioID == "labBook.recordDataButton": #for log data after March 20th 2017
+                    user_or_model = 'user'
+                    simevent = 'recording data'
+                    new_data_point = extract_new_datapoint(event, get_data_parameters_args_parameters)
+                    table[new_data_point['trialNumber']] = new_data_point
+                elif "labBook.addToGraphCheckBox" in phetioID:
+                    trial_added_or_removed_to_graph = int(re.search(r'\d+', phetioID).group())
+                    checked = get_checkbox_status1(event)
+                    if is_checkbox_error1(event):
+                        simevent = 'Adding data to graph'
+                        action = 'Error: failed to add trial.'
+                        checked = False
+                    elif checked:
+                        simevent = 'Adding data to graph'
+                        action = 'Data added to graph successfully.'
+                    else:
+                        simevent = 'Removing data from graph'
+                        action = 'Data removed from graph.'
+                    user_or_model = 'user'
+                    item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
+                    action = None
+                    table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
+                elif "labBook.deleteButton" in phetioID:
+                    trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
+                    simevent = 'Removing data from table'
+                    action = 'Data removed from from table'
+                    user_or_model = 'user'
+                    item = 'trialNumber ' + str(trial_removed_from_table)
+                    action = None
+                    table = remove_from_table(table, trial_removed_from_table)
+
+    #the following are for log files after March 20th
+    elif event['event'] == "labBook.recordDataButton.pressed":
+        user_or_model = 'user'
+        simevent = 'recording data'
+        new_data_point = extract_new_datapoint(event, get_data_parameters)
+        table[new_data_point['trialNumber']] = new_data_point
+    elif event['event'] == "labBook.tableExpandButton.pressed":
+        user_or_model = 'user'
+        simevent = 'expanding table'
+        item = 'table'
+        action = None
+    elif event['event'] == "labBook.tableCollapseButton.pressed":
+        user_or_model = 'user'
+        simevent = 'collapsing table'
+        item = 'table'
+        action = None
+    elif event['event'] == "labBook.graphExpandButton.pressed":
+        user_or_model = 'user'
+        simevent = 'expanding graph'
+        item = 'graph'
+        action = None
+    elif event['event'] == "labBook.graphCollapseButton.pressed":
+        user_or_model = 'user'
+        simevent = 'collapsing graph'
+        item = 'graph'
+        action = None
+    elif "Feature" in event['event']:
+        selection = get_data_parameters(event)['feature']
+        variable_selected, axis = selection.split('_')
+        axis = axis.capitalize()
+        user_or_model = 'user'
+        simevent = 'Selecting '+axis+'-axis'
+        item = axis+'-axis dropdown menu'
+        action = axis+'-axis changed to '+ variable_selected
+        graphstate[axis+" axis"] = variable_selected
+    elif "Transform" in event['event']:
+        axis = re.search(r'\.([xy])Transform', event['event']).group(1).capitalize()
+        scale = get_data_parameters(event)['feature']
+        user_or_model = 'user'
+        simevent = 'Selecting scale of '+axis+'-axis'
+        item = axis+'-axis scale dropdown menu'
+        action = axis+'-axis scale changed to '+ scale
+        graphstate[axis+" axis scale"] = scale
+    elif "labBook.addToGraphCheckBox" in event['event']:
+        trial_added_or_removed_to_graph = int(re.search(r'\d+', event['event']).group())
+        checked = get_checkbox_status2(event)
+        if is_checkbox_error2(event):
+            simevent = 'Adding data to graph'
+            action = 'Error: failed to add trial.'
+            checked = False
+        elif checked:
+            simevent = 'Adding data to graph'
+            action = 'Data added to graph successfully.'
+        else:
+            simevent = 'Removing data from graph'
+            action = 'Data removed from graph.'
+        user_or_model = 'user'
+        item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
+        action = None
+        table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
+    elif "labBook.deleteButton" in event['event']:
+        trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
+        simevent = 'Removing data from table'
+        action = 'Data removed from from table'
+        user_or_model = 'user'
+        item = 'trialNumber ' + str(trial_removed_from_table)
+        action = None
+        table = remove_from_table(table, trial_removed_from_table)
+    elif "concentrationControl.slider.plusButton" in event['event']:
+        user_or_model = 'user'
+        simevent = 'Changed concentration'
+        item = None #"concentration slider"
+        action = 'Pressed increment button'
+    elif "concentrationControl.slider.minusButton" in event['event']:
+        user_or_model = 'user'
+        simevent = 'Changed concentration'
+        item = None #"concentration slider"
+        action = 'Pressed decrement button'
+    elif event['event'] in EVENTS_INITIALIZING:
+        user_or_model = 'model'
+        simevent = 'initializing'
+        item = 'sim'
+        action = event['event']
+    elif event['event'] == "phetio.state":
+        user_or_model = 'model'
+        simevent = 'updating state'
+        item = None
+        action = None
+        simstate["Width"] = round(get_state(event)["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
+        simstate["Detector location"] = get_state(event)["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"]
+        absorption = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+        if absorption != None:
+            simstate["Absorption"] = round(absorption,2)
+        simstate["Laser on status"] = get_state(event)["beersLawLab.beersLawScreen.model.light.onProperty"]
+        simstate["Wavelength"] = get_state(event)["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
+        simstate["Ruler location"] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
+        simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+    
+    elif "drag" in event['event']:
+        drag_event = detect_drag_event(event['event'])
+        drag_item = detect_drag_item(event['event'])
+        action = None
+        user_or_model = 'user'
+        simevent = drag_event
+        item = drag_item
+        action = None
+        if drag_event == 'dragged':
+            try:
+                direction = get_drag_direction(event)
+                action = direction
+            except:
+                pass
+    
+    elif event['event'] == "beersLawLab.beersLawScreen.view.lightNode.button.toggled":
+        user_or_model = 'user'
+        simevent = 'toggle laser'
+        item = 'laser button'
+        action = None
+    elif event['event'] == "labBook.textArea.changed":
+        user_or_model = 'user'
+        simevent = 'editing notes'
+        item = 'notepad'
+        action = None
+        notes = get_notes(event)
+    elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
+        user_or_model = 'user'
+        simevent = 'ignore'
+        item = 'Absorance text on'
+        action = None
+        action = 'user clicked on text on detector body. Ignore!'
+    else:
+        #Didn't detect any kind of event
+        parsed = False
+
+    return parsed, user_or_model, simevent, item, action, simstate, table, graphstate, notes
 
 def mega_parser(studentid, header, events):
     '''
@@ -294,242 +511,43 @@ def mega_parser(studentid, header, events):
     the output is saved as a tab delimited file.
     '''
     sim, first_time_stamp, dreamtable = initialize_dreamtable(studentid, header,len(events),events[0])
+
+    #initialize all variables
+    parsed = False
+    user_or_model = ''
+    simevent = ''
+    item = ''
+    action = ''
+    simstate = {"Laser on status":None,"Wavelength":None,"Width":None,"Concentration":None,"Absorption":None,"Detector location":None,"Ruler location":None}
     table = {}
+    graphstate = {"X axis":None,"Y axis":None,"X axis scale":None,"Y axis scale":None,"Experiment #s included":None}
+    notes = ''
+
     for i,event in enumerate(events):
         row = i+1
-        parsed = False
-        dreamtable[row,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,2)
-        dreamtable[row,header.index("Index")] = event['index']
 
-        if event['event'] == "beersLawLab.simIFrameAPI.invoked":
-            if 'messages' in get_data_parameters(event).keys():
-                parsed = True
-                dreamtable[row,header.index("User or Model?")] = 'model'
-                dreamtable[row,header.index("Event")] = 'gettingValues'
-                dreamtable[row,header.index("Item")] = 'sim'
-            else:
-                method = get_method(event)
-                if method in INITIALIZING_METHODS:
-                    parsed = True
-                    dreamtable[row,header.index("User or Model?")] = 'model'
-                    dreamtable[row,header.index("Event")] = 'initializing'
-                    dreamtable[row,header.index("Item")] = 'sim'
-                    dreamtable[row,header.index("Action")] = method
-                else:
-                    #the following are for log files after March 20th
-                    phetioID = get_args_phetioID(event)
-                    if phetioID == "labBook.tableExpandButton":
-                        parsed = True
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Event")] = 'expanding table'
-                        dreamtable[row,header.index("Item")] = 'table'
-                    elif phetioID == "labBook.tableCollapseButton":
-                        parsed = True
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Event")] = 'collapsing table'
-                        dreamtable[row,header.index("Item")] = 'table'
-                    elif phetioID == "labBook.graphExpandButton":
-                        parsed = True
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Event")] = 'expanding graph'
-                        dreamtable[row,header.index("Item")] = 'graph'
-                    elif phetioID == "labBook.graphCollapseButton":
-                        parsed = True
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Event")] = 'collapsing graph'
-                        dreamtable[row,header.index("Item")] = 'graph'
-                    elif "Feature" in phetioID:
-                        parsed = True
-                        selection = get_data_parameters_args(event)[0]['parameters']['feature']
-                        variable_selected, axis = selection.split('_')
-                        axis = axis.capitalize()
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Event")] = 'Selecting '+axis+'-axis'
-                        dreamtable[row,header.index("Item")] = axis+'-axis dropdown menu'
-                        dreamtable[row,header.index("Action")] = axis+'-axis changed to '+ variable_selected
-                        dreamtable[row,header.index(axis+" axis")] = variable_selected
+        #we parse events given previous state
+        parsed, user_or_model, simevent, item, action, simstate, table, graphstate, notes = parse_event(event, simstate, table, graphstate, notes)
 
-                    elif phetioID == "labBook.recordDataButton": #for log data after March 20th 2017
-                        parsed = True
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Event")] = 'recording data'
-                        new_data_point = extract_new_datapoint(event, get_data_parameters_args_parameters)
-                        table[new_data_point['trialNumber']] = new_data_point
-                        dreamtable[row,header.index("Table")] = json.dumps(table)
-                    elif "labBook.addToGraphCheckBox" in phetioID:
-                        parsed = True
-                        trial_added_or_removed_to_graph = int(re.search(r'\d+', phetioID).group())
-                        checked = get_checkbox_status1(event)
-                        if is_checkbox_error1(event):
-                            dreamtable[row,header.index("Event")] = 'Adding data to graph'
-                            dreamtable[row,header.index("Action")] = 'Error: failed to add trial.'
-                            checked = False
-                        elif checked:
-                            dreamtable[row,header.index("Event")] = 'Adding data to graph'
-                            dreamtable[row,header.index("Action")] = 'Data added to graph successfully.'
-                        else:
-                            dreamtable[row,header.index("Event")] = 'Removing data from graph'
-                            dreamtable[row,header.index("Action")] = 'Data removed from graph.'
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Item")] = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-                        table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
-                        dreamtable[row,header.index("Table")] = json.dumps(table)
-                    
-                    elif "labBook.deleteButton" in phetioID:
-                        parsed = True
-                        trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
-                        dreamtable[row,header.index("Event")] = 'Removing data from table'
-                        dreamtable[row,header.index("Action")] = 'Data removed from from table'
-                        dreamtable[row,header.index("User or Model?")] = 'user'
-                        dreamtable[row,header.index("Item")] = 'trialNumber ' + str(trial_removed_from_table)
-                        table = remove_from_table(table, trial_removed_from_table)
-                        dreamtable[row,header.index("Table")] = json.dumps(table)
+        if parsed: #if we managed to parse, we update the table
+            dreamtable[row,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,2)
+            dreamtable[row,header.index("Index")] = event['index']
+            dreamtable[row,header.index("User or Model?")] = user_or_model
+            dreamtable[row,header.index("Event")] = simevent
+            dreamtable[row,header.index("Item")] = item
+            dreamtable[row,header.index("Action")] = action
 
-        #the following are for log files after March 20th
-        elif event['event'] == "labBook.recordDataButton.pressed":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'recording data'
-            new_data_point = extract_new_datapoint(event, get_data_parameters)
-            table[new_data_point['trialNumber']] = new_data_point
+            for variable in simstate:
+                dreamtable[row,header.index(variable)] = simstate[variable]
+
             dreamtable[row,header.index("Table")] = json.dumps(table)
 
-        elif event['event'] == "labBook.tableExpandButton.pressed":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'expanding table'
-            dreamtable[row,header.index("Item")] = 'table'
-        elif event['event'] == "labBook.tableCollapseButton.pressed":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'collapsing table'
-            dreamtable[row,header.index("Item")] = 'table'
-        elif event['event'] == "labBook.graphExpandButton.pressed":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'expanding graph'
-            dreamtable[row,header.index("Item")] = 'graph'
-        elif event['event'] == "labBook.graphCollapseButton.pressed":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'collapsing graph'
-            dreamtable[row,header.index("Item")] = 'graph'
-        elif "Feature" in event['event']:
-            parsed = True
-            selection = get_data_parameters(event)['feature']
-            variable_selected, axis = selection.split('_')
-            axis = axis.capitalize()
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'Selecting '+axis+'-axis'
-            dreamtable[row,header.index("Item")] = axis+'-axis dropdown menu'
-            dreamtable[row,header.index("Action")] = axis+'-axis changed to '+ variable_selected
-            dreamtable[row,header.index(axis+" axis")] = variable_selected
-        elif "Transform" in event['event']:
-            parsed = True
-            axis = re.search(r'\.([xy])Transform', event['event']).group(1).capitalize()
-            scale = get_data_parameters(event)['feature']
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'Selecting scale of '+axis+'-axis'
-            dreamtable[row,header.index("Item")] = axis+'-axis scale dropdown menu'
-            dreamtable[row,header.index("Action")] = axis+'-axis scale changed to '+ scale
-            dreamtable[row,header.index(axis+" axis scale")] = scale
-        elif "labBook.addToGraphCheckBox" in event['event']:
-            parsed = True
-            trial_added_or_removed_to_graph = int(re.search(r'\d+', event['event']).group())
-            checked = get_checkbox_status2(event)
-            if is_checkbox_error2(event):
-                dreamtable[row,header.index("Event")] = 'Adding data to graph'
-                dreamtable[row,header.index("Action")] = 'Error: failed to add trial.'
-                checked = False
-            elif checked:
-                dreamtable[row,header.index("Event")] = 'Adding data to graph'
-                dreamtable[row,header.index("Action")] = 'Data added to graph successfully.'
-            else:
-                dreamtable[row,header.index("Event")] = 'Removing data from graph'
-                dreamtable[row,header.index("Action")] = 'Data removed from graph.'
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Item")] = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-            table = update_checkstatus_in_table(table, trial_added_or_removed_to_graph, checked)
-            dreamtable[row,header.index("Table")] = json.dumps(table)
-        elif "labBook.deleteButton" in event['event']:
-            parsed = True
-            trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
-            dreamtable[row,header.index("Event")] = 'Removing data from table'
-            dreamtable[row,header.index("Action")] = 'Data removed from from table'
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Item")] = 'trialNumber ' + str(trial_removed_from_table)
-            table = remove_from_table(table, trial_removed_from_table)
-            dreamtable[row,header.index("Table")] = json.dumps(table)
-        elif "concentrationControl.slider.plusButton" in event['event']:
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'Changed concentration'
-            dreamtable[row,header.index("Action")] = 'Pressed increment button'
-        elif "concentrationControl.slider.minusButton" in event['event']:
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'Changed concentration'
-            dreamtable[row,header.index("Action")] = 'Pressed decrement button'
+            for variable in graphstate:
+                dreamtable[row,header.index(variable)] = graphstate[variable]
 
-
-        elif event['event'] in EVENTS_INITIALIZING:
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'model'
-            dreamtable[row,header.index("Event")] = 'initializing'
-            dreamtable[row,header.index("Item")] = 'sim'
-            dreamtable[row,header.index("Action")] = event['event']
-        
-        elif event['event'] == "phetio.state":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'model'
-            dreamtable[row,header.index("Event")] = 'updating state'
-            dreamtable[row,header.index("Width")] = round(get_state(event)["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
-            dreamtable[row,header.index("Detector location")] = get_state(event)["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"]
-            absorption = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
-            if absorption != None:
-                dreamtable[row,header.index("Absorption")] = round(absorption,2)
-            dreamtable[row,header.index("Laser on status")] = get_state(event)["beersLawLab.beersLawScreen.model.light.onProperty"]
-            dreamtable[row,header.index("Wavelength")] = get_state(event)["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
-            dreamtable[row,header.index("Ruler location")] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
-            dreamtable[row,header.index("Concentration")] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
-        
-        elif "drag" in event['event']:
-            parsed = True
-            drag_event = detect_drag_event(event['event'])
-            drag_item = detect_drag_item(event['event'])
-
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = drag_event
-            dreamtable[row,header.index("Item")] = drag_item
-            if drag_event == 'dragged':
-                try:
-                    direction = get_drag_direction(event)
-                    dreamtable[row,header.index("Action")] = direction
-                except:
-                    pass
-
-        
-        elif event['event'] == "beersLawLab.beersLawScreen.view.lightNode.button.toggled":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'toggle laser'
-            dreamtable[row,header.index("Item")] = 'laser button'
-
-        elif event['event'] == "labBook.textArea.changed":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'editing notes'
-            dreamtable[row,header.index("Item")] = 'notepad'
             dreamtable[row,header.index("Notes")] = get_notes(event)
-        
-        elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
-            parsed = True
-            dreamtable[row,header.index("User or Model?")] = 'user'
-            dreamtable[row,header.index("Event")] = 'ignore'
-            dreamtable[row,header.index("Item")] = 'Absorance text on'
-            dreamtable[row,header.index("Action")] = 'user clicked on text on detector body. Ignore!'
 
-        if not parsed:
+        else:
             print "Error: new event type encountered at event number", i, "with index", event['index']
             print '\t'+event['event'], event['index']
             break
@@ -540,7 +558,7 @@ if __name__ == '__main__':
     # test_json = 'example_cleaned_student_11111111_data_file.json'
     # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
     test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
-    #test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_90447168_2017-01-17_12.17.41.json'
+    # test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_90447168_2017-01-17_12.17.41.json'
     studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
     session = Session()
     session.get_session_data_from_file(test_json)
