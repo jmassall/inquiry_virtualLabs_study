@@ -101,7 +101,7 @@ class TestFullParsing(unittest.TestCase):
         test_log_json = 'sample_beers_log.json'
         session = Session()
         session.get_session_data_from_file(test_log_json)
-        sim,table = mega_parser('90447168',HEADER,session.events)
+        sim,table = mega_parser('90447168',session.events)
         self.assertEqual(sim,'light_absorbance')
         np.testing.assert_array_equal(table[1:,:],test_table)
 
