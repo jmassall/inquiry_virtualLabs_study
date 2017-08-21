@@ -486,11 +486,6 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         table = remove_from_table(table.copy(), trial_removed_from_table)
 
 
-    elif "buttonListener" in event['event']:
-        user_or_model = 'user'
-        simevent = 'ignore'
-        item = 'switch'
-        action = 'user hovering over capacitor switch connections - ignore!'
     elif "concentrationControl.slider.plusButton" in event['event']:
         user_or_model = 'user'
         simevent = 'Changed concentration'
@@ -536,16 +531,6 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         item = 'notepad'
         action = ''
         notes = get_notes(event)
-    elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
-        user_or_model = 'user'
-        simevent = 'ignore'
-        item = 'Absorance text on'
-        action = 'user clicked on text on detector body. Ignore!'
-    elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.currentAmplitudeProperty.changed":
-        user_or_model = 'user'
-        simevent = 'ignore'
-        item = 'amplitude'
-        action = 'amplitude is updated - ignore!'
     else:
         #Didn't detect any kind of event
         print "Error: new event type encountered."
@@ -626,8 +611,8 @@ def mega_parser(studentid, events):
 if __name__ == '__main__':
     # test_json = 'example_cleaned_student_11111111_data_file.json'
     # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
-    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
-    test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_13578154_2017-03-22_15.28.46.json'
+    test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
+    # test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_13578154_2017-03-22_15.28.46.json'
     
     studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
     session = Session()
@@ -642,9 +627,7 @@ if __name__ == '__main__':
 
 
 # TODO
-#     REMOVE AMPLITUDE CHANGE EVENTS
-#     "capacitorLabBasics.lightBulbScreen.model.circuit.currentAmplitudeProperty.changed"
 
-#     remove hovering over switch events
 #     make test function per event to see if parsed correctly.
+
 #     finish parsing capacitors.

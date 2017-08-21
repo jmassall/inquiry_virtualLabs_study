@@ -113,6 +113,38 @@ def check_input_event(event):
     return None
 
 
+CAP_SIM_SWITCH_HOVER_ACTIONS = ["capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.up",
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.up", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.up", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.up",
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.up", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.up"]
+
+
 class Session:
     ''' A class to organize and standardize the information
     contained in a single session with a PhET virtual lab
@@ -170,6 +202,15 @@ class Session:
             elif event['event'] == 'phetio.inputEvent':
                 # this was run on all events in a raw data file for testing purposes.
                 # check_input_event(event)
+                pass
+            elif event['event'] in CAP_SIM_SWITCH_HOVER_ACTIONS:
+                #These actions occur when user hovers over switch (different event than clicking on switch)
+                pass
+            elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.currentAmplitudeProperty.changed":
+                #This happens when the amplitude is changed but we care about voltage which is outputted by state so we ignore this event
+                pass
+            elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
+                #This happens when the user clicks on the tex on the body of the detector (no consequences to this action so we ignore)
                 pass
             else:
                 cleaned_events.append(event)
