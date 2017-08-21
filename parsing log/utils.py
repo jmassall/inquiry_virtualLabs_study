@@ -206,6 +206,10 @@ class Session:
             elif event['event'] in CAP_SIM_SWITCH_HOVER_ACTIONS:
                 #These actions occur when user hovers over switch (different event than clicking on switch)
                 pass
+            elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.platesVoltageProperty.changed":
+                #This happens when the voltage of the capacitor changes when connected to the lightbulb. This information is not useful to us.
+                #All the info we need is in the update state events
+                pass
             elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.currentAmplitudeProperty.changed":
                 #This happens when the amplitude is changed but we care about voltage which is outputted by state so we ignore this event
                 pass

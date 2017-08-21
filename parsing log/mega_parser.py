@@ -13,7 +13,7 @@ import numpy as np
 from utils import *
 
 LIGHT_HEADER = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
-CHARGE_HEADER = ["User","Sim","Time","Index","User or Model?","Event","Item","Action",'Charge','Connection','Voltage','Separation','Area',"Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
+CHARGE_HEADER = ["User","Sim","Time","Index","User or Model?","Event","Item","Action",'Charge','Connection','Battery voltage','Separation','Area',"Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
 
 def initialize_dreamtable(studentid, number_of_events,first_event):
     '''
@@ -156,28 +156,36 @@ def get_notes(event, print_error = True):
             print "Error: event",event['index']," has no 'data > parameters > text'"
             # traceback.print_exc()
 
-def extract_new_datapoint(event, get_record_data_method):
+def extract_new_datapoint(sim, event, get_record_data_method):
     '''
     Grabs the data for the recorded datapoint. Where this data lives depends on if the log file is
     from before or after March 20th.
     Some datapoint's values are formated to match what the students sees (ie. how many decimal places)
     '''
     datapoint = {}
-    #CHECK IN ACTUAL SIM
-    #sim rounds up to 3 decimal places
-    datapoint["Width"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
-    datapoint["Detector location"] = {k:round(v,2) for k,v in get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"].iteritems()}
-    #sim rounds up to 2 decimal places
-    absorption = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"]
-    if absorption != None:
-        datapoint["Absorption"] = round(absorption,2)
-    datapoint["Laser on status"] = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.onProperty"]
-    datapoint["Wavelength"] = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
-    datapoint["Ruler location"] = {k:round(v,2) for k,v in get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"].iteritems()}
-    #sim rounds up to 3 decimal places
-    datapoint["Concentration"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
-    datapoint["trialNumber"] = get_record_data_method(event)["trialNumber"]
-    datapoint["visible"] = get_record_data_method(event)["visible"]
+    if sim == 'light_absorbance':
+        datapoint["Width"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
+        datapoint["Detector location"] = {k:round(v,2) for k,v in get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"].iteritems()}
+        #sim rounds up to 2 decimal places
+        absorption = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+        if absorption != None:
+            datapoint["Absorption"] = round(absorption,2)
+        datapoint["Laser on status"] = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.onProperty"]
+        datapoint["Wavelength"] = get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
+        datapoint["Ruler location"] = {k:round(v,2) for k,v in get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"].iteritems()}
+        #sim rounds up to 3 decimal places
+        datapoint["Concentration"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+        datapoint["trialNumber"] = get_record_data_method(event)["trialNumber"]
+        datapoint["visible"] = get_record_data_method(event)["visible"]
+    elif sim == 'capacitor_charge':
+        datapoint["Battery voltage"] = round(get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
+        datapoint["Capacitor voltage"] = round(get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.platesVoltageProperty"],4)
+        datapoint["Connection"] = get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty"]
+        datapoint["Separation"] = get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty"]*1000
+        datapoint["Area"] = get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty"]["maxX"]**2*1000000
+        datapoint["Charge"] = round(get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.plateChargeMeter.valueProperty"]*1000000000000,2)
+        datapoint["trialNumber"] = get_record_data_method(event)["trialNumber"]
+        datapoint["visible"] = get_record_data_method(event)["visible"]
     return datapoint
 
 def detect_drag_event(event_name):
@@ -297,7 +305,7 @@ def update_state(sim,event):
         simstate["Ruler location"] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
         simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
     elif sim == 'capacitor_charge':
-        simstate["Voltage"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
+        simstate["Battery voltage"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
         simstate["Connection"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty"]
         simstate["Separation"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty"]*1000
         simstate["Area"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty"]["maxX"]**2*1000000
@@ -318,10 +326,11 @@ EVENTS_INITIALIZING = ["beersLawLab.sim.simStarted",
 INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
 
 def parse_event(sim, event, simstate, table, graphstate, notes):
-    parsed = True
+    parsed = False
 
     if "simIFrameAPI.invoked" in event['event']:
         if 'messages' in get_data_parameters(event).keys():
+            parsed = True
             user_or_model = 'model'
             simevent = 'gettingValues'
             item = 'sim'
@@ -329,6 +338,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         else:
             method = get_method(event)
             if method in INITIALIZING_METHODS:
+                parsed = True
                 user_or_model = 'model'
                 simevent = 'initializing'
                 item = 'sim'
@@ -337,36 +347,43 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                 #the following are for log files after March 20th
                 phetioID = get_args_phetioID(event)
                 if phetioID == "labBook.tableExpandButton":
+                    parsed = True
                     user_or_model = 'user'
                     simevent = 'expanding table'
                     item = 'table'
                     action = ''
                 elif phetioID == "labBook.tableCollapseButton":
+                    parsed = True
                     user_or_model = 'user'
                     simevent = 'collapsing table'
                     item = 'table'
                     action = ''
                 elif phetioID == "labBook.graphExpandButton":
+                    parsed = True
                     user_or_model = 'user'
                     simevent = 'expanding graph'
                     item = 'graph'
                     action = ''
                 elif phetioID == "labBook.graphCollapseButton":
+                    parsed = True
                     user_or_model = 'user'
                     simevent = 'collapsing graph'
                     item = 'graph'
                     action = ''
                 elif phetioID == "labBook.simulationExpandButton":
+                    parsed = True
                     user_or_model = 'user'
                     simevent = 'expanding simulation'
                     item = 'simulation'
                     action = ''
                 elif phetioID == "labBook.simulationCollapseButton":
+                    parsed = True
                     user_or_model = 'user'
                     simevent = 'collapsing simulation'
                     item = 'simulation'
                     action = ''
                 elif "Feature" in phetioID:
+                    parsed = True
                     selection = get_data_parameters_args(event)[0]['parameters']['feature']
                     variable_selected, axis = selection.split('_')
                     axis = axis.capitalize()
@@ -375,14 +392,25 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     item = axis+'-axis dropdown menu'
                     action = axis+'-axis changed to '+ variable_selected
                     graphstate[axis+" axis"] = variable_selected
+                elif "Transform" in phetioID:
+                    parsed = True
+                    axis = re.search(r'\.([xy])Transform', phetioID).group(1).capitalize()
+                    scale = get_data_parameters_args_parameters(event)['feature']
+                    user_or_model = 'user'
+                    simevent = 'Selecting scale of '+axis+'-axis'
+                    item = axis+'-axis scale dropdown menu'
+                    action = axis+'-axis scale changed to '+ scale
+                    graphstate[axis+" axis scale"] = scale
                 elif phetioID == "labBook.recordDataButton": #for log data after March 20th 2017
+                    parsed = True
                     user_or_model = 'user'
                     simevent = 'recording data'
                     item = ''
                     action = ''
-                    new_data_point = extract_new_datapoint(event, get_data_parameters_args_parameters)
+                    new_data_point = extract_new_datapoint(sim, event, get_data_parameters_args_parameters)
                     table[new_data_point['trialNumber']] = new_data_point
                 elif "labBook.addToGraphCheckBox" in phetioID:
+                    parsed = True
                     trial_added_or_removed_to_graph = int(re.search(r'\d+', phetioID).group())
                     checked = get_checkbox_status1(event)
                     if is_checkbox_error1(event):
@@ -399,6 +427,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
                     table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
                 elif "labBook.deleteButton" in phetioID:
+                    parsed = True
                     trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
                     user_or_model = 'user'
                     simevent = 'Removing data from table'
@@ -408,43 +437,51 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
 
     #the following are for log files after March 20th
     elif event['event'] == "labBook.recordDataButton.pressed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'recording data'
         item = ''
         action = ''
-        new_data_point = extract_new_datapoint(event, get_data_parameters)
+        new_data_point = extract_new_datapoint(sim, event, get_data_parameters)
         table[new_data_point['trialNumber']] = new_data_point
     elif event['event'] == "labBook.tableExpandButton.pressed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'expanding table'
         item = 'table'
         action = ''
     elif event['event'] == "labBook.tableCollapseButton.pressed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'collapsing table'
         item = 'table'
         action = ''
     elif event['event'] == "labBook.graphExpandButton.pressed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'expanding graph'
         item = 'graph'
         action = ''
     elif event['event'] == "labBook.graphCollapseButton.pressed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'collapsing graph'
         item = 'graph'
         action = ''
     elif event['event'] == "labBook.simulationExpandButton.pressed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'expanding simulation'
         item = 'simulation'
         action = ''
     elif event['event'] == "labBook.simulationCollapseButton.pressed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'collapsing simulation'
         item = 'simulation'
         action = ''
     elif "Feature" in event['event']:
+        parsed = True
         selection = get_data_parameters(event)['feature']
         variable_selected, axis = selection.split('_')
         axis = axis.capitalize()
@@ -454,6 +491,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         action = axis+'-axis changed to '+ variable_selected
         graphstate[axis+" axis"] = variable_selected
     elif "Transform" in event['event']:
+        parsed = True
         axis = re.search(r'\.([xy])Transform', event['event']).group(1).capitalize()
         scale = get_data_parameters(event)['feature']
         user_or_model = 'user'
@@ -462,6 +500,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         action = axis+'-axis scale changed to '+ scale
         graphstate[axis+" axis scale"] = scale
     elif "labBook.addToGraphCheckBox" in event['event']:
+        parsed = True
         trial_added_or_removed_to_graph = int(re.search(r'\d+', event['event']).group())
         checked = get_checkbox_status2(event)
         if is_checkbox_error2(event):
@@ -478,6 +517,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
         table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
     elif "labBook.deleteButton" in event['event']:
+        parsed = True
         trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
         user_or_model = 'user'
         simevent = 'Removing data from table'
@@ -486,38 +526,39 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         table = remove_from_table(table.copy(), trial_removed_from_table)
 
 
-    elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.platesVoltageProperty.changed":
-        user_or_model = 'model'
-        simevent = 'Plate voltage changed'
-        item = "capacitor"
-        action = ''
     elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty.changed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'changed connection'
         item = "switch"
         action = "Changed connection to "+ get_data_parameters(event)['newValue'].split('_')[0]
     elif "concentrationControl.slider.plusButton" in event['event']:
+        parsed = True
         user_or_model = 'user'
         simevent = 'Changed concentration'
         item = "concentration slider"
         action = 'Pressed increment button'
     elif "concentrationControl.slider.minusButton" in event['event']:
+        parsed = True
         user_or_model = 'user'
         simevent = 'Changed concentration'
         item = "concentration slider"
         action = 'Pressed decrement button'
     elif event['event'] in EVENTS_INITIALIZING:
+        parsed = True
         user_or_model = 'model'
         simevent = 'initializing'
         item = 'sim'
         action = event['event']
     elif event['event'] == "phetio.state":
+        parsed = True
         user_or_model = 'model'
         simevent = 'updating state'
         item = ''
         action = ''
         simstate = update_state(sim,event)
     elif "drag" in event['event']:
+        parsed = True
         drag_event = detect_drag_event(event['event'])
         drag_item = detect_drag_item(sim,event['event'])
         user_or_model = 'user'
@@ -531,17 +572,20 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
             except:
                 pass
     elif event['event'] == "beersLawLab.beersLawScreen.view.lightNode.button.toggled":
+        parsed = True
         user_or_model = 'user'
         simevent = 'toggle laser'
         item = 'laser button'
         action = ''
     elif event['event'] == "labBook.textArea.changed":
+        parsed = True
         user_or_model = 'user'
         simevent = 'editing notes'
         item = 'notepad'
         action = ''
         notes = get_notes(event)
-    else:
+    
+    if not parsed:
         #Didn't detect any kind of event
         print "Error: new event type encountered."
         print '\t'+event['event'], event['index']
@@ -570,7 +614,7 @@ def mega_parser(studentid, events):
     if sim == 'light_absorbance':
         simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
     else:
-        simstate = {'Charge': '', 'Connection': '', 'Voltage': '', 'Separation': '', 'Area': ''}
+        simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
     datatable = {}
     graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
     notes = ''
@@ -588,7 +632,7 @@ def mega_parser(studentid, events):
         if sim == 'light_absorbance':
             simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
         else:
-            simstate = {'Charge': '', 'Connection': '', 'Voltage': '', 'Separation': '', 'Area': ''}
+            simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
         # datatable = {}
         graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
         notes = ''
@@ -622,7 +666,8 @@ if __name__ == '__main__':
     # test_json = 'example_cleaned_student_11111111_data_file.json'
     # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
     # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
-    test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_10708152_2017-03-20_15.32.50.json'
+    # test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_10708152_2017-03-20_15.32.50.json'
+    test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_12816168_2017-03-21_17.28.40.json'
     
     studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
     session = Session()
