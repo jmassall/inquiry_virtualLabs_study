@@ -35,124 +35,124 @@ def initialize_dreamtable(studentid, number_of_events,first_event):
     start_time = first_event['timestamp']
     return sim, start_time, header, dreamtable
 
-def get_data(event, print_error = True):
+def get_data(event, show_error_in_console = True):
     '''
     Grabs the information under the first event key "data"
     '''
     try: 
         return event['data']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data'"
             # traceback.print_exc()
 
-def get_data_parameters(event, print_error = True):
+def get_data_parameters(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > parameters
     '''
     try: 
-        return get_data(event, print_error)['parameters']
+        return get_data(event, show_error_in_console)['parameters']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters'"
             # traceback.print_exc()
 
-def get_messages(event, print_error = True):
+def get_messages(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > parameters > messages
     '''
     try: 
-        return get_data_parameters(event, print_error)['messages']
+        return get_data_parameters(event, show_error_in_console)['messages']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > messages'"
             # traceback.print_exc()
 
-def get_method(event, print_error = True):
+def get_method(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > parameters > method
     '''
     try: 
-        return get_data_parameters(event, print_error)['method']
+        return get_data_parameters(event, show_error_in_console)['method']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > method'"
             # traceback.print_exc()
 
-def get_state(event, print_error = True):
+def get_state(event, show_error_in_console = True):
     '''
     Grabs the state information under the event's data > parameters > state
     '''
     try: 
-        return get_data_parameters(event, print_error)['state']
+        return get_data_parameters(event, show_error_in_console)['state']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > state'"
             # traceback.print_exc()
 
-def get_data_parameters_args(event, print_error = True):
+def get_data_parameters_args(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > parameterers > args
     '''
     try: 
-        return get_data_parameters(event, print_error)['args']
+        return get_data_parameters(event, show_error_in_console)['args']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > args'"
             # traceback.print_exc()
 
-def get_data_parameters_args_parameters(event, print_error = True):
+def get_data_parameters_args_parameters(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > parameterers > args
     '''
     try: 
-        return get_data_parameters_args(event, print_error)[0]['parameters']
+        return get_data_parameters_args(event, show_error_in_console)[0]['parameters']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > args > parameters'"
             # traceback.print_exc()
 
-def get_args_phetioID(event, print_error = True):
+def get_args_phetioID(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > parameters > args > phetioID
     '''
     try: 
-        return get_data_parameters_args(event, print_error)[0]['phetioID']
+        return get_data_parameters_args(event, show_error_in_console)[0]['phetioID']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > args > phetioID'"
             # traceback.print_exc()
 
-def get_data_children(event, print_error = True):
+def get_data_children(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > children
     '''
     try: 
-        return get_data(event, print_error)['children']
+        return get_data(event, show_error_in_console)['children']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > children'"
             # traceback.print_exc()
 
-def get_data_children_parameters(event, print_error = True):
+def get_data_children_parameters(event, show_error_in_console = True):
     '''
     Grabs the information under the event's data > children > parameters
     '''
     try: 
-        return get_data_children(event, print_error)[0]['parameters']
+        return get_data_children(event, show_error_in_console)[0]['parameters']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > children > parameters'"
             # traceback.print_exc()
 
-def get_notes(event, print_error = True):
+def get_notes(event, show_error_in_console = True):
     '''
     Grabs the notes under the event's data > parameters > text
     '''
     try:
-        return get_data_parameters(event, print_error)['text'].replace('\n','\\n')
+        return get_data_parameters(event, show_error_in_console)['text'].replace('\n','\\n')
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > text'"
             # traceback.print_exc()
 
@@ -222,10 +222,10 @@ def get_new_old_values(event):
     Detects the old and new value of the item being dragged when they
     are available in the event's log, otherwise no error is printed.
     '''
-    values = get_data_children_parameters(event, print_error = False)
+    values = get_data_children_parameters(event, show_error_in_console = False)
     return values['newValue'],values['oldValue']
 
-def get_checkbox_status1(event, print_error = True):
+def get_checkbox_status1(event, show_error_in_console = True):
     '''
     Detects the status of the checkbox that was clicked.
     This method is used when the log file is from BEFORE March 20th.
@@ -233,11 +233,11 @@ def get_checkbox_status1(event, print_error = True):
     try: 
         return get_data_parameters_args(event)[0]['parameters']['checked']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > args > parameters > checked'"
             # traceback.print_exc()
 
-def get_checkbox_status2(event, print_error = True):
+def get_checkbox_status2(event, show_error_in_console = True):
     '''
     Detects the status of the checkbox that was clicked.
     This method is used when the log file is from AFTER March 20th.
@@ -245,7 +245,7 @@ def get_checkbox_status2(event, print_error = True):
     try: 
         return get_data_parameters(event)['checked']
     except KeyError:
-        if print_error:
+        if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > args > parameters > checked'"
             # traceback.print_exc()
 
@@ -310,7 +310,6 @@ def update_state(sim,event):
         simstate["Separation"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty"]*1000
         simstate["Area"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty"]["maxX"]**2*1000000
         simstate["Charge"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.plateChargeMeter.valueProperty"]*1000000000000,2)
-    print simstate
     return simstate
 
 #All of the event['event'] that relate to the sim initializing
@@ -343,6 +342,12 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                 simevent = 'initializing'
                 item = 'sim'
                 action = method
+            elif method == 'setState': #this happens when sim is restored from trial
+                parsed = True
+                user_or_model = 'model'
+                simevent = 'setting sim state'
+                item = 'sim'
+                action = ''
             else:
                 #the following are for log files after March 20th
                 phetioID = get_args_phetioID(event)
@@ -434,6 +439,27 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     item = 'trialNumber ' + str(trial_removed_from_table)
                     action = 'Data removed from from table'
                     table = remove_from_table(table.copy(), trial_removed_from_table)
+                elif "labBook.restoreButton" in phetioID:
+                    parsed = True
+                    trial_restored = int(re.search(r'\d+', phetioID).group())
+                    user_or_model = 'user'
+                    simevent = 'Restoring sim state'
+                    item = 'trialNumber ' + str(trial_restored)
+                    action = ''
+                elif "labBook.incrementButton" in phetioID:
+                    parsed = True
+                    trial_moved_down = int(re.search(r'\d+', phetioID).group())
+                    user_or_model = 'user'
+                    simevent = 'Moving trial in table'
+                    item = 'trialNumber ' + str(trial_moved_down)
+                    action = 'Moved trial down'
+                elif "labBook.decrementButton" in phetioID:
+                    parsed = True
+                    trial_moved_down = int(re.search(r'\d+', phetioID).group())
+                    user_or_model = 'user'
+                    simevent = 'Moving trial in table'
+                    item = 'trialNumber ' + str(trial_moved_down)
+                    action = 'Moved trial up'
 
     #the following are for log files after March 20th
     elif event['event'] == "labBook.recordDataButton.pressed":
@@ -591,7 +617,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         print '\t'+event['event'], event['index']
         sys.exit()
 
-    print event['index'],parsed, user_or_model, simevent, item, action
+    # print event['index'],parsed, user_or_model, simevent, item, action
 
     return parsed, user_or_model, simevent, item, action, simstate, table, graphstate, notes
 
