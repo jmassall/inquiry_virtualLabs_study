@@ -297,11 +297,11 @@ def update_state(sim,event):
         simstate["Ruler location"] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
         simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
     elif sim == 'capacitor_charge':
-        simstate["Voltage"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"]
+        simstate["Voltage"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
         simstate["Connection"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty"]
         simstate["Separation"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty"]*1000
         simstate["Area"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty"]["maxX"]**2*1000000
-        simstate["Charge"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.plateChargeMeter.valueProperty"]*1000000000000
+        simstate["Charge"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.plateChargeMeter.valueProperty"]*1000000000000,2)
     print simstate
     return simstate
 
@@ -486,6 +486,16 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         table = remove_from_table(table.copy(), trial_removed_from_table)
 
 
+    elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.platesVoltageProperty.changed":
+        user_or_model = 'model'
+        simevent = 'Plate voltage changed'
+        item = "capacitor"
+        action = ''
+    elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty.changed":
+        user_or_model = 'user'
+        simevent = 'changed connection'
+        item = "switch"
+        action = "Changed connection to "+ get_data_parameters(event)['newValue'].split('_')[0]
     elif "concentrationControl.slider.plusButton" in event['event']:
         user_or_model = 'user'
         simevent = 'Changed concentration'
@@ -611,8 +621,8 @@ def mega_parser(studentid, events):
 if __name__ == '__main__':
     # test_json = 'example_cleaned_student_11111111_data_file.json'
     # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
-    test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
-    # test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_13578154_2017-03-22_15.28.46.json'
+    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
+    test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_10708152_2017-03-20_15.32.50.json'
     
     studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
     session = Session()
@@ -627,7 +637,5 @@ if __name__ == '__main__':
 
 
 # TODO
-
 #     make test function per event to see if parsed correctly.
-
 #     finish parsing capacitors.

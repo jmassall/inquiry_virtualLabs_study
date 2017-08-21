@@ -3689,15 +3689,15 @@ User	Sim	Time	Index	User or Model?	Event	Item	Action	Laser on status	Wavelength	
 90447168	light_absorbance	268.11	29019	user	dragged	solutionControls															
 90447168	light_absorbance	268.13	29021	model	updating state			True	780	2.0	0.05	0.87	{u'y': 2, u'x': 6.184137931034483}	{u'y': 3.58, u'x': 3.3}							
 90447168	light_absorbance	268.39	29040	user	dragEnded	solutionControls															
-90447168	light_absorbance	270.82	29459	user	Changed concentration		Pressed increment button														
+90447168	light_absorbance	270.82	29459	user	Changed concentration	concentration slider	Pressed increment button														
 90447168	light_absorbance	270.85	29461	model	updating state			True	780	2.0	0.05	0.89	{u'y': 2, u'x': 6.184137931034483}	{u'y': 3.58, u'x': 3.3}							
-90447168	light_absorbance	270.97	29472	user	Changed concentration		Pressed increment button														
+90447168	light_absorbance	270.97	29472	user	Changed concentration	concentration slider	Pressed increment button														
 90447168	light_absorbance	270.97	29474	model	updating state			True	780	2.0	0.05	0.91	{u'y': 2, u'x': 6.184137931034483}	{u'y': 3.58, u'x': 3.3}							
-90447168	light_absorbance	271.11	29488	user	Changed concentration		Pressed increment button														
+90447168	light_absorbance	271.11	29488	user	Changed concentration	concentration slider	Pressed increment button														
 90447168	light_absorbance	271.13	29490	model	updating state			True	780	2.0	0.05	0.93	{u'y': 2, u'x': 6.184137931034483}	{u'y': 3.58, u'x': 3.3}							
-90447168	light_absorbance	271.25	29503	user	Changed concentration		Pressed increment button														
+90447168	light_absorbance	271.25	29503	user	Changed concentration	concentration slider	Pressed increment button														
 90447168	light_absorbance	271.28	29505	model	updating state			True	780	2.0	0.05	0.95	{u'y': 2, u'x': 6.184137931034483}	{u'y': 3.58, u'x': 3.3}							
-90447168	light_absorbance	271.55	29525	user	Changed concentration		Pressed increment button														
+90447168	light_absorbance	271.55	29525	user	Changed concentration	concentration slider	Pressed increment button														
 90447168	light_absorbance	271.55	29527	model	updating state			True	780	2.0	0.05	0.97	{u'y': 2, u'x': 6.184137931034483}	{u'y': 3.58, u'x': 3.3}							
 90447168	light_absorbance	272.59	29601	user	recording data										{"1": {"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 3.84, "Detector location": {"y": 2.0, "x": 6.18}, "visible": true, "Width": 2.0, "trialNumber": 1, "Wavelength": 780, "Concentration": 0.2, "Laser on status": true}, "2": {"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 1.93, "Detector location": {"y": 2.0, "x": 6.18}, "visible": true, "Width": 2.0, "trialNumber": 2, "Wavelength": 780, "Concentration": 0.1, "Laser on status": true}, "3": {"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 0.0, "Detector location": {"y": 2.0, "x": 6.18}, "visible": true, "Width": 2.0, "trialNumber": 3, "Wavelength": 780, "Concentration": 0.0, "Laser on status": true}, "4": {"Ruler location": {"y": 3.58, "x": 3.3}, "Absorption": 0.97, "Detector location": {"y": 2.0, "x": 6.18}, "visible": false, "Width": 2.0, "trialNumber": 4, "Wavelength": 780, "Concentration": 0.05, "Laser on status": true}}						
 90447168	light_absorbance	274.77	29734	user	Adding data to graph	trialNumber 4	Data added to graph successfully.														
