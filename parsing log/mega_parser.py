@@ -10,6 +10,7 @@ import re
 # import traceback
 import json
 import numpy as np
+import argparse
 from utils import *
 
 LIGHT_HEADER = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
@@ -688,25 +689,7 @@ def mega_parser(studentid, events):
 
     return sim, dreamtable
 
-if __name__ == '__main__':
-    # test_json = 'example_cleaned_student_11111111_data_file.json'
-    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_90447168_2017-01-17_11.22.45.json'
-    # test_json = 'pretty_print_copy_log_lab-book-beers-law-lab_83459165_2017-01-13_14.26.08.json'
-    # test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_10708152_2017-03-20_15.32.50.json'
-    test_json = 'pretty_print_copy_log_lab-book-capacitor-lab-basics_12816168_2017-03-21_17.28.40.json'
-    
-    studentid = re.search(r'_(\d{7,8})_', test_json).group(1)
-    session = Session()
-    session.get_session_data_from_file(test_json)
-    print studentid
-    sim, dreamtable = mega_parser(studentid, session.events)
-    np.savetxt('dream_table_{0}_{1}.txt'.format(studentid,sim), dreamtable, delimiter='\t', fmt='%s')
 
 #test sim with this link
 # https://phet-io.colorado.edu/sims/beers-law-lab/1.6.3-phetio/wrappers/login/login.html?wrapper=lab-book&validationRule=validateDigits&numberOfDigits=8&sim=beers-law-lab&console&publisher_id=0c82b6bf&application_id=1d0612a8397e8b1dbf4993bc58869fa1&widget_id=lab-book-beers-law-lab&phetioEmitStates=true&phetioEmitInputEvents=false
 # https://phet-io.colorado.edu/sims/capacitor-lab-basics/1.4.2-phetio/wrappers/login/login.html?wrapper=lab-book&validationRule=validateDigits&numberOfDigits=8&sim=capacitor-lab-basics&console&publisher_id=0c82b6bf&application_id=1d0612a8397e8b1dbf4993bc58869fa1&widget_id=lab-book-capacitor-lab-basics&phet-io.emitStates
-
-
-# TODO
-#     make test function per event to see if parsed correctly.
-#     finish parsing capacitors.

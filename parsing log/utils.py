@@ -11,6 +11,14 @@ import json
 import getpass
 import math
 
+
+
+def find_student_log_file(infolder, sim, studentid):
+    for root, dirs, files in os.walk(infolder):
+        for f in files:
+            if sim in f and studentid in f:
+                return os.path.join(root, f)
+                
 def get_one_line(raw_file_path,output_file):
     ''' opens a raw data file, grabs the first line and outputs
      it in pretty print format in a new file.'''
@@ -32,6 +40,7 @@ def get_one_line(raw_file_path,output_file):
     return None
 
 import datetime
+
 def convert_unix_time(t):
     ''' Take a unix time stamp in milliseconds and convert to date and time'''
     return datetime.datetime.fromtimestamp(int(t)/1000.0).strftime('%Y-%m-%d_%H.%M.%S')
