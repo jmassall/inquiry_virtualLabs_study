@@ -55,7 +55,7 @@ def make_parser_tests(eventtypes, studentid, events, test_file):
 
             if parsed and simevent not in eventtypes: #if we managed to parse, we update the dreamtable
                 eventtypes.append(simevent)
-                test_file.write(simevent.replace(" ","_")+"_event = json.loads(''' ")
+                test_file.write(simevent.replace(" ","_").replace("-","_")+"_event = json.loads(''' ")
                 json.dump(event, test_file, indent=4, sort_keys=True)
                 test_file.write("\n''') \n\n")
 
