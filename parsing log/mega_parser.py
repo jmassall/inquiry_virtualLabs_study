@@ -24,10 +24,10 @@ def initialize_dreamtable(studentid, number_of_events,first_event):
     It returns the sim, the first time stamp and the initialized table.
     '''
     if "beersLaw" in first_event["event"]:
-        sim = 'light_absorbance'
+        sim = 'beers-law-lab'
         header = LIGHT_HEADER
     else:
-        sim = 'capacitor_charge'
+        sim = 'capacitor-lab-basics'
         header = CHARGE_HEADER
     dreamtable = np.chararray(shape=(number_of_events+1,len(header)), itemsize=100000)
     dreamtable[0,:] = header
@@ -164,7 +164,7 @@ def extract_new_datapoint(sim, event, get_record_data_method):
     Some datapoint's values are formated to match what the students sees (ie. how many decimal places)
     '''
     datapoint = {}
-    if sim == 'light_absorbance':
+    if sim == 'beers-law-lab':
         datapoint["Width"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
         datapoint["Detector location"] = {k:round(v,2) for k,v in get_record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"].iteritems()}
         #sim rounds up to 2 decimal places
@@ -178,7 +178,7 @@ def extract_new_datapoint(sim, event, get_record_data_method):
         datapoint["Concentration"] = round(get_record_data_method(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
         datapoint["trialNumber"] = get_record_data_method(event)["trialNumber"]
         datapoint["visible"] = get_record_data_method(event)["visible"]
-    elif sim == 'capacitor_charge':
+    elif sim == 'capacitor-lab-basics':
         datapoint["Battery voltage"] = round(get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
         datapoint["Capacitor voltage"] = round(get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.platesVoltageProperty"],4)
         datapoint["Connection"] = get_record_data_method(event)['state']["capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty"]
@@ -200,9 +200,9 @@ def detect_drag_item(sim,event_name):
     '''
     Detects what item is being dragged.
     '''
-    if sim == 'light_absorbance':
+    if sim == 'beers-law-lab':
         drag_item = event_name.split('.')[3]
-    elif sim == 'capacitor_charge':
+    elif sim == 'capacitor-lab-basics':
         drag_item = event_name.split('.')[4]
     return drag_item
 
@@ -295,7 +295,7 @@ def remove_from_table(current_table, trial_removed):
 
 def update_state(sim,event):
     simstate = {}
-    if sim == 'light_absorbance':
+    if sim == 'beers-law-lab':
         simstate["Width"] = round(get_state(event)["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
         simstate["Detector location"] = get_state(event)["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"]
         absorption = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
@@ -305,7 +305,7 @@ def update_state(sim,event):
         simstate["Wavelength"] = get_state(event)["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
         simstate["Ruler location"] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
         simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
-    elif sim == 'capacitor_charge':
+    elif sim == 'capacitor-lab-basics':
         simstate["Battery voltage"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
         simstate["Connection"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty"]
         simstate["Separation"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty"]*1000
@@ -631,14 +631,13 @@ def mega_parser(studentid, events):
     '''
     sim, first_time_stamp, header, dreamtable = initialize_dreamtable(studentid, len(events),events[0])
 
-    eventypes = []
     #initialize all variables
     parsed = False
     user_or_model = ''
     simevent = ''
     item = ''
     action = ''
-    if sim == 'light_absorbance':
+    if sim == 'beers-law-lab':
         simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
     else:
         simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
@@ -656,7 +655,7 @@ def mega_parser(studentid, events):
         simevent = ''
         item = ''
         action = ''
-        if sim == 'light_absorbance':
+        if sim == 'beers-law-lab':
             simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
         else:
             simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
