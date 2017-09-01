@@ -11,6 +11,14 @@ import json
 import getpass
 import math
 
+
+
+def find_student_log_file(infolder, sim, studentid):
+    for root, dirs, files in os.walk(infolder):
+        for f in files:
+            if sim in f and studentid in f:
+                return os.path.join(root, f)
+                
 def get_one_line(raw_file_path,output_file):
     ''' opens a raw data file, grabs the first line and outputs
      it in pretty print format in a new file.'''
@@ -32,6 +40,7 @@ def get_one_line(raw_file_path,output_file):
     return None
 
 import datetime
+
 def convert_unix_time(t):
     ''' Take a unix time stamp in milliseconds and convert to date and time'''
     return datetime.datetime.fromtimestamp(int(t)/1000.0).strftime('%Y-%m-%d_%H.%M.%S')
@@ -113,6 +122,38 @@ def check_input_event(event):
     return None
 
 
+CAP_SIM_SWITCH_HOVER_ACTIONS = ["capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.batteryConnectionAreaNode.buttonListener.up",
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.openConnectionAreaNode.buttonListener.up", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.bottomSwitchNode.wireSwitchListener.up", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.batteryConnectionAreaNode.buttonListener.up",
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.openConnectionAreaNode.buttonListener.up", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.down", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.fire", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.out", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.over", 
+                                "capacitorLabBasics.lightBulbScreen.view.lightBulbCircuitNode.topSwitchNode.wireSwitchListener.up"]
+
+
 class Session:
     ''' A class to organize and standardize the information
     contained in a single session with a PhET virtual lab
@@ -170,6 +211,19 @@ class Session:
             elif event['event'] == 'phetio.inputEvent':
                 # this was run on all events in a raw data file for testing purposes.
                 # check_input_event(event)
+                pass
+            elif event['event'] in CAP_SIM_SWITCH_HOVER_ACTIONS:
+                #These actions occur when user hovers over switch (different event than clicking on switch)
+                pass
+            elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.platesVoltageProperty.changed":
+                #This happens when the voltage of the capacitor changes when connected to the lightbulb. This information is not useful to us.
+                #All the info we need is in the update state events
+                pass
+            elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.currentAmplitudeProperty.changed":
+                #This happens when the amplitude is changed but we care about voltage which is outputted by state so we ignore this event
+                pass
+            elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
+                #This happens when the user clicks on the tex on the body of the detector (no consequences to this action so we ignore)
                 pass
             else:
                 cleaned_events.append(event)
