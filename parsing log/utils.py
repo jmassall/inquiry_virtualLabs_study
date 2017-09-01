@@ -13,11 +13,17 @@ import math
 
 
 
-def find_student_log_file(infolder, sim, studentid):
-    for root, dirs, files in os.walk(infolder):
-        for f in files:
-            if sim in f and studentid in f:
-                return os.path.join(root, f)
+def find_student_log_file(infolder, sim, studentid, date=None):
+    if date:
+        for root, dirs, files in os.walk(infolder):
+            for f in files:
+                if sim in f and studentid in f and date in f:
+                    return os.path.join(root, f)
+    else:
+        for root, dirs, files in os.walk(infolder):
+            for f in files:
+                if sim in f and studentid in f:
+                    return os.path.join(root, f)
                 
 def get_one_line(raw_file_path,output_file):
     ''' opens a raw data file, grabs the first line and outputs

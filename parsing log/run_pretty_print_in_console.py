@@ -39,6 +39,7 @@ def main(*argv):
     '''handles user input and runs pretty print function'''
     parser = argparse.ArgumentParser(description='TScript takes a cleaned log file and pretty prints it to facilitate parsing')
     parser.add_argument('-id', help='Student id')
+    parser.add_argument('-date', help='Date in format YYYY-MM-DD_hh.mm.ss',default=None)
     parser.add_argument('-beers', help='If want beers sim log file', action='store_true', default=False)
     parser.add_argument('-caps', help='If want caps sim log file', action='store_true', default=False)
     parser.add_argument('-infolder', help='Location of file', default = INFOLDER)
@@ -60,10 +61,14 @@ def main(*argv):
     else:
         sim = 'capacitor'
 
-    print "Pretty printing log file for student", studentid, "for sim", sim, "in folder ", infolder
+    if args.date:
+        date =args.date
+        print "Pretty printing log file for student", studentid, "for sim", sim,"for date", date, "in folder ", infolder
+    else:
+        print "Pretty printing log file for student", studentid, "for sim", sim, "in folder ", infolder
     
     #find the right file
-    in_file_path = find_student_log_file(infolder, sim, studentid)
+    in_file_path = find_student_log_file(infolder, sim, studentid, date=date)
     out_file_path = os.path.join(outfolder, 'pretty_print_copy_'+ in_file_path.split('\\')[-1] )
 
     #now we pretty print it into the output folder
