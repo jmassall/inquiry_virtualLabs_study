@@ -61,8 +61,8 @@ def main(*argv):
     else:
         sim = 'capacitor'
 
-    if args.date:
-        date =args.date
+    date =args.date
+    if date:
         print "Pretty printing log file for student", studentid, "for sim", sim,"for date", date, "in folder ", infolder
     else:
         print "Pretty printing log file for student", studentid, "for sim", sim, "in folder ", infolder
