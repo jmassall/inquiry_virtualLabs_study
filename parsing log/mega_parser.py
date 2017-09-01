@@ -571,6 +571,18 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         simevent = 'Changed concentration'
         item = "concentration slider"
         action = 'Pressed decrement button'
+    elif "wavelengthSlider.plusButton" in event['event']:
+        parsed = True
+        user_or_model = 'user'
+        simevent = 'Changed wavelength'
+        item = "wavelength slider"
+        action = 'Pressed increment button'
+    elif "wavelengthSlider.minusButton" in event['event']:
+        parsed = True
+        user_or_model = 'user'
+        simevent = 'Changed wavelength'
+        item = "wavelength slider"
+        action = 'Pressed decrement button'
     elif event['event'] in EVENTS_INITIALIZING:
         parsed = True
         user_or_model = 'model'
