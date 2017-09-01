@@ -176,27 +176,27 @@ class Session:
         self.events = cleaned_events
         return None
 
-    def create_walk(self):
-        '''grabs the relevant information from each event 
-        to get a rough walk of the data'''
+    # def create_walk(self):
+    #     '''grabs the relevant information from each event 
+    #     to get a rough walk of the data'''
         
-        self.walk = []
-        for event in self.events:
-            # self.walk.append([str(event['timestamp']),
-            #                     str(event['type']),
-            #                     str(event['event'])])
-            self.walk.append(str(event['event']))
-        return None
+    #     self.walk = []
+    #     for event in self.events:
+    #         # self.walk.append([str(event['timestamp']),
+    #         #                     str(event['type']),
+    #         #                     str(event['event'])])
+    #         self.walk.append(str(event['event']))
+    #     return None
 
-    def export_walk(self):
-        ''' exports the walk in a text file '''
+    # def export_walk(self):
+    #     ''' exports the walk in a text file '''
 
-        outfile = open('example_walk.txt', 'w')
-        for event in self.walk:
-            # outfile.write(','.join(event)+'\n')
-            outfile.write(event+'\n')
+    #     outfile = open('example_walk.txt', 'w')
+    #     for event in self.walk:
+    #         # outfile.write(','.join(event)+'\n')
+    #         outfile.write(event+'\n')
 
-        outfile.close()
+    #     outfile.close()
 
 
 #HOW TO USE THE SESSION CLASS?
