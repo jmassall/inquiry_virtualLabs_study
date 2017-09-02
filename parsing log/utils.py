@@ -231,6 +231,9 @@ class Session:
             elif event['event'] == "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fired":
                 #This happens when the user clicks on the tex on the body of the detector (no consequences to this action so we ignore)
                 pass
+            elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.viewControlPanel.verticalCheckBoxGroup.eFieldCheckBox.toggled":
+                #This is event from an old version of the sim when there was an efield button. It only occurs on sims with id 99999999
+                pass
             else:
                 cleaned_events.append(event)
         self.events = cleaned_events

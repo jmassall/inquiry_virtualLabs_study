@@ -313,6 +313,10 @@ def update_state(sim,event):
         simstate["Charge"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.plateChargeMeter.valueProperty"]*1000000000000,2)
     return simstate
 
+#All post restore events
+EVENTS_POST_RESTORE = ["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.dielectricMaterialProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.topCircuitSwitch.switchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.topCircuitSwitch.switchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.bottomCircuitSwitch.switchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.bottomCircuitSwitch.switchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopToSwitchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopToSwitchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomToSwitchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomToSwitchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.bodyLocationProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.positiveProbeLocationProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.negativeProbeLocationProperty.changed","beersLawLab.beersLawScreen.model.cuvette.widthProperty.changed","beersLawLab.beersLawScreen.model.light.wavelengthProperty.changed","beersLawLab.beersLawScreen.model.ruler.locationProperty.changed","beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty.changed","beersLawLab.beersLawScreen.model.detector.body.locationProperty.changed","beersLawLab.beersLawScreen.model.detector.probe.locationProperty.changed","beersLawLab.beersLawScreen.model.light.onProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.disconnectedPlateChargeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty.changed"]
+
+
 #All of the event['event'] that relate to the sim initializing
 EVENTS_INITIALIZING = ["beersLawLab.sim.simStarted",
                         "capacitorLabBasics.sim.simStarted",
@@ -681,6 +685,37 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         simevent = 'simulation box size is changing'
         item = 'sim'
         action = "ignore"
+
+    #when a trial number is restored some of the following events may occur
+    #we ignore them becasue we will get the changes in values from phetio.state events
+    elif event['event'] in EVENTS_POST_RESTORE:
+        parsed = True
+        user_or_model = 'model'
+        simevent = 'sim properties updating after restore'
+        item = event['event'].split('.')[-2]
+        action = "ignore"
+
+
+    #the following are events that only occur in older version of the sim
+    elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.resetAllButton.fired":
+        parsed = True
+        user_or_model = 'user'
+        simevent = 'reset all'
+        item = ''
+        action = ""
+    elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.viewControlPanel.verticalCheckBoxGroup.currentCheckBox.toggled":
+        parsed = True
+        user_or_model = 'user'
+        simevent = 'currentCheckBox toggled'
+        item = 'currentCheckBox'
+        action = ""
+    elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.viewControlPanel.verticalCheckBoxGroup.plateChargesCheckBox.toggled":
+        parsed = True
+        user_or_model = 'user'
+        simevent = 'plateChargesCheckBox toggled'
+        item = 'plateChargesCheckBox'
+        action = ""
+
 
 
     if not parsed:
