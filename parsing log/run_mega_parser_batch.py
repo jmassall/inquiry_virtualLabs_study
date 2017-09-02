@@ -7,6 +7,7 @@ This script runs the parser on cleaned log files
 import os
 import sys
 import json
+import traceback
 from mega_parser import *
 
 datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data\\cleaned_and_split_'
@@ -19,6 +20,7 @@ outpath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_sk
 #rawfiles = ['43abdd26-76bd-4fe9-9f7b-29500369038f','38663fa4-7ac5-4868-b687-82d9aa05ab37','5a257a80-aa82-471d-b75c-f1113f314da1','241e54d6-f579-4ac5-9cbd-f37b826daea8']
 
 rawfiles = ['43abdd26-76bd-4fe9-9f7b-29500369038f','38663fa4-7ac5-4868-b687-82d9aa05ab37']
+rawfiles = ['38663fa4-7ac5-4868-b687-82d9aa05ab37']
 for rawfilename in rawfiles:
     in_data_path = datapath+rawfilename
     parsed_data_path = os.path.join(outpath,'parsed_' + rawfilename)
@@ -55,8 +57,12 @@ for rawfilename in rawfiles:
                 session.get_session_data_from_file(filepath)
                 try: 
                     sim, dreamtable = mega_parser(studentid, session.events)
-                except:
+                except Exception, e:
+                    e = sys.exc_info()
                     print "Parsing failed:", filepath
+                    print e[0]
+                    print e[1]
+                    print traceback.print_tb(e[2])
                     continue
                 f.close()
             
