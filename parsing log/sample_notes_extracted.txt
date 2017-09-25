@@ -1,0 +1,62 @@
+	When concentration was the only factor changed in the experiment, and it was doubled, concentration doubled accordingly. When the path length (cuvette width) doubled, absorbance also doubled accordingly. Therefore, both path length and concentration of the analyte in the cuvette are directly proportional to absorbance and can be equated to absorbance with a proportionality constant, epsilon (molar absorptivity).
+
+	More copper sulfate means more absorbency. 
+But there is a big difference in absorbency that depends entirely on the colors.
+For example if we put the copper sulfate to its full consideration of 200mM then test the different colors. the colors on the right side of the spectrum that are red and maroon hues are absorbed almost completely and barely able to pass any light though.
+	
+
+
+	As wavelength goes to either side of the visible light spectrum, the light absorbance is at its minimum when the wavelength is same color as the solution.
+	
+
+
+
+	
+	for a green wavelength at 136mM, absorbance did not change with beaker size change. with lower concentrations, absorbance went to 0 at wider widths, with higher concentrations, absorbance changed slightly with a change in width
+	
+	
+	
+	
+	
+	
+	As predicted, Absorbance vs. Concentration plots a linear curve, supporting the supposition that there is a linear relationship.
+
+Again, as expected, Absorbance vs. length plots a linear curve, supporting the expectation of a linear relationship
+	
+	
+	
+	increase wavelegnth, concentration, and beaker width=more absorbance
+	
+	
+	
+	
+	
+	
+	
+	Wider the beaker, more absorbed as you move further away from laser
+
+Longer wavelength (red) = more absorbed
+
+higher concen
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	LASER IS NEEDED TO START THE ABSORBANCE DETECTOR.
+increasing [CuSO4] makes the solution more blue
+all factors equal, dark red is at 1, violet at 0.02
+
+All wave lengths =/= red gives 0.01, assumption that violet contained a bit of red
+
+More volume = more absorbency
+
+More concentration = more absorbency
+
+higher wavelengths still not absorbing
+
