@@ -24,7 +24,13 @@ def find_student_log_file(infolder, sim, studentid, date=None):
             for f in files:
                 if sim in f and studentid in f:
                     return os.path.join(root, f)
-                
+
+def get_parsed_df(folder, sim, studentid, date=None):
+    #find the right file
+    parsed_log_file = find_student_log_file(folder, sim, studentid, date=date)
+    return pd.read_table(parsed_log_file, sep='\t')
+
+
 def get_one_line(raw_file_path,output_file):
     ''' opens a raw data file, grabs the first line and outputs
      it in pretty print format in a new file.'''
