@@ -433,13 +433,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                         action = 'Data removed from graph.'
                     user_or_model = 'user'
                     item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-                    print phetioID, trial_added_or_removed_to_graph
-                    try:
-                        table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
-                    except:
-                        print 'ERROR'
-                        print event['index']
-                        table ={"ERROR":"ERRoR"}
+                    table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
                 elif "labBook.deleteButton" in phetioID:
                     parsed = True
                     trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
@@ -447,13 +441,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     simevent = 'Removing data from table'
                     item = 'trialNumber ' + str(trial_removed_from_table)
                     action = 'Data removed from from table'
-                    print phetioID, trial_removed_from_table
-                    try:
-                        table = remove_from_table(table.copy(), trial_removed_from_table)
-                    except:
-                        print 'ERROR'
-                        print event['index']
-                        table ={"ERROR":"ERRoR"}
+                    table = remove_from_table(table.copy(), trial_removed_from_table)
                 elif "labBook.restoreButton" in phetioID:
                     parsed = True
                     trial_restored = int(re.search(r'\d+', phetioID).group())
@@ -563,7 +551,14 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
             action = 'Data removed from graph.'
         user_or_model = 'user'
         item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-        table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+        # table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+        print phetioID, trial_added_or_removed_to_graph
+        try:
+            table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+        except:
+            print 'ERROR'
+            print event['index']
+            table ={"ERROR":"ERRoR"}
     elif "labBook.deleteButton" in event['event']:
         parsed = True
         trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
@@ -571,7 +566,14 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         simevent = 'Removing data from table'
         item = 'trialNumber ' + str(trial_removed_from_table)
         action = 'Data removed from from table'
-        table = remove_from_table(table.copy(), trial_removed_from_table)
+        # table = remove_from_table(table.copy(), trial_removed_from_table)
+        print phetioID, trial_removed_from_table
+        try:
+            table = remove_from_table(table.copy(), trial_removed_from_table)
+        except:
+            print 'ERROR'
+            print event['index']
+            table ={"ERROR":"ERRoR"}
     elif "labBook.restoreButton" in event['event']:
         parsed = True
         trial_restored = int(re.search(r'\d+', event['event']).group())
