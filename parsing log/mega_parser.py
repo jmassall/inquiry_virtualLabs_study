@@ -433,7 +433,14 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                         action = 'Data removed from graph.'
                     user_or_model = 'user'
                     item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-                    table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+                    # table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+                    
+                    try:
+                        table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+                    except:
+                        print 'ERROR', event['index']
+                        print 'type1',phetioID, trial_added_or_removed_to_graph
+                        item = 'ERROR'
                 elif "labBook.deleteButton" in phetioID:
                     parsed = True
                     trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
@@ -441,7 +448,14 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     simevent = 'Removing data from table'
                     item = 'trialNumber ' + str(trial_removed_from_table)
                     action = 'Data removed from from table'
-                    table = remove_from_table(table.copy(), trial_removed_from_table)
+                    # table = remove_from_table(table.copy(), trial_removed_from_table)
+                    
+                    try:
+                        table = remove_from_table(table.copy(), trial_removed_from_table)
+                    except:
+                        print 'ERROR', event['index']
+                        print 'type1',phetioID, trial_removed_from_table
+                        item = 'ERROR'
                 elif "labBook.restoreButton" in phetioID:
                     parsed = True
                     trial_restored = int(re.search(r'\d+', phetioID).group())
@@ -471,7 +485,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     action = ''
                     notes = get_notes(event,get_data_parameters_args_parameters)
 
-    #the following are for log files after March 20th
+    #the following are for log files before March 20th
     elif event['event'] == "labBook.recordDataButton.pressed":
         parsed = True
         user_or_model = 'user'
@@ -552,13 +566,13 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         user_or_model = 'user'
         item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
         # table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
-        print phetioID, trial_added_or_removed_to_graph
+        
         try:
             table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
         except:
-            print 'ERROR'
-            print event['index']
-            table ={"ERROR":"ERRoR"}
+            print 'ERROR', event['index']
+            print phetioID, trial_added_or_removed_to_graph
+            item = 'ERROR'
     elif "labBook.deleteButton" in event['event']:
         parsed = True
         trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
@@ -567,13 +581,13 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         item = 'trialNumber ' + str(trial_removed_from_table)
         action = 'Data removed from from table'
         # table = remove_from_table(table.copy(), trial_removed_from_table)
-        print phetioID, trial_removed_from_table
+        
         try:
             table = remove_from_table(table.copy(), trial_removed_from_table)
         except:
-            print 'ERROR'
-            print event['index']
-            table ={"ERROR":"ERRoR"}
+            print 'ERROR', event['index']
+            print phetioID, trial_removed_from_table
+            item = 'ERROR'
     elif "labBook.restoreButton" in event['event']:
         parsed = True
         trial_restored = int(re.search(r'\d+', event['event']).group())

@@ -17,8 +17,14 @@ outpath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_sk
 # rawfilename = '5a257a80-aa82-471d-b75c-f1113f314da1'
 # rawfilename = '241e54d6-f579-4ac5-9cbd-f37b826daea8'
 
-rawfiles = ['43abdd26-76bd-4fe9-9f7b-29500369038f','38663fa4-7ac5-4868-b687-82d9aa05ab37']
-# rawfiles = ['38663fa4-7ac5-4868-b687-82d9aa05ab37']
+# rawfiles = ['43abdd26-76bd-4fe9-9f7b-29500369038f','38663fa4-7ac5-4868-b687-82d9aa05ab37']
+rawfiles = ['38663fa4-7ac5-4868-b687-82d9aa05ab37'] ##capacitors sim logs
+REPARSE = False #if the parsed file already exists, we don't reparse and replace it.
+
+IDS = ['12345678','12345678','12665164','16136159','17576140','17655165','18866165']
+DATES = ['2016-11-08_14.23.13','2016-11-08_14.23.13','2017-03-21_18.25.09','2017-03-20_16.24.32','2017-03-22_16.25.06','2017-03-28_15.29.17','2017-03-20_16.24.18']
+
+
 for rawfilename in rawfiles:
     in_data_path = datapath+rawfilename
     parsed_data_path = os.path.join(outpath,'parsed_' + rawfilename)
@@ -44,7 +50,13 @@ for rawfilename in rawfiles:
 
             outname = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)
             outfilepath = os.path.join(parsed_data_path,outname)
-            if os.path.isfile(outfilepath):
+            print parsed_data_path
+            sys.exit()
+
+            if studentid not in IDS and date not in DATES:
+                continue
+
+            if os.path.isfile(outfilepath) and not REPARSE:
                 # print  "ALREADY FOUND:", outname
                 continue
             else:
