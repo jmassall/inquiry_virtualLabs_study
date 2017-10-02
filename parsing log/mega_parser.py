@@ -298,6 +298,33 @@ def remove_from_table(current_table, trial_removed):
     del new_table[trial_removed]
     return new_table 
 
+def get_trial_data(trial):
+    return trial
+
+def extract_table_from_userData(event, sim):
+    table = {}
+    userData = get_data_children_parameters(event)['userData']
+    for trial in userData:
+        new_data_point = extract_new_datapoint(sim, trial, get_trial_data)
+        table[new_data_point['trialNumber']] = new_data_point
+    return table
+
+def check_parsed_table_with_userData(current_table,event,sim):
+    # different = False
+    extracted_table = extract_table_from_userData(event, sim)
+    # for k,v in extracted_table:
+    #     if k in current_table.keys():
+    #         if current_table[k] != extracted_table[k]:
+    #             different = True
+    #             print 'Here'
+    #     else:
+    #         different = True
+    print '\textracted table:', extracted_table
+    print '\tparsed table:', current_table
+    diff= cmp(current_table,extracted_table)
+    print '\t',diff
+    return diff,extracted_table
+
 def update_state(sim,event):
     simstate = {}
     if sim == 'beers-law-lab':
@@ -449,8 +476,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     try:
                         table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
                     except:
-                        print 'ERROR', event['index']
-                        print 'type1',phetioID, trial_added_or_removed_to_graph
+                        print 'ERROR', event['index'], phetioID, trial_added_or_removed_to_graph
                         item = 'ERROR'
                 elif "labBook.deleteButton" in phetioID:
                     parsed = True
@@ -460,12 +486,12 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     item = 'trialNumber ' + str(trial_removed_from_table)
                     action = 'Data removed from from table'
                     # table = remove_from_table(table.copy(), trial_removed_from_table)
-                    
+                    print "CHECKING TABLE:", phetioID
+                    diff, table = check_parsed_table_with_userData(table,event,sim)
                     try:
                         table = remove_from_table(table.copy(), trial_removed_from_table)
                     except:
-                        print 'ERROR', event['index']
-                        print 'type1',phetioID, trial_removed_from_table
+                        print '\t\t\t ERROR', event['index'], phetioID, trial_removed_from_table
                         item = 'ERROR'
                 elif "labBook.restoreButton" in phetioID:
                     parsed = True
