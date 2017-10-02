@@ -54,14 +54,15 @@ def main(*argv):
     out_file = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)
 
     try:
-        with open(in_file_path,'r') as f:
-            session = Session()
-            session.get_session_data_from_file(in_file_path)
-            sim, dreamtable = mega_parser(studentid, session.events)
-            f.close()
-    except:
+        f = open(in_file_path,'r')
+    except Exception:
         print "File not found.\n"
         sys.exit()
+
+    session = Session()
+    session.get_session_data_from_file(in_file_path)
+    sim, dreamtable = mega_parser(studentid, session.events)
+    f.close()
     
     with open(out_file, 'w') as out_file_path:    
         np.savetxt(out_file_path, dreamtable, delimiter='\t', fmt='%s')
