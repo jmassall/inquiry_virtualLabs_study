@@ -56,6 +56,10 @@ def main(*argv):
     with open(in_file_path,'r') as f:
         session = Session()
         session.get_session_data_from_file(in_file_path)
+        if len(session.events) == 0: 
+            print "Log file has no events. Parsing skipped"
+            return None
+
         sim, dreamtable = mega_parser(studentid, session.events)
         f.close()
     
