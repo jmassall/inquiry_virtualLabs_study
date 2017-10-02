@@ -53,11 +53,15 @@ def main(*argv):
         date = re.search(r'\d{7,8}_([\d\-\.\_]+)\.json', in_file_path).group(1)
     out_file = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)
 
-    with open(in_file_path,'r') as f:
-        session = Session()
-        session.get_session_data_from_file(in_file_path)
-        sim, dreamtable = mega_parser(studentid, session.events)
-        f.close()
+    try:
+        with open(in_file_path,'r') as f:
+            session = Session()
+            session.get_session_data_from_file(in_file_path)
+            sim, dreamtable = mega_parser(studentid, session.events)
+            f.close()
+    except:
+        print "File not found.\n"
+        sys.exit()
     
     with open(out_file, 'w') as out_file_path:    
         np.savetxt(out_file_path, dreamtable, delimiter='\t', fmt='%s')

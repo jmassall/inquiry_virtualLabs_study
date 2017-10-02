@@ -62,19 +62,23 @@ for rawfilename in rawfiles:
             else:
                 print '\n', filepath
 
-            with open(filepath,'r') as f:
-                session = Session()
-                session.get_session_data_from_file(filepath)
-                try: 
-                    sim, dreamtable = mega_parser(studentid, session.events)
-                except Exception, e:
-                    e = sys.exc_info()
-                    print "Parsing failed:", filepath
-                    print e[0]
-                    print e[1]
-                    print traceback.print_tb(e[2])
-                    continue
-                f.close()
+            try:
+                with open(filepath,'r') as f:
+                    session = Session()
+                    session.get_session_data_from_file(filepath)
+                    try: 
+                        sim, dreamtable = mega_parser(studentid, session.events)
+                    except Exception, e:
+                        e = sys.exc_info()
+                        print "Parsing failed:", filepath
+                        print e[0]
+                        print e[1]
+                        print traceback.print_tb(e[2])
+                        continue
+                    f.close()
+            except:
+                print "File not found.\n"
+                sys.exit()
             
             with open(outfilepath, 'w') as outfile:    
                 np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')
