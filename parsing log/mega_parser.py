@@ -175,7 +175,12 @@ def extract_new_datapoint(sim, event, record_data_method):
         datapoint["Wavelength"] = record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
         datapoint["Ruler location"] = {k:round(v,2) for k,v in record_data_method(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"].iteritems()}
         #sim rounds up to 3 decimal places
-        datapoint["Concentration"] = round(record_data_method(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+        if "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty" in record_data_method(event)['state'].keys():
+            # for newer logs
+            datapoint["Concentration"] = round(record_data_method(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+        else:
+            # for older logs
+            datapoint["Concentration"] = round(record_data_method(event)['state']["beersLawLab.solutions.copperSulfate.concentrationProperty"],2)
         datapoint["trialNumber"] = record_data_method(event)["trialNumber"]
         datapoint["visible"] = record_data_method(event)["visible"]
     elif sim == 'capacitor-lab-basics':
@@ -304,7 +309,13 @@ def update_state(sim,event):
         simstate["Laser on status"] = get_state(event)["beersLawLab.beersLawScreen.model.light.onProperty"]
         simstate["Wavelength"] = get_state(event)["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
         simstate["Ruler location"] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
-        simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+        # simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+        if "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty" in get_state(event).keys():
+            # for newer logs
+            simstate["Concentration"] = get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]
+        else:
+            # for older logs
+            simstate["Concentration"] = get_state(event)["beersLawLab.solutions.copperSulfate.concentrationProperty"]
     elif sim == 'capacitor-lab-basics':
         simstate["Battery voltage"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
         simstate["Connection"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty"]
@@ -314,7 +325,7 @@ def update_state(sim,event):
     return simstate
 
 #All post restore events
-EVENTS_POST_RESTORE = ["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.dielectricMaterialProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.topCircuitSwitch.switchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.topCircuitSwitch.switchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.bottomCircuitSwitch.switchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.bottomCircuitSwitch.switchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopToSwitchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopToSwitchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomToSwitchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomToSwitchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.bodyLocationProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.positiveProbeLocationProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.negativeProbeLocationProperty.changed","beersLawLab.beersLawScreen.model.cuvette.widthProperty.changed","beersLawLab.beersLawScreen.model.light.wavelengthProperty.changed","beersLawLab.beersLawScreen.model.ruler.locationProperty.changed","beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty.changed","beersLawLab.beersLawScreen.model.detector.body.locationProperty.changed","beersLawLab.beersLawScreen.model.detector.probe.locationProperty.changed","beersLawLab.beersLawScreen.model.light.onProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.disconnectedPlateChargeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty.changed"]
+EVENTS_POST_RESTORE = ["capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.dielectricMaterialProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.topCircuitSwitch.switchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.topCircuitSwitch.switchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.bottomCircuitSwitch.switchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.bottomCircuitSwitch.switchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopToSwitchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireTop.batteryTopToSwitchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomToSwitchSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.batteryToSwitchWireBottom.batteryBottomToSwitchSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.capacitorComponentBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentTopWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentTopWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentBottomWireSegment.startPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.lightBulbComponentBottomWireSegment.endPointProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.bodyLocationProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.positiveProbeLocationProperty.changed","capacitorLabBasics.lightBulbScreen.model.voltmeter.negativeProbeLocationProperty.changed","beersLawLab.solutions.copperSulfate.concentrationProperty.changed","beersLawLab.beersLawScreen.model.cuvette.widthProperty.changed","beersLawLab.beersLawScreen.model.light.wavelengthProperty.changed","beersLawLab.beersLawScreen.model.ruler.locationProperty.changed","beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty.changed","beersLawLab.beersLawScreen.model.detector.body.locationProperty.changed","beersLawLab.beersLawScreen.model.detector.probe.locationProperty.changed","beersLawLab.beersLawScreen.model.light.onProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSizeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.disconnectedPlateChargeProperty.changed","capacitorLabBasics.lightBulbScreen.model.circuit.switchedCapacitor.plateSeparationProperty.changed"]
 
 
 #All of the event['event'] that relate to the sim initializing
@@ -413,7 +424,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     parsed = True
                     user_or_model = 'user'
                     simevent = 'recording data'
-                    item = ''
+                    item = 'table'
                     action = ''
                     new_data_point = extract_new_datapoint(sim, event, get_data_parameters_args_parameters)
                     table[new_data_point['trialNumber']] = new_data_point
@@ -490,7 +501,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         parsed = True
         user_or_model = 'user'
         simevent = 'recording data'
-        item = ''
+        item = 'table'
         action = ''
         new_data_point = extract_new_datapoint(sim, event, get_data_parameters)
         table[new_data_point['trialNumber']] = new_data_point
@@ -571,7 +582,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
             table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
         except:
             print 'ERROR', event['index']
-            print phetioID, trial_added_or_removed_to_graph
+            print event['event'], trial_added_or_removed_to_graph
             item = 'ERROR'
     elif "labBook.deleteButton" in event['event']:
         parsed = True
@@ -586,7 +597,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
             table = remove_from_table(table.copy(), trial_removed_from_table)
         except:
             print 'ERROR', event['index']
-            print phetioID, trial_removed_from_table
+            print event['event'], trial_removed_from_table
             item = 'ERROR'
     elif "labBook.restoreButton" in event['event']:
         parsed = True
@@ -729,7 +740,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         parsed = True
         user_or_model = 'user'
         simevent = 'reset all'
-        item = ''
+        item = 'sim'
         action = ""
     elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.viewControlPanel.verticalCheckBoxGroup.currentCheckBox.toggled":
         parsed = True
@@ -749,12 +760,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
     if not parsed:
         #Didn't detect any kind of event
         print "Error: new event type encountered."
-        print '\t'+event['event'], event['index']
-        try:
-            phetioID = get_args_phetioID(event)
-            print '\t' + phetioID
-        except:
-            sys.exit()    
+        print '\t'+event['event'], event['index']  
         sys.exit()
 
     # print event['index'],parsed, user_or_model, simevent, item, action
