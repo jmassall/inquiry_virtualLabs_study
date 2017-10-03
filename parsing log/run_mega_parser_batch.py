@@ -21,10 +21,15 @@ RAWFILES_BEERS = '43abdd26-76bd-4fe9-9f7b-29500369038f' ##beers sim logs
 IDS = ['12345678','12345678','12665164','16136159','17576140','17655165','18866165']
 DATES = ['2016-11-08_14.23.13','2016-11-08_14.23.13','2017-03-21_18.25.09','2017-03-20_16.24.32','2017-03-22_16.25.06','2017-03-28_15.29.17','2017-03-20_16.24.18']
 
+REPORT_HEADER = ['studentid','sim','date']
 
 def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
     in_data_path = infolder+rawfilename
     parsed_data_path = os.path.join(outfolder,'parsed_' + rawfilename)
+
+    report_path = os.path.join(parsed_data_path,'parsing_report_reparse={0}_{1}.txt'.format(reparse,'')) #datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")))
+    report = open(report_path, 'w')
+    report.write('\t'.join(REPORT_HEADER))
 
     #create a folder for the new data files, if one doesn't already exist.
     if not os.path.exists(parsed_data_path):
@@ -66,7 +71,7 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
             session = Session()
             session.get_session_data_from_file(filepath)
             try: 
-                sim, dreamtable = mega_parser(studentid, session.events)
+                sim, dreamtable, report_line = mega_parser(studentid, session.events)
             except Exception, e:
                 e = sys.exc_info()
                 print "Parsing failed:", filepath
@@ -79,6 +84,8 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
             if not skipwriteout:
                 with open(outfilepath, 'w') as outfile:    
                     np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')
+            report.write('\n')
+            report.write('\t'.join([report_line['studentid'],report_line['sim'],date]))
 
 
 def main(*argv):
@@ -88,7 +95,7 @@ def main(*argv):
     parser.add_argument('-caps', help='If want caps sim log file', action='store_true', default=False)
     parser.add_argument('-reparse', help='Even if parsed files already exist, reparse them.', action='store_true', default=False)
     parser.add_argument('-skipwriteout', help='If want to skip writing out parsed data to disk (use for testing)', action='store_true', default=False)
-    parser.add_argument('-infolder', help='Location of file', default = INFOLDER)
+    parser.add_argument('-infolder', help='Location of log file', default = INFOLDER)
     parser.add_argument('-outfolder', help='Location of output file', default = OUTFOLDER)
     args = parser.parse_args()
 

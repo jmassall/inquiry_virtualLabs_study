@@ -854,7 +854,11 @@ def mega_parser(studentid, events):
 
             dreamtable[row,header.index("Notes")] = notes
 
-    return sim, dreamtable
+    report_line = {}
+    report_line['studentid'] = studentid
+    report_line['sim'] = sim
+
+    return sim, dreamtable, report_line
 
 
 #test sim with this link
