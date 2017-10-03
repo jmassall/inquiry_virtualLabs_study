@@ -10,22 +10,21 @@ import json
 import traceback
 from mega_parser import *
 
-datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data\\cleaned_and_split_'
-outpath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\parsed log data'
+INFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data\\cleaned_and_split_'
+OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\parsed log data'
 
 # rawfiles = ['43abdd26-76bd-4fe9-9f7b-29500369038f','38663fa4-7ac5-4868-b687-82d9aa05ab37']
-rawfiles = ['38663fa4-7ac5-4868-b687-82d9aa05ab37'] ##capacitors sim logs
-# rawfiles = ['43abdd26-76bd-4fe9-9f7b-29500369038f'] ##beers sim logs
-REPARSE = True #if the parsed file already exists, we don't reparse and replace it.
+RAWFILES_CAPS = '38663fa4-7ac5-4868-b687-82d9aa05ab37' ##capacitors sim logs
+RAWFILES_BEERS = '43abdd26-76bd-4fe9-9f7b-29500369038f' ##beers sim logs
 
 # Use these when looking for sims with trial missing bugs
 IDS = ['12345678','12345678','12665164','16136159','17576140','17655165','18866165']
 DATES = ['2016-11-08_14.23.13','2016-11-08_14.23.13','2017-03-21_18.25.09','2017-03-20_16.24.32','2017-03-22_16.25.06','2017-03-28_15.29.17','2017-03-20_16.24.18']
 
 
-for rawfilename in rawfiles:
-    in_data_path = datapath+rawfilename
-    parsed_data_path = os.path.join(outpath,'parsed_' + rawfilename)
+def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
+    in_data_path = infolder+rawfilename
+    parsed_data_path = os.path.join(outfolder,'parsed_' + rawfilename)
 
     #create a folder for the new data files, if one doesn't already exist.
     if not os.path.exists(parsed_data_path):
@@ -52,7 +51,7 @@ for rawfilename in rawfiles:
             if studentid not in IDS or date not in DATES:
                 continue
 
-            if os.path.isfile(outfilepath) and not REPARSE:
+            if os.path.isfile(outfilepath) and not reparse:
                 # print  "ALREADY FOUND:", outname
                 continue
             else:
@@ -77,5 +76,41 @@ for rawfilename in rawfiles:
                 continue
             f.close()
             
-            # with open(outfilepath, 'w') as outfile:    
-            #     np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')
+            if not skipwriteout:
+                with open(outfilepath, 'w') as outfile:    
+                    np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')
+
+
+def main(*argv):
+    '''handles user input and runs pretty print function'''
+    parser = argparse.ArgumentParser(description='This script takes parses all log files for a paticular sim')
+    parser.add_argument('-beers', help='If want beers sim log file', action='store_true', default=False)
+    parser.add_argument('-caps', help='If want caps sim log file', action='store_true', default=False)
+    parser.add_argument('-reparse', help='Even if parsed files already exist, reparse them.', action='store_true', default=False)
+    parser.add_argument('-skipwriteout', help='If want to skip writing out parsed data to disk (use for testing)', action='store_true', default=False)
+    parser.add_argument('-infolder', help='Location of file', default = INFOLDER)
+    parser.add_argument('-outfolder', help='Location of output file', default = OUTFOLDER)
+    args = parser.parse_args()
+
+    print '\n'
+
+    infolder = args.infolder
+    outfolder = args.outfolder
+    reparse = args.reparse
+    skipwriteout = args.skipwriteout
+
+    if args.beers == args.caps:
+        print "Please pick one of the sims to parse."
+        sys.exit()
+
+    if args.beers:
+        sim = 'beers'
+        rawfilename = RAWFILES_BEERS
+    else:
+        sim = 'capacitor'
+        rawfilename = RAWFILES_CAPS 
+
+    batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout)
+
+if __name__ == "__main__":
+    main(*sys.argv[1:])
