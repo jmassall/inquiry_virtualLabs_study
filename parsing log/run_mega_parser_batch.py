@@ -21,7 +21,7 @@ RAWFILES_BEERS = '43abdd26-76bd-4fe9-9f7b-29500369038f' ##beers sim logs
 IDS = ['12345678','12345678','12665164','16136159','17576140','17655165','18866165']
 DATES = ['2016-11-08_14.23.13','2016-11-08_14.23.13','2017-03-21_18.25.09','2017-03-20_16.24.32','2017-03-22_16.25.06','2017-03-28_15.29.17','2017-03-20_16.24.18']
 
-REPORT_HEADER = ['studentid','sim','date']
+REPORT_HEADER = ['studentid','sim','date',"number of table errors","number of records","number of gettingValues ","use table","use graph","use notes","use restore","file name"]
 
 def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
     in_data_path = infolder+rawfilename
@@ -85,7 +85,9 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
                 with open(outfilepath, 'w') as outfile:    
                     np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')
             report.write('\n')
-            report.write('\t'.join([report_line['studentid'],report_line['sim'],date]))
+            to_write = [report_line['studentid'],report_line['sim'],date,report_line['number of table errors'],report_line['number of records'],report_line['number of gettingValues'],report_line['number of restores'],outfile]
+            to_write = [str(s) for s in to_write]
+            report.write('\t'.join(to_write))
 
 
 def main(*argv):
