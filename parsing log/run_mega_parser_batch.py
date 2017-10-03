@@ -48,10 +48,8 @@ for rawfilename in rawfiles:
 
             outname = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)
             outfilepath = os.path.join(parsed_data_path,outname)
-            print parsed_data_path
-            sys.exit()
 
-            if studentid not in IDS and date not in DATES:
+            if studentid not in IDS or date not in DATES:
                 continue
 
             if os.path.isfile(outfilepath) and not REPARSE:
@@ -79,5 +77,5 @@ for rawfilename in rawfiles:
                 continue
             f.close()
             
-            with open(outfilepath, 'w') as outfile:    
-                np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')
+            # with open(outfilepath, 'w') as outfile:    
+            #     np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')

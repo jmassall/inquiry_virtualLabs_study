@@ -301,28 +301,20 @@ def remove_from_table(current_table, trial_removed):
 def get_trial_data(trial):
     return trial
 
-def extract_table_from_userData(event, sim):
+def extract_table_from_userData(event, sim, userData_method):
     table = {}
-    userData = get_data_children_parameters(event)['userData']
+    userData = userData_method(event)['userData']
     for trial in userData:
         new_data_point = extract_new_datapoint(sim, trial, get_trial_data)
         table[new_data_point['trialNumber']] = new_data_point
     return table
 
-def check_parsed_table_with_userData(current_table,event,sim):
-    # different = False
-    extracted_table = extract_table_from_userData(event, sim)
-    # for k,v in extracted_table:
-    #     if k in current_table.keys():
-    #         if current_table[k] != extracted_table[k]:
-    #             different = True
-    #             print 'Here'
-    #     else:
-    #         different = True
-    print '\textracted table:', extracted_table
-    print '\tparsed table:', current_table
+def check_parsed_table_with_userData(current_table,event,sim, userData_method):
+    extracted_table = extract_table_from_userData(event, sim, userData_method)
     diff= cmp(current_table,extracted_table)
-    print '\t',diff
+    # print '\textracted table:', extracted_table
+    # print '\tparsed table:', current_table
+    # print '\t',diff
     return diff,extracted_table
 
 def update_state(sim,event):
@@ -472,27 +464,26 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     user_or_model = 'user'
                     item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
                     # table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
-                    
                     try:
                         table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
                     except:
                         print 'ERROR', event['index'], phetioID, trial_added_or_removed_to_graph
-                        item = 'ERROR'
+                        simevent = "ERROR " + simevent
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.deleteButton" in phetioID:
                     parsed = True
                     trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
                     user_or_model = 'user'
                     simevent = 'Removing data from table'
                     item = 'trialNumber ' + str(trial_removed_from_table)
-                    action = 'Data removed from from table'
+                    action = 'Data removed from table'
                     # table = remove_from_table(table.copy(), trial_removed_from_table)
-                    print "CHECKING TABLE:", phetioID
-                    diff, table = check_parsed_table_with_userData(table,event,sim)
                     try:
                         table = remove_from_table(table.copy(), trial_removed_from_table)
                     except:
-                        print '\t\t\t ERROR', event['index'], phetioID, trial_removed_from_table
-                        item = 'ERROR'
+                        print '\n\t\t\t ERROR', event['index'], phetioID, trial_removed_from_table
+                        simevent = "ERROR - " + simevent
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.restoreButton" in phetioID:
                     parsed = True
                     trial_restored = int(re.search(r'\d+', phetioID).group())
@@ -500,6 +491,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     simevent = 'Restoring sim state'
                     item = 'trialNumber ' + str(trial_restored)
                     action = ''
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.incrementButton" in phetioID:
                     parsed = True
                     trial_moved_down = int(re.search(r'\d+', phetioID).group())
@@ -507,6 +499,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     simevent = 'Moving trial in table'
                     item = 'trialNumber ' + str(trial_moved_down)
                     action = 'Moved trial down'
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.decrementButton" in phetioID:
                     parsed = True
                     trial_moved_down = int(re.search(r'\d+', phetioID).group())
@@ -514,6 +507,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     simevent = 'Moving trial in table'
                     item = 'trialNumber ' + str(trial_moved_down)
                     action = 'Moved trial up'
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.textArea" in phetioID:
                     parsed = True
                     user_or_model = 'user'
@@ -603,28 +597,28 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         user_or_model = 'user'
         item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
         # table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
-        
         try:
             table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
         except:
             print 'ERROR', event['index']
             print event['event'], trial_added_or_removed_to_graph
-            item = 'ERROR'
+            simevent = "ERROR " + simevent
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.deleteButton" in event['event']:
         parsed = True
         trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
         user_or_model = 'user'
         simevent = 'Removing data from table'
         item = 'trialNumber ' + str(trial_removed_from_table)
-        action = 'Data removed from from table'
+        action = 'Data removed from table'
         # table = remove_from_table(table.copy(), trial_removed_from_table)
-        
         try:
             table = remove_from_table(table.copy(), trial_removed_from_table)
         except:
             print 'ERROR', event['index']
             print event['event'], trial_removed_from_table
-            item = 'ERROR'
+            simevent = "ERROR " + simevent
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.restoreButton" in event['event']:
         parsed = True
         trial_restored = int(re.search(r'\d+', event['event']).group())
@@ -632,6 +626,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         simevent = 'Restoring sim state'
         item = 'trialNumber ' + str(trial_restored)
         action = ''
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.incrementButton" in event['event']:
         parsed = True
         trial_moved_down = int(re.search(r'\d+', event['event']).group())
@@ -639,6 +634,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         simevent = 'Moving trial in table'
         item = 'trialNumber ' + str(trial_moved_down)
         action = 'Moved trial down'
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.decrementButton" in event['event']:
         parsed = True
         trial_moved_down = int(re.search(r'\d+', event['event']).group())
@@ -646,6 +642,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         simevent = 'Moving trial in table'
         item = 'trialNumber ' + str(trial_moved_down)
         action = 'Moved trial up'
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif event['event'] == "labBook.textArea.changed":
         parsed = True
         user_or_model = 'user'

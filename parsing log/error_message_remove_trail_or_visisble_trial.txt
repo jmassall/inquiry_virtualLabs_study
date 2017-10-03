@@ -200,3 +200,43 @@ no gettinsim values event for 17576140
 	no idea where datapoints 24 and 25 were recorded
 
 	but they are added to the graph at index 111623 and 111652
+
+
+
++++++++++++++++ AFTER UPDATE TABLE ++++++++++++++++++
+
+
+
+PS C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log> python .\run_mega_parser_batch.py
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_12345678_2016-11-08_14.23.13.json
+Error: event 18183  has no 'data > children'
+Parsing failed: C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_12345678_2016-11-08_14.23.13.json
+<type 'exceptions.TypeError'>
+'NoneType' object has no attribute '__getitem__'
+  File ".\run_mega_parser_batch.py", line 70, in <module>
+    sim, dreamtable = mega_parser(studentid, session.events)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 829, in mega_parser
+    parsed, user_or_model, simevent, item, action, simstate, NEWdatatable, graphstate, notes = parse_event(sim,event, simstate.copy(), datatable.copy(), graphstate.copy(), notes)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 603, in parse_event
+    diff, table = check_parsed_table_with_userData(table,event,sim)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 313, in check_parsed_table_with_userData
+    extracted_table = extract_table_from_userData(event, sim)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 306, in extract_table_from_userData
+    userData = get_data_children_parameters(event)['userData']
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 143, in get_data_children_parameters
+    return get_data_children(event, show_error_in_console)[0]['parameters']
+None
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_12665164_2017-03-21_18.25.09.json
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_16136159_2017-03-20_16.24.32.json
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_17576140_2017-03-22_16.25.06.json
+ERROR 111623 labBook.addToGraphCheckBox24 24
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_17655165_2017-03-28_15.29.17.json
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_18866165_2017-03-20_16.24.18.json
+ERROR 71426 labBook.addToGraphCheckBox43 43
+PS C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log>
