@@ -114,3 +114,129 @@ Parsing failed: C:\Users\Sarah\Documents\Personal Content\Lab_skills_study\clean
 <type 'exceptions.KeyError'>
 43
 None
+
+
++++++++++++++++++++++++++++++++++++++++++
+AFTER MODIFYING MEGAPARSER FOR MORE INFO
+++++++++++++++++++++++++++++++++++++++++
+
+:\Users\Sarah\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82
+9aa05ab37\log_lab-book-capacitor-lab-basics_12345678_2016-11-08_14.23.13.json
+RROR 18912
+arsing failed: C:\Users\Sarah\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7
+c5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_12345678_2016-11-08_14.23.13.json
+type 'exceptions.UnboundLocalError'>
+ocal variable 'phetioID' referenced before assignment
+ File ".\run_mega_parser_batch.py", line 59, in <module>
+   sim, dreamtable = mega_parser(studentid, session.events)
+ File "C:\Users\Sarah\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 806, in mega_parser
+   parsed, user_or_model, simevent, item, action, simstate, NEWdatatable, graphstate, notes = parse_event(sim,event, si
+state.copy(), datatable.copy(), graphstate.copy(), notes)
+ File "C:\Users\Sarah\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 574, in parse_event
+   print phetioID, trial_added_or_removed_to_graph
+one
+
+:\Users\Sarah\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82
+9aa05ab37\log_lab-book-capacitor-lab-basics_12665164_2017-03-21_18.25.09.json
+RROR 47250
+ype1 labBook.addToGraphCheckBox38 38
+RROR 52839
+ype1 labBook.deleteButton38 38
+
+:\Users\Sarah\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82
+9aa05ab37\log_lab-book-capacitor-lab-basics_16136159_2017-03-20_16.24.32.json
+RROR 35237
+ype1 labBook.deleteButton5 5
+RROR 35392
+ype1 labBook.deleteButton8 8
+
+:\Users\Sarah\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82
+9aa05ab37\log_lab-book-capacitor-lab-basics_17576140_2017-03-22_16.25.06.json
+RROR 111623
+ype1 labBook.addToGraphCheckBox24 24
+RROR 111652
+ype1 labBook.addToGraphCheckBox25 25
+
+:\Users\Sarah\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82
+9aa05ab37\log_lab-book-capacitor-lab-basics_17655165_2017-03-28_15.29.17.json
+RROR 89228
+ype1 labBook.addToGraphCheckBox3 3
+RROR 90364
+ype1 labBook.deleteButton3 3
+
+:\Users\Sarah\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82
+9aa05ab37\log_lab-book-capacitor-lab-basics_18866165_2017-03-20_16.24.18.json
+RROR 71426
+ype1 labBook.addToGraphCheckBox43 43
+RROR 72996
+ype1 labBook.addToGraphCheckBox33 33
+RROR 73157
+ype1 labBook.addToGraphCheckBox36 36
+RROR 73186
+ype1 labBook.addToGraphCheckBox37 37
+RROR 73439
+ype1 labBook.addToGraphCheckBox42 42
+RROR 75113
+ype1 labBook.deleteButton43 43
+RROR 75123
+ype1 labBook.deleteButton42 42
+RROR 75174
+ype1 labBook.deleteButton37 37
+RROR 75186
+ype1 labBook.deleteButton36 36
+RROR 78744
+ype1 labBook.addToGraphCheckBox55 55
+S C:\Users\Sarah\git\inquiry_virtualLabs_study\parsing log> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
++++++++++++++++
+
+What I noticed: It's always when Lightbulb is connected and discharging. All have getting sim values except student id = 17576140
+
+no gettinsim values event for 17576140
+	record data point #23 at line 12727
+	record data point #26 at line 14536
+	no idea where datapoints 24 and 25 were recorded
+
+	but they are added to the graph at index 111623 and 111652
+
+
+
++++++++++++++++ AFTER UPDATE TABLE ++++++++++++++++++
+
+
+
+PS C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log> python .\run_mega_parser_batch.py
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_12345678_2016-11-08_14.23.13.json
+Error: event 18183  has no 'data > children'
+Parsing failed: C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_12345678_2016-11-08_14.23.13.json
+<type 'exceptions.TypeError'>
+'NoneType' object has no attribute '__getitem__'
+  File ".\run_mega_parser_batch.py", line 70, in <module>
+    sim, dreamtable = mega_parser(studentid, session.events)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 829, in mega_parser
+    parsed, user_or_model, simevent, item, action, simstate, NEWdatatable, graphstate, notes = parse_event(sim,event, simstate.copy(), datatable.copy(), graphstate.copy(), notes)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 603, in parse_event
+    diff, table = check_parsed_table_with_userData(table,event,sim)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 313, in check_parsed_table_with_userData
+    extracted_table = extract_table_from_userData(event, sim)
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 306, in extract_table_from_userData
+    userData = get_data_children_parameters(event)['userData']
+  File "C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log\mega_parser.py", line 143, in get_data_children_parameters
+    return get_data_children(event, show_error_in_console)[0]['parameters']
+None
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_12665164_2017-03-21_18.25.09.json
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_16136159_2017-03-20_16.24.32.json
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_17576140_2017-03-22_16.25.06.json
+ERROR 111623 labBook.addToGraphCheckBox24 24
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_17655165_2017-03-28_15.29.17.json
+
+C:\Users\sperez8\Documents\Personal Content\Lab_skills_study\cleaned log data\cleaned_and_split_38663fa4-7ac5-4868-b687-82d9aa05ab37\log_lab-book-capacitor-lab-basics_18866165_2017-03-20_16.24.18.json
+ERROR 71426 labBook.addToGraphCheckBox43 43
+PS C:\Users\sperez8\git\inquiry_virtualLabs_study\parsing log>

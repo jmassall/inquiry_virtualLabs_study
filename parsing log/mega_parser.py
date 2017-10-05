@@ -13,8 +13,8 @@ import numpy as np
 import argparse
 from utils import *
 
-LIGHT_HEADER = ["User","Sim","Time","Index","User or Model?","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
-CHARGE_HEADER = ["User","Sim","Time","Index","User or Model?","Event","Item","Action",'Charge','Connection','Battery voltage','Separation','Area',"Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
+LIGHT_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
+CHARGE_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action",'Charge','Connection','Battery voltage','Separation','Area',"diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
 
 def initialize_dreamtable(studentid, number_of_events,first_event):
     '''
@@ -298,6 +298,22 @@ def remove_from_table(current_table, trial_removed):
     del new_table[trial_removed]
     return new_table 
 
+def get_trial_data(trial):
+    return trial
+
+def extract_table_from_userData(event, sim, userData_method):
+    table = {}
+    userData = userData_method(event)['userData']
+    for trial in userData:
+        new_data_point = extract_new_datapoint(sim, trial, get_trial_data)
+        table[new_data_point['trialNumber']] = new_data_point
+    return table
+
+def check_parsed_table_with_userData(current_table,event,sim, userData_method):
+    extracted_table = extract_table_from_userData(event, sim, userData_method)
+    diff= (current_table != extracted_table)
+    return diff,extracted_table
+
 def update_state(sim,event):
     simstate = {}
     if sim == 'beers-law-lab':
@@ -340,27 +356,31 @@ INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
 
 def parse_event(sim, event, simstate, table, graphstate, notes):
     parsed = False
+    diff = ''
 
     if "simIFrameAPI.invoked" in event['event']:
-        if 'messages' in get_data_parameters(event).keys():
+        if 'messages' in get_data_parameters(event).keys() and "getValue" in str(get_data_parameters(event)):
             parsed = True
             user_or_model = 'model'
+            component = 'sim'
             simevent = 'gettingValues'
-            item = 'sim'
+            item = ''
             action = ''
         else:
             method = get_method(event)
             if method in INITIALIZING_METHODS:
                 parsed = True
                 user_or_model = 'model'
+                component = 'interface'
                 simevent = 'initializing'
-                item = 'sim'
+                item = ''
                 action = method
             elif method == 'setState': #this happens when sim is restored from trial
                 parsed = True
                 user_or_model = 'model'
+                component = 'sim'
                 simevent = 'setting sim state'
-                item = 'sim'
+                item = ''
                 action = ''
             else:
                 #the following are for log files after March 20th
@@ -368,38 +388,44 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                 if phetioID == "labBook.tableExpandButton":
                     parsed = True
                     user_or_model = 'user'
+                    component = 'interface'
                     simevent = 'expanding table'
-                    item = 'table'
+                    item = 'table frame'
                     action = ''
                 elif phetioID == "labBook.tableCollapseButton":
                     parsed = True
                     user_or_model = 'user'
+                    component = 'interface'
                     simevent = 'collapsing table'
-                    item = 'table'
+                    item = 'table frame'
                     action = ''
                 elif phetioID == "labBook.graphExpandButton":
                     parsed = True
                     user_or_model = 'user'
+                    component = 'interface'
                     simevent = 'expanding graph'
-                    item = 'graph'
+                    item = 'graph frame'
                     action = ''
                 elif phetioID == "labBook.graphCollapseButton":
                     parsed = True
                     user_or_model = 'user'
+                    component = 'interface'
                     simevent = 'collapsing graph'
-                    item = 'graph'
+                    item = 'graph frame'
                     action = ''
                 elif phetioID == "labBook.simulationExpandButton":
                     parsed = True
                     user_or_model = 'user'
+                    component = 'interface'
                     simevent = 'expanding simulation'
-                    item = 'sim'
+                    item = 'simulation frame'
                     action = ''
                 elif phetioID == "labBook.simulationCollapseButton":
                     parsed = True
                     user_or_model = 'user'
+                    component = 'interface'
                     simevent = 'collapsing simulation'
-                    item = 'sim'
+                    item = 'simulation frame'
                     action = ''
                 elif "Feature" in phetioID:
                     parsed = True
@@ -407,6 +433,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     variable_selected, axis = selection.split('_')
                     axis = axis.capitalize()
                     user_or_model = 'user'
+                    component = 'graph'
                     simevent = 'Selecting '+axis+'-axis'
                     item = axis+'-axis dropdown menu'
                     action = axis+'-axis changed to '+ variable_selected
@@ -416,6 +443,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     axis = re.search(r'\.([xy])Transform', phetioID).group(1).capitalize()
                     scale = get_data_parameters_args_parameters(event)['feature']
                     user_or_model = 'user'
+                    component = 'graph'
                     simevent = 'Selecting scale of '+axis+'-axis'
                     item = axis+'-axis scale dropdown menu'
                     action = axis+'-axis scale changed to '+ scale
@@ -423,109 +451,139 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                 elif phetioID == "labBook.recordDataButton": #for log data after March 20th 2017
                     parsed = True
                     user_or_model = 'user'
+                    component = 'table'
                     simevent = 'recording data'
-                    item = ''
                     action = ''
                     new_data_point = extract_new_datapoint(sim, event, get_data_parameters_args_parameters)
                     table[new_data_point['trialNumber']] = new_data_point
+                    item = 'trialNumber ' + str(new_data_point['trialNumber'])
                 elif "labBook.addToGraphCheckBox" in phetioID:
                     parsed = True
                     trial_added_or_removed_to_graph = int(re.search(r'\d+', phetioID).group())
                     checked = get_checkbox_status1(event)
                     if is_checkbox_error1(event):
                         simevent = 'Adding data to graph'
-                        action = 'Error: failed to add trial.'
+                        action = 'Error: failed to add trial'
                         checked = False
                     elif checked:
                         simevent = 'Adding data to graph'
-                        action = 'Data added to graph successfully.'
+                        action = 'Data added to graph successfully'
                     else:
                         simevent = 'Removing data from graph'
-                        action = 'Data removed from graph.'
+                        action = 'Data removed from graph'
                     user_or_model = 'user'
+                    component = 'table'
                     item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-                    table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+                    try:
+                        table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+                    except:
+                        pass
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.deleteButton" in phetioID:
                     parsed = True
                     trial_removed_from_table = int(re.search(r'\d+', phetioID).group())
                     user_or_model = 'user'
+                    component = 'table'
                     simevent = 'Removing data from table'
                     item = 'trialNumber ' + str(trial_removed_from_table)
-                    action = 'Data removed from from table'
-                    table = remove_from_table(table.copy(), trial_removed_from_table)
+                    action = 'Data removed from table'
+                    try:
+                        table = remove_from_table(table.copy(), trial_removed_from_table)
+                    except:
+                        pass
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.restoreButton" in phetioID:
                     parsed = True
                     trial_restored = int(re.search(r'\d+', phetioID).group())
                     user_or_model = 'user'
-                    simevent = 'Restoring sim state'
+                    component = 'table'
+                    simevent = 'Restoring sim state from trial'
                     item = 'trialNumber ' + str(trial_restored)
                     action = ''
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.incrementButton" in phetioID:
                     parsed = True
                     trial_moved_down = int(re.search(r'\d+', phetioID).group())
                     user_or_model = 'user'
+                    component = 'table'
                     simevent = 'Moving trial in table'
                     item = 'trialNumber ' + str(trial_moved_down)
                     action = 'Moved trial down'
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.decrementButton" in phetioID:
                     parsed = True
                     trial_moved_down = int(re.search(r'\d+', phetioID).group())
                     user_or_model = 'user'
+                    component = 'table'
                     simevent = 'Moving trial in table'
                     item = 'trialNumber ' + str(trial_moved_down)
                     action = 'Moved trial up'
+                    diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                 elif "labBook.textArea" in phetioID:
                     parsed = True
                     user_or_model = 'user'
+                    component = 'notepad'
                     simevent = 'editing notes'
-                    item = 'notepad'
-                    action = ''
-                    notes = get_notes(event,get_data_parameters_args_parameters)
+                    item = ''
+                    new_notes = get_notes(event,get_data_parameters_args_parameters)
+                    if new_notes>notes:
+                        action = "Added notes"
+                    else:
+                        action = "Deleted notes"
+                    notes = new_notes
 
-    #the following are for log files after March 20th
+    #the following are for log files before March 20th
     elif event['event'] == "labBook.recordDataButton.pressed":
         parsed = True
         user_or_model = 'user'
+        component = 'table'
         simevent = 'recording data'
         item = ''
         action = ''
         new_data_point = extract_new_datapoint(sim, event, get_data_parameters)
         table[new_data_point['trialNumber']] = new_data_point
+        item = 'trialNumber ' + str(new_data_point['trialNumber'])
     elif event['event'] == "labBook.tableExpandButton.pressed":
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'expanding table'
         item = 'table'
         action = ''
     elif event['event'] == "labBook.tableCollapseButton.pressed":
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'collapsing table'
         item = 'table'
         action = ''
     elif event['event'] == "labBook.graphExpandButton.pressed":
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'expanding graph'
         item = 'graph'
         action = ''
     elif event['event'] == "labBook.graphCollapseButton.pressed":
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'collapsing graph'
         item = 'graph'
         action = ''
     elif event['event'] == "labBook.simulationExpandButton.pressed":
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'expanding simulation'
-        item = 'sim'
+        item = 'simulation'
         action = ''
     elif event['event'] == "labBook.simulationCollapseButton.pressed":
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'collapsing simulation'
-        item = 'sim'
+        item = 'simulation'
         action = ''
     elif "Feature" in event['event']:
         parsed = True
@@ -533,6 +591,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         variable_selected, axis = selection.split('_')
         axis = axis.capitalize()
         user_or_model = 'user'
+        component = 'graph'
         simevent = 'Selecting '+axis+'-axis'
         item = axis+'-axis dropdown menu'
         action = axis+'-axis changed to '+ variable_selected
@@ -542,6 +601,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         axis = re.search(r'\.([xy])Transform', event['event']).group(1).capitalize()
         scale = get_data_parameters(event)['feature']
         user_or_model = 'user'
+        component = 'graph'
         simevent = 'Selecting scale of '+axis+'-axis'
         item = axis+'-axis scale dropdown menu'
         action = axis+'-axis scale changed to '+ scale
@@ -552,53 +612,74 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         checked = get_checkbox_status2(event)
         if is_checkbox_error2(event):
             simevent = 'Adding data to graph'
-            action = 'Error: failed to add trial.'
+            action = 'Error: failed to add trial'
             checked = False
         elif checked:
             simevent = 'Adding data to graph'
-            action = 'Data added to graph successfully.'
+            action = 'Data added to graph successfully'
         else:
             simevent = 'Removing data from graph'
-            action = 'Data removed from graph.'
+            action = 'Data removed from graph'
         user_or_model = 'user'
+        component = 'table'
         item = 'trialNumber ' + str(trial_added_or_removed_to_graph)
-        table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+        try:
+            table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
+        except:
+            pass
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.deleteButton" in event['event']:
         parsed = True
         trial_removed_from_table = int(re.search(r'\d+', event['event']).group())
         user_or_model = 'user'
+        component = 'table'
         simevent = 'Removing data from table'
         item = 'trialNumber ' + str(trial_removed_from_table)
-        action = 'Data removed from from table'
-        table = remove_from_table(table.copy(), trial_removed_from_table)
+        action = 'Data removed from table'
+        try:
+            table = remove_from_table(table.copy(), trial_removed_from_table)
+        except:
+            pass
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.restoreButton" in event['event']:
         parsed = True
         trial_restored = int(re.search(r'\d+', event['event']).group())
         user_or_model = 'user'
-        simevent = 'Restoring sim state'
+        component = 'table'
+        simevent = 'Restoring sim state from trial'
         item = 'trialNumber ' + str(trial_restored)
         action = ''
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.incrementButton" in event['event']:
         parsed = True
         trial_moved_down = int(re.search(r'\d+', event['event']).group())
         user_or_model = 'user'
+        component = 'table'
         simevent = 'Moving trial in table'
         item = 'trialNumber ' + str(trial_moved_down)
         action = 'Moved trial down'
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif "labBook.decrementButton" in event['event']:
         parsed = True
         trial_moved_down = int(re.search(r'\d+', event['event']).group())
         user_or_model = 'user'
+        component = 'table'
         simevent = 'Moving trial in table'
         item = 'trialNumber ' + str(trial_moved_down)
         action = 'Moved trial up'
+        diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
     elif event['event'] == "labBook.textArea.changed":
         parsed = True
         user_or_model = 'user'
+        component = 'notepad'
         simevent = 'editing notes'
-        item = 'notepad'
-        action = ''
-        notes = get_notes(event,get_data_parameters)
+        item = ''
+        new_notes = get_notes(event,get_data_parameters)
+        if new_notes>notes:
+            action = "Added notes"
+        else:
+            action = "Deleted notes"
+        notes = new_notes
 
 
 
@@ -606,6 +687,7 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
     elif event['event'] == "phetio.state":
         parsed = True
         user_or_model = 'model'
+        component = 'sim'
         simevent = 'updating state'
         item = ''
         action = ''
@@ -613,44 +695,51 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
     elif event['event'] == "capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty.changed":
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'changed connection'
         item = 'switch'
         action = "Changed connection to "+ get_data_parameters(event)['newValue'].split('_')[0]
     elif "concentrationControl.slider.plusButton" in event['event']:
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'Changed concentration'
         item = 'concentration slider'
         action = 'Pressed increment button'
     elif "concentrationControl.slider.minusButton" in event['event']:
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'Changed concentration'
         item = 'concentration slider'
         action = 'Pressed decrement button'
     elif "wavelengthSlider.plusButton" in event['event']:
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'Changed wavelength'
         item = 'wavelength slider'
         action = 'Pressed increment button'
     elif "wavelengthSlider.minusButton" in event['event']:
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'Changed wavelength'
         item = 'wavelength slider'
         action = 'Pressed decrement button'
     elif event['event'] in EVENTS_INITIALIZING:
         parsed = True
         user_or_model = 'model'
+        component = 'interface'
         simevent = 'initializing'
-        item = 'sim'
+        item = ''
         action = event['event']
     elif "drag" in event['event']:
         parsed = True
         drag_event = detect_drag_event(event['event'])
         drag_item = detect_drag_item(sim,event['event'])
         user_or_model = 'user'
+        component = 'sim'
         simevent = drag_event
         item = drag_item
         action = ''
@@ -663,66 +752,76 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
     elif event['event'] == "beersLawLab.beersLawScreen.view.lightNode.button.toggled":
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'toggle laser'
         item = 'laser button'
         action = ''
     elif "navigationBar.phetButton.fired" in event['event']:
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'Playing with PhET menu'
         item = 'PhET menu'
         action = 'Clicked PhET menu'
     elif "navigationBar.phetButton.phetMenu.aboutButton.fired" in event['event']:
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'Playing with PhET menu'
         item = 'PhET menu'
         action = 'Clicked PhET menu About button'
     elif "navigationBar.phetButton.phetMenu.screenshotMenuItem" in event['event']:
         parsed = True
         user_or_model = 'user'
+        component = 'interface'
         simevent = 'Playing with PhET menu'
         item = 'PhET menu'
         action = 'Clicked PhET menu screenshot button'
     elif "scatterPlot.error" in event['event']:
         parsed = True
         user_or_model = 'model'
+        component = 'graph'
         simevent = 'Error in graph'
-        item = 'graph'
+        item = ''
         action = get_data_parameters(event)['error']
     elif event['event'] == "phetio.displaySize":
         parsed = True
         user_or_model = 'model'
-        simevent = 'simulation box size is changing'
-        item = 'sim'
-        action = "ignore"
+        component = 'interface'
+        simevent = 'PhET display size change'
+        item = ''
+        action = "simulation box size is changing"
 
     #when a trial number is restored some of the following events may occur
     #we ignore them becasue we will get the changes in values from phetio.state events
     elif event['event'] in EVENTS_POST_RESTORE:
         parsed = True
         user_or_model = 'model'
+        component = 'sim'
         simevent = 'sim properties updating after restore'
         item = event['event'].split('.')[-2]
-        action = "ignore"
+        action = ""
 
 
     #the following are events that only occur in older version of the sim
     elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.resetAllButton.fired":
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'reset all'
         item = ''
         action = ""
     elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.viewControlPanel.verticalCheckBoxGroup.currentCheckBox.toggled":
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'currentCheckBox toggled'
         item = 'currentCheckBox'
         action = ""
     elif event['event'] == "capacitorLabBasics.lightBulbScreen.view.viewControlPanel.verticalCheckBoxGroup.plateChargesCheckBox.toggled":
         parsed = True
         user_or_model = 'user'
+        component = 'sim'
         simevent = 'plateChargesCheckBox toggled'
         item = 'plateChargesCheckBox'
         action = ""
@@ -732,17 +831,12 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
     if not parsed:
         #Didn't detect any kind of event
         print "Error: new event type encountered."
-        print '\t'+event['event'], event['index']
-        try:
-            phetioID = get_args_phetioID(event)
-            print '\t' + phetioID
-        except:
-            sys.exit()    
+        print '\t'+event['event'], event['index']  
         sys.exit()
 
     # print event['index'],parsed, user_or_model, simevent, item, action
 
-    return parsed, user_or_model, simevent, item, action, simstate, table, graphstate, notes
+    return parsed, user_or_model, simevent, component, item, action, simstate, table, graphstate, notes, diff
 
 def mega_parser(studentid, events):
     '''
@@ -756,6 +850,7 @@ def mega_parser(studentid, events):
     #initialize all variables
     parsed = False
     user_or_model = ''
+    component = '' #can be sim,table,graph,notepad,interface
     simevent = ''
     item = ''
     action = ''
@@ -767,6 +862,14 @@ def mega_parser(studentid, events):
     graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
     notes = ''
 
+    number_of_table_errors = 0
+    number_of_records = 0
+    number_of_gettingValues = 0
+    number_of_restores = 0
+    use_table = False
+    use_graph = False
+    use_notepad = False
+
     for i,event in enumerate(events):
         row = i+1
 
@@ -774,24 +877,26 @@ def mega_parser(studentid, events):
         #reset variables for each event - makes testing easier
         parsed = False
         user_or_model = ''
+        component = '' #can be sim,table,graph,notepad,interface
         simevent = ''
         item = ''
         action = ''
-        if sim == 'beers-law-lab':
-            simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
-        else:
-            simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
+        # if sim == 'beers-law-lab':
+        #     simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
+        # else:
+        #     simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
         # datatable = {}
         graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
         notes = ''
         
         #we parse events (eventually we can parse given previous state)
-        parsed, user_or_model, simevent, item, action, simstate, NEWdatatable, graphstate, notes = parse_event(sim,event, simstate.copy(), datatable.copy(), graphstate.copy(), notes)
+        parsed, user_or_model, simevent, component, item, action, simstate, NEWdatatable, graphstate, notes, diff = parse_event(sim,event, simstate.copy(), datatable.copy(), graphstate.copy(), notes)
 
         if parsed: #if we managed to parse, we update the dreamtable
             dreamtable[row,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,2)
             dreamtable[row,header.index("Index")] = event['index']
-            dreamtable[row,header.index("User or Model?")] = user_or_model
+            dreamtable[row,header.index("User or Model")] = user_or_model
+            dreamtable[row,header.index("Component")] = component
             dreamtable[row,header.index("Event")] = simevent
             dreamtable[row,header.index("Item")] = item
             dreamtable[row,header.index("Action")] = action
@@ -803,12 +908,41 @@ def mega_parser(studentid, events):
                 dreamtable[row,header.index("Table")] = json.dumps(NEWdatatable)
                 datatable = NEWdatatable.copy()
 
+            if component == 'table':
+                dreamtable[row,header.index("diff in parsed table")] = diff
+
             for variable in graphstate:
                 dreamtable[row,header.index(variable)] = graphstate[variable]
 
             dreamtable[row,header.index("Notes")] = notes
 
-    return sim, dreamtable
+            if diff:
+                number_of_table_errors += 1
+            if simevent == 'recording data':
+                number_of_records += 1
+            if simevent == "gettingValues":
+                number_of_gettingValues += 1
+            if simevent == 'Restoring sim state':
+                number_of_restores += 1
+            if component == 'table':
+                use_table = True
+            if component == 'graph':
+                use_graph = True
+            if component == 'notepad':
+                use_notepad = True
+
+    report_line = {}
+    report_line['studentid'] = studentid
+    report_line['sim'] = sim
+    report_line['number of table errors'] = number_of_table_errors
+    report_line['number of records'] = number_of_records
+    report_line['number of gettingValues'] = number_of_gettingValues
+    report_line['number of restores'] = number_of_restores
+    report_line['use table'] = use_table
+    report_line['use graph'] = use_graph
+    report_line['use notepad'] = use_notepad
+
+    return sim, dreamtable, report_line
 
 
 #test sim with this link
