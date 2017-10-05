@@ -17,7 +17,7 @@ OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_
 RAWFILES_CAPS = '38663fa4-7ac5-4868-b687-82d9aa05ab37' ##capacitors sim logs
 RAWFILES_BEERS = '43abdd26-76bd-4fe9-9f7b-29500369038f' ##beers sim logs
 
-# Use these when looking for sims with trial missing bugs
+# Use these when looking for caps sims with trial missing bugs
 IDS = ['12345678','12345678','12665164','16136159','17576140','17655165','18866165']
 DATES = ['2016-11-08_14.23.13','2016-11-08_14.23.13','2017-03-21_18.25.09','2017-03-20_16.24.32','2017-03-22_16.25.06','2017-03-28_15.29.17','2017-03-20_16.24.18']
 

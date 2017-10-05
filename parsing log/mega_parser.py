@@ -478,8 +478,9 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     try:
                         table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
                     except:
-                        print 'ERROR', event['index'], phetioID, trial_added_or_removed_to_graph
-                        simevent = "ERROR " + simevent
+                        pass
+                    #     print 'ERROR', event['index'], phetioID, trial_added_or_removed_to_graph
+                    #     simevent = "ERROR " + simevent
                     diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                     # if diff:
                     #     print diff, simevent, event['index']
@@ -495,8 +496,9 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
                     try:
                         table = remove_from_table(table.copy(), trial_removed_from_table)
                     except:
-                        print '\n\t\t\t ERROR', event['index'], phetioID, trial_removed_from_table
-                        simevent = "ERROR - " + simevent
+                        pass
+                    #     print '\n\t\t\t ERROR', event['index'], phetioID, trial_removed_from_table
+                    #     simevent = "ERROR - " + simevent
                     diff, table = check_parsed_table_with_userData(table,event,sim,get_data_children_parameters)
                     # if diff:
                     #     print diff, simevent, event['index']
@@ -641,9 +643,10 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         try:
             table = update_checkstatus_in_table(table.copy(), trial_added_or_removed_to_graph, checked)
         except:
-            print 'ERROR', event['index']
-            print event['event'], trial_added_or_removed_to_graph
-            simevent = "ERROR " + simevent
+            pass
+        #     print 'ERROR', event['index']
+        #     print event['event'], trial_added_or_removed_to_graph
+        #     simevent = "ERROR " + simevent
         diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
         # if diff:
         #     print diff, simevent, event['index']
@@ -659,9 +662,10 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         try:
             table = remove_from_table(table.copy(), trial_removed_from_table)
         except:
-            print 'ERROR', event['index']
-            print event['event'], trial_removed_from_table
-            simevent = "ERROR " + simevent
+            pass
+        #     print 'ERROR', event['index']
+        #     print event['event'], trial_removed_from_table
+        #     simevent = "ERROR " + simevent
         diff, table = check_parsed_table_with_userData(table,event,sim,get_data_parameters)
         # if diff:
         #     print diff, simevent, event['index']
@@ -911,10 +915,10 @@ def mega_parser(studentid, events):
         simevent = ''
         item = ''
         action = ''
-        if sim == 'beers-law-lab':
-            simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
-        else:
-            simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
+        # if sim == 'beers-law-lab':
+        #     simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
+        # else:
+        #     simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
         # datatable = {}
         graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
         notes = ''
