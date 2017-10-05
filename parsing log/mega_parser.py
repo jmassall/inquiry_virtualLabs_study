@@ -356,7 +356,7 @@ INITIALIZING_METHODS = ["addExpressions","launchSimulation","setText"]
 
 def parse_event(sim, event, simstate, table, graphstate, notes):
     parsed = False
-    diff = None
+    diff = ''
 
     if "simIFrameAPI.invoked" in event['event']:
         if 'messages' in get_data_parameters(event).keys() and "getValue" in str(get_data_parameters(event)):
@@ -937,6 +937,9 @@ def mega_parser(studentid, events):
             if NEWdatatable != datatable:
                 dreamtable[row,header.index("Table")] = json.dumps(NEWdatatable)
                 datatable = NEWdatatable.copy()
+
+            if component == 'table':
+                dreamtable[row,header.index("diff in parsed table")] = diff
 
             for variable in graphstate:
                 dreamtable[row,header.index(variable)] = graphstate[variable]
