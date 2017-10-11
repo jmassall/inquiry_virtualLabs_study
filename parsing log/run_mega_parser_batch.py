@@ -64,8 +64,8 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
             outname = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)
             outfilepath = os.path.join(parsed_data_path,outname)
 
-            if studentid not in IDS or date not in DATES:
-                continue
+            # if studentid not in IDS or date not in DATES:
+            #     continue
 
             if os.path.isfile(outfilepath) and not reparse:
                 # print  "ALREADY FOUND:", outname
