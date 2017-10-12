@@ -35,10 +35,12 @@ REPORT_HEADER = ['studentid',
 
 
 def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
+    failed = False
+    failed_files = []
     in_data_path = infolder+rawfilename
     parsed_data_path = os.path.join(outfolder,'parsed_' + rawfilename)
 
-    report_path = os.path.join(parsed_data_path,'parsing_report_reparse={0}_skipwriteout={1}_on={1}.txt'.format(reparse,skipwriteout,datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")))
+    report_path = os.path.join(parsed_data_path,'parsing_report_reparse={0}_skipwriteout={1}_on={2}.txt'.format(reparse,skipwriteout,datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")))
     report = open(report_path, 'w')
     report.write('\t'.join(REPORT_HEADER))
 
@@ -84,6 +86,8 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
             try: 
                 sim, dreamtable, report_line = mega_parser(studentid, session.events)
             except Exception, e:
+                failed = True
+                failed_files.append(filepath)
                 e = sys.exc_info()
                 print "Parsing failed:", filepath
                 print e[0]
@@ -107,6 +111,11 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
                         outfilepath]
             to_write = [str(s) for s in to_write]
             report.write('\t'.join(to_write))
+    if failed:
+        print "Some files couldn't be parsed:"
+        print failed_files
+    else:
+        print "All files were parsed successfully."
 
 
 def main(*argv):

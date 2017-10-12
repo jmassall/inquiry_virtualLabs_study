@@ -13,8 +13,8 @@ import numpy as np
 import argparse
 from utils import *
 
-LIGHT_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
-CHARGE_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action",'Charge','Connection','Battery voltage','Separation','Area',"diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Experiment #s included","Notes"]
+LIGHT_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Notes"]
+CHARGE_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action",'Charge','Connection','Battery voltage','Separation','Area',"diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Notes"]
 
 def initialize_dreamtable(studentid, number_of_events,first_event):
     '''
@@ -859,7 +859,7 @@ def mega_parser(studentid, events):
     else:
         simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
     datatable = {}
-    graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
+    graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":''}
     notes = ''
 
     number_of_table_errors = 0
@@ -887,7 +887,7 @@ def mega_parser(studentid, events):
         # else:
         #     simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
         # datatable = {}
-        # graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
+        # graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":''}
         # notes = ''
         
         #we parse events (eventually we can parse given previous state)
