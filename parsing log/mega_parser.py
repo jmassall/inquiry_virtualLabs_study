@@ -881,13 +881,14 @@ def mega_parser(studentid, events):
         simevent = ''
         item = ''
         action = ''
+        ##### We don't reset the sim, table, graph state and notes so that it's propagated through out the parsed log file
         # if sim == 'beers-law-lab':
         #     simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
         # else:
         #     simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
         # datatable = {}
-        graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
-        notes = ''
+        # graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":'',"Experiment #s included":''}
+        # notes = ''
         
         #we parse events (eventually we can parse given previous state)
         parsed, user_or_model, simevent, component, item, action, simstate, NEWdatatable, graphstate, notes, diff = parse_event(sim,event, simstate.copy(), datatable.copy(), graphstate.copy(), notes)
@@ -904,9 +905,9 @@ def mega_parser(studentid, events):
             for variable in simstate:
                 dreamtable[row,header.index(variable)] = simstate[variable]
 
-            if NEWdatatable != datatable:
-                dreamtable[row,header.index("Table")] = json.dumps(NEWdatatable)
-                datatable = NEWdatatable.copy()
+            # if NEWdatatable != datatable:
+            dreamtable[row,header.index("Table")] = json.dumps(NEWdatatable)
+            datatable = NEWdatatable.copy()
 
             if component == 'table':
                 dreamtable[row,header.index("diff in parsed table")] = diff

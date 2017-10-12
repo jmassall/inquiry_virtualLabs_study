@@ -38,7 +38,7 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
     in_data_path = infolder+rawfilename
     parsed_data_path = os.path.join(outfolder,'parsed_' + rawfilename)
 
-    report_path = os.path.join(parsed_data_path,'parsing_report_reparse={0}_{1}.txt'.format(reparse,'')) #datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")))
+    report_path = os.path.join(parsed_data_path,'parsing_report_reparse={0}_skipwriteout={1}_on={1}.txt'.format(reparse,skipwriteout,datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S")))
     report = open(report_path, 'w')
     report.write('\t'.join(REPORT_HEADER))
 
