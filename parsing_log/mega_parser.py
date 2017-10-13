@@ -894,7 +894,7 @@ def mega_parser(studentid, events):
         parsed, user_or_model, simevent, component, item, action, simstate, NEWdatatable, graphstate, notes, diff = parse_event(sim,event, simstate.copy(), datatable.copy(), graphstate.copy(), notes)
 
         if parsed: #if we managed to parse, we update the dreamtable
-            dreamtable[row,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,2)
+            dreamtable[row,header.index("Time")] = round((event['timestamp']-first_time_stamp)/1000.0,4)
             dreamtable[row,header.index("Index")] = event['index']
             dreamtable[row,header.index("User or Model")] = user_or_model
             dreamtable[row,header.index("Component")] = component

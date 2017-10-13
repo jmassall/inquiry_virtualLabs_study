@@ -61,7 +61,7 @@ class NotebookLoader(object):
                     code = self.shell.input_transformer_manager.transform_cell(cell.source)
                     # run the code in themodule
                     exec(code, mod.__dict__)
-                function_search = re.search("def ([a-zA-Z\_]+)\([a-zA-Z\_=,\s]+\):",str(cell.source))
+                function_search = re.search("def ([a-zA-Z\_]+)\([a-zA-Z\_=,\s\[\]]+\):",str(cell.source))
                 try:
                     function = function_search.group(1)
                     print ("importing function: %s" % function)
