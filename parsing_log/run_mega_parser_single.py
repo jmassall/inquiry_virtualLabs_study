@@ -48,7 +48,7 @@ def main(*argv):
         print "Parsing log file for student", studentid, "for sim", sim, "in folder ", infolder
     
     #find the right file
-    in_file_path = find_student_log_file(infolder, sim, studentid, date=date)
+    in_file_path = find_student_log_file(sim, studentid, date=date, infolder=infolder)
     if date==None:
         date = re.search(r'\d{7,8}_([\d\-\.\_]+)\.json', in_file_path).group(1)
     out_file = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)

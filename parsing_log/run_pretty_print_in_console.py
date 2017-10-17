@@ -68,7 +68,7 @@ def main(*argv):
         print "Pretty printing log file for student", studentid, "for sim", sim, "in folder ", infolder
     
     #find the right file
-    in_file_path = find_student_log_file(infolder, sim, studentid, date=date)
+    in_file_path = find_student_log_file(sim, studentid, date=date, infolder=infolder)
     out_file_path = os.path.join(outfolder, 'pretty_print_copy_'+ in_file_path.split('\\')[-1] )
 
     #now we pretty print it into the output folder

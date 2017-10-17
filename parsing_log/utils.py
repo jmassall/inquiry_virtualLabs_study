@@ -11,8 +11,10 @@ import json
 import getpass
 import math
 
+INFOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
 
-def find_student_log_file(infolder, sim, studentid, date=None):
+
+def find_student_log_file(sim, studentid, date=None, infolder=INFOLDER):
     if date:
         for root, dirs, files in os.walk(infolder):
             for f in files:
