@@ -177,10 +177,10 @@ def extract_new_datapoint(sim, event, record_data_method):
         #sim rounds up to 3 decimal places
         if "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty" in record_data_method(event)['state'].keys():
             # for newer logs
-            datapoint["Concentration"] = round(record_data_method(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+            datapoint["Concentration"] = round(record_data_method(event)['state']["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]*1000,2)
         else:
             # for older logs
-            datapoint["Concentration"] = round(record_data_method(event)['state']["beersLawLab.solutions.copperSulfate.concentrationProperty"],2)
+            datapoint["Concentration"] = round(record_data_method(event)['state']["beersLawLab.solutions.copperSulfate.concentrationProperty"]*1000,2)
         datapoint["trialNumber"] = record_data_method(event)["trialNumber"]
         datapoint["visible"] = record_data_method(event)["visible"]
     elif sim == 'capacitor-lab-basics':
@@ -325,13 +325,13 @@ def update_state(sim,event):
         simstate["Laser on status"] = get_state(event)["beersLawLab.beersLawScreen.model.light.onProperty"]
         simstate["Wavelength"] = get_state(event)["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
         simstate["Ruler location"] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
-        # simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"],2)
+        # simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]*1000,2)
         if "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty" in get_state(event).keys():
             # for newer logs
-            simstate["Concentration"] = get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]
+            simstate["Concentration"] = get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]*1000
         else:
             # for older logs
-            simstate["Concentration"] = get_state(event)["beersLawLab.solutions.copperSulfate.concentrationProperty"]
+            simstate["Concentration"] = get_state(event)["beersLawLab.solutions.copperSulfate.concentrationProperty"]*1000
     elif sim == 'capacitor-lab-basics':
         simstate["Battery voltage"] = round(get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.battery.voltageProperty"],4)
         simstate["Connection"] = get_state(event)["capacitorLabBasics.lightBulbScreen.model.circuit.circuitConnectionProperty"]
