@@ -13,7 +13,7 @@ import numpy as np
 import argparse
 from utils import *
 
-LIGHT_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action","Laser on status","Wavelength","Width","Concentration","Absorption","Detector location","Ruler location","diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Notes"]
+LIGHT_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action","Laser toggle","Wavelength","Width","Concentration","Absorbance","Detector location","Ruler location","diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Notes"]
 CHARGE_HEADER = ["User","Sim","Time","Index","User or Model","Component","Event","Item","Action",'Charge','Connection','Battery voltage','Separation','Area',"diff in parsed table","Table","X axis","Y axis","X axis scale","Y axis scale","Notes"]
 
 def initialize_dreamtable(studentid, number_of_events,first_event):
@@ -156,6 +156,12 @@ def get_notes(event, notepad_method, show_error_in_console = True):
         if show_error_in_console:
             print "Error: event",event['index']," has no 'data > parameters > text'"
             # traceback.print_exc()
+def binarize_laser(on):
+    if on:
+        return 1
+    else:
+        return 0
+
 
 def extract_new_datapoint(sim, event, record_data_method):
     '''
@@ -168,10 +174,10 @@ def extract_new_datapoint(sim, event, record_data_method):
         datapoint["Width"] = round(record_data_method(event)['state']["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
         datapoint["Detector location"] = {k:round(v,2) for k,v in record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"].iteritems()}
         #sim rounds up to 2 decimal places
-        absorption = record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"]
-        if absorption != None:
-            datapoint["Absorption"] = round(absorption,2)
-        datapoint["Laser on status"] = record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.onProperty"]
+        absorbance = record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+        if absorbance != None:
+            datapoint["Absorbance"] = round(absorbance,2)
+        datapoint["Laser toggle"] = binarize_laser(record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.onProperty"])
         datapoint["Wavelength"] = record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
         datapoint["Ruler location"] = {k:round(v,2) for k,v in record_data_method(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"].iteritems()}
         #sim rounds up to 3 decimal places
@@ -319,10 +325,10 @@ def update_state(sim,event):
     if sim == 'beers-law-lab':
         simstate["Width"] = round(get_state(event)["beersLawLab.beersLawScreen.model.cuvette.widthProperty"],2)
         simstate["Detector location"] = get_state(event)["beersLawLab.beersLawScreen.model.detector.probe.locationProperty"]
-        absorption = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
-        if absorption != None:
-            simstate["Absorption"] = round(absorption,2)
-        simstate["Laser on status"] = get_state(event)["beersLawLab.beersLawScreen.model.light.onProperty"]
+        absorbance = get_state(event)["beersLawLab.beersLawScreen.model.detector.valueProperty"]
+        if absorbance != None:
+            simstate["Absorbance"] = round(absorbance,2)
+        simstate["Laser toggle"] = binarize_laser(get_state(event)["beersLawLab.beersLawScreen.model.light.onProperty"])
         simstate["Wavelength"] = get_state(event)["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
         simstate["Ruler location"] = get_state(event)["beersLawLab.beersLawScreen.model.ruler.locationProperty"]
         # simstate["Concentration"] = round(get_state(event)["beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty"]*1000,2)
@@ -855,7 +861,7 @@ def mega_parser(studentid, events):
     item = ''
     action = ''
     if sim == 'beers-law-lab':
-        simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
+        simstate = {"Laser toggle":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorbance":'',"Detector location":'',"Ruler location":''}
     else:
         simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
     datatable = {}
@@ -883,7 +889,7 @@ def mega_parser(studentid, events):
         action = ''
         ##### We don't reset the sim, table, graph state and notes so that it's propagated through out the parsed log file
         # if sim == 'beers-law-lab':
-        #     simstate = {"Laser on status":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorption":'',"Detector location":'',"Ruler location":''}
+        #     simstate = {"Laser toggle":'',"Wavelength":'',"Width":'',"Concentration":'',"Absorbance":'',"Detector location":'',"Ruler location":''}
         # else:
         #     simstate = {'Charge': '', 'Connection': '', 'Battery voltage': '', 'Separation': '', 'Area': ''}
         # datatable = {}
