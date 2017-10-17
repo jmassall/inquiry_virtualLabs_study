@@ -13,7 +13,7 @@ from mega_parser import *
 from utils import find_student_log_file
 
 INFOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
-OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\git\\inquiry_virtualLabs_study\\parsing log'
+OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\git\\inquiry_virtualLabs_study\\parsing_log'
 
 def main(*argv):
     '''handles user input and runs pretty print function'''

@@ -12,7 +12,7 @@ import argparse
 from utils import find_student_log_file
 
 INFOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
-OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\git\\inquiry_virtualLabs_study\\parsing log'
+OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\git\\inquiry_virtualLabs_study\\parsing_log'
 
 def pretty_print_cleaned_file(raw_file_path,output_file):
     ''' opens a raw data file, grabs the first line and outputs
