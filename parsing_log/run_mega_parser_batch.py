@@ -24,6 +24,9 @@ DATES = ['2016-11-08_14.23.13','2016-11-08_14.23.13','2017-03-21_18.25.09','2017
 REPORT_HEADER = ['studentid',
                     'sim',
                     'date',
+                    'time start',
+                    'time end',
+                    'number of user events'
                     'number of table errors',
                     'number of records',
                     'number of gettingValues',
@@ -66,8 +69,8 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
             outname = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)
             outfilepath = os.path.join(parsed_data_path,outname)
 
-            # if studentid not in IDS or date not in DATES:
-            #     continue
+            if studentid not in IDS or date not in DATES:
+                continue
 
             if os.path.isfile(outfilepath) and not reparse:
                 # print  "ALREADY FOUND:", outname
@@ -101,6 +104,9 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
                     np.savetxt(outfile, dreamtable, delimiter='\t', fmt='%s')
             report.write('\n')
             to_write = [report_line['studentid'],report_line['sim'],date,
+                        report_line['first time stamp'],
+                        report_line['last time stamp'],
+                        report_line['number of user events'],
                         report_line['number of table errors'],
                         report_line['number of records'],
                         report_line['number of gettingValues'],

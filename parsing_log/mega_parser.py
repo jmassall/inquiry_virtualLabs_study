@@ -851,7 +851,7 @@ def mega_parser(studentid, events):
     Then for each event, we tests a few if statements to try to parse the event.
     the output is saved as a tab delimited file.
     '''
-    sim, first_time_stamp, header, dreamtable = initialize_dreamtable(studentid, len(events),events[0])
+    sim, first_time_stamp, last_time_stamp, header, dreamtable = initialize_dreamtable(studentid, len(events),events[0])
 
     #initialize all variables
     parsed = False
@@ -868,6 +868,7 @@ def mega_parser(studentid, events):
     graphstate = {"X axis":'',"Y axis":'',"X axis scale":'',"Y axis scale":''}
     notes = ''
 
+    number_of_user_events = 0
     number_of_table_errors = 0
     number_of_records = 0
     number_of_gettingValues = 0
@@ -937,10 +938,15 @@ def mega_parser(studentid, events):
                 use_graph = True
             if component == 'notepad':
                 use_notepad = True
+            if user_or_model == 'User':
+                number_of_user_events += 1
 
     report_line = {}
     report_line['studentid'] = studentid
     report_line['sim'] = sim
+    report_line['first time stamp'] = first_time_stamp
+    report_line['last time stamp'] = round((event['timestamp']-first_time_stamp)/1000.0,4) #this will always be the last event
+    report_line['number of user events'] = number_of_user_events
     report_line['number of table errors'] = number_of_table_errors
     report_line['number of records'] = number_of_records
     report_line['number of gettingValues'] = number_of_gettingValues
