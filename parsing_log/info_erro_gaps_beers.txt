@@ -1,0 +1,4 @@
+"learerID":"12345678","publisherID":"0c82b6bf","errorGaps":[[{"event":"phetio.inputEvent","timestamp":1476205878255,"index":4674,"type
+"learerID":"12345567","publisherID":"0c82b6bf","errorGaps":[[{"event":"phetio.stepSimulation","timestamp":1476405806093,"index":22587,
+"learerID":"12345678","publisherID":"0c82b6bf","errorGaps":[[{"event":"phetio.stepSimulation","timestamp":1476734134556,"index":13152,
+"learerID":"11669161","publisherID":"0c82b6bf","errorGaps":[[{"event":"phetio.stepSimulation","timestamp":1484851118106,"index":64463,
