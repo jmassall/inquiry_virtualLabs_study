@@ -18,15 +18,15 @@ RAWFILES_CAPS = '38663fa4-7ac5-4868-b687-82d9aa05ab37' ##capacitors sim logs
 RAWFILES_BEERS = '43abdd26-76bd-4fe9-9f7b-29500369038f' ##beers sim logs
 
 # Use these when looking for caps sims with trial missing bugs
-IDS = ['12345678','12345678','12665164','16136159','17576140','17655165','18866165']
+IDS = ['18866165','12345678','12345678','12665164','16136159','17576140','17655165','18866165']
 DATES = ['2016-11-08_14.23.13','2016-11-08_14.23.13','2017-03-21_18.25.09','2017-03-20_16.24.32','2017-03-22_16.25.06','2017-03-28_15.29.17','2017-03-20_16.24.18']
 
 REPORT_HEADER = ['studentid',
                     'sim',
                     'date',
-                    'time start',
-                    'time end',
-                    'number of user events'
+                    'first time stamp',
+                    'time in PhET',
+                    'number of user events',
                     'number of table errors',
                     'number of records',
                     'number of gettingValues',
@@ -69,8 +69,8 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
             outname = 'dream_table_{0}_{1}_{2}.txt'.format(sim,studentid,date)
             outfilepath = os.path.join(parsed_data_path,outname)
 
-            if studentid not in IDS or date not in DATES:
-                continue
+            # if studentid not in IDS or date not in DATES:
+            #     continue
 
             if os.path.isfile(outfilepath) and not reparse:
                 # print  "ALREADY FOUND:", outname
@@ -105,7 +105,7 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
             report.write('\n')
             to_write = [report_line['studentid'],report_line['sim'],date,
                         report_line['first time stamp'],
-                        report_line['last time stamp'],
+                        report_line['time in PhET'],
                         report_line['number of user events'],
                         report_line['number of table errors'],
                         report_line['number of records'],
