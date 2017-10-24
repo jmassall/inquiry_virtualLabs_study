@@ -710,28 +710,28 @@ def parse_event(sim, event, simstate, table, graphstate, notes):
         user_or_model = 'user'
         component = 'sim'
         simevent = 'Changed concentration'
-        item = 'concentration slider'
+        item = 'solutionControls slider'
         action = 'Pressed increment button'
     elif "concentrationControl.slider.minusButton" in event['event']:
         parsed = True
         user_or_model = 'user'
         component = 'sim'
         simevent = 'Changed concentration'
-        item = 'concentration slider'
+        item = 'solutionControls slider'
         action = 'Pressed decrement button'
     elif "wavelengthSlider.plusButton" in event['event']:
         parsed = True
         user_or_model = 'user'
         component = 'sim'
         simevent = 'Changed wavelength'
-        item = 'wavelength slider'
+        item = 'wavelengthControls slider'
         action = 'Pressed increment button'
     elif "wavelengthSlider.minusButton" in event['event']:
         parsed = True
         user_or_model = 'user'
         component = 'sim'
         simevent = 'Changed wavelength'
-        item = 'wavelength slider'
+        item = 'wavelengthControls slider'
         action = 'Pressed decrement button'
     elif event['event'] in EVENTS_INITIALIZING:
         parsed = True
