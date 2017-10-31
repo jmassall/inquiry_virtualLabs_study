@@ -43,13 +43,13 @@ def batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout):
     in_data_path = infolder+rawfilename
     parsed_data_path = os.path.join(outfolder,'parsed_' + rawfilename)
 
-    report_path = os.path.join(parsed_data_path,'parsing_report_{3}_reparse={0}_skipwriteout={1}_on={2}.txt'.format(reparse,skipwriteout,datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S"),sim))
-    report = open(report_path, 'w')
-    report.write('\t'.join(REPORT_HEADER))
-
     #create a folder for the new data files, if one doesn't already exist.
     if not os.path.exists(parsed_data_path):
         os.makedirs(parsed_data_path)
+
+    report_path = os.path.join(parsed_data_path,'parsing_report_{3}_reparse={0}_skipwriteout={1}_on={2}.txt'.format(reparse,skipwriteout,datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S"),sim))
+    report = open(report_path, 'w')
+    report.write('\t'.join(REPORT_HEADER))
 
     #for each cleaned log file in the folder
     for f in os.listdir(in_data_path):
@@ -132,6 +132,7 @@ def main(*argv):
     parser.add_argument('-reparse', help='Even if parsed files already exist, reparse them.', action='store_true', default=False)
     parser.add_argument('-skipwriteout', help='If want to skip writing out parsed data to disk (use for testing)', action='store_true', default=False)
     parser.add_argument('-infolder', help='Location of log file', default = INFOLDER)
+    parser.add_argument('-rawfile', help='Name of raw file', default = '')
     parser.add_argument('-outfolder', help='Location of output file', default = OUTFOLDER)
     args = parser.parse_args()
 
@@ -141,6 +142,7 @@ def main(*argv):
     outfolder = args.outfolder
     reparse = args.reparse
     skipwriteout = args.skipwriteout
+    rawfilename = args.rawfile
 
     if args.beers == args.caps:
         print "Please pick one of the sims to parse."
@@ -148,9 +150,12 @@ def main(*argv):
 
     if args.beers:
         sim = 'beers'
-        rawfilename = RAWFILES_BEERS
-    else:
+    elif args.caps:
         sim = 'capacitor'
+
+    if args.beers and rawfilename =='':
+        rawfilename = RAWFILES_BEERS
+    elif args.caps and rawfilename =='':
         rawfilename = RAWFILES_CAPS 
 
     batch_parse(sim,infolder,outfolder,rawfilename,reparse,skipwriteout)
