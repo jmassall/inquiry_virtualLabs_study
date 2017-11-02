@@ -58,7 +58,7 @@ action_to_family = {'N':['editing notes'],
                    'I':['expanding table','collapsing table','expanding graph','collapsing graph','collapsing simulation','expanding simulation','Playing with PhET menu'],
                     'P':['Pause']}
 
-variable_actions = ['toggle laser','dragEnded','dragged','dragStarted','Changed concentration','Changed wavelength']
+variable_actions = ['toggle laser','dragEnded','dragged','dragStarted','Changed concentration','Changed wavelength','changed connection']
 
 
 def add_family(df):
@@ -70,7 +70,7 @@ def add_family(df):
     def map_event_family(event,item):
         if event in variable_actions:
             if 'plateArea' in item: return 'Va'
-            elif 'Switch' in item: return 'Vt'
+            elif 'switch' in item: return 'Vt'
             else:
                 return 'V'+item[0]
         else:
@@ -375,7 +375,7 @@ family_name_to_code = {'Interface':'I',
                         'Battery voltage':'Vb',
                         'Area':'Va',
                         'Separation':'Vp',
-                        'Switch':'Vt',
+                        'Connection':'Vt',
                         }
 
 function_to_use = {'Record':get_record_usage,
@@ -393,7 +393,8 @@ function_to_use = {'Record':get_record_usage,
                   'Width':get_value_and_coords,
                   'Concentration':get_value_and_coords,
                    'Battery voltage':get_value_and_coords,
-                   'Lightbulb voltage':get_value_and_coords,
+                   #'Lightbulb voltage':get_value_and_coords,
+                   'Connection':get_value_and_coords,
                    'Separation':get_value_and_coords,
                    'Area':get_value_and_coords,
                    'Absorbance':get_absorbance,
@@ -419,6 +420,7 @@ colors = {'Interface':'#969696',
             'Record':'#6000fc',
             'Detector':'#32883b',
             'Wavelength':'#9b0017',
+            'Connection':'#9b0017',
             'Width': '#ec7d27',
             'Concentration':'#5c8dfc',
             'Laser toggle':'#e90023',
@@ -426,14 +428,14 @@ colors = {'Interface':'#969696',
             'Lightbulb voltage':'#e90023',#
             'Separation':'#25b25b',#
             'Area':'#003bf7',#
-            'Switch':'#e90023',#
+            'Connection':'#e90023',#
             'Charge vs. TrialNumber':'#4a000b',#
             'Charge vs. separation':'#25b25b',#
             'Charge vs. area':'#003bf7',#
             'Absorbance':'#2a2d34',
             'Charge':'#2a2d34'}
 
-to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Battery voltage','Separation','Area','','Charge']
+to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Connection','Battery voltage','Separation','Area','','Charge']
 to_plot_beers = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Abs vs. TrialNumber','Abs vs. Width','Abs vs. Concentration','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Detector','Wavelength','Width','Concentration','Laser toggle','','Absorbance']
 
 
@@ -443,6 +445,7 @@ MIN_MAX = {'Wavelength':(380,780),
            'Absorbance':(0.0,3.84),
           'Laser toggle':(0.0,1.0),
           'Battery voltage':(-1.5,1.5),
+          'Connection':(0,1),
           'Area':(100,400),
           'Separation':(2,10),
           'Charge':(-2.6562,2.6562)}
@@ -453,6 +456,14 @@ def fix_laser(values,coords):
     newvalues = list(chain.from_iterable(izip(values,opp)))
     newcoords = list(chain.from_iterable(izip(coords,coords)))
     return newvalues,newcoords
+
+def fix_connection(values,coords):
+    values = [0.0 if v == "BATTERY_CONNECTED" else 1.0 for v in values]
+    opp = [0.0 if v == 1.0 else 1.0 for v in values]
+    newvalues = list(chain.from_iterable(izip(values,opp)))
+    newcoords = list(chain.from_iterable(izip(coords,coords)))
+    return newvalues,newcoords
+
 
 def plot(df,to_plot,family_name_to_code,function_to_use,colors):
     ax = plt.subplot()
@@ -473,11 +484,13 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             color = 'white'
             action_use = [(0,max_time)]
         elif action in ['Absorbance','Wavelength','Width','Concentration','Laser toggle',
-                        'Battery voltage','Lightbulb voltage','Separation','Area','Charge']:
+                        'Battery voltage','Connection','Separation','Area','Charge']:
             #get time coords for changes in that variable, and the values of those changes
             values,coords,action_use = function_to_use[action](df,action)
             if action == 'Laser toggle':#values for the laser toggle are actually the previous value before action so we need to fix up the values a bit
                 values,coords = fix_laser(values,coords)
+            elif action == 'Connection':
+                values,coords = fix_connection(values,coords)
             else:
                 #add last value ended sim with
                 values.append(values[-1])
@@ -486,7 +499,7 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             norm_values = [(v-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values] #normalize so it fits in x_axis
             if action == 'Absorbance':
                 color = 'black'
-            ax.plot(coords,norm_values,'-',color=color,linewidth=2,alpha=1)
+            ax.plot(coords,norm_values,'-',color=color,linewidth=1.5,alpha=1)
             alpha = 0.3
         elif action in function_to_use.keys():
             action_use = function_to_use[action](df)   
@@ -512,21 +525,20 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
     ax.set_xlim(0, max_time)
     
     #Add labels
-    ax.set_xlabel('Time (min)',fontsize=25)
+    ax.set_xlabel('Time (min)',fontsize=20)
     ax.set_xticks(range(0,int(max_time),60))
-    ax.set_xticklabels([str(x/60)+''if x in range(0,int(max_time),60*5) else "" for x in range(0,int(max_time),60)],fontsize=13)
+    ax.set_xticklabels([str(x/60)+''if x in range(0,int(max_time),60*5) else "" for x in range(0,int(max_time),60)],fontsize=20)
     ax.set_xticks(range(0,int(max_time),60), minor=True)
-    ax.set_xticklabels([str(x/60)+''if x not in range(0,int(max_time),60*5) else "" for x in range(0,int(max_time),60)],fontsize=11, minor=True)
-    ax.xaxis.set_tick_params(labelsize=20)
+    ax.set_xticklabels([str(x/60)+''if x not in range(0,int(max_time),60*5) else "" for x in range(0,int(max_time),60)],fontsize=14, minor=True)
     ax.set_yticks(range(0,len(to_plot)*spacing,spacing)) #for the grid
     ax.set_yticklabels(['' for p in to_plot])
     ax.set_yticks(range(spacing/2,len(to_plot)*spacing,spacing),minor=True) #minor ticks
-    ax.set_yticklabels([a.capitalize() for a in to_plot],fontsize=25, minor=True)
+    ax.set_yticklabels([a.capitalize() for a in to_plot],fontsize=20, minor=True)
     ax.grid(True)
     
-    ax2 = ax.twiny()
-    ax2.set_xlim(0, max_time)
-    ax2.set_xlabel('',fontsize=20)
-    ax2.set_xticks(range(0,int(max_time),60))
-    ax2.set_xticklabels([str(x/60)+''if x in range(0,int(max_time),60*5) else "" for x in range(0,int(max_time),60)],fontsize=13)
-    ax2.grid(False)
+    # ax2 = ax.twiny()
+    # ax2.set_xlim(0, max_time)
+    # ax2.set_xlabel('',fontsize=20)
+    # ax2.set_xticks(range(0,int(max_time),60))
+    # ax2.set_xticklabels([str(x/60)+''if x in range(0,int(max_time),60*5) else "" for x in range(0,int(max_time),60)],fontsize=13)
+    # ax2.grid(False)
