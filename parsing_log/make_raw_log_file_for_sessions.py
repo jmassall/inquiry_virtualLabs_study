@@ -11,8 +11,10 @@ from utils import *
 import getpass
 
 
-SIM = 'beers'
-IDS = ['12263156']
+# SIM = 'beers'
+# IDS = ['12263156']
+SIM = 'caps'
+IDS = ['17931169']
 # IDS = ['90447168']
 
 

@@ -869,6 +869,7 @@ def mega_parser(studentid, events):
     notes = ''
 
     number_of_user_events = 0
+    number_of_model_events = 0
     number_of_table_errors = 0
     number_of_records = 0
     number_of_gettingValues = 0
@@ -940,6 +941,8 @@ def mega_parser(studentid, events):
                 use_notepad = True
             if user_or_model == 'user':
                 number_of_user_events += 1
+            if user_or_model == 'model':
+                number_of_model_events += 1
 
     report_line = {}
     report_line['studentid'] = studentid
@@ -947,6 +950,7 @@ def mega_parser(studentid, events):
     report_line['first time stamp'] = first_time_stamp
     report_line['time in PhET'] = round((event['timestamp']-first_time_stamp)/1000.0,4) #this will always be time from first to last event
     report_line['number of user events'] = number_of_user_events
+    report_line['number of model events'] = number_of_model_events
     report_line['number of table errors'] = number_of_table_errors
     report_line['number of records'] = number_of_records
     report_line['number of gettingValues'] = number_of_gettingValues
