@@ -457,8 +457,22 @@ def fix_laser(values,coords):
     newcoords = list(chain.from_iterable(izip(coords,coords)))
     return newvalues,newcoords
 
+connection_conversion = {"BATTERY_CONNECTED":0.0,
+                         "IN_TRANSIT":0.5,
+                         "LIGHT_BULB_CONNECTED":1.0}
+
 def fix_connection(values,coords):
-    values = [0.0 if v == "BATTERY_CONNECTED" else 1.0 for v in values]
+    fixed_values = []
+    previous = "BATTERY_CONNECTED"
+    for v in values:
+        if v == "IN_TRANSIT":
+            fixed_values.append(previous)
+        else:
+            fixed_values.append(v)
+            previous = v
+    joined = zip(fixed_values,coords)
+    newjoined = [(connection_conversion[j[0]],j[1]) for j in joined]# if j[0] != "IN_TRANSIT"]
+    values, coords = zip(*newjoined)
     opp = [0.0 if v == 1.0 else 1.0 for v in values]
     newvalues = list(chain.from_iterable(izip(values,opp)))
     newcoords = list(chain.from_iterable(izip(coords,coords)))
