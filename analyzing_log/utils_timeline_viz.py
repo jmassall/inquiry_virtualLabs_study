@@ -561,7 +561,8 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
 def count_pts_in_graph(table):
     return len(get_pts_in_graph(table))
 
-values_per_variable = {"Battery voltage":set(),
+def get_empty_values():
+    return {"Battery voltage":set(),
                         "Area":set(),
                         "Connection":set(),
                         "Separation":set(),
@@ -569,16 +570,16 @@ values_per_variable = {"Battery voltage":set(),
                         "Wavelength":set(),
                         "Concentration":set(),
                         "Laser toggle":set()}
-                        
-def pts_in_graph_are_confunded(table):
-    pts = get_pts_in_graph(table)
-    #collect all values we care a about
+                
+def get_values_per_variable(pts):
+    values_per_variable = get_empty_values()
     for point in pts:
         for attribute in point.keys():
             if attribute in values_per_variable.keys():
-                print attribute
                 values_per_variable[attribute].add(point[attribute])
-    # print values_per_variable
+    return values_per_variable
+
+def pts_are_confounded(values_per_variable):
     #check how many variables have more than 1 value
     number_of_values_varied = sum([1 if len(vals)>1 else 0 for vals in values_per_variable.values()])
     # print number_of_values_varied
@@ -587,19 +588,22 @@ def pts_in_graph_are_confunded(table):
     else:
         return False
 
-def get_pts_in_graph(table):
+def get_pts(table, in_graph =False):
     points = []
     for datapoint, attributes in table.iteritems():
-        if attributes['visible']:
+        if not in_graph:
+            points.append(attributes)
+        elif attributes['visible']:
             points.append(attributes)
     return points
 
 def read_table(table):
-    return json.loads(table)
+    return {int(k):v for k,v in json.loads(table).iteritems()}
 
 json_table = '''{"1": {"Battery voltage": 0.0, "Area": 90.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.0, "visible": true, "Charge": 0.0, "trialNumber": 1, "Separation": 10.0}, "2": {"Battery voltage": 0.2253, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.2253, "visible": true, "Charge": 0.02, "trialNumber": 2, "Separation": 10.0}, "3": {"Battery voltage": 0.3604, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.3604, "visible": true, "Charge": 0.03, "trialNumber": 3, "Separation": 10.0}, "4": {"Battery voltage": 0.5857, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.5857, "visible": false, "Charge": 0.05, "trialNumber": 4, "Separation": 10.0}, "5": {"Battery voltage": 0.856, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.856, "visible": false, "Charge": 0.08, "trialNumber": 5, "Separation": 10.0}, "6": {"Battery voltage": 0.9461, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.9461, "visible": false, "Charge": 0.08, "trialNumber": 6, "Separation": 10.0}, "7": {"Battery voltage": 1.0362, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 1.0362, "visible": false, "Charge": 0.09, "trialNumber": 7, "Separation": 10.0}, "8": {"Battery voltage": 1.1714, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 1.1714, "visible": false, "Charge": 0.1, "trialNumber": 8, "Separation": 10.0}, "9": {"Battery voltage": 1.5, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 1.5, "visible": false, "Charge": 0.13, "trialNumber": 9, "Separation": 10.0}}'''
 table = read_table(json_table)
-pts = get_pts_in_graph(table)
+pts = get_pts(table, in_graph = True)
 # print pts
-# print count_pts_in_graph(table)
-# print pts_in_graph_are_confunded(table)
+# values_per_variable =  get_values_per_variable(pts)
+# print count_pts_in_graph(pts)
+# print pts_are_confunded(values_per_variable
