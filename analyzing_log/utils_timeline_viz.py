@@ -305,6 +305,21 @@ def get_charge(df,_):
 def get_connection(df):
     return action_usage(df,'Connection',"LIGHT_BULB_CONNECTED")
 
+def get_graph_add_del_coords(df,_):
+    usage1 = action_usage(df,'Family',family_name_to_code['Graph add'])
+    usage2 = action_usage(df,'Family',family_name_to_code['Graph remove'])
+    coords = list(df['Time'])
+    values = [len(get_pts(read_table(table), in_graph = True)) for table in list(df['Table'])]
+    #get index of first time there are points in graph
+    #only get values and coords after first points are added
+    if 1 in values: #if points are ever added to graph
+        i = values.index(1)
+        coords = [c for j,c in enumerate(coords) if j >= i ]
+        values = [v for j,v in enumerate(values) if j >= i ]
+        return values, coords, merge_usage(usage1,usage2)
+    else:
+        return [],[], merge_usage(usage1,usage2)
+
 def axis_absorbance_trialNumber_usage(df):
     absorbance = axis_absorbance_usage(df)
     trialNumber = axis_trialNumber_usage(df)
@@ -382,6 +397,7 @@ family_name_to_code = {'Interface':'I',
                         }
 
 function_to_use = {'Record':get_record_usage,
+                    'Graph add/del':get_graph_add_del_coords,
                     'Abs vs. TrialNumber':axis_absorbance_trialNumber_usage,
                    'Abs vs. Concentration':axis_absorbance_concentration_usage,
                    'Abs vs. Width':axis_absorbance_width_usage,
@@ -414,8 +430,7 @@ colors = {'Interface':'#969696',
             'Abs vs. Width':'#f1cb2d',
             'Abs vs. Concentration':'#5c8dfc',
             'Graph edit axes':'#6000fc',
-            'Graph remove':'#6000fc',
-            'Graph add':'#6000fc',
+            'Graph add/del':'#6000fc',
             'Restore':'#6000fc',
             'Data Table (del/move)':'#6000fc',
             '':'white',
@@ -436,8 +451,8 @@ colors = {'Interface':'#969696',
             'Absorbance':'#2a2d34',
             'Charge':'#2a2d34'}
 
-to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Lightbulb connected','Battery voltage','Separation','Area','','Charge']
-to_plot_beers = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Abs vs. TrialNumber','Abs vs. Width','Abs vs. Concentration','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Detector','Wavelength','Width','Concentration','Laser toggle','','Absorbance']
+to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph add/del','','Restore','Data Table (del/move)','','Record','Lightbulb connected','Battery voltage','Separation','Area','','Charge']
+to_plot_beers = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Abs vs. TrialNumber','Abs vs. Width','Abs vs. Concentration','Graph edit axes','Graph add/del','','Restore','Data Table (del/move)','','Record','Detector','Wavelength','Width','Concentration','Laser toggle','','Absorbance']
 
 
 MIN_MAX = {'Wavelength':(380,780),
@@ -497,6 +512,15 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             alpha = 1
             color = 'white'
             action_use = [(0,max_time)]
+        elif action  == 'Graph add/del':
+            values,coords,action_use = function_to_use[action](df,action)
+            if len(values)>0:
+                min_v,max_v = 0,max(values)
+                #plot legend
+                ax.text(5,i*spacing+1,'0',horizontalalignment='left',fontsize=14, color=colors[action])
+                ax.text(5,(i+1)*spacing-3,str(max_v),horizontalalignment='left',fontsize=14, color=colors[action])
+                norm_values = [(v-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values] #normalize so it fits in x_axis
+                ax.plot(coords,norm_values,'-',color=color,linewidth=1.5,alpha=1)
         elif action in ['Absorbance','Wavelength','Width','Concentration','Laser toggle',
                         'Battery voltage','Separation','Area','Charge']:
             #get time coords for changes in that variable, and the values of those changes
@@ -506,7 +530,7 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             # elif action == 'Connection':
             #     if np.nan == values[0]: #when no udpate states in log
             #         values,coords = fix_connection(values,coords)
-            else:
+            elif len(values)>0:
                 #add last value ended sim with
                 values.append(values[-1])
                 coords.append(df['Time'].iloc[-1])
@@ -532,7 +556,7 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             elif action == 'Record':
                 a = 0.25
                 ax.broken_barh(action_use,(i*spacing,(spacing)*(len(to_plot)-i)),facecolors=color,linewidth=0,edgecolor='k',alpha=a)
-            elif action == 'Lightbulb connected':
+            elif action == 'Lightbulb connected' or action == 'Graph add/del':
                 alpha = 0.4
             height = (i*spacing+(n_spacer)*component_spacer,(component_spacer-margin))
             ax.broken_barh(action_use,height,facecolors=color,alpha=alpha,linewidth=0,edgecolor='k')
