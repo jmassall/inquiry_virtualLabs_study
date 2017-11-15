@@ -302,6 +302,9 @@ def get_charge(df,_):
     coords = list(df['Time'])
     return values, coords, None
 
+def get_connection(df):
+    return action_usage(df,'Connection',"LIGHT_BULB_CONNECTED")
+
 def axis_absorbance_trialNumber_usage(df):
     absorbance = axis_absorbance_usage(df)
     trialNumber = axis_trialNumber_usage(df)
@@ -392,9 +395,8 @@ function_to_use = {'Record':get_record_usage,
                   'Wavelength':get_value_and_coords,
                   'Width':get_value_and_coords,
                   'Concentration':get_value_and_coords,
+                  'Lightbulb connected':get_connection,
                    'Battery voltage':get_value_and_coords,
-                   #'Lightbulb voltage':get_value_and_coords,
-                   'Connection':get_value_and_coords,
                    'Separation':get_value_and_coords,
                    'Area':get_value_and_coords,
                    'Absorbance':get_absorbance,
@@ -425,17 +427,16 @@ colors = {'Interface':'#969696',
             'Concentration':'#5c8dfc',
             'Laser toggle':'#e90023',
             'Battery voltage':'#ec7d27',#
-            'Lightbulb voltage':'#e90023',#
+            'Lightbulb connected':'#e90023',#
             'Separation':'#25b25b',#
             'Area':'#003bf7',#
-            'Connection':'#e90023',#
             'Charge vs. TrialNumber':'#4a000b',#
             'Charge vs. separation':'#25b25b',#
             'Charge vs. area':'#003bf7',#
             'Absorbance':'#2a2d34',
             'Charge':'#2a2d34'}
 
-to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Connection','Battery voltage','Separation','Area','','Charge']
+to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Lightbulb connected','Battery voltage','Separation','Area','','Charge']
 to_plot_beers = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Abs vs. TrialNumber','Abs vs. Width','Abs vs. Concentration','Graph edit axes','Graph remove','Graph add','','Restore','Data Table (del/move)','','Record','Detector','Wavelength','Width','Concentration','Laser toggle','','Absorbance']
 
 
@@ -445,7 +446,6 @@ MIN_MAX = {'Wavelength':(380,780),
            'Absorbance':(0.0,3.84),
           'Laser toggle':(0.0,1.0),
           'Battery voltage':(-1.5,1.5),
-          'Connection':(0,1),
           'Area':(100,400),
           'Separation':(2,10),
           'Charge':(-2.6562,2.6562)}
@@ -457,26 +457,26 @@ def fix_laser(values,coords):
     newcoords = list(chain.from_iterable(izip(coords,coords)))
     return newvalues,newcoords
 
-connection_conversion = {"BATTERY_CONNECTED":0.0,
-                         "IN_TRANSIT":0.5,
-                         "LIGHT_BULB_CONNECTED":1.0}
+# connection_conversion = {"BATTERY_CONNECTED":0.0,
+#                          "IN_TRANSIT":0.5,
+#                          "LIGHT_BULB_CONNECTED":1.0}
 
-def fix_connection(values,coords):
-    fixed_values = []
-    previous = "BATTERY_CONNECTED"
-    for v in values:
-        if v == "IN_TRANSIT":
-            fixed_values.append(previous)
-        else:
-            fixed_values.append(v)
-            previous = v
-    joined = zip(fixed_values,coords)
-    newjoined = [(connection_conversion[j[0]],j[1]) for j in joined]# if j[0] != "IN_TRANSIT"]
-    values, coords = zip(*newjoined)
-    opp = [0.0 if v == 1.0 else 1.0 for v in values]
-    newvalues = list(chain.from_iterable(izip(values,opp)))
-    newcoords = list(chain.from_iterable(izip(coords,coords)))
-    return newvalues,newcoords
+# def fix_connection(values,coords):
+#     fixed_values = []
+#     previous = "BATTERY_CONNECTED"
+#     for v in values:
+#         if v == "IN_TRANSIT":
+#             fixed_values.append(previous)
+#         else:
+#             fixed_values.append(v)
+#             previous = v
+#     joined = zip(fixed_values,coords)
+#     newjoined = [(connection_conversion[j[0]],j[1]) for j in joined]# if j[0] != "IN_TRANSIT"]
+#     values, coords = zip(*newjoined)
+#     opp = [0.0 if v == 1.0 else 1.0 for v in values]
+#     newvalues = list(chain.from_iterable(izip(values,opp)))
+#     newcoords = list(chain.from_iterable(izip(coords,coords)))
+#     return newvalues,newcoords
 
 
 def plot(df,to_plot,family_name_to_code,function_to_use,colors):
@@ -498,23 +498,23 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             color = 'white'
             action_use = [(0,max_time)]
         elif action in ['Absorbance','Wavelength','Width','Concentration','Laser toggle',
-                        'Battery voltage','Connection','Separation','Area','Charge']:
+                        'Battery voltage','Separation','Area','Charge']:
             #get time coords for changes in that variable, and the values of those changes
             values,coords,action_use = function_to_use[action](df,action)
             if action == 'Laser toggle':#values for the laser toggle are actually the previous value before action so we need to fix up the values a bit
                 values,coords = fix_laser(values,coords)
-            elif action == 'Connection':
-                if np.nan == values[0]: #when no udpate states in log
-                    values,coords = fix_connection(values,coords)
+            # elif action == 'Connection':
+            #     if np.nan == values[0]: #when no udpate states in log
+            #         values,coords = fix_connection(values,coords)
             else:
                 #add last value ended sim with
                 values.append(values[-1])
                 coords.append(df['Time'].iloc[-1])
             min_v,max_v = MIN_MAX[action]
             norm_values = [(v-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values] #normalize so it fits in x_axis
-            if action == 'Absorbance':
-                color = 'black'
             ax.plot(coords,norm_values,'-',color=color,linewidth=1.5,alpha=1)
+            if action == 'Charge' or action == 'Battery voltage': #show baseline around 0 to see when values are pos or negative
+                ax.plot(coords,[(0-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values],'-',color='white',linewidth=1.5,alpha=0.8)
             alpha = 0.3
         elif action in function_to_use.keys():
             action_use = function_to_use[action](df)   
@@ -532,6 +532,8 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             elif action == 'Record':
                 a = 0.25
                 ax.broken_barh(action_use,(i*spacing,(spacing)*(len(to_plot)-i)),facecolors=color,linewidth=0,edgecolor='k',alpha=a)
+            elif action == 'Lightbulb connected':
+                alpha = 0.4
             height = (i*spacing+(n_spacer)*component_spacer,(component_spacer-margin))
             ax.broken_barh(action_use,height,facecolors=color,alpha=alpha,linewidth=0,edgecolor='k')
 
