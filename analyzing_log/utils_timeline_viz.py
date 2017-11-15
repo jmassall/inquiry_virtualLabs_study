@@ -504,7 +504,7 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
 #     colors = sns.color_palette("hls", len(to_plot))
 #     colors = sns.husl_palette(len(to_plot), l=.4, s=1)
 #     sns.palplot(sns.husl_palette(len(to_plot), l=.5, s=.7))
-    
+
     for i,action in enumerate(to_plot):
         alpha = 0.9
         color = colors[action]
@@ -515,7 +515,7 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
         elif action  == 'Graph add/del':
             values,coords,action_use = function_to_use[action](df,action)
             if len(values)>0:
-                min_v,max_v = 0,max(values)
+                min_v,max_v = 0.0,max(values)
                 #plot legend
                 ax.text(5,i*spacing+1,'0',horizontalalignment='left',fontsize=14, color=colors[action])
                 ax.text(5,(i+1)*spacing-3,str(max_v),horizontalalignment='left',fontsize=14, color=colors[action])
@@ -626,11 +626,3 @@ def get_pts(table, in_graph =False):
 
 def read_table(table):
     return {int(k):v for k,v in json.loads(table).iteritems()}
-
-json_table = '''{"1": {"Battery voltage": 0.0, "Area": 90.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.0, "visible": true, "Charge": 0.0, "trialNumber": 1, "Separation": 10.0}, "2": {"Battery voltage": 0.2253, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.2253, "visible": true, "Charge": 0.02, "trialNumber": 2, "Separation": 10.0}, "3": {"Battery voltage": 0.3604, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.3604, "visible": true, "Charge": 0.03, "trialNumber": 3, "Separation": 10.0}, "4": {"Battery voltage": 0.5857, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.5857, "visible": false, "Charge": 0.05, "trialNumber": 4, "Separation": 10.0}, "5": {"Battery voltage": 0.856, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.856, "visible": false, "Charge": 0.08, "trialNumber": 5, "Separation": 10.0}, "6": {"Battery voltage": 0.9461, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 0.9461, "visible": false, "Charge": 0.08, "trialNumber": 6, "Separation": 10.0}, "7": {"Battery voltage": 1.0362, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 1.0362, "visible": false, "Charge": 0.09, "trialNumber": 7, "Separation": 10.0}, "8": {"Battery voltage": 1.1714, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 1.1714, "visible": false, "Charge": 0.1, "trialNumber": 8, "Separation": 10.0}, "9": {"Battery voltage": 1.5, "Area": 100.0, "Connection": "BATTERY_CONNECTED", "Capacitor voltage": 1.5, "visible": false, "Charge": 0.13, "trialNumber": 9, "Separation": 10.0}}'''
-table = read_table(json_table)
-pts = get_pts(table, in_graph = True)
-# print pts
-# values_per_variable =  get_values_per_variable(pts)
-# print count_pts_in_graph(pts)
-# print pts_are_confunded(values_per_variable
