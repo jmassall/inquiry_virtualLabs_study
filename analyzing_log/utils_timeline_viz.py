@@ -504,7 +504,8 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             if action == 'Laser toggle':#values for the laser toggle are actually the previous value before action so we need to fix up the values a bit
                 values,coords = fix_laser(values,coords)
             elif action == 'Connection':
-                values,coords = fix_connection(values,coords)
+                if np.nan == values[0]: #when no udpate states in log
+                    values,coords = fix_connection(values,coords)
             else:
                 #add last value ended sim with
                 values.append(values[-1])
