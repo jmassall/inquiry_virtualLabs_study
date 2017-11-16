@@ -310,15 +310,18 @@ def get_graph_add_del_coords(df,_):
     usage2 = action_usage(df,'Family',family_name_to_code['Graph remove'])
     coords = list(df['Time'])
     values = [len(get_pts(read_table(table), in_graph = True)) for table in list(df['Table'])]
+    confounded = [pts_are_confounded(get_values_per_variable(get_pts(read_table(table), in_graph = True))) for table in list(df['Table'])]
     #get index of first time there are points in graph
     #only get values and coords after first points are added
     if 1 in values: #if points are ever added to graph
         i = values.index(1)
         coords = [c for j,c in enumerate(coords) if j >= i ]
         values = [v for j,v in enumerate(values) if j >= i ]
-        return values, coords, merge_usage(usage1,usage2)
+        confounded = [f for j,f in enumerate(confounded) if j >= i ]
+        print len(coords),len(values),len(confounded)
+        return values, coords, confounded, merge_usage(usage1,usage2)
     else:
-        return [],[], merge_usage(usage1,usage2)
+        return [],[],[],[], merge_usage(usage1,usage2)
 
 def axis_absorbance_trialNumber_usage(df):
     absorbance = axis_absorbance_usage(df)
@@ -513,14 +516,27 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             color = 'white'
             action_use = [(0,max_time)]
         elif action  == 'Graph add/del':
-            values,coords,action_use = function_to_use[action](df,action)
+            values,coords,confounded,action_use = function_to_use[action](df,action)
             if len(values)>0:
                 min_v,max_v = 0.0,max(values)
                 #plot legend
                 ax.text(5,i*spacing+1,'0',horizontalalignment='left',fontsize=14, color=colors[action])
                 ax.text(5,(i+1)*spacing-3,str(max_v),horizontalalignment='left',fontsize=14, color=colors[action])
                 norm_values = [(v-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values] #normalize so it fits in x_axis
-                ax.plot(coords,norm_values,'-',color=color,linewidth=1.5,alpha=1)
+                #split confounded and non
+                # vals_conf = [v for j,v in enumerate(norm_values) if confounded[j]]
+                # vals_not = [v for j,v in enumerate(norm_values) if not confounded[j]]
+                # coords_conf = [v for j,v in enumerate(coords) if confounded[j]]
+                # coords_not = [v for j,v in enumerate(coords) if not confounded[j]]
+                # if len(vals_conf)>0:
+                #     ax.plot(coords_conf,vals_conf,'-',color='red',linewidth=1.5,alpha=1)
+                # if len(vals_not)>0:
+                #     ax.plot(coords_not,vals_not,'-',color=color,linewidth=1.5,alpha=1)
+                for v,c,f in zip(values,coords,confounded):
+                    if f:
+                        ax.plot([c],[v],'+',color='red',linewidth=1.5,alpha=1)
+                    else:
+                        ax.plot([c],[v],'+',color=color,linewidth=1.5,alpha=1)
         elif action in ['Absorbance','Wavelength','Width','Concentration','Laser toggle',
                         'Battery voltage','Separation','Area','Charge']:
             #get time coords for changes in that variable, and the values of those changes
