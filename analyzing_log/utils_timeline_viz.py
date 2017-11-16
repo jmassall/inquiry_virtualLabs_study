@@ -318,7 +318,6 @@ def get_graph_add_del_coords(df,_):
         coords = [c for j,c in enumerate(coords) if j >= i ]
         values = [v for j,v in enumerate(values) if j >= i ]
         confounded = [f for j,f in enumerate(confounded) if j >= i ]
-        print len(coords),len(values),len(confounded)
         return values, coords, confounded, merge_usage(usage1,usage2)
     else:
         return [],[],[],[], merge_usage(usage1,usage2)
@@ -524,14 +523,34 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
                 ax.text(5,(i+1)*spacing-3,str(max_v),horizontalalignment='left',fontsize=14, color=colors[action])
                 norm_values = [(v-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values] #normalize so it fits in x_axis
                 #split confounded and non
-                vals_conf = [v for j,v in enumerate(norm_values) if confounded[j]]
-                vals_not = [v for j,v in enumerate(norm_values) if not confounded[j]]
-                coords_conf = [v for j,v in enumerate(coords) if confounded[j]]
-                coords_not = [v for j,v in enumerate(coords) if not confounded[j]]
-                if len(vals_conf)>0:
-                    ax.plot(coords_conf,vals_conf,'.',color='red',linewidth=1.5,alpha=1)
-                if len(vals_not)>0:
-                    ax.plot(coords_not,vals_not,'.',color=color,linewidth=1.5,alpha=1)
+                c_to_plot = []
+                v_to_plot = []
+                f_to_plot = []
+                prev_conf = None
+                for j,(c,v,f) in enumerate(zip(coords, norm_values, confounded)):
+                    # print c,v,f, prev_conf
+                    if (j == len(norm_values)-1) or f != prev_conf:
+                        if f and len(v_to_plot)>0:
+                            ax.plot(c_to_plot,v_to_plot,'-',color='red', linewidth=1.5,alpha=1)
+                        if not f and len(v_to_plot)>0:
+                            ax.plot(c_to_plot,v_to_plot,'-',color=color, linewidth=1.5,alpha=1)
+                    if f != prev_conf:
+                        c_to_plot = [c]
+                        v_to_plot = [v]
+                        f_to_plot = [f]
+                    else:
+                        c_to_plot.append(c)
+                        v_to_plot.append(v)
+                        f_to_plot.append(f)
+                    prev_conf = f
+                # vals_conf = [v for j,v in enumerate(norm_values) if confounded[j]]
+                # vals_not = [v for j,v in enumerate(norm_values) if not confounded[j]]
+                # coords_conf = [v for j,v in enumerate(coords) if confounded[j]]
+                # coords_not = [v for j,v in enumerate(coords) if not confounded[j]]
+                # if len(vals_conf)>0:
+                #     ax.plot(coords_conf,vals_conf,'.',color='red', mew=2)#,linewidth=1.5,alpha=1)
+                # if len(vals_not)>0:
+                #     ax.plot(coords_not,vals_not,'.',color=color, mew=2)#,linewidth=1.5,alpha=1)
                 # for v,c,f in zip(values,coords,confounded):
                 #     if f:
                 #         ax.plot([c],[v],'+',color='red',linewidth=1.5,alpha=1)
@@ -575,7 +594,7 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             elif action == 'Lightbulb connected' or action == 'Graph add/del':
                 alpha = 0.4
             height = (i*spacing+(n_spacer)*component_spacer,(component_spacer-margin))
-            ax.broken_barh(action_use,height,facecolors=color,alpha=alpha,linewidth=0,edgecolor='k')
+            ax.broken_barh(action_use,height,facecolors=color,alpha=alpha)#,linewidth=0,edgecolor='k')
 
     #Shape plot
     ax.set_ylim(0, len(to_plot)*spacing+1)
