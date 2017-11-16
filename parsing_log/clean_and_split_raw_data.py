@@ -10,14 +10,14 @@ import json
 from utils import *
 import getpass
 
-datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\raw study data\\log data\\'
-outpath =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
+# datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\raw study data\\log data\\'
+# outpath =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
 # rawfile = '43abdd26-76bd-4fe9-9f7b-29500369038f.log' #all logs - beers
-rawfile = '38663fa4-7ac5-4868-b687-82d9aa05ab37.log' #all logs caps
+# rawfile = '38663fa4-7ac5-4868-b687-82d9aa05ab37.log' #all logs caps
 
-# datapath = 'C:\\Users\\'+getpass.getuser()+'\\Desktop\\hunt for missing logs\\'
-# outpath =  'C:\\Users\\'+getpass.getuser()+'\\Desktop\\hunt for missing logs\\'
-# # rawfile = 'e92af660-e970-4c28-b3e2-e09ad0fe3963.log' #all logs - beers
+datapath = 'C:\\Users\\'+getpass.getuser()+'\Documents\\CTLT stuff\\new raw logs\\'
+outpath =  'C:\\Users\\'+getpass.getuser()+'\Documents\\CTLT stuff\\new raw logs\\'
+rawfile = 'e92af660-e970-4c28-b3e2-e09ad0fe3963.log' #all logs - beers
 # rawfile = '7a95ceca-40b6-4d54-99f4-6bec8f161524.log' #all logs caps
 
 split_data_path = os.path.join(outpath,'cleaned_and_split_' + rawfile.split('.')[0])
