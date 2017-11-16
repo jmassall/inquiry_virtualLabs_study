@@ -524,19 +524,19 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
                 ax.text(5,(i+1)*spacing-3,str(max_v),horizontalalignment='left',fontsize=14, color=colors[action])
                 norm_values = [(v-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values] #normalize so it fits in x_axis
                 #split confounded and non
-                # vals_conf = [v for j,v in enumerate(norm_values) if confounded[j]]
-                # vals_not = [v for j,v in enumerate(norm_values) if not confounded[j]]
-                # coords_conf = [v for j,v in enumerate(coords) if confounded[j]]
-                # coords_not = [v for j,v in enumerate(coords) if not confounded[j]]
-                # if len(vals_conf)>0:
-                #     ax.plot(coords_conf,vals_conf,'-',color='red',linewidth=1.5,alpha=1)
-                # if len(vals_not)>0:
-                #     ax.plot(coords_not,vals_not,'-',color=color,linewidth=1.5,alpha=1)
-                for v,c,f in zip(values,coords,confounded):
-                    if f:
-                        ax.plot([c],[v],'+',color='red',linewidth=1.5,alpha=1)
-                    else:
-                        ax.plot([c],[v],'+',color=color,linewidth=1.5,alpha=1)
+                vals_conf = [v for j,v in enumerate(norm_values) if confounded[j]]
+                vals_not = [v for j,v in enumerate(norm_values) if not confounded[j]]
+                coords_conf = [v for j,v in enumerate(coords) if confounded[j]]
+                coords_not = [v for j,v in enumerate(coords) if not confounded[j]]
+                if len(vals_conf)>0:
+                    ax.plot(coords_conf,vals_conf,'.',color='red',linewidth=1.5,alpha=1)
+                if len(vals_not)>0:
+                    ax.plot(coords_not,vals_not,'.',color=color,linewidth=1.5,alpha=1)
+                # for v,c,f in zip(values,coords,confounded):
+                #     if f:
+                #         ax.plot([c],[v],'+',color='red',linewidth=1.5,alpha=1)
+                #     else:
+                #         ax.plot([c],[v],'+',color=color,linewidth=1.5,alpha=1)
         elif action in ['Absorbance','Wavelength','Width','Concentration','Laser toggle',
                         'Battery voltage','Separation','Area','Charge']:
             #get time coords for changes in that variable, and the values of those changes
