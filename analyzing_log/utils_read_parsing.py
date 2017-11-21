@@ -3,7 +3,7 @@ import datetime
 import getpass
 import pandas as pd
 
-FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\parsed log data'
+FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\parsed log data'
 
 def find_latest_parsing_report_file(sim, date=None, infolder=FOLDER):
     if date:
@@ -31,4 +31,4 @@ def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
     return  pd.read_table(find_latest_parsing_report_file(sim, date=None, infolder=FOLDER), sep='\t')
 
 def get_session_data():
-    return pd.read_table('C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\signout sheets\\session_data.txt',sep='\t')            
+    return pd.read_table('C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\signout sheets\\session_data.txt',sep='\t')            
