@@ -319,7 +319,6 @@ def get_graph_add_del_coords(df,_):
         coords = [c for j,c in enumerate(coords) if j >= i ]
         values = [v for j,v in enumerate(values) if j >= i ]
         confounded = [f for j,f in enumerate(confounded) if j >= i ]
-        print len(coords),len(values),len(confounded)
         return values, coords, confounded, merge_usage(usage1,usage2)
     else:
         return [],[],[], merge_usage(usage1,usage2)
