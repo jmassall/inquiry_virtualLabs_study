@@ -11,7 +11,7 @@ import json
 import getpass
 import math
 
-INFOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
+INFOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\cleaned log data'
 
 
 def find_student_log_file(sim, studentid, date=None, infolder=INFOLDER):
@@ -285,7 +285,7 @@ class Session:
 # HOW TO GET ALL FINAL NOTES FROM FILES
 #let's iterate thorugh all raw files for beerslaw and capture the last note state for all students. Yeah!
 
-# datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data\\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1'
+# datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\cleaned log data\\cleaned_and_split_5a257a80-aa82-471d-b75c-f1113f314da1'
 # session_file = 'log_lab-book-beers-law-lab_12288167_2017-03-22_11.40.14.json'
 # test_json =  os.path.join(datapath,session_file)
 

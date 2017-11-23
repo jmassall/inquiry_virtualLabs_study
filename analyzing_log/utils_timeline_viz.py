@@ -10,7 +10,7 @@ import json
 from matplotlib.ticker import MultipleLocator
 from itertools import chain, izip
 
-FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\parsed log data'
+FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\parsed log data'
 
 def find_student_log_file(sim, studentid, date=None, infolder = FOLDER):
     if date:
@@ -53,6 +53,7 @@ action_to_family = {'N':['editing notes'],
                     'M':['recording data'],
                    'Dt':['Removing data from table'],
                     'Ga':['Adding data to graph'],
+                    'Dm':['Moving trial in table'],
                     'Ge':['Selecting Y-axis','Selecting X-axis', 'Selecting scale of Y-axis','Selecting scale of X-axis'],
                     'Gr':['Removing data from graph'],
                    'I':['expanding table','collapsing table','expanding graph','collapsing graph','collapsing simulation','expanding simulation','Playing with PhET menu'],
@@ -90,7 +91,7 @@ def prep_parsing_data(parsing_file):
     df = remove_model_events(df)
     if len(df)==0:
         print "The parsed file has no user events, only model events. No dataframe prepared."
-        return None
+        return df
     df = add_pauses(df)
     df = add_family(df)
     return df
@@ -320,7 +321,7 @@ def get_graph_add_del_coords(df,_):
         confounded = [f for j,f in enumerate(confounded) if j >= i ]
         return values, coords, confounded, merge_usage(usage1,usage2)
     else:
-        return [],[],[],[], merge_usage(usage1,usage2)
+        return [],[],[], merge_usage(usage1,usage2)
 
 def axis_absorbance_trialNumber_usage(df):
     absorbance = axis_absorbance_usage(df)
@@ -384,7 +385,8 @@ family_name_to_code = {'Interface':'I',
                         'Graph edit axes':'Ge',
                         'Graph remove':'Gr',
                         'Graph add':'Ga',
-                        'Data Table (del/move)':'Dt',
+                        'Data Table delete':'Dt',
+                        'Data Table move trial':'Dm',
                         'Notes':'N',
                         'Record':'M',
                         'Detector':'Vd',
@@ -434,7 +436,8 @@ colors = {'Interface':'#969696',
             'Graph edit axes':'#6000fc',
             'Graph add/del':'#6000fc',
             'Restore':'#6000fc',
-            'Data Table (del/move)':'#6000fc',
+            'Data Table delete':'#6000fc',
+            'Data Table move trial':'#6000fc',
             '':'white',
             'Record':'#6000fc',
             'Detector':'#32883b',
@@ -453,8 +456,8 @@ colors = {'Interface':'#969696',
             'Absorbance':'#2a2d34',
             'Charge':'#2a2d34'}
 
-to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph add/del','','Restore','Data Table (del/move)','','Record','Lightbulb connected','Battery voltage','Separation','Area','','Charge']
-to_plot_beers = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Abs vs. TrialNumber','Abs vs. Width','Abs vs. Concentration','Graph edit axes','Graph add/del','','Restore','Data Table (del/move)','','Record','Detector','Wavelength','Width','Concentration','Laser toggle','','Absorbance']
+to_plot_caps = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Charge vs. TrialNumber','Charge vs. separation','Charge vs. area','Graph edit axes','Graph add/del','','Restore','Data Table delete','Data Table move trial','','Record','Lightbulb connected','Battery voltage','Separation','Area','','Charge']
+to_plot_beers = ['Interface','Notes','Pause','','Log axis','Inverse axis','Linear axis','Other axes','Abs vs. TrialNumber','Abs vs. Width','Abs vs. Concentration','Graph edit axes','Graph add/del','','Restore','Data Table delete','Data Table move trial','','Record','Detector','Wavelength','Width','Concentration','Laser toggle','','Absorbance']
 
 
 MIN_MAX = {'Wavelength':(380,780),
