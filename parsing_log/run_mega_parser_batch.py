@@ -11,11 +11,11 @@ import traceback
 from mega_parser import *
 
 
-INFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data\\cleaned_and_split_'
-OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\parsed log data'
+INFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\cleaned log data\\cleaned_and_split_'
+OUTFOLDER = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\parsed log data'
 
-RAWFILES_CAPS = '38663fa4-7ac5-4868-b687-82d9aa05ab37' ##capacitors sim logs
-RAWFILES_BEERS = '43abdd26-76bd-4fe9-9f7b-29500369038f' ##beers sim logs
+RAWFILES_CAPS = '7a95ceca-40b6-4d54-99f4-6bec8f161524' ##capacitors sim logs
+RAWFILES_BEERS = 'e92af660-e970-4c28-b3e2-e09ad0fe3963' ##beers sim logs
 
 # Use these when looking for caps sims with trial missing bugs
 IDS = ['18866165','12345678','12345678','12665164','16136159','17576140','17655165','18866165']

@@ -10,19 +10,9 @@ import json
 from utils import *
 import getpass
 
-datapath = 'C:\\Users\\'+getpass.getuser()+'\\Desktop\\hunt for missing logs\\'
-# outpath =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\cleaned log data'
-# rawfile = '43abdd26-76bd-4fe9-9f7b-29500369038f.log' #all logs - beers
-# rawfile = '38663fa4-7ac5-4868-b687-82d9aa05ab37.log' #all logs caps
+datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\cleaned log data'
 # rawfile = "e92af660-e970-4c28-b3e2-e09ad0fe3963.log" #redownloaded beers logs
 rawfile = "7a95ceca-40b6-4d54-99f4-6bec8f161524.log" #redownloaded beers logs
-
-
-# split_data_path = os.path.join(outpath,'cleaned_and_split_' + rawfile.split('.')[0])
-
-# #create a folder for the new data files, if one doesn't already exist.
-# if not os.path.exists(split_data_path):
-#     os.makedirs(split_data_path)
 
 report_path = os.path.join('C:\\Users\\'+getpass.getuser()+'\\Desktop','report_of_cleaning_of_file_' + rawfile.split('.')[0] +'.txt')
 report = open(report_path, 'w')
@@ -44,14 +34,10 @@ with open(os.path.join(datapath+rawfile),'r') as f:
         before_cleaning = len(session.events)
         session.clean_events()  #removes all time tracking and mouse tracking events
         outname = "log_{0}_{1}_{2}.json".format(session.sim, session.student_id, session.date)
-        # with open(os.path.join(split_data_path,outname), 'w') as outfile:
-        #     #if you want pretty print, use print >> as below instead of just json.dump
-        #     # print >> outfile, json.dumps(session.events, indent=4, sort_keys=True)
-        #     json.dump(session.events, outfile)
-        #we report the metadata on all the session in a separate file.
+
         report.write('\n')
         report.write('\t'.join([session.session_id,session.student_id,str(check_id_length(session.student_id)), str(check_id_start(session.student_id)),session.sim, session.date,str(before_cleaning), str(len(session.events)), outname]))
-        # outfile.close()
+
 
 f.close()
 report.close()

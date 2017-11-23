@@ -18,7 +18,7 @@ IDS = ['17931169']
 # IDS = ['90447168']
 
 
-datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_skills_study\\raw study data\\log data\\'
+datapath = 'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\raw study data\\log data\\'
 outfilename = "raw_log_{0}_{1}.json".format(SIM, '_'.join(IDS))
 
 if SIM == 'beers':
