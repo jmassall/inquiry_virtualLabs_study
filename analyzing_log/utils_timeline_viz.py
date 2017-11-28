@@ -13,6 +13,7 @@ from itertools import chain, izip
 FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\parsed log data'
 
 def find_student_log_file(sim, studentid, date=None, infolder = FOLDER):
+    studentid = str(studentid)
     if date:
         for root, dirs, files in os.walk(infolder):
             for f in files:
@@ -23,7 +24,6 @@ def find_student_log_file(sim, studentid, date=None, infolder = FOLDER):
             for f in files:
                 if sim in f and studentid in f:
                     return os.path.join(root, f)
-
 
 def add_pauses(df,pause_length=15):
 
