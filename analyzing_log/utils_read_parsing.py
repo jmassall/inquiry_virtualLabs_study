@@ -2,6 +2,7 @@ import os
 import datetime
 import getpass
 import pandas as pd
+from utils_timeline_viz import find_student_log_file
 
 FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\parsed log data'
 BIG_FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data'
@@ -40,3 +41,27 @@ def get_student_metadata():
 def get_students_to_analyze():
     df = get_student_metadata()
     return df[df['use analysis']==True].index.values
+
+def get_date_event_pairs(sim,row):
+    if sim == "beers":
+        return [(row["date beers 1"],row["events beers 1"]),(row["date beers 2"],row["events beers 2"]),(row["date beers 3"],row["events beers 3"]),(row["date beers 4"],row["events beers 4"]),(row["date beers 5"],row["events beers 5"])]
+    if sim == "capacitor":
+        return [(row["date caps 1"],row["events caps 1"]),(row["date caps 2"],row["events caps 2"]),(row["date caps 3"],row["events caps 3"])]
+
+def get_parsed_log_files_per_student_for_sim(sim):
+    df = get_student_metadata()
+    df = df[df['use analysis']==True]
+    log_files = {sid:[] for sid in df.index.values}
+    for sid, row in df.iterrows():
+        #grab date-event number pairs
+        pairs = get_date_event_pairs(sim,row)
+        #for dates with non zero events
+        for date,number_events in pairs:
+            if number_events > 0 :
+                parsed_file = find_student_log_file(sim,sid,date=date)
+                if parsed_file == None: # try finding the parse file with the secondary id
+                    parsed_file = find_student_log_file(sim,int(row['other id']),date=date)
+                    if parsed_file == None:
+                        print "ERROR: This student ({0}) has no log file for {1}, even using it's other id {2}".format(sid,sim,row['other id'])
+                log_files[sid].append(parsed_file)
+    return log_files
