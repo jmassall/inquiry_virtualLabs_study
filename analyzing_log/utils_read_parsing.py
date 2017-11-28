@@ -34,7 +34,9 @@ def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
 def get_session_data():
     return pd.read_table('C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\signout sheets\\session_data.txt',sep='\t')            
 
+def get_student_metadata():
+    return pd.read_excel(os.path.join(BIG_FOLDER,'connector_id_to_log_files_and_session_annotated_fixed.xlsx'), sep='\t')
 
 def get_students_to_analyze():
-    df = pd.read_excel(os.path.join(BIG_FOLDER,'connector_id_to_log_files_and_session_annotated_fixed.xlsx'), sep='\t')
+    df = get_student_metadata()
     return df[df['use analysis']==True].index.values
