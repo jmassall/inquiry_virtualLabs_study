@@ -29,7 +29,7 @@ def initialize_dreamtable(studentid, number_of_events,first_event):
     else:
         sim = 'capacitor-lab-basics'
         header = CHARGE_HEADER
-    dreamtable = np.chararray(shape=(number_of_events+1,len(header)), itemsize=10000)
+    dreamtable = np.chararray(shape=(number_of_events+1,len(header)), itemsize=20000)
     dreamtable[0,:] = header
     dreamtable[1:,header.index("User")] = studentid
     dreamtable[1:,header.index("Sim")] = sim
@@ -177,6 +177,8 @@ def extract_new_datapoint(sim, event, record_data_method):
         absorbance = record_data_method(event)['state']["beersLawLab.beersLawScreen.model.detector.valueProperty"]
         if absorbance != None:
             datapoint["Absorbance"] = round(absorbance,2)
+        else:
+            datapoint["Absorbance"] = np.nan
         datapoint["Laser toggle"] = binarize_laser(record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.onProperty"])
         datapoint["Wavelength"] = record_data_method(event)['state']["beersLawLab.beersLawScreen.model.light.wavelengthProperty"]
         datapoint["Ruler location"] = {k:round(v,2) for k,v in record_data_method(event)['state']["beersLawLab.beersLawScreen.model.ruler.locationProperty"].iteritems()}
