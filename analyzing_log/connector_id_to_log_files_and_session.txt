@@ -1,4 +1,4 @@
-	session	use analysis	activity order	number of caps sessions	number of beers sessions	date caps 1	date caps 2	date caps 3	events caps 1	events caps 2	events caps 3	date beers 1	date beers 2	date beers 3	date beers 4	date beers 5	events beers 1	events beers 2	events beers 3	events beers 4	events beers 5	comments
+studentid	session	use analysis	activity order	number of caps sessions	number of beers sessions	date caps 1	date caps 2	date caps 3	events caps 1	events caps 2	events caps 3	date beers 1	date beers 2	date beers 3	date beers 4	date beers 5	events beers 1	events beers 2	events beers 3	events beers 4	events beers 5	comments
 11612162	2	True	CL	1	1	2017-01-17_11.22.57	nan	nan	1917	0	0	2017-01-17_12.17.50	nan	nan	nan	nan	1484	0	0	0	0	
 13660166	15	True	LC	1	1	2017-03-28_16.20.11	nan	nan	3642	0	0	2017-03-28_15.28.56	nan	nan	nan	nan	3228	0	0	0	0	
 41947147	2	True	CL	1	1	2017-01-17_11.22.57	nan	nan	4162	0	0	2017-01-17_12.17.51	nan	nan	nan	nan	3678	0	0	0	0	

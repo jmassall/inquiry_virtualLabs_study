@@ -48,6 +48,10 @@ def get_date_event_pairs(sim,row):
     if sim == "capacitor":
         return [(row["date caps 1"],row["events caps 1"]),(row["date caps 2"],row["events caps 2"]),(row["date caps 3"],row["events caps 3"])]
 
+# def get_students_order():
+#     df = get_student_metadata()
+#     return dict(zip(df.studentid,df['activity order']))
+
 def get_parsed_log_files_per_student_for_sim(sim):
     df = get_student_metadata()
     df = df[df['use analysis']==True]
