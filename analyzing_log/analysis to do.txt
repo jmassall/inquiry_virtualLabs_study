@@ -1,27 +1,4 @@
-jupyter nbconvert Jupyter\ cvs_skill_analysis_report.ipynb --to slides --post serve --SlidesExporter.reveal_theme=sky
-
-
-CVS in table
-	How many students are doing CVS for each variable?
-		-> variables similarly likely, except Battery voltage
-	When they do CVS, how many points do they take?
-		*avgs without zeros
-		-> qual/quant different?
-		-> quant difference accross sims?
-		-> qual difference accross sims?
-	Great so they use it, but are students consistent in their use of CVS accross sims?
-		* HEATMAP by number of variables, one sim per axis
-		-> if consistent, then the behavior we are capturing is likely to be the exhibition of some strategy, and students are using this strategy systematically.
-	Does order matter in their consistency?
-		* HEATMAP
-		-> Hypthesis,LC will be caps variable heavy and vice versa
-		-> if used CVS previously, using it more second sim since it helped them succeed?
-	Let's dig deeper into how order matters and how the sims are different/same and what that tells us about student learning inquiry.
-	Does order matter in terms of the number of points in they CVS? (More = more deliberate, better sampling)
-		*avgs without zeros
-		-> consistent increase accross all variables when second sim
-	Does order matter in terms of student doing CVS at all? (we'll see this later with the graphs)
-
+jupyter nbconvert Jupyter\ \git\inquiry_virtualLabs_study\analyzing_log\cvs_skill_analysis_report.ipynb --to slides --post serve
 
 CVS in graph
 	How many students are doing CVS for each variable?
