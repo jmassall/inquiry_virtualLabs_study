@@ -1,0 +1,179 @@
+Student ID    12907149
+Session         11-Oct
+Name: (12907149, ABSORBANCE, m), dtype: object 
+
+shawna coded unified extreme on wrong factor
+
+Student ID    13981167
+Session         05-Apr
+Name: (13981167, ABSORBANCE, m), dtype: object 
+
+shawna coded unified slope on wrong factor
+
+Student ID    15317162
+Session              8
+Name: (15317162, CAPACITORS, m), dtype: object 
+
+Student ID    17448165
+Session              8
+Name: (17448165, ABSORBANCE, m), dtype: object 
+
+shawna coded normal extreme as unified extreme 
+
+
+Student ID    19618321
+Student ID    19952165
+Student ID    26984162
+doubled
+
+
+
+IRR STATS: 
+
+UNIFIED
+unified_2  -1    0   1  All
+unified_1                  
+-1         11    0   0   11
+0           0  207   0  207
+1           0    3  19   22
+All        11  210  19  240
+Percent agreement  = 0.9875
+Cohen's kappa = 0.947023765727 
+
+VERBAL
+verbal_2  -1    0   1  All
+verbal_1                  
+-1         1    0   0    1
+0          1  199   3  203
+1          5    4  27   36
+All        7  203  30  240
+Percent agreement  = 0.945833333333
+Cohen's kappa = 0.796131730267 
+
+VERBAL-K
+verbal-k_2    0  All
+verbal-k_1          
+0           240  240
+All         240  240
+Percent agreement  = 1.0
+Cohen's kappa = nan 
+
+VERBAL-B
+verbal-b_2    0  All
+verbal-b_1          
+0           240  240
+All         240  240
+Percent agreement  = 1.0
+Cohen's kappa = nan 
+
+MATH
+math_2  -1    0   1  All
+math_1                  
+-1       1    0   0    1
+0        0  218   1  219
+1        2    2  16   20
+All      3  220  17  240
+Percent agreement  = 0.979166666667
+Cohen's kappa = 0.867797730528 
+
+MATH-K
+math-k_2    0  1  All
+math-k_1             
+0         236  0  236
+1           3  1    4
+All       239  1  240
+Percent agreement  = 0.9875
+Cohen's kappa = 0.395973154362 
+
+MATH-B
+math-b_2    0  All
+math-b_1          
+0         240  240
+All       240  240
+Percent agreement  = 1.0
+Cohen's kappa = nan 
+
+POWER
+power_2  -1    0  All
+power_1              
+-1        1    0    1
+0         0  238  238
+1         1    0    1
+All       2  238  240
+Percent agreement  = 0.995833333333
+Cohen's kappa = 0.748427672956 
+
+EXP
+exp_2  -1    0  1  All
+exp_1                 
+-1      2    0  0    2
+0       0  237  1  238
+All     2  237  1  240
+Percent agreement  = 0.995833333333
+Cohen's kappa = 0.798319327731 
+
+QT-BAD-QL-GOOD
+qt-bad-ql-good_2  -1    0  1  All
+qt-bad-ql-good_1                 
+-1                 5    0  0    5
+0                  6  222  3  231
+1                  1    0  3    4
+All               12  222  6  240
+Percent agreement  = 0.958333333333
+Cohen's kappa = 0.615014436959 
+
+QUAL
+qual_2  -1   0    1  2  All
+qual_1                     
+-1      30   4    3  0   37
+0        0  80    7  0   87
+1        8   8   99  1  116
+All     38  92  109  1  240
+Percent agreement  = 0.870833333333
+Cohen's kappa = 0.790693748945 
+
+ZERO-OUTCOME
+zero-outcome_2    0  1  All
+zero-outcome_1             
+0               237  1  238
+1                 0  2    2
+All             237  3  240
+Percent agreement  = 0.995833333333
+Cohen's kappa = 0.79797979798 
+
+EXTREME-OUTCOME
+extreme-outcome_2  -1    0  1  All
+extreme-outcome_1                 
+0                   1  230  3  234
+1                   0    1  5    6
+All                 1  231  8  240
+Percent agreement  = 0.979166666667
+Cohen's kappa = 0.656946826758 
+
+UNIFIED-EXTREMES
+unified-extremes_2    0  1  All
+unified-extremes_1             
+-1                    1  0    1
+0                   232  2  234
+1                     5  0    5
+All                 238  2  240
+Percent agreement  = 0.966666666667
+Cohen's kappa = -0.0115911485775 
+
+UNIFIED-SLOPE
+unified-slope_2    0  1  All
+unified-slope_1             
+0                238  1  239
+1                  1  0    1
+All              239  1  240
+Percent agreement  = 0.991666666667
+Cohen's kappa = -0.00418410041841 
+
+UNIFIED-ZERO
+unified-zero_2    0  1  All
+unified-zero_1             
+0               239  0  239
+1                 0  1    1
+All             239  1  240
+Percent agreement  = 1.0
+Cohen's kappa = 1.0 
