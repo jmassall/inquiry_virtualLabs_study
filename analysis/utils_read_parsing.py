@@ -35,6 +35,10 @@ def get_pre_survey():
     df = pd.read_csv(filepath,sep='\t',encoding = "ISO-8859-1")
     return df
 
+def get_worksheet_metadata():
+    filepath = os.path.join(BIG_FOLDER,'coded worksheet data\coded_worksheets_metadata.csv')
+    df = pd.read_csv(filepath,sep=',')
+    return df
 
 def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
     return  pd.read_table(find_latest_parsing_report_file(sim, date=None, infolder=FOLDER), sep='\t')
