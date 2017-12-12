@@ -7,6 +7,7 @@ from utils_timeline_viz import find_student_log_file
 FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\parsed log data'
 BIG_FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data'
 
+
 def find_latest_parsing_report_file(sim, date=None, infolder=FOLDER):
     if date:
         for root, dirs, files in os.walk(infolder):
@@ -28,6 +29,12 @@ def find_latest_parsing_report_file(sim, date=None, infolder=FOLDER):
             return find_latest_parsing_report_file(sim, date=sorteddates[-1], infolder=infolder)
         else:
             print "No file found for {0} sim.".format(sim)
+
+def get_pre_survey():
+    filepath = os.path.join(BIG_FOLDER,'raw study data\\survey data\\responses_pre-assessment_downloaded_4.3.2017.txt')
+    df = pd.read_csv(filepath,sep='\t',encoding = "ISO-8859-1")
+    return df
+
 
 def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
     return  pd.read_table(find_latest_parsing_report_file(sim, date=None, infolder=FOLDER), sep='\t')
