@@ -1,0 +1,555 @@
+Student ID    0561164
+Session        05-Apr
+Name: (0561164, ABSORBANCE, p), dtype: object 
+
+Concentration Conflicting categories: ['math-k_1']
+1st coder says: [1]
+2nd coder says: [0]
+Wavelength Conflicting categories: ['math-k_1']
+1st coder says: [1]
+2nd coder says: [0]
+Width Conflicting categories: ['math-k_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    10105157
+Session             12
+Name: (10105157, CAPACITORS, p), dtype: object 
+
+Area Conflicting categories: ['qual_1']
+1st coder says: [0]
+2nd coder says: [1]
+Sep Conflicting categories: ['qual_1']
+1st coder says: [0]
+2nd coder says: [1]
+Voltage Conflicting categories: ['qual_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    10866146
+Session         07-Jun
+Name: (10866146, CAPACITORS, p), dtype: object 
+
+Area Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [-1]
+Voltage Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    10970160
+Session              8
+Name: (10970160, ABSORBANCE, p), dtype: object 
+
+Concentration Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [-1]
+
+
+Student ID    11200165
+Session              1
+Name: (11200165, ABSORBANCE, m), dtype: object 
+
+Width Conflicting categories: ['qual_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    11691167
+Session             12
+Name: (11691167, CAPACITORS, m), dtype: object 
+
+Sep Conflicting categories: ['verbal_1', 'exp_1', 'qt-bad-ql-good_1']
+1st coder says: [0, 0, 0]
+2nd coder says: [-1, 1, 1]
+
+
+Student ID    12816168
+Session         11-Oct
+Name: (12816168, CAPACITORS, p), dtype: object 
+
+Sep Conflicting categories: ['qt-bad-ql-good_1']
+1st coder says: [0]
+2nd coder says: [-1]
+Voltage Conflicting categories: ['qt-bad-ql-good_1']
+1st coder says: [0]
+2nd coder says: [-1]
+
+
+Student ID    12818156
+Session              1
+Name: (12818156, CAPACITORS, p), dtype: object 
+
+Area Conflicting categories: ['qual_1']
+1st coder says: [-1]
+2nd coder says: [1]
+
+
+Student ID    12907149
+Session         11-Oct
+Name: (12907149, ABSORBANCE, m), dtype: object 
+
+Concentration Conflicting categories: ['unified-extremes_1']
+1st coder says: [0]
+2nd coder says: [1]
+Wavelength Conflicting categories: ['verbal_1', 'qt-bad-ql-good_1', 'unified-extremes_1']
+1st coder says: [1, 0, 0]
+2nd coder says: [-1, -1, 1]
+Width Conflicting categories: ['unified-extremes_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    13981167
+Session         05-Apr
+Name: (13981167, ABSORBANCE, m), dtype: object 
+
+Wavelength Conflicting categories: ['math_1', 'qt-bad-ql-good_1', 'unified-slope_1']
+1st coder says: [1, 0, 0]
+2nd coder says: [-1, -1, 1]
+Width Conflicting categories: ['unified-slope_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    14201157
+Session              9
+Name: (14201157, CAPACITORS, m), dtype: object 
+
+Area Conflicting categories: ['verbal_1']
+1st coder says: [0]
+2nd coder says: [1]
+Sep Conflicting categories: ['qual_1']
+1st coder says: [0]
+2nd coder says: [1]
+Voltage Conflicting categories: ['verbal_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    14553162
+Session             14
+Name: (14553162, CAPACITORS, m), dtype: object 
+
+Sep Conflicting categories: ['verbal_1', 'qt-bad-ql-good_1']
+1st coder says: [1, 0]
+2nd coder says: [-1, 1]
+Voltage Conflicting categories: ['qual_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    14565169
+Session             12
+Name: (14565169, ABSORBANCE, m), dtype: object 
+
+Wavelength Conflicting categories: ['qt-bad-ql-good_1', 'qual_1', 'extreme-outcome_1']
+1st coder says: [1, 1, 1]
+2nd coder says: [-1, -1, 0]
+
+
+Student ID    14828163
+Session              9
+Name: (14828163, CAPACITORS, m), dtype: object 
+
+Voltage Conflicting categories: ['math_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    14967159
+Session             14
+Name: (14967159, CAPACITORS, m), dtype: object 
+
+Sep Conflicting categories: ['verbal_1', 'math_1', 'qt-bad-ql-good_1']
+1st coder says: [1, 0, 0]
+2nd coder says: [-1, 1, 1]
+
+
+Student ID    15317162
+Session              8
+Name: (15317162, CAPACITORS, m), dtype: object 
+
+Area Conflicting categories: ['unified-extremes_1']
+1st coder says: [1]
+2nd coder says: [0]
+Sep Conflicting categories: ['unified-extremes_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    15496161
+Session         11-Oct
+Name: (15496161, CAPACITORS, m), dtype: object 
+
+Area Conflicting categories: ['qual_1']
+1st coder says: [-1]
+2nd coder says: [1]
+Voltage Conflicting categories: ['zero-outcome_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    15749160
+Session             14
+Name: (15749160, CAPACITORS, p), dtype: object 
+
+Area Conflicting categories: ['unified_1', 'qual_1']
+1st coder says: [1, 1]
+2nd coder says: [0, 0]
+Sep Conflicting categories: ['unified_1', 'qual_1']
+1st coder says: [1, 1]
+2nd coder says: [0, 0]
+Voltage Conflicting categories: ['unified_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    15749168
+Session             13
+Name: (15749168, CAPACITORS, p), dtype: object 
+
+Area Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [-1]
+
+
+Student ID    15884161
+Session             14
+Name: (15884161, ABSORBANCE, p), dtype: object 
+
+Concentration Conflicting categories: ['qual_1']
+1st coder says: [-1]
+2nd coder says: [0]
+Width Conflicting categories: ['qual_1']
+1st coder says: [-1]
+2nd coder says: [0]
+
+
+Student ID    16317166
+Session         11-Oct
+Name: (16317166, ABSORBANCE, m), dtype: object 
+
+Concentration Conflicting categories: ['qual_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    17018157
+Session         05-Apr
+Name: (17018157, ABSORBANCE, p), dtype: object 
+
+Wavelength Conflicting categories: ['verbal_1', 'qt-bad-ql-good_1', 'qual_1']
+1st coder says: [1, 0, -1]
+2nd coder says: [-1, -1, 0]
+
+
+Student ID    17448165
+Session              8
+Name: (17448165, ABSORBANCE, m), dtype: object 
+
+Concentration Conflicting categories: ['qual_1', 'extreme-outcome_1', 'unified-extremes_1']
+1st coder says: [1, 0, 1]
+2nd coder says: [0, 1, 0]
+Wavelength Conflicting categories: ['extreme-outcome_1', 'unified-extremes_1']
+1st coder says: [0, -1]
+2nd coder says: [-1, 0]
+Width Conflicting categories: ['qual_1', 'extreme-outcome_1', 'unified-extremes_1']
+1st coder says: [1, 0, 1]
+2nd coder says: [0, 1, 0]
+
+
+Student ID    17448165
+Session              8
+Name: (17448165, CAPACITORS, p), dtype: object 
+
+Area Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [-1]
+
+
+Student ID    17931169
+Session              8
+Name: (17931169, CAPACITORS, p), dtype: object 
+
+Voltage Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [2]
+
+
+Student ID    18172131
+Session             13
+Name: (18172131, CAPACITORS, m), dtype: object 
+
+Area Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [0]
+Sep Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [0]
+Voltage Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    18591168
+Session         05-Apr
+Name: (18591168, ABSORBANCE, m), dtype: object 
+
+Wavelength Conflicting categories: ['qual_1']
+1st coder says: [-1]
+2nd coder says: [1]
+
+
+Student ID    19089138
+Session              8
+Name: (19089138, CAPACITORS, m), dtype: object 
+
+Area Conflicting categories: ['extreme-outcome_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    19196162
+Session         07-Jun
+Name: (19196162, ABSORBANCE, p), dtype: object 
+
+Concentration Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [-1]
+Wavelength Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [-1]
+Width Conflicting categories: ['qual_1']
+1st coder says: [1]
+2nd coder says: [-1]
+
+
+Student ID    19529166
+Session             14
+Name: (19529166, ABSORBANCE, m), dtype: object 
+
+Width Conflicting categories: ['verbal_1']
+1st coder says: [0]
+2nd coder says: [1]
+
+
+Student ID    19618321
+Session             13
+Name: (19618321, ABSORBANCE, m), dtype: object 
+
+Concentration Conflicting categories: ['verbal_1']
+1st coder says: [1]
+2nd coder says: [0]
+Width Conflicting categories: ['verbal_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    19952165
+Session             13
+Name: (19952165, CAPACITORS, m), dtype: object 
+
+Voltage Conflicting categories: ['verbal_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    26984162
+Session         03-Feb
+Name: (26984162, ABSORBANCE, m), dtype: object 
+
+Width Conflicting categories: ['verbal_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    27630167
+Session              1
+Name: (27630167, CAPACITORS, m), dtype: object 
+
+Sep Conflicting categories: ['math_1', 'qt-bad-ql-good_1']
+1st coder says: [1, 0]
+2nd coder says: [-1, -1]
+
+
+Student ID    52193156
+Session              1
+Name: (52193156, ABSORBANCE, p), dtype: object 
+
+Wavelength Conflicting categories: ['qual_1']
+1st coder says: [-1]
+2nd coder says: [0]
+
+
+Student ID    6618163
+Session        07-Jun
+Name: (6618163, CAPACITORS, p), dtype: object 
+
+Voltage Conflicting categories: ['math_1']
+1st coder says: [1]
+2nd coder says: [0]
+
+
+Student ID    83459165
+Session              1
+Name: (83459165, CAPACITORS, m), dtype: object 
+
+Sep Conflicting categories: ['verbal_1', 'power_1']
+1st coder says: [1, 1]
+2nd coder says: [-1, -1]
+
+Disagreement count is 37
+
+IRR STATS: 
+
+UNIFIED
+unified_2  -1    0   1  All
+unified_1                  
+-1         11    0   0   11
+0           0  207   0  207
+1           0    3  19   22
+All        11  210  19  240
+Percent agreement  = 0.9875
+Cohen's kappa = 0.947023765727 
+
+VERBAL
+verbal_2  -1    0   1  All
+verbal_1                  
+-1         1    0   0    1
+0          1  199   3  203
+1          5    4  27   36
+All        7  203  30  240
+Percent agreement  = 0.945833333333
+Cohen's kappa = 0.796131730267 
+
+VERBAL-K
+verbal-k_2    0  All
+verbal-k_1          
+0           240  240
+All         240  240
+Percent agreement  = 1.0
+Cohen's kappa = nan 
+
+VERBAL-B
+verbal-b_2    0  All
+verbal-b_1          
+0           240  240
+All         240  240
+Percent agreement  = 1.0
+Cohen's kappa = nan 
+
+MATH
+math_2  -1    0   1  All
+math_1                  
+-1       1    0   0    1
+0        0  218   1  219
+1        2    2  16   20
+All      3  220  17  240
+Percent agreement  = 0.979166666667
+Cohen's kappa = 0.867797730528 
+
+MATH-K
+math-k_2    0  1  All
+math-k_1             
+0         236  0  236
+1           3  1    4
+All       239  1  240
+Percent agreement  = 0.9875
+Cohen's kappa = 0.395973154362 
+
+MATH-B
+math-b_2    0  All
+math-b_1          
+0         240  240
+All       240  240
+Percent agreement  = 1.0
+Cohen's kappa = nan 
+
+POWER
+power_2  -1    0  All
+power_1              
+-1        1    0    1
+0         0  238  238
+1         1    0    1
+All       2  238  240
+Percent agreement  = 0.995833333333
+Cohen's kappa = 0.748427672956 
+
+EXP
+exp_2  -1    0  1  All
+exp_1                 
+-1      2    0  0    2
+0       0  237  1  238
+All     2  237  1  240
+Percent agreement  = 0.995833333333
+Cohen's kappa = 0.798319327731 
+
+QT-BAD-QL-GOOD
+qt-bad-ql-good_2  -1    0  1  All
+qt-bad-ql-good_1                 
+-1                 5    0  0    5
+0                  6  222  3  231
+1                  1    0  3    4
+All               12  222  6  240
+Percent agreement  = 0.958333333333
+Cohen's kappa = 0.615014436959 
+
+QUAL
+qual_2  -1   0    1  2  All
+qual_1                     
+-1      30   4    3  0   37
+0        0  80    7  0   87
+1        8   8   99  1  116
+All     38  92  109  1  240
+Percent agreement  = 0.870833333333
+Cohen's kappa = 0.790693748945 
+
+ZERO-OUTCOME
+zero-outcome_2    0  1  All
+zero-outcome_1             
+0               237  1  238
+1                 0  2    2
+All             237  3  240
+Percent agreement  = 0.995833333333
+Cohen's kappa = 0.79797979798 
+
+EXTREME-OUTCOME
+extreme-outcome_2  -1    0  1  All
+extreme-outcome_1                 
+0                   1  230  3  234
+1                   0    1  5    6
+All                 1  231  8  240
+Percent agreement  = 0.979166666667
+Cohen's kappa = 0.656946826758 
+
+UNIFIED-EXTREMES
+unified-extremes_2    0  1  All
+unified-extremes_1             
+-1                    1  0    1
+0                   232  2  234
+1                     5  0    5
+All                 238  2  240
+Percent agreement  = 0.966666666667
+Cohen's kappa = -0.0115911485775 
+
+UNIFIED-SLOPE
+unified-slope_2    0  1  All
+unified-slope_1             
+0                238  1  239
+1                  1  0    1
+All              239  1  240
+Percent agreement  = 0.991666666667
+Cohen's kappa = -0.00418410041841 
+
+UNIFIED-ZERO
+unified-zero_2    0  1  All
+unified-zero_1             
+0               239  0  239
+1                 0  1    1
+All             239  1  240
+Percent agreement  = 1.0
+Cohen's kappa = 1.0 
