@@ -40,6 +40,27 @@ def get_worksheet_metadata():
     df = pd.read_csv(filepath,sep=',')
     return df
 
+# def get_worksheet_to_log_ids(sim,pre_or_main):
+#     ids = set(get_students_to_analyze())
+#     worksheets = get_worksheet_metadata()
+#     if sim == 'beers':
+#         topic = 'ABSORBANCE'
+#     worksheets = worksheets[(worksheets['Type']==pre_or_main[0])&(worksheets['Topic']==topic)]
+#     #returns a dictionary with {id_in_log:id_in_worksheet}
+#     return {worksheets.get_value(worksheets[worksheets['other id']==k].index[0],'Student ID'):k for k in list(set(list(worksheets[worksheets['use analysis']==True]['other id']))&set(ids))}
+
+def get_pre_worksheet(sim):
+    #sim = beers or caps
+    filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_pre3.csv')
+    df = pd.read_csv(filepath,sep=',')
+    return df
+
+def get_main_worksheet(sim):
+    #sim = beers or caps
+    filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_main3.csv')
+    df = pd.read_csv(filepath,sep=',')
+    return df
+
 def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
     return  pd.read_table(find_latest_parsing_report_file(sim, date=None, infolder=FOLDER), sep='\t')
 
@@ -49,9 +70,14 @@ def get_session_data():
 def get_student_metadata():
     return pd.read_excel(os.path.join(BIG_FOLDER,'connector_id_to_log_files_and_session_annotated_fixed.xlsx'), sep='\t')
 
-def get_students_to_analyze():
+def get_students_to_analyze_log():
     df = get_student_metadata()
     return df[df['use analysis']==True].index.values
+
+def get_students_to_analyze_log_worksheets():
+    ids = set(get_students_to_analyze_log())
+    worksheets = get_worksheet_metadata()
+    return set(list(worksheets[worksheets['use analysis']==True]['Student ID']))&set(ids)
 
 def get_date_event_pairs(sim,row):
     if sim == "beers":
