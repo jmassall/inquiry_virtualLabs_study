@@ -109,7 +109,7 @@ def create_df(filename):
 if __name__ == "__main__":
 
 	# filename = 'IRR_data_test2.csv'
-	# filename = 'IRR_data_shawna.csv'
+	filename = 'IRR_data_shawna.csv'
 
 
 	# print df.head()
