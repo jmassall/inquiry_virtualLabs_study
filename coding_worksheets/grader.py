@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
 
-	filename = 'absorbance_coded_worksheet_cleaned_final.csv'
+	# filename = 'absorbance_coded_worksheet_cleaned.csv'
+	filename = 'capacitors_coded_worksheets_cleaned.csv'
 
 	categories = ['unified', 'verbal', 'math', 'qt-bad-ql-good', 
 	'qual', 'zero-outcome', 'extreme-outcome', 'unified-extremes', 'unified-slope',	'unified-zero',
@@ -27,12 +28,12 @@ if __name__ == "__main__":
 		for atype in df.loc[student,:].index.get_level_values('Type').unique():
 			if set(atypes) != set(df.loc[student,:].index.get_level_values('Type').unique()):
 				problem_IDs = problem_IDs + [student]
-				print dfm.loc[student, metadata_headers]
+				# print dfm.loc[student, metadata_headers]
 			for factor in factors:
 				selection = idx[student, :, atype, factor]
 				if ((df.loc[selection, 'unified'] == 1 ) & (df.loc[selection, 'verbal'] + df.loc[selection, 'math'] >= 0)).bool():
 						df.loc[selection, 'grade'] = 3
-				elif ((df.loc[selection, 'unified'] <= 0 ) & (df.loc[selection, 'verbal'] + df.loc[selection, 'math'] == 1)).bool():
+				elif ((df.loc[selection, 'unified'] <= 0 ) & (df.loc[selection, 'verbal'] + df.loc[selection, 'math'] >= 1)).bool():
 						df.loc[selection, 'grade'] = 3
 				elif (df.loc[selection, 'qual'] == 1 ).bool():
 					df.loc[selection, 'grade'] = 2
@@ -45,19 +46,20 @@ if __name__ == "__main__":
 	
 	f, axarr = plt.subplots(1, 3, sharey=True)
 	f.suptitle('Grades per factors')
-	df.loc[idx[:,:,:,'Concentration'], 'grade'].groupby(level='Type').plot.hist(alpha=0.5, bins=[0,1,2,3,4], legend=True, ax=axarr[0])
-	df.loc[idx[:,:,:,'Width'], 'grade'].groupby(level='Type').plot.hist(alpha=0.5, bins=[0,1,2,3,4], legend=True, ax=axarr[1])
-	df.loc[idx[:,:,:,'Wavelength'], 'grade'].groupby(level='Type').plot.hist(alpha=0.5, bins=[0,1,2,3,4], legend=True, ax=axarr[2])
-	axarr[0].set_title('Concentration')
-	axarr[1].set_title('Width')
-	axarr[2].set_title('Wavelength')
+
+	df.loc[idx[:,:,:,factors[0]], 'grade'].groupby(level='Type').plot.hist(alpha=0.5, bins=[0,1,2,3,4], legend=True, ax=axarr[0])
+	df.loc[idx[:,:,:,factors[1]], 'grade'].groupby(level='Type').plot.hist(alpha=0.5, bins=[0,1,2,3,4], legend=True, ax=axarr[1])
+	df.loc[idx[:,:,:,factors[2]], 'grade'].groupby(level='Type').plot.hist(alpha=0.5, bins=[0,1,2,3,4], legend=True, ax=axarr[2])
+	axarr[0].set_title(factors[0])
+	axarr[1].set_title(factors[1])
+	axarr[2].set_title(factors[2])
 	plt.show()
 
 	dfp = df.loc[idx[:, :, 'p'], 'grade'].reset_index().drop(['Type','Topic'], axis=1).pivot(index='Student ID', columns='Factors', values='grade')
-	dfp.to_csv('gradebook_pre2.csv')
+	dfp.to_csv('gradebook_capacitors_pre2.csv')
 
 	dfm = df.loc[idx[:, :, 'm'], 'grade'].reset_index().drop(['Type','Topic'], axis=1).pivot(index='Student ID', columns='Factors', values='grade')
-	dfm.to_csv('gradebook_main2.csv')
+	dfm.to_csv('gradebook_capacitors_main2.csv')
 
 
 
