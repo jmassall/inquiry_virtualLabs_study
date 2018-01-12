@@ -35,30 +35,54 @@ def get_pre_survey():
     df = pd.read_csv(filepath,sep='\t',encoding = "ISO-8859-1")
     return df
 
+SIM_NAMES = {'beers':'ABSORBANCE','caps':'CAPACITORS'}
 def get_worksheet_metadata(sim):
-    filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_coded_worksheets_metadata.csv')
-    df = pd.read_csv(filepath,sep=',')
+    #get primary metadata file for that sim
+    primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_coded_worksheets_metadata.csv')
+    primary_df = pd.read_csv(primary_filepath,sep=',')
+    print primary_df.shape
+    
+    #get metadata file for extras worksheets
+    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\extra_session_coded_worksheets_metadata.csv')
+    extras_df = pd.read_csv(extras_filepath,sep=',')
+    extras_df = extras_df[extras_df['Topic']==SIM_NAMES[sim]]
+    print extras_df.shape
+    df = pd.concat([primary_df,extras_df])   
+    
     return df
 
-# def get_worksheet_to_log_ids(sim,pre_or_main):
-#     ids = set(get_students_to_analyze())
-#     worksheets = get_worksheet_metadata()
-#     if sim == 'beers':
-#         topic = 'ABSORBANCE'
-#     worksheets = worksheets[(worksheets['Type']==pre_or_main[0])&(worksheets['Topic']==topic)]
-#     #returns a dictionary with {id_in_log:id_in_worksheet}
-#     return {worksheets.get_value(worksheets[worksheets['other id']==k].index[0],'Student ID'):k for k in list(set(list(worksheets[worksheets['use analysis']==True]['other id']))&set(ids))}
-
 def get_pre_worksheet(sim):
-    #sim = beers or caps
-    filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_pre3.csv')
-    df = pd.read_csv(filepath,sep=',')
+    #sim = beers or caps    
+    primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_pre.csv')
+    primary_df = pd.read_csv(primary_filepath,sep=',')
+    print primary_df.shape
+    
+    #get file for extras worksheets
+    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\gradebook_extras_pre.csv')
+    extras_df = pd.read_csv(extras_filepath,sep=',')
+    if sim == 'beers':
+        extras_df = extras_df[['Student ID','Concentration','Wavelength','Width']]
+    elif sim == 'caps':
+        extras_df = extras_df[['Student ID','Area','Sep','Voltage']]
+    print extras_df.shape
+    df = pd.concat([primary_df,extras_df])
     return df
 
 def get_main_worksheet(sim):
     #sim = beers or caps
-    filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_main3.csv')
-    df = pd.read_csv(filepath,sep=',')
+    primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_main.csv')
+    primary_df = pd.read_csv(primary_filepath,sep=',')
+    print primary_df.shape
+    
+    #get file for extras worksheets
+    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\gradebook_extras_main.csv')
+    extras_df = pd.read_csv(extras_filepath,sep=',')
+    if sim == 'beers':
+        extras_df = extras_df[['Student ID','Concentration','Wavelength','Width']]
+    elif sim == 'caps':
+        extras_df = extras_df[['Student ID','Area','Sep','Voltage']]
+    print extras_df.shape
+    df = pd.concat([primary_df,extras_df])   
     return df
 
 def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
