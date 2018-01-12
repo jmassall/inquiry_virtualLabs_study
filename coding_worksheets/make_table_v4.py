@@ -21,6 +21,7 @@ def create_df(filename):
 			factor_codes = []
 			metadata_info =[]
 			identified = []
+			#WOULD BE BETTER TO DO THIS EVERY 6 rows and check if correct header!!!
 			if( row[0] == 'CAPACITORS' or row[0] == 'ABSORBANCE' ):
 				activity_topic = row[0]
 				headers = readCSV.next()
@@ -102,6 +103,8 @@ def create_df(filename):
 	#reorder columns
 	df = df[categories]
 	dfm = dfm[metadata_headers]
+
+	print df.dtypes
 	
 	return df, dfm
 
@@ -109,8 +112,11 @@ def create_df(filename):
 if __name__ == "__main__":
 
 	# filename = 'IRR_data_test2.csv'
-	filename = 'IRR_data_shawna.csv'
+	# filename = 'IRR_data_shawna.csv'
+	filename = 'capacitors_coded_worksheets_cleaned.csv'
+	df, dfm = create_df(filename)
 
+	print df.qual.unique()
 
 	# print df.head()
 	# print df.dtypes
