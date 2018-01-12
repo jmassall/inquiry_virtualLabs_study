@@ -40,22 +40,19 @@ def get_worksheet_metadata(sim):
     #get primary metadata file for that sim
     primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_coded_worksheets_metadata.csv')
     primary_df = pd.read_csv(primary_filepath,sep=',')
-    print primary_df.shape
     
     #get metadata file for extras worksheets
     extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\extra_session_coded_worksheets_metadata.csv')
     extras_df = pd.read_csv(extras_filepath,sep=',')
     extras_df = extras_df[extras_df['Topic']==SIM_NAMES[sim]]
-    print extras_df.shape
     df = pd.concat([primary_df,extras_df])   
-    
+    df = df.reset_index(drop=True)
     return df
 
 def get_pre_worksheet(sim):
     #sim = beers or caps    
     primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_pre.csv')
     primary_df = pd.read_csv(primary_filepath,sep=',')
-    print primary_df.shape
     
     #get file for extras worksheets
     extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\gradebook_extras_pre.csv')
@@ -63,16 +60,15 @@ def get_pre_worksheet(sim):
     if sim == 'beers':
         extras_df = extras_df[['Student ID','Concentration','Wavelength','Width']]
     elif sim == 'caps':
-        extras_df = extras_df[['Student ID','Area','Sep','Voltage']]
-    print extras_df.shape
+        extras_df = extras_df[['Student ID','Area','Separation','Battery voltage']]
     df = pd.concat([primary_df,extras_df])
+    df = df.reset_index(drop=True)
     return df
 
 def get_main_worksheet(sim):
     #sim = beers or caps
     primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_main.csv')
     primary_df = pd.read_csv(primary_filepath,sep=',')
-    print primary_df.shape
     
     #get file for extras worksheets
     extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\gradebook_extras_main.csv')
@@ -80,9 +76,9 @@ def get_main_worksheet(sim):
     if sim == 'beers':
         extras_df = extras_df[['Student ID','Concentration','Wavelength','Width']]
     elif sim == 'caps':
-        extras_df = extras_df[['Student ID','Area','Sep','Voltage']]
-    print extras_df.shape
+        extras_df = extras_df[['Student ID','Area','Separation','Battery voltage']]
     df = pd.concat([primary_df,extras_df])   
+    df = df.reset_index(drop=True)
     return df
 
 def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
