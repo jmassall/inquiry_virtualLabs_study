@@ -11822,7 +11822,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
@@ -11861,9 +11861,9 @@ div#notebook {
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>d:\applications\anaconda2\lib\site-packages\statsmodels\compat\pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+  from pandas.core import datetools
 </pre>
 </div>
 </div>
@@ -11887,8 +11887,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;student&#39;</span><span class="p">,</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="s1">&#39;post&#39;</span><span class="p">,</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="s1">&#39;CVS table&#39;</span><span class="p">,</span><span class="s1">&#39;CVS graph&#39;</span><span class="p">]]</span>
-<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span><span class="s1">&#39;2.333&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;No&#39;</span><span class="p">])</span>
-<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;Yes&#39;</span><span class="p">])</span>
+<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span><span class="s1">&#39;2.333&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;No&#39;</span><span class="p">])</span>
+<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;Yes&#39;</span><span class="p">])</span>
 <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span><span class="s1">&#39;v3&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;No&#39;</span><span class="p">,</span><span class="s1">&#39;No&#39;</span><span class="p">])</span>
 <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span><span class="s1">&#39;v4&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;No&#39;</span><span class="p">])</span>
 <span class="k">print</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
@@ -11910,8 +11910,8 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-------  --------  ---  -----  -----  ---  ---------  ---------
 student  variable  pre  post   index  sim  CVS table  CVS graph
-s1       v1        1.0  2.333  1      B    Yes        No
-s1       v2        ...  ...    1      B    Yes        Yes
+s1       v1        1.0  2.333  1      L    Yes        No
+s1       v2        ...  ...    1      L    Yes        Yes
 s1       v3        ...  ...    2      C    No         No
 s1       v4        ...  ...    2      C    Yes        No
 -------  --------  ---  -----  -----  ---  ---------  ---------
@@ -12442,7 +12442,7 @@ s1       v4        ...  ...    2      C    Yes        No
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Learning-through-inquiry">Learning through inquiry<a class="anchor-link" href="#Learning-through-inquiry">&#194;&#182;</a></h1>
+<h1 id="Results-to-present-in-methods">Results to present in methods<a class="anchor-link" href="#Results-to-present-in-methods">&#194;&#182;</a></h1><h2 id="Student-population">Student population<a class="anchor-link" href="#Student-population">&#194;&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12451,7 +12451,7 @@ s1       v4        ...  ...    2      C    Yes        No
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;We have {0} students to analyze.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">])))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;The study includes {0} students&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">])))</span>
 </pre></div>
 
 </div>
@@ -12468,7 +12468,7 @@ s1       v4        ...  ...    2      C    Yes        No
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>We have 148 students to analyze.
+<pre>The study includes 148 students
 </pre>
 </div>
 </div>
@@ -12476,6 +12476,177 @@ s1       v4        ...  ...    2      C    Yes        No
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Gender distribution&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Gender distribution
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Student-prior-experience">Student prior experience<a class="anchor-link" href="#Student-prior-experience">&#194;&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Undergraduate year level&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Undergraduate year level
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Lab courses taken in pphysics and chemistry&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Lab courses taken in pphysics and chemistry
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;experience in virtual labs in general&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>experience in virtual labs in general
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span>  <span class="s1">&#39;experience in virutal labs teaching light absorbance or capacitors before&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>experience in virutal labs teaching light absorbance or capacitors before
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Learning-through-inquiry">Learning through inquiry<a class="anchor-link" href="#Learning-through-inquiry">&#194;&#182;</a></h1><h2 id="Overall">Overall<a class="anchor-link" href="#Overall">&#194;&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12491,23 +12662,7 @@ Either way with tiny effect size.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># scores = pd.pivot_table(data, values=[&#39;pre&#39;,&#39;main&#39;,&#39;sim_index&#39;], index=[&#39;sim&#39;,&#39;sid&#39;],aggfunc=np.mean)</span>
-<span class="c1"># scores.reset_index(level=0, inplace=True)</span>
-<span class="c1"># scores[&#39;sid&#39;]=scores.index</span>
-<span class="c1"># scores.head()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">eta_squared</span><span class="p">(</span><span class="n">aov</span><span class="p">):</span>
@@ -12529,7 +12684,7 @@ Either way with tiny effect size.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ pre*C(variable)+C(sim_index)*C(sim)+C(sid)&#39;</span><span class="c1"># + pre*C(sid)+ pre*C(sim_index) + C(sid)&#39;</span>
@@ -12544,7 +12699,7 @@ Either way with tiny effect size.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
@@ -12599,9 +12754,396 @@ And the variables are different (F=3.8, p&lt;0.01, \eta = 0.01).</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Per-variable">Per variable<a class="anchor-link" href="#Per-variable">&#194;&#182;</a></h2><h3 id="Width">Width<a class="anchor-link" href="#Width">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Width&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ pre + C(sim_index)*C(sim)&#39;</span><span class="c1"># + pre*C(sim)+ pre*C(sim_index) + C(sid)&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model:  main ~ pre + C(sim_index)*C(sim)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   main   R-squared:                       0.058
+Model:                            OLS   Adj. R-squared:                  0.045
+Method:                 Least Squares   F-statistic:                     4.445
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):             0.0134
+Time:                        15:36:42   Log-Likelihood:                -163.75
+No. Observations:                 148   AIC:                             333.5
+Df Residuals:                     145   BIC:                             342.5
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Intercept             2.0433      0.110     18.523      0.000       1.825       2.261
+C(sim_index)[T.2]     0.1962      0.122      1.609      0.110      -0.045       0.437
+pre                   0.1741      0.073      2.369      0.019       0.029       0.319
+==============================================================================
+Omnibus:                       26.493   Durbin-Watson:                   2.106
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               34.881
+Skew:                          -1.041   Prob(JB):                     2.66e-08
+Kurtosis:                       4.150   Cond. No.                         3.89
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Concentration">Concentration<a class="anchor-link" href="#Concentration">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Concentration&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ pre + C(sim_index)*C(sim)&#39;</span><span class="c1"># + pre*C(sim)+ pre*C(sim_index) + C(sid)&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model:  main ~ pre + C(sim_index)*C(sim)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   main   R-squared:                       0.080
+Model:                            OLS   Adj. R-squared:                  0.067
+Method:                 Least Squares   F-statistic:                     6.268
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):            0.00245
+Time:                        15:36:42   Log-Likelihood:                -138.60
+No. Observations:                 148   AIC:                             283.2
+Df Residuals:                     145   BIC:                             292.2
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Intercept             2.0837      0.106     19.572      0.000       1.873       2.294
+C(sim_index)[T.2]     0.2593      0.104      2.500      0.014       0.054       0.464
+pre                   0.1389      0.066      2.109      0.037       0.009       0.269
+==============================================================================
+Omnibus:                        9.390   Durbin-Watson:                   1.791
+Prob(Omnibus):                  0.009   Jarque-Bera (JB):                9.860
+Skew:                          -0.605   Prob(JB):                      0.00722
+Kurtosis:                       2.632   Cond. No.                         4.54
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Area">Area<a class="anchor-link" href="#Area">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Area&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ pre + C(sim_index)*C(sim)&#39;</span><span class="c1"># + pre*C(sim)+ pre*C(sim_index) + C(sid)&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model:  main ~ pre + C(sim_index)*C(sim)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   main   R-squared:                       0.078
+Model:                            OLS   Adj. R-squared:                  0.065
+Method:                 Least Squares   F-statistic:                     6.138
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):            0.00276
+Time:                        15:36:42   Log-Likelihood:                -152.78
+No. Observations:                 148   AIC:                             311.6
+Df Residuals:                     145   BIC:                             320.5
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Intercept             1.9479      0.114     17.117      0.000       1.723       2.173
+C(sim_index)[T.2]     0.1166      0.113      1.029      0.305      -0.107       0.340
+pre                   0.2232      0.069      3.253      0.001       0.088       0.359
+==============================================================================
+Omnibus:                       21.238   Durbin-Watson:                   2.030
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               27.044
+Skew:                          -0.855   Prob(JB):                     1.34e-06
+Kurtosis:                       4.210   Cond. No.                         4.46
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Separation">Separation<a class="anchor-link" href="#Separation">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Separation&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ pre + C(sim_index)*C(sim)&#39;</span><span class="c1"># + pre*C(sim)+ pre*C(sim_index) + C(sid)&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model:  main ~ pre + C(sim_index)*C(sim)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   main   R-squared:                       0.073
+Model:                            OLS   Adj. R-squared:                  0.060
+Method:                 Least Squares   F-statistic:                     5.733
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):            0.00402
+Time:                        15:36:42   Log-Likelihood:                -147.58
+No. Observations:                 148   AIC:                             301.2
+Df Residuals:                     145   BIC:                             310.2
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Intercept             1.7967      0.128     13.994      0.000       1.543       2.050
+C(sim_index)[T.2]     0.2083      0.110      1.885      0.061      -0.010       0.427
+pre                   0.2156      0.070      3.085      0.002       0.077       0.354
+==============================================================================
+Omnibus:                       10.623   Durbin-Watson:                   2.169
+Prob(Omnibus):                  0.005   Jarque-Bera (JB):               10.766
+Skew:                          -0.613   Prob(JB):                      0.00459
+Kurtosis:                       3.493   Cond. No.                         5.32
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="s1">&#39;main&#39;</span><span class="p">,</span><span class="s1">&#39;sim_index&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="s1">&#39;sid&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">scores</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sim</th>
+      <th>main</th>
+      <th>pre</th>
+      <th>sim_index</th>
+      <th>sid</th>
+    </tr>
+    <tr>
+      <th>sid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10127163</th>
+      <td>C</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>10127163</td>
+    </tr>
+    <tr>
+      <th>10192168</th>
+      <td>C</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>10192168</td>
+    </tr>
+    <tr>
+      <th>10232160</th>
+      <td>C</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>10232160</td>
+    </tr>
+    <tr>
+      <th>10375163</th>
+      <td>C</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>10375163</td>
+    </tr>
+    <tr>
+      <th>10420167</th>
+      <td>C</td>
+      <td>2.5</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>10420167</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># t = [[&#39;sim&#39;,&#39;pre&#39;,&#39;post&#39;,&#39;U&#39;,&#39;p&#39;]]</span>
@@ -12627,7 +13169,7 @@ And the variables are different (F=3.8, p&lt;0.01, \eta = 0.01).</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># bins = [0,0.333,0.666, 1.0, 1.333, 1.666, 2.0, 2.333, 2.666, 3.0, 3.333]</span>
@@ -12643,7 +13185,7 @@ And the variables are different (F=3.8, p&lt;0.01, \eta = 0.01).</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># bins = [0,0.333,0.666, 1.0, 1.333, 1.666, 2.0, 2.333, 2.666, 3.0, 3.333]</span>
@@ -12661,7 +13203,7 @@ And the variables are different (F=3.8, p&lt;0.01, \eta = 0.01).</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-do-students-use-CVS-like-inquiry-strategies-in-a-PhET-sim-activity?">How do students use CVS-like inquiry strategies in a PhET sim activity?<a class="anchor-link" href="#How-do-students-use-CVS-like-inquiry-strategies-in-a-PhET-sim-activity?">&#194;&#182;</a></h1><h2 id="How-does-incoming-knowledge-affect-doing-CVS">How does incoming knowledge affect doing CVS<a class="anchor-link" href="#How-does-incoming-knowledge-affect-doing-CVS">&#194;&#182;</a></h2>
+<h1 id="How-do-students-use-CVS-like-inquiry-strategies-in-a-PhET-sim-activity?">How do students use CVS-like inquiry strategies in a PhET sim activity?<a class="anchor-link" href="#How-do-students-use-CVS-like-inquiry-strategies-in-a-PhET-sim-activity?">&#194;&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -12670,158 +13212,6 @@ And the variables are different (F=3.8, p&lt;0.01, \eta = 0.01).</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>For some reason adding students in the matric turns it into a singular matrix and fails the analysis. Probably because two students are exactly identical?</p>
-<h3 id="For-CVS-collection">For CVS collection<a class="anchor-link" href="#For-CVS-collection">&#194;&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_table ~ pre*C(variable) + C(sim_index)*C(sim) &#39;</span>
-<span class="k">print</span> <span class="s1">&#39;model: &#39;</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
-<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">dmatrices</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
-<span class="c1"># print X.columns</span>
-<span class="n">logit</span> <span class="o">=</span> <span class="n">Logit</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-<span class="c1"># print model.params</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>model:  CVS_table ~ pre*C(variable) + C(sim_index)*C(sim)  
-
-Optimization terminated successfully.
-         Current function value: 0.576909
-         Iterations 6
-                           Logit Regression Results                           
-==============================================================================
-Dep. Variable:              CVS_table   No. Observations:                  592
-Model:                          Logit   Df Residuals:                      582
-Method:                           MLE   Df Model:                            9
-Date:                Sat, 13 Jan 2018   Pseudo R-squ.:                 0.03283
-Time:                        22:18:12   Log-Likelihood:                -341.53
-converged:                       True   LL-Null:                       -353.12
-                                        LLR p-value:                  0.005792
-====================================================================================================
-                                       coef    std err          z      P&gt;|z|      [0.025      0.975]
-----------------------------------------------------------------------------------------------------
-Intercept                            0.2349      0.337      0.698      0.485      -0.425       0.894
-C(variable)[T.Concentration]         0.3248   1.46e+07   2.22e-08      1.000   -2.87e+07    2.87e+07
-C(variable)[T.Separation]           -0.0255      0.475     -0.054      0.957      -0.957       0.906
-C(variable)[T.Width]                -0.0960   1.46e+07  -6.56e-09      1.000   -2.87e+07    2.87e+07
-C(sim_index)[T.2]                    0.7372      0.261      2.823      0.005       0.225       1.249
-C(sim)[T.L]                          0.2289   1.46e+07   1.56e-08      1.000   -2.87e+07    2.87e+07
-C(sim_index)[T.2]:C(sim)[T.L]       -0.9101      0.377     -2.413      0.016      -1.649      -0.171
-pre                                  0.2292      0.225      1.017      0.309      -0.213       0.671
-pre:C(variable)[T.Concentration]     0.0251      0.333      0.075      0.940      -0.628       0.679
-pre:C(variable)[T.Separation]       -0.0523      0.323     -0.162      0.871      -0.685       0.580
-pre:C(variable)[T.Width]             0.6011      0.351      1.714      0.087      -0.086       1.288
-====================================================================================================
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Clearly pre doesn't matter, neither does the variable. CVS is more likely in the second sim (no surprise there), especially if second sim is capacitance (only significant interaction).</p>
-<h3 id="For-CVS-plotting">For CVS plotting<a class="anchor-link" href="#For-CVS-plotting">&#194;&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_graph ~ pre*C(variable) + C(sim_index)*C(sim) &#39;</span>
-<span class="k">print</span> <span class="s1">&#39;model: &#39;</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
-<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">dmatrices</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
-<span class="c1"># print X.columns</span>
-<span class="n">logit</span> <span class="o">=</span> <span class="n">Logit</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-<span class="c1"># print model.params</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>model:  CVS_graph ~ pre*C(variable) + C(sim_index)*C(sim)  
-
-Optimization terminated successfully.
-         Current function value: 0.671971
-         Iterations 5
-                           Logit Regression Results                           
-==============================================================================
-Dep. Variable:              CVS_graph   No. Observations:                  592
-Model:                          Logit   Df Residuals:                      582
-Method:                           MLE   Df Model:                            9
-Date:                Sat, 13 Jan 2018   Pseudo R-squ.:                 0.03035
-Time:                        22:18:13   Log-Likelihood:                -397.81
-converged:                       True   LL-Null:                       -410.26
-                                        LLR p-value:                  0.003079
-====================================================================================================
-                                       coef    std err          z      P&gt;|z|      [0.025      0.975]
-----------------------------------------------------------------------------------------------------
-Intercept                           -0.6248      0.324     -1.930      0.054      -1.259       0.010
-C(variable)[T.Concentration]         0.5652   7.95e+06   7.11e-08      1.000   -1.56e+07    1.56e+07
-C(variable)[T.Separation]           -0.0336      0.448     -0.075      0.940      -0.911       0.844
-C(variable)[T.Width]                -0.4575   7.95e+06  -5.75e-08      1.000   -1.56e+07    1.56e+07
-C(sim_index)[T.2]                    0.7003      0.239      2.930      0.003       0.232       1.169
-C(sim)[T.L]                          0.1077   7.95e+06   1.35e-08      1.000   -1.56e+07    1.56e+07
-C(sim_index)[T.2]:C(sim)[T.L]       -0.4608      0.339     -1.360      0.174      -1.125       0.203
-pre                                  0.1689      0.204      0.828      0.407      -0.231       0.568
-pre:C(variable)[T.Concentration]    -0.2323      0.293     -0.793      0.428      -0.807       0.342
-pre:C(variable)[T.Separation]       -0.0066      0.296     -0.022      0.982      -0.586       0.573
-pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052      -0.005       1.177
-====================================================================================================
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>CVS plotting occurs more in second sim but no interaction with sim type. Pre doesn't matter, variable doesn't matter.</p>
 
 </div>
 </div>
@@ -12836,7 +13226,7 @@ pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052    
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -12861,13 +13251,13 @@ pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052    
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[23]:</div>
+<div class="prompt output_prompt">Out[30]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0xf11b198&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0xf130da0&gt;</pre>
 </div>
 
 </div>
@@ -13228,7 +13618,7 @@ CCFEgySJCiGEEA2SJCqEEEI06B+uG6fnnwDaGAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -13253,13 +13643,13 @@ CCFEgySJCiGEEA2SJCqEEEI06B+uG6fnnwDaGAAAAABJRU5ErkJggg==
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[24]:</div>
+<div class="prompt output_prompt">Out[31]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0xeef0780&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0xf4494e0&gt;</pre>
 </div>
 
 </div>
@@ -13633,6 +14023,166 @@ AElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-does-incoming-knowledge-affect-doing-CVS">How does incoming knowledge affect doing CVS<a class="anchor-link" href="#How-does-incoming-knowledge-affect-doing-CVS">&#194;&#182;</a></h2><h3 id="For-CVS-collection">For CVS collection<a class="anchor-link" href="#For-CVS-collection">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_table ~ pre*C(variable) + C(sim_index)*C(sim) &#39;</span>
+<span class="k">print</span> <span class="s1">&#39;model: &#39;</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">dmatrices</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+<span class="c1"># print X.columns</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">Logit</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="c1"># print model.params</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>model:  CVS_table ~ pre*C(variable) + C(sim_index)*C(sim)  
+
+Optimization terminated successfully.
+         Current function value: 0.576909
+         Iterations 6
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:              CVS_table   No. Observations:                  592
+Model:                          Logit   Df Residuals:                      582
+Method:                           MLE   Df Model:                            9
+Date:                Sun, 14 Jan 2018   Pseudo R-squ.:                 0.03283
+Time:                        15:36:43   Log-Likelihood:                -341.53
+converged:                       True   LL-Null:                       -353.12
+                                        LLR p-value:                  0.005792
+====================================================================================================
+                                       coef    std err          z      P&gt;|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------------------
+Intercept                            0.2349      0.337      0.698      0.485      -0.425       0.894
+C(variable)[T.Concentration]         0.3248   1.46e+07   2.22e-08      1.000   -2.87e+07    2.87e+07
+C(variable)[T.Separation]           -0.0255      0.475     -0.054      0.957      -0.957       0.906
+C(variable)[T.Width]                -0.0960   1.46e+07  -6.56e-09      1.000   -2.87e+07    2.87e+07
+C(sim_index)[T.2]                    0.7372      0.261      2.823      0.005       0.225       1.249
+C(sim)[T.L]                          0.2289   1.46e+07   1.56e-08      1.000   -2.87e+07    2.87e+07
+C(sim_index)[T.2]:C(sim)[T.L]       -0.9101      0.377     -2.413      0.016      -1.649      -0.171
+pre                                  0.2292      0.225      1.017      0.309      -0.213       0.671
+pre:C(variable)[T.Concentration]     0.0251      0.333      0.075      0.940      -0.628       0.679
+pre:C(variable)[T.Separation]       -0.0523      0.323     -0.162      0.871      -0.685       0.580
+pre:C(variable)[T.Width]             0.6011      0.351      1.714      0.087      -0.086       1.288
+====================================================================================================
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Clearly pre doesn't matter, neither does the variable. CVS is more likely in the second sim (no surprise there), especially if second sim is capacitance (only significant interaction).</p>
+<h3 id="For-CVS-plotting">For CVS plotting<a class="anchor-link" href="#For-CVS-plotting">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_graph ~ pre*C(variable) + C(sim_index)*C(sim) &#39;</span>
+<span class="k">print</span> <span class="s1">&#39;model: &#39;</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">dmatrices</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+<span class="c1"># print X.columns</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">Logit</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="c1"># print model.params</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>model:  CVS_graph ~ pre*C(variable) + C(sim_index)*C(sim)  
+
+Optimization terminated successfully.
+         Current function value: 0.671971
+         Iterations 5
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:              CVS_graph   No. Observations:                  592
+Model:                          Logit   Df Residuals:                      582
+Method:                           MLE   Df Model:                            9
+Date:                Sun, 14 Jan 2018   Pseudo R-squ.:                 0.03035
+Time:                        15:36:43   Log-Likelihood:                -397.81
+converged:                       True   LL-Null:                       -410.26
+                                        LLR p-value:                  0.003079
+====================================================================================================
+                                       coef    std err          z      P&gt;|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------------------
+Intercept                           -0.6248      0.324     -1.930      0.054      -1.259       0.010
+C(variable)[T.Concentration]         0.5652   7.95e+06   7.11e-08      1.000   -1.56e+07    1.56e+07
+C(variable)[T.Separation]           -0.0336      0.448     -0.075      0.940      -0.911       0.844
+C(variable)[T.Width]                -0.4575   7.95e+06  -5.75e-08      1.000   -1.56e+07    1.56e+07
+C(sim_index)[T.2]                    0.7003      0.239      2.930      0.003       0.232       1.169
+C(sim)[T.L]                          0.1077   7.95e+06   1.35e-08      1.000   -1.56e+07    1.56e+07
+C(sim_index)[T.2]:C(sim)[T.L]       -0.4608      0.339     -1.360      0.174      -1.125       0.203
+pre                                  0.1689      0.204      0.828      0.407      -0.231       0.568
+pre:C(variable)[T.Concentration]    -0.2323      0.293     -0.793      0.428      -0.807       0.342
+pre:C(variable)[T.Separation]       -0.0066      0.296     -0.022      0.982      -0.586       0.573
+pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052      -0.005       1.177
+====================================================================================================
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>CVS plotting occurs more in second sim but no interaction with sim type. Pre doesn't matter, variable doesn't matter.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Does-using-strategy-help-student-learn?">Does using strategy help student learn?<a class="anchor-link" href="#Does-using-strategy-help-student-learn?">&#194;&#182;</a></h1>
 </div>
 </div>
@@ -13648,7 +14198,7 @@ AElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_table_only&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;CVS_table&#39;</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -13670,7 +14220,7 @@ AElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_table_only)*variable + pre + C(sim_index)*C(sim) + C(sid)&#39;</span><span class="c1"># + pre*C(sim)+ pre*C(sim_index) + C(sid)&#39;</span>
@@ -13727,7 +14277,7 @@ Residual                    125.459  435.0     NaN        NaN        NaN        
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_graph) + variable + pre + C(sim_index)*C(sim) + C(sid)&#39;</span><span class="c1"># + pre*C(sim)+ pre*C(sim_index) + C(sid)&#39;</span>
@@ -13792,7 +14342,7 @@ Residual             121.600  438.0     NaN        NaN     NaN       NaN
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Width&#39;</span>
@@ -13826,8 +14376,8 @@ Residual             121.600  438.0     NaN        NaN     NaN       NaN
 Dep. Variable:                   main   R-squared:                       0.186
 Model:                            OLS   Adj. R-squared:                  0.164
 Method:                 Least Squares   F-statistic:                     8.183
-Date:                Sat, 13 Jan 2018   Prob (F-statistic):           5.69e-06
-Time:                        22:18:14   Log-Likelihood:                -152.90
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):           5.69e-06
+Time:                        15:36:44   Log-Likelihood:                -152.90
 No. Observations:                 148   AIC:                             315.8
 Df Residuals:                     143   BIC:                             330.8
 Df Model:                           4                                         
@@ -13868,7 +14418,7 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Concentration&#39;</span>
@@ -13902,8 +14452,8 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 Dep. Variable:                   main   R-squared:                       0.202
 Model:                            OLS   Adj. R-squared:                  0.179
 Method:                 Least Squares   F-statistic:                     9.025
-Date:                Sat, 13 Jan 2018   Prob (F-statistic):           1.58e-06
-Time:                        22:18:14   Log-Likelihood:                -128.08
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):           1.58e-06
+Time:                        15:36:44   Log-Likelihood:                -128.08
 No. Observations:                 148   AIC:                             266.2
 Df Residuals:                     143   BIC:                             281.2
 Df Model:                           4                                         
@@ -13944,7 +14494,7 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Area&#39;</span>
@@ -13978,8 +14528,8 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 Dep. Variable:                   main   R-squared:                       0.168
 Model:                            OLS   Adj. R-squared:                  0.144
 Method:                 Least Squares   F-statistic:                     7.199
-Date:                Sat, 13 Jan 2018   Prob (F-statistic):           2.61e-05
-Time:                        22:18:14   Log-Likelihood:                -145.21
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):           2.61e-05
+Time:                        15:36:44   Log-Likelihood:                -145.21
 No. Observations:                 148   AIC:                             300.4
 Df Residuals:                     143   BIC:                             315.4
 Df Model:                           4                                         
@@ -14020,7 +14570,7 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Separation&#39;</span>
@@ -14054,8 +14604,8 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 Dep. Variable:                   main   R-squared:                       0.099
 Model:                            OLS   Adj. R-squared:                  0.074
 Method:                 Least Squares   F-statistic:                     3.943
-Date:                Sat, 13 Jan 2018   Prob (F-statistic):            0.00457
-Time:                        22:18:14   Log-Likelihood:                -145.47
+Date:                Sun, 14 Jan 2018   Prob (F-statistic):            0.00457
+Time:                        15:36:44   Log-Likelihood:                -145.47
 No. Observations:                 148   AIC:                             300.9
 Df Residuals:                     143   BIC:                             315.9
 Df Model:                           4                                         
@@ -14090,7 +14640,7 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It seems like doing CVS plotting helps students model the variable (by varying amounts given by the confidence intervals) for all variables but not for Separation. Students who succeed in modeling separation.</p>
+<p>It seems like doing CVS plotting helps students model the variable (by varying amounts given by the confidence intervals) for all variables but not for Separation. Students who succeed in modeling separation probably bring in another skill that the sim doesn't support, or learn to use the axis scales (-&gt; future directions)</p>
 <p>I don't understand why prior knowledge all of a sudden matters here, for all variables except Width... this is very confusing.</p>
 
 </div>
@@ -14114,7 +14664,7 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -14153,13 +14703,13 @@ Model:  main ~ C(CVS_table_only) + C(CVS_graph) + pre + C(sim_index)*C(sim)
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[32]:</div>
+<div class="prompt output_prompt">Out[41]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0xf8dda58&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0xf804048&gt;</pre>
 </div>
 
 </div>
@@ -14808,7 +15358,7 @@ RERERNRU3wAfVaXwZufWMwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -14847,13 +15397,13 @@ RERERNRU3wAfVaXwZufWMwAAAABJRU5ErkJggg==
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[33]:</div>
+<div class="prompt output_prompt">Out[42]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x1339ca90&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x13639160&gt;</pre>
 </div>
 
 </div>
@@ -15533,7 +16083,7 @@ REQkp5SQioiIiEhO/QKAYxKbMGKJGgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_learn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="s1">&#39;main&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_table&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">,</span><span class="s1">&#39;sid&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
@@ -15561,7 +16111,7 @@ REQkp5SQioiIiEhO/QKAYxKbMGKJGgAAAABJRU5ErkJggg==
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[34]:</div>
+<div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -15653,7 +16203,7 @@ REQkp5SQioiIiEhO/QKAYxKbMGKJGgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_table_2 ~ CVS_table_1*main_1 + pre_1 + C(first_sim)&#39;</span>
@@ -15718,7 +16268,7 @@ Residual            77.083  142.0     NaN        NaN        NaN        NaN
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -15734,7 +16284,7 @@ Residual            77.083  142.0     NaN        NaN        NaN        NaN
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[36]:</div>
+<div class="prompt output_prompt">Out[45]:</div>
 
 
 
@@ -15842,7 +16392,7 @@ Residual            77.083  142.0     NaN        NaN        NaN        NaN
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_learn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="s1">&#39;main&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_table_only&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">,</span><span class="s1">&#39;sid&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
@@ -15866,7 +16416,7 @@ Residual            77.083  142.0     NaN        NaN        NaN        NaN
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_graph_2 ~ CVS_graph_1*main_1 + CVS_table_only_1 + pre_1 + C(first_sim)&#39;</span>
