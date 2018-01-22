@@ -530,22 +530,29 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
                 v_to_plot = []
                 f_to_plot = []
                 prev_conf = None
+                ###CONFOUNDING NEEDS FIXING
                 for j,(c,v,f) in enumerate(zip(coords, norm_values, confounded)):
-                    # print c,v,f, prev_conf
-                    if (j == len(norm_values)-1) or f != prev_conf:
-                        if f and len(v_to_plot)>0:
-                            ax.plot(c_to_plot,v_to_plot,'-',color='red', linewidth=1.5,alpha=1)
-                        if not f and len(v_to_plot)>0:
-                            ax.plot(c_to_plot,v_to_plot,'-',color=color, linewidth=1.5,alpha=1)
-                    if f != prev_conf:
-                        c_to_plot = [c]
-                        v_to_plot = [v]
-                        f_to_plot = [f]
-                    else:
-                        c_to_plot.append(c)
-                        v_to_plot.append(v)
-                        f_to_plot.append(f)
-                    prev_conf = f
+                    ax.plot([c],[v],'.',color=color, linewidth=1.5,alpha=1)
+                    # # print c,v,f, prev_conf
+                    # if (j == len(norm_values)-1) or f != prev_conf:
+                    #     if f and len(v_to_plot)>0:
+                    #         ax.plot(c_to_plot,v_to_plot,'.',color=color, linewidth=1.5,alpha=1)
+                    #         #FIX ME
+
+                    #         # ax.plot(c_to_plot,v_to_plot,'.',color='red', linewidth=1.5,alpha=1)
+                    #     if not f and len(v_to_plot)>0:
+                    #         ax.plot(c_to_plot,v_to_plot,'.',color=color, linewidth=1.5,alpha=1)
+                    # if f != prev_conf:
+                    #     c_to_plot = [c]
+                    #     v_to_plot = [v]
+                    #     f_to_plot = [f]
+                    # else:
+                    #     c_to_plot.append(c)
+                    #     v_to_plot.append(v)
+                    #     f_to_plot.append(f)
+                    # prev_conf = f
+
+                    
                 # vals_conf = [v for j,v in enumerate(norm_values) if confounded[j]]
                 # vals_not = [v for j,v in enumerate(norm_values) if not confounded[j]]
                 # coords_conf = [v for j,v in enumerate(coords) if confounded[j]]
