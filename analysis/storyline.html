@@ -11832,7 +11832,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">utils_read_parsing</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">mannwhitneyu</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ranksums</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.width&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -12568,8 +12568,8 @@ Warning: Maximum number of iterations has been exceeded.
 Dep. Variable:              CVS_table   No. Observations:                  592
 Model:                          Logit   Df Residuals:                      585
 Method:                           MLE   Df Model:                            6
-Date:                Fri, 19 Jan 2018   Pseudo R-squ.:                  0.4225
-Time:                        19:04:40   Log-Likelihood:                -203.93
+Date:                Tue, 23 Jan 2018   Pseudo R-squ.:                  0.4225
+Time:                        15:01:22   Log-Likelihood:                -203.93
 converged:                      False   LL-Null:                       -353.12
                                         LLR p-value:                 1.806e-61
 ================================================================================================
@@ -12915,9 +12915,98 @@ Either way with tiny effect size.</p>
 <span class="n">scores</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span>
 <span class="n">scores</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;sim&#39;</span><span class="p">]</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[25]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sim</th>
+      <th>main</th>
+      <th>pre</th>
+      <th>sid</th>
+    </tr>
+    <tr>
+      <th>sim</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>C</th>
+      <td>C</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>10127163</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>C</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>10192168</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>C</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>10232160</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>C</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>10375163</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>C</td>
+      <td>2.5</td>
+      <td>2.0</td>
+      <td>10420167</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12927,23 +13016,49 @@ Either way with tiny effect size.</p>
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="s1">&#39;post&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;effect size&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(148, 4)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="s1">&#39;post&#39;</span><span class="p">,</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;effect size&#39;</span><span class="p">]]</span>
 <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]:</span>
     <span class="n">pm</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;pre&#39;</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">ps</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;pre&#39;</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">mm</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">ms</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">U</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;pre&#39;</span><span class="p">],</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">])</span>
-    <span class="n">eta</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">U</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">sim</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">pm</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;+/-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ps</span><span class="p">),</span><span class="nb">str</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;+/-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ms</span><span class="p">),</span><span class="n">U</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">eta</span><span class="p">])</span>
-    
-<span class="c1"># pU,pp = mannwhitneyu(scores.loc[&#39;L&#39;][&#39;pre&#39;],scores.loc[&#39;C&#39;][&#39;pre&#39;])</span>
-<span class="c1"># mU,mp = mannwhitneyu(scores.loc[&#39;L&#39;][&#39;main&#39;],scores.loc[&#39;C&#39;][&#39;main&#39;])</span>
-<span class="c1"># peta = round(1-pU/(N*N),2)</span>
-<span class="c1"># meta = round(1-mU/(N*N),2)</span>
-<span class="c1"># t.append([&#39;U&#39;,pU,mU,&#39;&#39;,&#39;&#39;,&#39;&#39;])</span>
-<span class="c1"># t.append([&#39;p&#39;,pp,mp,&#39;&#39;,&#39;&#39;,&#39;&#39;])</span>
-<span class="c1"># t.append([&#39;effect size&#39;,peta,meta,&#39;&#39;,&#39;&#39;,&#39;&#39;])</span>
+    <span class="n">Z</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">ranksums</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;pre&#39;</span><span class="p">],</span><span class="n">scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">])</span>
+    <span class="n">eta</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="o">-</span><span class="n">Z</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">sim</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">pm</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;+/-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ps</span><span class="p">),</span><span class="nb">str</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;+/-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ms</span><span class="p">),</span><span class="n">Z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">eta</span><span class="p">])</span>
+
 <span class="k">print</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
 
@@ -12961,11 +13076,11 @@ Either way with tiny effect size.</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>---  -----------  -----------  ------  -----------------  -----------
-sim  pre          post         U       p                  effect size
-L    1.17+/-0.69  2.35+/-0.63  2647.0  1.52951994175e-31  0.88
-C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
----  -----------  -----------  ------  -----------------  -----------
+<pre>---  -----------  -----------  --------------  -----------------  -----------
+sim  pre          post         Z               p                  effect size
+L    1.17+/-0.69  2.35+/-0.63  -11.2795122375  1.65661938815e-29  0.93
+C    1.28+/-0.67  2.24+/-0.63  -10.5732694484  3.9642841333e-26   0.87
+---  -----------  -----------  --------------  -----------------  -----------
 </pre>
 </div>
 </div>
@@ -12978,7 +13093,8 @@ C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Overall, student learn in both sims.</p>
+<p>We use Wilcoxon signed rank test since our population ares paired and dependant but ordinal values. Overall, student learn in both sims.</p>
+<p>For calculation and interpretation of effect size, read Pages 224 (bottom part) and 225 from Pallant, J. (2007). SPSS Survival Manual quoted <a href="https://stats.stackexchange.com/questions/133077/effect-size-to-wilcoxon-signed-rank-test">here</a></p>
 
 </div>
 </div>
@@ -13002,7 +13118,7 @@ C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
@@ -13022,7 +13138,7 @@ C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[51]:</div>
+<div class="prompt output_prompt">Out[56]:</div>
 
 
 
@@ -13134,6 +13250,20 @@ C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">export_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;sid&quot;</span><span class="p">,</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span><span class="s2">&quot;pre&quot;</span><span class="p">,</span><span class="s2">&quot;main&quot;</span><span class="p">,</span><span class="s2">&quot;sim&quot;</span><span class="p">,</span><span class="s2">&quot;CVS_table&quot;</span><span class="p">,</span><span class="s2">&quot;CVS_graph&quot;</span><span class="p">,</span><span class="s2">&quot;CVS_table_only&quot;</span><span class="p">,</span><span class="s2">&quot;CVS_levels&quot;</span><span class="p">,</span><span class="s2">&quot;sim_index&quot;</span><span class="p">]]</span>
+<span class="n">export_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;dataframe for linear reg on learning.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -13145,15 +13275,13 @@ C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
 <li>variable</li>
 <li>pre</li>
 </ul>
-<p>We look at all interactions except the sim*variable interaction (obviously...):</p>
+<p>We look at all interactions with CVS levels given our RQ are related to CVS usage:</p>
 <ul>
-<li>C(sim_index)*C(sim)</li>
-<li><strong>C(sim_index)*variable</strong> (prefer over *sim)</li>
-<li>C(sim_index)*pre (not really interesting...)</li>
-<li>C(sim)*pre</li>
-<li><strong>pre*variable</strong> (prefer over *sim)</li>
-<li><strong>variable*CVS_levels</strong></li>
-<li><strong>pre*CVS_levels</strong></li>
+<li>variable*CVS_levels</li>
+<li>pre*CVS_levels</li>
+<li>sim_index*CVS_levels</li>
+<li>sim</li>
+<li>C(sid)</li>
 </ul>
 
 </div>
@@ -13161,16 +13289,16 @@ C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(CVS_levels)*C(sim_index) + C(sid) + C(sim)&#39;</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
-<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
 <span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 2 errors</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 3</span><span class="se">\n</span><span class="s2">&quot;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Here is the linear model with coefficients and confidence intervals (removed stats for individual student ids):</span><span class="se">\n</span><span class="s2">&quot;</span>
 <span class="k">print</span> <span class="n">clean_summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
@@ -13190,72 +13318,68 @@ C    1.28+/-0.67  2.24+/-0.63  3167.0  7.28789989597e-28  0.86
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)
+<pre>Model:  main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(CVS_levels)*C(sim_index) + C(sid) + C(sim)
 
-Anova table using type 2 errors
+Anova table using type 3
 
-                         sum_sq     df       F     PR(&gt;F)     eta_sq   omega_sq
-C(CVS_levels)             4.390    2.0   7.825  4.599e-04  1.681e-02  1.464e-02
-variable                  3.026    3.0   3.596  1.367e-02  1.159e-02  8.356e-03
-C(sim_index)              3.418    1.0  12.186  5.319e-04  1.309e-02  1.200e-02
-C(sid)                  126.112  147.0   3.059  3.598e-19  4.828e-01  3.246e-01
-C(sim)                    1.313    1.0   4.680  3.108e-02  5.025e-03  3.947e-03
-C(CVS_levels):variable    1.646    6.0   0.978  4.397e-01  6.301e-03 -1.423e-04
-C(sim_index):variable     1.042    3.0   1.239  2.952e-01  3.991e-03  7.681e-04
-pre                       0.725    1.0   2.586  1.086e-01  2.777e-03  1.701e-03
-C(CVS_levels):pre         0.478    2.0   0.851  4.275e-01  1.829e-03 -3.188e-04
-pre:variable              0.112    3.0   0.134  9.401e-01  4.301e-04 -2.789e-03
-Residual                118.927  424.0     NaN        NaN        NaN        NaN
+                             sum_sq     df       F     PR(&gt;F)     eta_sq   omega_sq
+Intercept                    18.236    1.0  65.582  5.891e-15  6.905e-02  6.792e-02
+C(CVS_levels)                 0.874    2.0   1.571  2.090e-01  3.309e-03  1.202e-03
+variable                      0.723    3.0   0.866  4.585e-01  2.737e-03 -4.214e-04
+C(sim_index)                  0.070    1.0   0.250  6.174e-01  2.631e-04 -7.889e-04
+C(sid)                      122.273  147.0   2.991  1.650e-18  4.630e-01  3.079e-01
+C(sim)                        0.513    1.0   1.843  1.753e-01  1.941e-03  8.870e-04
+C(CVS_levels):variable        1.536    6.0   0.921  4.797e-01  5.817e-03 -4.998e-04
+C(CVS_levels):C(sim_index)    0.525    2.0   0.944  3.901e-01  1.987e-03 -1.188e-04
+pre                           0.102    1.0   0.366  5.455e-01  3.854e-04 -6.667e-04
+C(CVS_levels):pre             0.529    2.0   0.952  3.868e-01  2.004e-03 -1.013e-04
+Residual                    118.736  427.0     NaN        NaN        NaN        NaN
 
 Here is the linear model with coefficients and confidence intervals (removed stats for individual student ids):
 
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                   main   R-squared:                       0.592
-Model:                            OLS   Adj. R-squared:                  0.431
-Method:                 Least Squares   F-statistic:                     3.679
-Date:                Fri, 19 Jan 2018   Prob (F-statistic):           2.69e-27
-Time:                        19:04:41   Log-Likelihood:                -364.93
-No. Observations:                 592   AIC:                             1066.
-Df Residuals:                     424   BIC:                             1802.
-Df Model:                         167                                         
+Model:                            OLS   Adj. R-squared:                  0.436
+Method:                 Least Squares   F-statistic:                     3.783
+Date:                Tue, 23 Jan 2018   Prob (F-statistic):           2.84e-28
+Time:                        17:44:37   Log-Likelihood:                -364.46
+No. Observations:                 592   AIC:                             1059.
+Df Residuals:                     427   BIC:                             1782.
+Df Model:                         164                                         
 Covariance Type:            nonrobust                                         
 ================================================================================================================
                                                    coef    std err          t      P&gt;|t|      [0.025      0.975]
 ----------------------------------------------------------------------------------------------------------------
-Intercept                                        1.9404      0.138     14.063      0.000       1.669       2.212
-C(CVS_levels)[T.1]                               0.2700      0.195      1.383      0.167      -0.114       0.654
-C(CVS_levels)[T.2]                               0.3778      0.166      2.281      0.023       0.052       0.703
-variable[T.Concentration]                        0.2347      0.124      1.893      0.059      -0.009       0.478
-variable[T.Separation]                           0.1187      0.163      0.729      0.467      -0.202       0.439
-variable[T.Width]                                0.1564      0.120      1.307      0.192      -0.079       0.392
-C(sim_index)[T.2]                                0.5324      0.255      2.084      0.038       0.030       1.035
-C(sim)[T.L]                                      0.3912      0.181      2.163      0.031       0.036       0.747
-C(CVS_levels)[T.1]:variable[T.Concentration]    -0.1180      0.197     -0.598      0.550      -0.506       0.270
-C(CVS_levels)[T.2]:variable[T.Concentration]    -0.1410      0.162     -0.869      0.385      -0.460       0.178
-C(CVS_levels)[T.1]:variable[T.Separation]       -0.1774      0.182     -0.976      0.330      -0.535       0.180
-C(CVS_levels)[T.2]:variable[T.Separation]       -0.3273      0.150     -2.175      0.030      -0.623      -0.032
-C(CVS_levels)[T.1]:variable[T.Width]            -0.1269      0.201     -0.632      0.528      -0.521       0.268
-C(CVS_levels)[T.2]:variable[T.Width]            -0.0544      0.171     -0.319      0.750      -0.390       0.281
-C(sim_index)[T.2]:variable[T.Concentration]     -0.7472      0.492     -1.518      0.130      -1.715       0.220
-C(sim_index)[T.2]:variable[T.Separation]         0.0822      0.127      0.646      0.519      -0.168       0.332
-C(sim_index)[T.2]:variable[T.Width]             -0.8239      0.493     -1.673      0.095      -1.792       0.144
-pre                                              0.0656      0.086      0.761      0.447      -0.104       0.235
-C(CVS_levels)[T.1]:pre                          -0.0513      0.102     -0.505      0.614      -0.251       0.148
-C(CVS_levels)[T.2]:pre                           0.0635      0.084      0.752      0.452      -0.102       0.229
-pre:variable[T.Concentration]                   -0.0449      0.089     -0.504      0.614      -0.220       0.130
-pre:variable[T.Separation]                      -0.0478      0.084     -0.569      0.569      -0.213       0.117
-pre:variable[T.Width]                           -0.0341      0.088     -0.386      0.700      -0.208       0.140
+Intercept                                        2.4222      0.299      8.098      0.000       1.834       3.010
+C(CVS_levels)[T.1]                               0.2100      0.205      1.026      0.305      -0.192       0.612
+C(CVS_levels)[T.2]                               0.3003      0.171      1.756      0.080      -0.036       0.636
+variable[T.Concentration]                        0.1027      0.073      1.400      0.162      -0.041       0.247
+variable[T.Separation]                           0.0903      0.115      0.788      0.431      -0.135       0.315
+variable[T.Width]                               -0.0024      0.076     -0.031      0.975      -0.152       0.147
+C(sim_index)[T.2]                                0.0472      0.094      0.500      0.617      -0.138       0.233
+C(sim)[T.L]                                      0.1003      0.074      1.358      0.175      -0.045       0.246
+C(CVS_levels)[T.1]:variable[T.Concentration]    -0.1219      0.196     -0.621      0.535      -0.508       0.264
+C(CVS_levels)[T.2]:variable[T.Concentration]    -0.1393      0.161     -0.867      0.386      -0.455       0.176
+C(CVS_levels)[T.1]:variable[T.Separation]       -0.1688      0.180     -0.936      0.350      -0.523       0.186
+C(CVS_levels)[T.2]:variable[T.Separation]       -0.3109      0.147     -2.118      0.035      -0.600      -0.022
+C(CVS_levels)[T.1]:variable[T.Width]            -0.1178      0.199     -0.592      0.554      -0.509       0.273
+C(CVS_levels)[T.2]:variable[T.Width]            -0.0516      0.165     -0.313      0.754      -0.375       0.272
+C(CVS_levels)[T.1]:C(sim_index)[T.2]             0.1646      0.149      1.103      0.271      -0.129       0.458
+C(CVS_levels)[T.2]:C(sim_index)[T.2]             0.1571      0.120      1.306      0.192      -0.079       0.394
+pre                                              0.0429      0.071      0.605      0.545      -0.096       0.182
+C(CVS_levels)[T.1]:pre                          -0.0640      0.101     -0.634      0.526      -0.263       0.134
+C(CVS_levels)[T.2]:pre                           0.0586      0.084      0.697      0.486      -0.107       0.224
 ==============================================================================
-Omnibus:                       78.086   Durbin-Watson:                   1.967
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              180.935
-Skew:                          -0.712   Prob(JB):                     5.13e-40
-Kurtosis:                       5.303   Cond. No.                     1.79e+16
+Omnibus:                       77.371   Durbin-Watson:                   1.983
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              179.885
+Skew:                          -0.705   Prob(JB):                     8.68e-40
+Kurtosis:                       5.303   Cond. No.                     4.36e+15
 ==============================================================================
 
 Warnings:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The smallest eigenvalue is 9.64e-30. This might indicate that there are
+[2] The smallest eigenvalue is 1.51e-28. This might indicate that there are
 strong multicollinearity problems or that the design matrix is singular.
 </pre>
 </div>
@@ -13269,26 +13393,779 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Findings:</p>
-<ul>
-<li>Variable matters (will need to investigate)</li>
-<li>Order (2 learn more)</li>
-<li>sim matter (L learn more).</li>
-<li>CVS levels matter, and level 2 is significantly different from the mean of the level 0 and 1 (from linear regression)</li>
-<li>pre doesn't matter (!!!)</li>
-<li>none of the interactions matter</li>
-</ul>
-<p>All effect sizes are 0.02 or 0.01 (small)...</p>
-<p>Let's investigate by variable, then do some post-hoc comparison between levels.</p>
+<h2 id="Parsimonious-model">Parsimonious model<a class="anchor-link" href="#Parsimonious-model">&#194;&#182;</a></h2><p>Since none of the interactions matter, we remove them and opt for a parsimonious model.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 3</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Here is the linear model with coefficients and confidence intervals (removed stats for individual student ids):</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="k">print</span> <span class="n">clean_summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model:  main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)
+
+Anova table using type 3
+
+                sum_sq     df       F     PR(&gt;F)  eta_sq   omega_sq
+Intercept       20.755    1.0  74.772  1.013e-16   0.074  7.336e-02
+C(CVS_levels)    4.514    2.0   8.131  3.411e-04   0.016  1.418e-02
+variable         3.033    3.0   3.643  1.283e-02   0.011  7.884e-03
+C(sim_index)     3.862    1.0  13.911  2.169e-04   0.014  1.284e-02
+C(sid)         124.041  147.0   3.040  3.415e-19   0.445  2.982e-01
+C(sim)           0.527    1.0   1.898  1.690e-01   0.002  8.935e-04
+pre              0.819    1.0   2.951  8.656e-02   0.003  1.940e-03
+Residual       121.304  437.0     NaN        NaN     NaN        NaN
+
+Here is the linear model with coefficients and confidence intervals (removed stats for individual student ids):
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   main   R-squared:                       0.584
+Model:                            OLS   Adj. R-squared:                  0.437
+Method:                 Least Squares   F-statistic:                     3.976
+Date:                Tue, 23 Jan 2018   Prob (F-statistic):           9.56e-30
+Time:                        17:47:07   Log-Likelihood:                -370.79
+No. Observations:                 592   AIC:                             1052.
+Df Residuals:                     437   BIC:                             1731.
+Df Model:                         154                                         
+Covariance Type:            nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                     2.4601      0.285      8.647      0.000       1.901       3.019
+C(CVS_levels)[T.1]            0.0903      0.087      1.033      0.302      -0.082       0.262
+C(CVS_levels)[T.2]            0.3242      0.082      3.966      0.000       0.164       0.485
+variable[T.Concentration]     0.0483      0.036      1.354      0.176      -0.022       0.118
+variable[T.Separation]       -0.0971      0.061     -1.583      0.114      -0.218       0.023
+variable[T.Width]             0.0006      0.036      0.016      0.987      -0.070       0.071
+C(sim_index)[T.2]             0.1650      0.044      3.730      0.000       0.078       0.252
+C(sim)[T.L]                   0.0488      0.035      1.378      0.169      -0.021       0.119
+pre                           0.0604      0.035      1.718      0.087      -0.009       0.130
+==============================================================================
+Omnibus:                       83.225   Durbin-Watson:                   1.972
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              203.867
+Skew:                          -0.737   Prob(JB):                     5.38e-45
+Kurtosis:                       5.468   Cond. No.                     5.97e+15
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 6.43e-29. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Breaking-it-down-by-variable">Breaking it down by variable<a class="anchor-link" href="#Breaking-it-down-by-variable">&#194;&#182;</a></h2>
+<h2 id="Post-hoc-analysis-on-levels">Post-hoc analysis on levels<a class="anchor-link" href="#Post-hoc-analysis-on-levels">&#194;&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="s1">&#39;main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)&#39;</span>
+<span class="k">print</span> <span class="s2">&quot;Comparing CVS levels 0 and 1&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="k">print</span> <span class="s1">&#39;where levels = (0,1)&#39;</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 2 errors</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Comparing CVS levels 0 and 1
+Model:  main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)
+where levels = (0,1)
+
+Anova table using type 2 errors
+
+               sum_sq     df      F     PR(&gt;F)     eta_sq   omega_sq
+C(CVS_levels)   0.300    1.0  1.235  2.678e-01  2.197e-03  4.174e-04
+variable        0.495    3.0  0.679  5.660e-01  3.623e-03 -1.711e-03
+C(sim_index)    1.361    1.0  5.595  1.902e-02  9.953e-03  8.160e-03
+C(sid)         88.100  104.0  3.483  4.429e-14  6.443e-01  4.585e-01
+C(sim)          0.244    1.0  1.002  3.181e-01  1.783e-03  3.646e-06
+pre             0.016    1.0  0.064  8.008e-01  1.136e-04 -1.662e-03
+Residual       46.213  190.0    NaN        NaN        NaN        NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)&#39;</span>
+<span class="k">print</span> <span class="s2">&quot;Comparing CVS levels 1 and 2&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="k">print</span> <span class="s1">&#39;where levels = (1,2)&#39;</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 2 errors</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Comparing CVS levels 1 and 2
+Model:  main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)
+where levels = (1,2)
+
+Anova table using type 2 errors
+
+               sum_sq     df      F     PR(&gt;F)     eta_sq  omega_sq
+C(CVS_levels)   1.688    1.0  5.918  1.562e-02  9.634e-03     0.008
+variable        3.013    3.0  3.521  1.554e-02  1.720e-02     0.012
+C(sim_index)    2.613    1.0  9.161  2.702e-03  1.492e-02     0.013
+C(sid)         87.216  137.0  2.232  8.367e-09  4.979e-01     0.274
+C(sim)          0.075    1.0  0.263  6.085e-01  4.281e-04    -0.001
+pre             0.721    1.0  2.528  1.130e-01  4.116e-03     0.002
+Residual       79.857  280.0    NaN        NaN        NaN       NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)&#39;</span>
+<span class="k">print</span> <span class="s2">&quot;Comparing CVS levels 0 and 2&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
+<span class="k">print</span> <span class="s1">&#39;where levels = (0,2)&#39;</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 2 errors</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Comparing CVS levels 0 and 2
+Model:  main ~ C(CVS_levels) + variable + pre + C(sim_index) + C(sid) + C(sim)
+where levels = (0,2)
+
+Anova table using type 2 errors
+
+                sum_sq     df       F     PR(&gt;F)  eta_sq   omega_sq
+C(CVS_levels)    3.330    1.0  13.391  2.964e-04   0.017  1.576e-02
+variable         2.123    3.0   2.846  3.779e-02   0.011  7.043e-03
+C(sim_index)     1.972    1.0   7.929  5.173e-03   0.010  8.813e-03
+C(sid)         108.418  137.0   3.182  1.748e-17   0.555  3.803e-01
+C(sim)           0.365    1.0   1.469  2.264e-01   0.002  5.962e-04
+pre              0.713    1.0   2.868  9.136e-02   0.004  2.376e-03
+Residual        78.329  315.0     NaN        NaN     NaN        NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">levels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+<span class="n">levels</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;This plot needs to be redone with standard deviation bars and colored by level and stars given the tests above&quot;</span>
+<span class="k">print</span> <span class="s1">&#39;0-1 =&gt; -&#39;</span>
+<span class="k">print</span> <span class="s1">&#39;1-2 =&gt; *&#39;</span>
+<span class="k">print</span> <span class="s1">&#39;0-2 =&gt; ***&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This plot needs to be redone with standard deviation bars and colored by level and stars given the tests above
+0-1 =&gt; -
+1-2 =&gt; *
+0-2 =&gt; ***
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+L83Xv/71HH300bnnnnvS2dlZ/17Tp0/PggUL0tS0+//SZ5xxRm699dbstdde/frzfPvb3873vve9
+HHzwwf36fWG4E2Eo4JZbbsk777yT73//+/Uj4m+88cZ0dHRk+vTpefjhh/PVr361fv2NGzfmnXfe
+yZFHHpk///nPeeyxx9Le3p4999wz27dvzw033JC77rorCxYsKPhTAR+WCMPH7LXXXktnZ2duvvnm
+tLS0JElGjRqVhQsX5u9//3v22GOP/PznP89pp51WPzr+D3/4Q04++eQ0NDTkrbfeSrVazfbt27Pn
+nntmzz33zAUXXJC33377Q82xevXq/O53v0utVsvYsWNzwQUXZJ999sm3vvWt/PSnP824ceOSJFdc
+cUW+9rWvZdq0afnFL36R9evXp1qt5rOf/WzOP//8+s+QJN3d3Vm+fHleeeWVNDQ05HOf+1wWLlyY
+hgavfMH78T8DPmYvvPBCPv3pT+8SryQZN25cjj766Bx++OFJkmeeeSZJsm3btjz++OM56aSTkiQn
+nHBCRo8enQsvvDBXXHFFbr/99rzxxhs55JBD+jzDM888kz/+8Y+55ppr8uMf/zjz5s3L9ddfn5aW
+lhx55JFZs2ZNkuTll1/OW2+9lenTp+fuu+9OY2Njrrvuuixbtiz77LNP7rzzzl2+72OPPZZKpZJl
+y5bl2muvTfLvPzqA9+eRMHzMGhoasrt3BjY0NOTkk0/OQw89lC9+8YtZs2ZNjjjiiOy9995JkpaW
+llx55ZV59dVX8/TTT+fpp5/Oddddl1NOOSXnnHNOn2Z44okn8s9//jNXXnllfVtXV1e6urrS1taW
+W265JfPmzcvDDz+cE044IQ0NDVm3bl22bduWJ598MknS09NTn+k/Dj300Pzyl7/M1VdfncMOOyxz
+587NhAkTPuyvCD4xRBg+Zoccckg2b96cSqWS5ubm+vY333wzN998cxYvXpzW1tZccskl2bZtWx58
+8MFceOGF9evdc889OfTQQzN16tQccMABOfHEE7Nhw4a0t7f3OcLVajXHHXdc/frVajVvvfVWRo8e
+nUMPPTTVajXPPfdcOjs766e4rFarOe+883LEEUck+fdTz9u3b9/l++6///658cYb8/TTT+epp57K
+0qVLc8EFF+SYY475n35nMFx5Oho+ZuPHj8+cOXOyYsWK+in/tm3blltvvTVjx47NnnvumbFjx2bm
+zJm566670tDQsMu5xN99993ceeed6erqqm/bvHlzJk+e3OcZDjvssDz66KN56623kiQPPPBArrnm
+mvr+E088MbfddlsOOuig+vmBp0+fnvvvvz89PT2pVqu56aab3vN09O9///ssX74806dPzznnnJPp
+06fnpZde+vC/JPiEcMYsKGDnzp3p6OjIX/7ylzQ0NKSnpydHHnlkzjjjjPrbjJ577rlcccUVWbRo
+UVpbW+tfW61W85vf/CadnZ0ZMWJEqtVqDj744Jx77rn1g6k+yH+/Ren+++/PAw88kBEjRqS5uTkL
+Fy7MZz7zmSTJ22+/nUWLFuWSSy7J0UcfnSTZvn17br/99jzzzDP1A7MWLlyYlpaW+luUJk2alBUr
+VuSll17KyJEjs++++2bRokX1E/8DuxJhACjEa8IwjNx777155JFH3nffvHnzctxxx33MEwG745Ew
+ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Post-hoc-analysis-on-order">Post-hoc analysis on order<a class="anchor-link" href="#Post-hoc-analysis-on-order">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">posthoc_sim_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
+<span class="n">posthoc_sim_index</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;This plot needs to be redone with standard deviation bars and organized by sim, colored by level&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This plot needs to be redone with standard deviation bars and organized by sim, colored by level
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeEAAAFwCAYAAACPcMPoAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAFCxJREFUeJzt3X1slfX9//FXb5S2QmfwrimZRrKU3XmTQow4R4Y2YmZC
+YtimzsVsJmNEIWZDXBZnJsPOZFX+cA7mZrZoZpbFNVXmd1ET+UOYyRSm2VAYBhjegBPmGq2cIqXn
+98d+32Z8pxSB8qHHx+MfOedz2usNnMvnua5zelFXrVarAQCOufrSAwDAR5UIA0AhIgwAhYgwABQi
+wgBQiAgDQCGNB1scGhrKypUrs2vXruzbty/z5s3LjBkzRtYfe+yxrF69Oq2trUmS+fPnp729fWwn
+BoAacdAIr1mzJpMmTcqiRYsyMDCQJUuWHBDhrVu3ZuHChZk6deqYDwoAteagEZ45c2YuvPDCJEm1
+Wk1DQ8MB69u2bUtfX1/6+/vT2dmZK6+88pA2umPHjsMcl9La29v9/UEB9r3x7YPOEh80wk1NTUmS
+SqWS5cuX5+qrrz5g/aKLLsqcOXPS0tKSnp6erF+/PtOnTz/sYRgf/P1BGfa92lM32mUrd+/enbvu
+uiuXXXZZLrnkkpH7q9VqKpVKWlpakiRPPPFE3nnnnXzpS18adaNezY1fXo1DGfa98e2DXkAd9NPR
+/f396e7uzrXXXntAgJN/Hx0vXrw4g4ODqVar2bBhg/eGAeBDOOjp6L6+vgwMDKS3tze9vb1Jkksv
+vTR79+5NV1dXrrnmmixdujSNjY0555xz0tnZeUyGBoBaMOrp6LHglMr45ZQYlGHfG98O63Q0ADB2
+RBgACjnoe8Kl7P/m3KP6/Rp+seqofj8AOBocCR+BZ599Nr///e9LjwHAOHVcHgmPFxdccEHpEQAY
+x0T4/3v88cfzzDPP5L333ss///nPzJs3L3/84x+zbdu2LFiwILt27cqaNWtSqVTysY99LMuWLctT
+Tz2VV155JXPnzs2yZcty2mmnZceOHfnUpz6Vb3/726V/SwAc50T4P1QqlfT09GT16tV5+OGHs2LF
+irzwwgv53e9+l46Ojtx1112pr6/PkiVLsmnTpgO+9rXXXktPT08mTJiQa6+9Nm+99VYmT55c6HcC
+wHggwv/hE5/4RJJk4sSJOeuss1JXV5dJkyZl3759aWxszLJly9Lc3Jxdu3Zl//79B3xte3v7yCU8
+J0+enPfee++Yzw/A+CLC/6Guru597x8aGsratWuzcuXKDA4O5lvf+lb+7zVOPuhrAeCDHJcRPt5+
+pKihoSHNzc1ZuHBhkuSUU07J7t27C08F/Kej/aONx5tXSw8wxo63/+8fKy5byYfi0nkcr2o9wrWu
+1iPsspUAcJwRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaAQEQaAQkQY
+AAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaCQxtID1Jr935xbeoQx
+9WrpAcZYwy9WlR4B+AhxJAwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAU
+IsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAU0niwxaGh
+oaxcuTK7du3Kvn37Mm/evMyYMWNkfd26dent7U19fX1mz56drq6uMR8YAGrFQSO8Zs2aTJo0KYsW
+LcrAwECWLFkyEuGhoaE88MADufPOO9PU1JTbbrstM2bMyMknn3xMBgeA8e6gp6NnzpyZq666KklS
+rVbT0NAwsvb666+nra0tEydOTGNjY6ZNm5aNGzeO7bQAUEMOeiTc1NSUJKlUKlm+fHmuvvrqkbVK
+pZKWlpaR283NzdmzZ88hbbS9vf1wZh0XXi09AEeklp+btc6+N759VPe9g0Y4SXbv3p277rorl112
+WS6++OKR+5ubmzM4ODhyu1Kp5KSTTjqkje7YseMwRoWx57kJZdT6vvdBLzIOejq6v78/3d3dufba
+a3PJJZccsDZlypTs3LkzAwMDGRoaysaNG9PR0XH0JgaAGnfQI+G+vr4MDAykt7c3vb29SZJLL700
+e/fuTVdXV6677rp0d3dneHg4s2fPzuTJk4/J0ABQC+qq1Wr1WG+0lk877P/m3NIjcAQafrGq9Agc
+Jvve+Fbr+95hnY4GAMaOCANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACF
+iDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLC
+AFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANA
+ISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWI
+MAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQSOOhPOjll1/OQw89lNtvv/2A+x977LGsXr06ra2tSZL5
+8+envb39qA8JALVo1Ag/+uijefrpp9PU1PRfa1u3bs3ChQszderUMRkOAGrZqKejzzjjjNx8883v
+u7Zt27b09fXltttuS19f31EfDgBq2ahHwhdeeGHefPPN91276KKLMmfOnLS0tKSnpyfr16/P9OnT
+R91oLZ+yfrX0AByRWn5u1jr73vj2Ud33Duk94fdTrVZzxRVXpKWlJUnS2dmZbdu2HVKEd+zYcbib
+hTHluQll1Pq+90EvMg7709GVSiWLFy/O4OBgqtVqNmzY4L1hAPgQPvSR8Nq1azM4OJiurq5cc801
+Wbp0aRobG3POOeeks7NzLGYEgJpUV61Wq8d6o7V82mH/N+eWHoEj0PCLVaVH4DDZ98a3Wt/3jvrp
+aADgyIgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgw
+ABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQ
+iAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEi
+DACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAA
+FCLCAFCICANAISIMAIU0HsqDXn755Tz00EO5/fbbD7h/3bp16e3tTX19fWbPnp2urq6xmBEAatKo
+EX700Ufz9NNPp6mp6YD7h4aG8sADD+TOO+9MU1NTbrvttsyYMSMnn3zymA0LALVk1AifccYZufnm
+m3PvvfcecP/rr7+etra2TJw4MUkybdq0bNy4MTNnzhx1o+3t7Yc57vHv1dIDcERq+blZ6+x749tH
+dd8bNcIXXnhh3nzzzf+6v1KppKWlZeR2c3Nz9uzZc0gb3bFjx4cYEY4dz00oo9b3vQ96kXHYH8xq
+bm7O4ODgyO1KpZKTTjrpcL8dAHzkHHaEp0yZkp07d2ZgYCBDQ0PZuHFjOjo6juZsAFDTDunT0f9p
+7dq1GRwcTFdXV6677rp0d3dneHg4s2fPzuTJk8diRgCoSXXVarV6rDday+f+939zbukROAINv1hV
+egQOk31vfKv1fe+ovycMABwZEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJE
+GAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEA
+KESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaAQ
+EQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaAQEQaAQkQY
+AAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgkMbRHjA8PJz7778/27dvzwknnJAFCxakra1tZP2x
+xx7L6tWr09ramiSZP39+2tvbx25iAKgRo0b4ueeey759+9Ld3Z3NmzfnwQcfzC233DKyvnXr1ixc
+uDBTp04d00EBoNaMGuFNmzbl/PPPT5J0dHRky5YtB6xv27YtfX196e/vT2dnZ6688spRN1rLR8qv
+lh6AI1LLz81aZ98b3z6q+96oEa5UKmlpaRm5XV9fn/3796ehoSFJctFFF2XOnDlpaWlJT09P1q9f
+n+nTpx/0e+7YseMIx4ax4bkJZdT6vvdBLzJG/WBWc3NzKpXKyO1qtToS4Gq1miuuuCKtra1pbGxM
+Z2dntm3bdpRGBoDaNmqEp02blueffz5Jsnnz5px55pkja5VKJYsXL87g4GCq1Wo2bNjgvWEAOESj
+no6+4IIL8pe//CXf//73U61Wc8MNN2Tt2rUZHBxMV1dXrrnmmixdujSNjY0555xz0tnZeSzmBoBx
+b9QI19fXZ/78+QfcN2XKlJFfz5o1K7NmzTr6kwFAjXOxDgAoRIQBoBARBoBCRBgAChFhAChEhAGg
+EBEGgEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJE
+GAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEA
+KESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaAQ
+EQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKaRztAcPDw7n//vuzffv2
+nHDCCVmwYEHa2tpG1tetW5fe3t7U19dn9uzZ6erqGtOBAaBWjHok/Nxzz2Xfvn3p7u7OV7/61Tz4
+4IMja0NDQ3nggQdy6623ZunSpXnqqafS398/pgMDQK0YNcKbNm3K+eefnyTp6OjIli1bRtZef/31
+tLW1ZeLEiWlsbMy0adOycePGsZsWAGrIqKejK5VKWlpaRm7X19dn//79aWho+K+15ubm7NmzZ9SN
+tre3H+a448D/rCs9AXw02fcYh0Y9Em5ubk6lUhm5Xa1W09DQMLI2ODg4slapVHLSSSeNwZgAUHtG
+jfC0adPy/PPPJ0k2b96cM888c2RtypQp2blzZwYGBjI0NJSNGzemo6Nj7KYFgBpSV61Wqwd7wP9+
+OvqVV15JtVrNDTfckG3btmVwcDBdXV0jn44eHh7O7Nmzc/nllx+r2QFgXBs1wgDA2HCxDgAoRIQB
+oBARBoBCRBgAChFhgHFi3759pUfgKBNhgOPMunXrcsMNN2TRokV55plnRu7/0Y9+VHAqxsKol60E
+4Njq6+vLj3/841Sr1SxfvjzvvfdevvCFL5QeizEgwnygpUuX/tfpr2q1mrq6utxxxx2FpoLa19jY
+mIkTJyZJbrnllvzwhz/MqaeeWngqxoKLdfCBXn755dx33325+eabR64X/r9OO+20QlNB7bv33nsz
+adKkXHXVVWlqasru3bvT3d2dPXv25L777is9HkeRCHNQq1atSltbWy644ILSo8BHxv79+7NmzZrM
+nDkzEyZMSJL09/fnkUceyde//vWyw3FUiTAAFOLT0QBQiAgDQCEiDMehLVu25O677z5q32/JkiV5
+9913P9TXLF68OC+++OJRmwH4b94TBt7X4sWLc/311+czn/lM6VGgZvk5YShscHAwK1asyM6dO1Nf
+X5+zzz47F198cX71q1/l7rvvzk9/+tOceOKJ2bJlS/r7+zNz5sy0trZm/fr16e/vz4IFC/LZz372
+oNv4yle+kvvvvz9//vOf8+yzz6auri5vvPFGGhsbc+ONN+bMM8/Ma6+9lpUrV2bv3r1pb2/P4ODg
+yNf/7W9/y0MPPZS9e/emrq4uX/7ylzN9+vQ8/PDDeeGFF7Js2bK8/fbb+e53v5tFixaNOg/wbyIM
+hT377LOpVCrp6enJ8PBwfv7zn+cf//jHAY/5+9//njvuuCMDAwOZP39+vvGNb+SOO+7IH/7whzzy
+yCMfKnovvfRS7r777pxyyin55S9/mVWrVmXhwoW55557cvnll+eSSy7Jpk2b8oMf/CBJMjAwkBUr
+VuTWW2/N6aefnrfeeiu33nprzjrrrMybNy8bNmzIqlWr8te//jVz5swRYPgQRBgK++QnP5nf/OY3
+uf3223PuuefmiiuuyNtvv33AY6ZPn57GxsacfPLJmTBhQs4///wkyRlnnJGBgYEPtb2pU6fmlFNO
+SZKcffbZ+dOf/pR33nkn27dvz6xZs0Zm+vjHP54k2bx5c/r7+9PT03PA99m+fXtOPfXULFq0KEuW
+LMnUqVNz5ZVXHtafAXxUiTAUdvrpp+eee+7Jiy++mA0bNmTZsmW5/vrrD3hMY+OBu+r/vYLZh3Hi
+iSeO/Lquru6A/77fNoaHhzNlypQD/vGAt956K62trUmS3bt358QTT8wbb7yRd999d+Ryi8DofDoa
+CnvyySezYsWKnHfeefna176W8847L48//vgxnWHixImZOnVqnnrqqSTJ1q1b88orryRJOjo6snPn
+zrz00ktJ/n1q/Kabbsq//vWvvPvuu/nJT36SG2+8MZ/73Ofys5/97JjODeOdI2EobNasWXnxxRfz
+ne98JxMmTMipp56aL37xi/ntb397TOe46aabsnLlyjz55JNpa2vLlClTkiStra1ZvHhxfv3rX2ff
+vn0ZHh7OwoULc9ppp2X58uXp7OzMueeem09/+tP53ve+lyeeeCJz5sw5prPDeOVHlACgEEfCUANW
+rVqVNWvWvO/a3Llz8/nPf/4YTwQcCkfCAFCID2YBQCEiDACFiDAAFCLCAFCICANAIf8PmaHiU+sc
+KGEAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Post-hoc-analysis-on-variable">Post-hoc analysis on variable<a class="anchor-link" href="#Post-hoc-analysis-on-variable">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">posthoc_variable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
+<span class="n">posthoc_variable</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;This plot needs to be redone with standard deviation bars and organized by sim, colored by level&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This plot needs to be redone with standard deviation bars and organized by sim, colored by level
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeEAAAGqCAYAAAA81fyhAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XtwVIXZx/FfbuQCxBAgxESuaiK0XBpSChSjhAhaKhXR
+KljpOPoiRRioiFdoSSFiDRWxAgWxDgw4tZoGrFcKqUqqVq4ySEKUiwSSAIFEXNkl2ey+f/i6b1M0
+FyB52N3vZ8YZck6SfZIz8uWcPZcQr9frFQAAaHWh1gMAABCsiDAAAEaIMAAARogwAABGiDAAAEaI
+MAAARsIbWul2u7Vs2TIdP35ctbW1GjdunNLT033rX3vtNRUUFCg2NlaSNGnSJCUlJbXsxAAABIgG
+I7x582a1b99e06ZNk8Ph0KxZs+pFeP/+/Zo6dap69erV4oMCABBoGozwkCFDNHjwYEmS1+tVWFhY
+vfUHDhxQfn6+qqurlZaWprFjx7bcpAAABJgGIxwVFSVJcjqdeuqpp3T77bfXWz906FCNGjVKMTEx
+ys3N1bZt2zRw4MCWmxYAgAAS0thtKysrK7Vw4UKNHDlSmZmZvuVer1dOp1MxMTGSpLfffltffvml
+brnllkZftKys7DzHvnglJSUF9M8X6Nh+/ott598Cfft91/lSDZ4dXV1drZycHN1xxx31Aix9vXc8
+c+ZMuVwueb1e7d69m/eGAQBohgYPR+fn58vhcCgvL095eXmSpBEjRujMmTPKysrS+PHjlZ2drfDw
+cPXt21dpaWmtMjQAAIGg0cPRLSHQDzkE8s8X6Nh+/ott598Cffud0+FoAADQcogwAABGiDAAAEYa
+PDELAICWUvc/Y3x/Lr0A3y/suVcvwHep76OPPtLRo0d14403XvDvLRFhAAC+06BBg1r0+xNhAEBQ
+eOutt/T++++rpqZGJ06c0Lhx4/Svf/1LBw4c0OTJk3X8+HFt3rxZTqdTl1xyiebNm6dNmzbp0KFD
+GjNmjObNm6fOnTurrKxMvXv31q9//evznokIAwCChtPpVG5urgoKCvTyyy9r6dKl2rlzp1555RWl
+pKRo4cKFCg0N1axZs1RcXFzvaw8fPqzc3FxFRkbqjjvu0MmTJxUfH39e8xBhAEDQuOKKKyRJ7dq1
+U/fu3RUSEqL27durtrZW4eHhmjdvnqKjo3X8+HHV1dXV+9qkpCTfrZrj4+NVU1Nz3vMQYQBA0AgJ
+CfnW5W63W4WFhVq2bJlcLpfuvfde/fe9rL7ra88HEcZF7T/PnmwNF+IMzeZoibM5ATRfWFiYoqOj
+NXXqVElSx44dVVlZ2eKvy20rL7BAv/Vaa2vtCLc2Inzh8P+efwv07cdtKwEAuMgQYQAAjBBhAACM
+EGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjHDHLADAWbhbXetgTxgAACNEGAAAI0QYAAAjAf+eMO9r
+AAAuVuwJAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgD
+AGCECAMAYCTgH+AAwAYPTwEax54wAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAA
+AEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABG
+iDAAAEbCG1rpdru1bNkyHT9+XLW1tRo3bpzS09N967du3aq8vDyFhoZq+PDhysrKavGBAQAIFA1G
+ePPmzWrfvr2mTZsmh8OhWbNm+SLsdru1atUqLViwQFFRUZozZ47S09MVFxfXKoMDAODvGjwcPWTI
+EN12222SJK/Xq7CwMN+6I0eOKDExUe3atVN4eLhSU1NVVFTUstMCABBAGtwTjoqKkiQ5nU499dRT
+uv32233rnE6nYmJifB9HR0fr9OnTTXrRpKSkc5n1nJS22ivZaM3fpQW2n/9i2/k3tl/raDDCklRZ
+WamFCxdq5MiRGjZsmG95dHS0XC6X72On06m2bds26UXLysrOYVR8G36X/o3t57/Ydv6ttbffd0W/
+wcPR1dXVysnJ0R133KHMzMx665KTk1VeXi6HwyG3262ioiKlpKRcuIkBAAhwDe4J5+fny+FwKC8v
+T3l5eZKkESNG6MyZM8rKytLEiROVk5Mjj8ej4cOHKz4+vlWGBgAgEDQY4bvuukt33XXXd65PT0+v
+d8kSAABoOm7WAQCAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACA
+ESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEi
+DACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwA
+gBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIAR
+IgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIM
+AIARIgwAgJHwpnzSp59+qrVr12ru3Ln1lr/22msqKChQbGysJGnSpElKSkq64EMCABCIGo3w+vXr
+9d577ykqKuqsdfv379fUqVPVq1evFhkOAIBA1ujh6C5duuiBBx741nUHDhxQfn6+5syZo/z8/As+
+HAAAgazRPeHBgwfr2LFj37pu6NChGjVqlGJiYpSbm6tt27Zp4MCBjb5oax6yLm21V7IR6If/2X7+
+i23n39h+raNJ7wl/G6/Xq9GjRysmJkaSlJaWpgMHDjQpwmVlZef6svgv/C79G9vPf7Ht/Ftrb7/v
+iv45nx3tdDo1c+ZMuVwueb1e7d69m/eGAQBohmbvCRcWFsrlcikrK0vjx49Xdna2wsPD1bdvX6Wl
+pbXEjAAABKQmRTghIUE5OTmSpGHDhvmWZ2RkKCMjo2UmAwAgwHGzDgAAjBBhAACMEGEAAIwQYQAA
+jBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQ
+YQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEA
+AIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACM
+EGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBh
+AACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIyEN+WTPv30U61du1Zz586tt3zr
+1q3Ky8tTaGiohg8frqysrJaYEQCAgNRohNevX6/33ntPUVFR9Za73W6tWrVKCxYsUFRUlObMmaP0
+9HTFxcW12LAAAASSRg9Hd+nSRQ888MBZy48cOaLExES1a9dO4eHhSk1NVVFRUYsMCQBAIGp0T3jw
+4ME6duzYWcudTqdiYmJ8H0dHR+v06dNNetGkpKRmjHh+SlvtlWy05u/SAtvPf7Ht/Bvbr3U06T3h
+bxMdHS2Xy+X72Ol0qm3btk362rKysnN9WfwXfpf+je3nv9h2/q21t993Rf+cz45OTk5WeXm5HA6H
+3G63ioqKlJKScs4DAgAQbJq9J1xYWCiXy6WsrCxNnDhROTk58ng8Gj58uOLj41tiRgAAAlKTIpyQ
+kKCcnBxJ0rBhw3zL09PTlZ6e3jKTAQAQ4LhZBwAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaI
+MAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAA
+AEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABG
+iDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogw
+AABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAA
+RogwAABGiDAAAEaIMAAARogwAABGiDAAAEbCG/sEj8ejlStX6vPPP1dERIQmT56sxMRE3/rXXntN
+BQUFio2NlSRNmjRJSUlJLTcxAAABotEIb9myRbW1tcrJyVFJSYlWr16tBx980Ld+//79mjp1qnr1
+6tWigwIAEGgajXBxcbEGDBggSUpJSdG+ffvqrT9w4IDy8/NVXV2ttLQ0jR07tmUmBQAgwDQaYafT
+qZiYGN/HoaGhqqurU1hYmCRp6NChGjVqlGJiYpSbm6tt27Zp4MCBDX7P1jxcXdpqr2Qj0A/9s/38
+F9vOv7H9WkejEY6OjpbT6fR97PV6fQH2er0aPXq0L9JpaWk6cOBAoxEuKys7n5nxH/hd+je2n/9i
+2/m31t5+3xX9Rs+OTk1N1Y4dOyRJJSUl6tatm2+d0+nUzJkz5XK55PV6tXv3bt4bBgCgiRrdEx40
+aJB27dql2bNny+v1asqUKSosLJTL5VJWVpbGjx+v7OxshYeHq2/fvkpLS2uNuQEA8HuNRjg0NFST
+Jk2qtyw5Odn354yMDGVkZFz4yQAACHDcrAMAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgA
+ACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAj
+RBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QY
+AAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAA
+I0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNE
+GAAAI0QYAAAjRBgAACNEGAAAI0QYAAAj4Y19gsfj0cqVK/X5558rIiJCkydPVmJiom/91q1blZeX
+p9DQUA0fPlxZWVktOjAAAIGi0T3hLVu2qLa2Vjk5OZowYYJWr17tW+d2u7Vq1So99thjys7O1qZN
+m1RdXd2iAwMAECgajXBxcbEGDBggSUpJSdG+fft8644cOaLExES1a9dO4eHhSk1NVVFRUctNCwBA
+AGn0cLTT6VRMTIzv49DQUNXV1SksLOysddHR0Tp9+nSjL5qUlHSO456D17e23mvhwmP7+S+2nX9j
++7WKRveEo6Oj5XQ6fR97vV6FhYX51rlcLt86p9Optm3btsCYAAAEnkYjnJqaqh07dkiSSkpK1K1b
+N9+65ORklZeXy+FwyO12q6ioSCkpKS03LQAAASTE6/V6G/qEb86OPnTokLxer6ZMmaIDBw7I5XIp
+KyvLd3a0x+PR8OHDdf3117fW7AAA+LVGIwwAAFoGN+sAAMAIEQYAwAgRBgDASKPXCaNhDodDO3fu
+VF1dnbxer6qqqjR27FjrsQAAfoAIn6fc3FwlJyertLRUERERatOmjfVIAOAXTp06pZqaGt/HnTp1
+MpzGBhG+ACZNmqSlS5dq8uTJ+u1vf2s9Dprpb3/7m1599VVFRkbK6/UqJCREy5cvtx4LTfDuu+9q
+3bp1qq2t9W27Z5991nosNMHy5cu1e/duXXLJJb5tN3/+fOuxWh0RPk+hoaGqqanRmTNnFBISorq6
+OuuR0EwffPCBli9frsjISOtR0Ezr16/XQw89pI4dO1qPgmY6dOiQnnnmGYWEhFiPYooTs87TqFGj
+9Prrr6t///761a9+pYSEBOuR0EydO3fmbQQ/lZCQoMTEREVERPj+g3/o0KFDvVsiBytu1nGBOBwO
+hYaG1nugBfzDggULVFlZqa5du0qSQkJCNH36dOOp0BSLFi2S0+lUjx49fMsmTJhgNxAa9dhjjykk
+JERffPGFXC6Xb8eFw9E4J3v27NHzzz8vj8ejwYMHq3PnzsrMzLQeC83ws5/9zHoEnKMf/OAH1iOg
+mWbMmCHp6+fRh4f/f4IcDofVSKY4HH2eXnrpJWVnZysuLk5jx47V22+/bT0SmqlHjx7atm2b1q9f
+r48++qjeQ0pwcbv66qvlcrn02Wef6fTp0xo2bJj1SGhERESEamtr9eyzz8rtdqu2tlY1NTVasWKF
+9WgmiPB5CgkJUbt27SRJbdq0UXR0tPFEaK5ly5apU6dOGj9+vBISErRkyRLrkdBEK1as0LFjx9Sv
+Xz8dO3ZMf/rTn6xHQiNKSkr03HPPqaysTCtWrNBzzz2n559/Xv3797cezQSHo89TYmKiXnzxRTkc
+Dq1bty4or3Pzdw6HQzfccIOkr/eKP/zwQ+OJ0FQVFRXKzs6WJA0aNEizZ882ngiNGTRokAYNGqTt
+27crLS3NehxzRPg83XPPPSooKFBqaqoiIyM1efJk65HQTDU1NaqurlZcXJyqq6vl8XisR0ITfXN5
+YGRkpGpqath2fmDp0qW+P//3P3inTJnS2uOYI8Ln6YknnuBf337utttu0+zZsxUdHS2Xy6VJkyZZ
+j4Qm+slPfqJZs2apa9euOnz4sG699VbrkdCIoUOHSpI2bNig1NRUpaamat++ffrss8+MJ7PBJUrn
+adGiRRo2bJiSkpJ8F50nJSUZT4VzcerUKcXGxlqPgWZyOBw6evSoEhIS1L59e+tx0ETz58+vtwMz
+b948zZkzx3AiG+wJn6dTp07pjTfe8P25oqJCa9euNZ4KTfH888/r7rvv9l23+J+C8XpFf5KXl6dx
+48bp6aefPmvbcY23f3C5XNq9e7cuv/xy7d27V7W1tdYjmWBP+AL47LPP9NZbb+njjz/Wj370I91z
+zz3WI6EJvnkfuLy8/KzrFXv27Gk4GRpz8OBB9ejRQ3v27DlrXZ8+fQwmQnMdPnxYa9asUXl5ubp2
+7ao777xTXbp0sR6r1RHhc+R2u1VYWKgNGzYoPDxcTqdTOTk53P7Qj1RXV+v06dNasmSJpk6dKq/X
+K6/Xq2effVYLFiywHg8N8Hg88ng8evrpp303f/B4PFqwYAEPUbnI1dXVKSwsTG63W5J8D2+QVO8f
+w8Ei+H7iC+S+++7Tj3/8Y02bNk2XXnqpHn/8cQLsZ0pKSvTmm2/6rleUvr7uO1ivV/QnBQUFys/P
+V3V1tWbMmCGv16vQ0FBdddVV1qOhEU8++aQeeeQRTZ8+3RffYH4CFnvC52j9+vUqLCxUly5dNGLE
+CL3xxht67LHHrMfCOeB6Rf9VUFDAbWL9zNy5c3XixAn17t1bAwYMUL9+/Xw3PApGRPg87dmzR5s2
+bdKOHTuUmZmpjIwMbnvoZ0pKSvTOO+/4Do9VVVXxDyo/UVFRoQ8++EB1dXXyer2qqqriEjM/UFtb
+q5KSEn3yySfau3evvF6v+vTpo1tuucV6tFbHbSvPU58+fTRt2jT98Y9/VMeOHYPycIq/W7lypfr0
+6aPTp0+rU6dOXObiRxYvXixJKi4u1rFjx/Tll18aT4SmiIiIUK9evdS9e3d1795dXq9XBw8etB7L
+BO8JXyBt27bVDTfc4Lv9IfxH+/btNWzYMO3atUs///nPObHHj0RFRWns2LEqLy/XlClT9Jvf/MZ6
+JDTi73//u3bs2KGvvvpKffv2VVpamiZMmBCUJ2VJRBhQaGioSktLdebMGZWVlQXtI9X8UUhIiKqr
+q+VyuXz/4eKWl5enAQMG6KabblKfPn2CNr7f4D1hBL3S0lKVlpYqPj5eL7zwgjIyMjR69GjrsdAE
+e/bs0eHDhxUfH6/ly5fr6quv1sSJE63HQgPcbreKi4u1fft2FRUVqUOHDhowYIDS0tKC8gE4RBhB
+b/Xq1fzF7adeffVVjRkzxnoMnIedO3cqPz9fxcXFeumll6zHaXXBfRwA0Nd37vnqq6/Utm1b61HQ
+TDt27NBPf/pThYZyjqm/2Ldvn4qKilRcXKwjR46oe/fuuuaaazRt2jTr0UwQYQS9w4cP6+6771b7
+9u0VEhKikJAQLV++3HosNMGpU6d07733KiEhQdLX7xFz3++L24svvqh+/frp5ptvVs+ePc+693ew
+4XA0gl5lZWW996KOHDmi5ORkw4nQVMePHz9rWefOnQ0mAc4Ne8IIWocOHdLJkye1du1a3Xnnnb57
+R69du1a5ubnW46EJ6urquFkH/BoRRtD66quv9P777+uLL75QYWGhpK8PZ44aNcp4MjTV4sWLNWjQ
+IBUXF6tDhw5cogS/Q4QRtHr37q3evXtr//796tWrl/U4OAfcrAP+jggj6DkcDi1YsEA1NTW+Zdw1
+yz9wsw74OyKMoLdq1Sr98pe/DMobBfi7W265RR999JEyMjI0bdo0XX311dYjAc1ChBH0OnXqpH79
++lmPgXPQp08fXXbZZTp69KgWLVoU1I/Eg3/iEiUEvSVLligiIqLeNYtZWVnGU6Ep3n77bb3++uvq
+2rWrDh8+rHHjxikjI8N6LKDJ2BNG0PvmRg/V1dXGk6C5Nm3apIULF6pNmzY6c+aM5s6dS4ThV4gw
+gt6tt96qXbt26dixY7ryyit16aWXWo+EJrrkkksUFhYmSWrTpg2Ho+F3OByNoPfiiy/q5MmTOnLk
+iEaNGqWdO3dqxowZ1mOhCebPn6+qqiqlpKTo4MGDcrvduuyyyyRJ06dPN54OaBx7wgh6e/fuVXZ2
+trKzs3XttdfqH//4h/VIaKKbb77Z92fOjIY/IsIIenV1db5rhD0eD0/k8SM9e/bU+vXrdfLkSQ0c
+OFDdu3dXYmKi9VhAk/G3DYLe6NGj9fDDD6u0tFSPPvqoRo4caT0SmmjZsmVKSEhQRUWF4uLitGzZ
+MuuRgGZhTxhBb8iQIbryyitVXV2tuLg4btrhR7788ktlZmZq8+bNSk1NFae4wN+wJ4yg9/LLL2vD
+hg264oortHr1aq1bt856JDTDkSNHJEknTpzwnSkN+AsijKC3detWTZgwQZJ0//33a9u2bcYToanu
+uusuLV26VPv371dubq4mTpxoPRLQLEQYQS80NFRut1uS5Ha75fF4jCdCY/bv368HH3xQSUlJGjNm
+jCIiIuR0OnXixAnr0YBm4T1hBL3rrrtOM2fOVNeuXVVWVqYxY8ZYj4RGrFmzRvfdd5/Cw8P1l7/8
+RY8++qgSExO1YMECpaenW48HNBkRRtDLzMxUenq6jh49qi5duig2NtZ6JDTC4/Goe/fuOnnypM6c
+OeN7HvQ39/4G/AURRtA7ePCgNm7cWO95wlOmTDGcCI355gSsnTt3qm/fvpK+fivB6XRajgU0GxFG
+0FuyZImuv/56dezY0XoUNFHfvn01Z84cVVZW6qGHHlJFRYX+/Oc/a+jQodajAc1ChBH04uLiNGLE
+COsx0Aw33XST0tPTFRMTo/j4eFVUVCgrK0uDBg2yHg1oFh7ggKC3YsUKJSQkqEePHr73FPv37288
+FYBgwJ4wgp7b7VZZWZnKysp8y4gwgNbAnjAg6dChQzp8+LCSkpLUo0cP63EABAkijKD35ptvqrCw
+UFdeeaX27t2rIUOGcK0wgFbB4WgEvcLCQv3ud79TWFiY3G635syZQ4QBtApuWwno/687DQ8P5yEA
+AFoNe8IIeqmpqfrDH/6g3r17q7i4WKmpqdYjAQgSvCeMoLZx40Zde+212rVrl/bv36927drp+uuv
+tx4LQJDgcDSC1l//+ld9/PHHqqurU1pamjIyMrR792698sor1qMBCBJEGEFr586duv/++xUZGSlJ
+SkhI0IwZM3ieMIBWQ4QRtKKios566k54eLiioqKMJgIQbIgwglabNm109OjResuOHj3K4/AAtBpO
+zELQKi0t1eLFi/X9739fXbp0UWVlpT7++GPdd9996tmzp/V4AIIAEUZQO336tLZs2aKqqip16tRJ
+AwcOVHR0tPVYAIIEEQYAwAjvCQMAYIQIAwBghAgDAeqll17Su+++2+DnvPPOO3riiSe+dd3cuXP1
+4YcftsRoAP4P944GAtRtt91mPQKARhBh4CK1ePFi9ezZ0/dYxQ0bNmj37t3q0KGDPv30UzmdTknS
+vffeq6uuukpLliyRw+HQ0aNHlZaWpi+++EJdu3bVmDFjVFBQoI0bN8rtdsvhcOimm27SyJEjJUlV
+VVXKycnxnSE+efJkxcXF1Ztl7969Wrt2rc6cOaOQkBDdeuutGjhwYOv+QoAAxOFo4CI1YsSIeoeT
+33nnHXXr1k1VVVWaP3++Fi1apGuuuUbr1q3zfU5NTY2eeuop/eIXv/Atc7lc2rRpkx555BE9+eST
+mjFjhtasWeNbX15errvvvlsLFy5Ut27d9MILL9Sbw+FwaOnSpZo6dap+//vf68EHH9TKlStVWVnZ
+gj89EBzYEwYuUt/73vdUW1urffv2KTIyUqdOndK4ceNUXl6ujRs3qqKiQnv27Kl3XfO3PYYxKipK
+Dz/8sLZv367y8nIdPHhQLpfLt75v375KTEyUJGVmZuqRRx6p9/UlJSWqrq5Wbm5uveWff/65OnXq
+dCF/ZCDoEGHgIhUSEqLMzEy9++67ioiIUGZmpnbs2KEXXnhBN954o374wx8qOTlZmzdv9n3Nt933
++sSJE5o9e7ZGjBihq666SoMHD9b27dt960ND6x8QCw+v/9eCx+NRcnKyHn/8cd+ykydPKjY29kL9
+qEDQ4nA0cBG79tprtW3bNn344Ye+5x4PHDhQI0eO1OWXX64tW7bI4/E0+D327dun2NhYjRs3TgMG
+DPAF+Juv++STT3yHljds2KABAwbU+/qUlBSVl5drz549kqSDBw9q+vTpqqqqutA/LhB02BMGLmJx
+cXHq2bOn6urqFB8fr+uuu07PPPOMHnjgAYWGhqp3797697//3WCI+/fvr3/+85+aMWOGIiMjdcUV
+Vyg2Nlb9frfmAAAAbElEQVQVFRWSpO7du2vZsmWqrq5WcnKyJk2aVO/rY2NjNXPmTK1Zs0a1tbXy
+eDyaOnWqOnfu3KI/OxAMuG0lAABGOBwNAIARIgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAIAR
+IgwAgJH/BX4RQum0v7ywAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Let's-investigate-how-CVS-relationship-with-knowledge-changes-depending-on-the-variable">Let's investigate how CVS relationship with knowledge changes depending on the variable<a class="anchor-link" href="#Let's-investigate-how-CVS-relationship-with-knowledge-changes-depending-on-the-variable">&#194;&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13302,7 +14179,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13318,7 +14195,7 @@ strong multicollinearity problems or that the design matrix is singular.
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[29]:</div>
+<div class="prompt output_prompt">Out[37]:</div>
 
 
 
@@ -13350,6 +14227,7 @@ strong multicollinearity problems or that the design matrix is singular.
       <th>CVS_graph</th>
       <th>sim_index</th>
       <th>CVS_levels</th>
+      <th>CVS_table_only</th>
     </tr>
   </thead>
   <tbody>
@@ -13364,6 +14242,7 @@ strong multicollinearity problems or that the design matrix is singular.
       <td>1</td>
       <td>1</td>
       <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -13376,6 +14255,7 @@ strong multicollinearity problems or that the design matrix is singular.
       <td>1</td>
       <td>1</td>
       <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -13387,6 +14267,7 @@ strong multicollinearity problems or that the design matrix is singular.
       <td>1</td>
       <td>0</td>
       <td>2</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -13400,6 +14281,7 @@ strong multicollinearity problems or that the design matrix is singular.
       <td>0</td>
       <td>2</td>
       <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -13412,6 +14294,7 @@ strong multicollinearity problems or that the design matrix is singular.
       <td>1</td>
       <td>2</td>
       <td>2</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -13426,7 +14309,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">per_variable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
@@ -13443,7 +14326,7 @@ strong multicollinearity problems or that the design matrix is singular.
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[30]:</div>
+<div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -13541,7 +14424,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">per_variable</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
@@ -13807,11 +14690,11 @@ JKe4cI/kAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Width&#39;</span>
-<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)&#39;</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
 <span class="c1"># aov_table = anova_lm(model, typ=2)</span>
@@ -13837,36 +14720,34 @@ JKe4cI/kAAAAAElFTkSuQmCC
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)
+<pre>Model:  main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)
 
 Here is the linear model with coefficients and confidence intervals:
 
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                   main   R-squared:                       0.187
-Model:                            OLS   Adj. R-squared:                  0.153
-Method:                 Least Squares   F-statistic:                     5.415
-Date:                Fri, 19 Jan 2018   Prob (F-statistic):           4.59e-05
-Time:                        19:04:42   Log-Likelihood:                -152.81
-No. Observations:                 148   AIC:                             319.6
-Df Residuals:                     141   BIC:                             340.6
-Df Model:                           6                                         
+Dep. Variable:                   main   R-squared:                       0.186
+Model:                            OLS   Adj. R-squared:                  0.164
+Method:                 Least Squares   F-statistic:                     8.183
+Date:                Tue, 23 Jan 2018   Prob (F-statistic):           5.69e-06
+Time:                        15:01:26   Log-Likelihood:                -152.90
+No. Observations:                 148   AIC:                             315.8
+Df Residuals:                     143   BIC:                             330.8
+Df Model:                           4                                         
 Covariance Type:            nonrobust                                         
-==========================================================================================
-                             coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------------------
-Intercept                  1.8075      0.165     10.986      0.000       1.482       2.133
-C(CVS_levels)[T.1]         0.2181      0.241      0.905      0.367      -0.258       0.694
-C(CVS_levels)[T.2]         0.6201      0.218      2.841      0.005       0.189       1.052
-C(sim_index)[T.2]          0.1787      0.117      1.523      0.130      -0.053       0.411
-pre                        0.0043      0.172      0.025      0.980      -0.336       0.345
-C(CVS_levels)[T.1]:pre     0.0913      0.229      0.399      0.691      -0.361       0.544
-C(CVS_levels)[T.2]:pre     0.0710      0.197      0.360      0.719      -0.319       0.461
+======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept              1.7675      0.132     13.413      0.000       1.507       2.028
+C(CVS_levels)[T.1]     0.2859      0.159      1.796      0.075      -0.029       0.601
+C(CVS_levels)[T.2]     0.6726      0.145      4.643      0.000       0.386       0.959
+C(sim_index)[T.2]      0.1749      0.115      1.524      0.130      -0.052       0.402
+pre                    0.0671      0.072      0.927      0.355      -0.076       0.210
 ==============================================================================
-Omnibus:                       27.556   Durbin-Watson:                   2.145
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               37.437
-Skew:                          -1.048   Prob(JB):                     7.42e-09
-Kurtosis:                       4.295   Cond. No.                         14.1
+Omnibus:                       26.404   Durbin-Watson:                   2.147
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               35.170
+Skew:                          -1.022   Prob(JB):                     2.31e-08
+Kurtosis:                       4.236   Cond. No.                         6.52
 ==============================================================================
 
 Warnings:
@@ -13889,11 +14770,11 @@ Warnings:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Concentration&#39;</span>
-<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)&#39;</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
 <span class="c1"># aov_table = anova_lm(model, typ=2)</span>
@@ -13919,36 +14800,34 @@ Warnings:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)
+<pre>Model:  main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)
 
 Here is the linear model with coefficients and confidence intervals:
 
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                   main   R-squared:                       0.204
-Model:                            OLS   Adj. R-squared:                  0.171
-Method:                 Least Squares   F-statistic:                     6.038
-Date:                Fri, 19 Jan 2018   Prob (F-statistic):           1.20e-05
-Time:                        19:04:42   Log-Likelihood:                -127.82
-No. Observations:                 148   AIC:                             269.6
-Df Residuals:                     141   BIC:                             290.6
-Df Model:                           6                                         
+Dep. Variable:                   main   R-squared:                       0.202
+Model:                            OLS   Adj. R-squared:                  0.179
+Method:                 Least Squares   F-statistic:                     9.025
+Date:                Tue, 23 Jan 2018   Prob (F-statistic):           1.58e-06
+Time:                        15:01:26   Log-Likelihood:                -128.08
+No. Observations:                 148   AIC:                             266.2
+Df Residuals:                     143   BIC:                             281.2
+Df Model:                           4                                         
 Covariance Type:            nonrobust                                         
-==========================================================================================
-                             coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------------------
-Intercept                  1.9270      0.200      9.628      0.000       1.531       2.323
-C(CVS_levels)[T.1]        -0.0215      0.286     -0.075      0.940      -0.586       0.543
-C(CVS_levels)[T.2]         0.3280      0.237      1.387      0.168      -0.140       0.796
-C(sim_index)[T.2]          0.2470      0.099      2.499      0.014       0.052       0.443
-pre                        0.0618      0.147      0.420      0.675      -0.229       0.353
-C(CVS_levels)[T.1]:pre     0.0618      0.190      0.326      0.745      -0.313       0.437
-C(CVS_levels)[T.2]:pre     0.1154      0.168      0.687      0.493      -0.217       0.448
+======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept              1.8321      0.125     14.610      0.000       1.584       2.080
+C(CVS_levels)[T.1]     0.0475      0.141      0.337      0.737      -0.231       0.326
+C(CVS_levels)[T.2]     0.4704      0.115      4.086      0.000       0.243       0.698
+C(sim_index)[T.2]      0.2421      0.098      2.476      0.014       0.049       0.435
+pre                    0.1427      0.062      2.291      0.023       0.020       0.266
 ==============================================================================
-Omnibus:                       12.215   Durbin-Watson:                   1.819
-Prob(Omnibus):                  0.002   Jarque-Bera (JB):               12.757
-Skew:                          -0.691   Prob(JB):                      0.00170
-Kurtosis:                       3.398   Cond. No.                         19.8
+Omnibus:                       12.391   Durbin-Watson:                   1.806
+Prob(Omnibus):                  0.002   Jarque-Bera (JB):               13.024
+Skew:                          -0.705   Prob(JB):                      0.00149
+Kurtosis:                       3.355   Cond. No.                         7.35
 ==============================================================================
 
 Warnings:
@@ -13971,11 +14850,11 @@ Warnings:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Area&#39;</span>
-<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)&#39;</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
 <span class="c1"># aov_table = anova_lm(model, typ=2)</span>
@@ -14001,36 +14880,34 @@ Warnings:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)
+<pre>Model:  main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)
 
 Here is the linear model with coefficients and confidence intervals:
 
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                   main   R-squared:                       0.172
-Model:                            OLS   Adj. R-squared:                  0.136
-Method:                 Least Squares   F-statistic:                     4.867
-Date:                Fri, 19 Jan 2018   Prob (F-statistic):           0.000151
-Time:                        19:04:42   Log-Likelihood:                -144.86
-No. Observations:                 148   AIC:                             303.7
-Df Residuals:                     141   BIC:                             324.7
-Df Model:                           6                                         
+Dep. Variable:                   main   R-squared:                       0.168
+Model:                            OLS   Adj. R-squared:                  0.144
+Method:                 Least Squares   F-statistic:                     7.199
+Date:                Tue, 23 Jan 2018   Prob (F-statistic):           2.61e-05
+Time:                        15:01:26   Log-Likelihood:                -145.21
+No. Observations:                 148   AIC:                             300.4
+Df Residuals:                     143   BIC:                             315.4
+Df Model:                           4                                         
 Covariance Type:            nonrobust                                         
-==========================================================================================
-                             coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------------------
-Intercept                  1.7131      0.178      9.609      0.000       1.361       2.066
-C(CVS_levels)[T.1]         0.3575      0.288      1.241      0.217      -0.212       0.927
-C(CVS_levels)[T.2]         0.4917      0.224      2.198      0.030       0.050       0.934
-C(sim_index)[T.2]          0.0194      0.112      0.173      0.863      -0.203       0.241
-pre                        0.2305      0.128      1.795      0.075      -0.023       0.484
-C(CVS_levels)[T.1]:pre    -0.1442      0.203     -0.711      0.478      -0.545       0.257
-C(CVS_levels)[T.2]:pre    -0.0028      0.156     -0.018      0.986      -0.312       0.306
+======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept              1.7391      0.129     13.498      0.000       1.484       1.994
+C(CVS_levels)[T.1]     0.1799      0.153      1.175      0.242      -0.123       0.482
+C(CVS_levels)[T.2]     0.4903      0.129      3.814      0.000       0.236       0.744
+C(sim_index)[T.2]      0.0332      0.110      0.301      0.764      -0.185       0.251
+pre                    0.2024      0.066      3.071      0.003       0.072       0.333
 ==============================================================================
-Omnibus:                       28.305   Durbin-Watson:                   2.031
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               44.738
-Skew:                          -0.961   Prob(JB):                     1.93e-10
-Kurtosis:                       4.886   Cond. No.                         15.8
+Omnibus:                       29.442   Durbin-Watson:                   2.002
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               47.266
+Skew:                          -0.990   Prob(JB):                     5.45e-11
+Kurtosis:                       4.936   Cond. No.                         6.73
 ==============================================================================
 
 Warnings:
@@ -14053,11 +14930,11 @@ Warnings:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Separation&#39;</span>
-<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)&#39;</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)&#39;</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">variable</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
 <span class="c1"># aov_table = anova_lm(model, typ=2)</span>
@@ -14083,36 +14960,34 @@ Warnings:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*pre + C(sim_index) + C(sim)
+<pre>Model:  main ~ C(CVS_levels) + pre + C(sim_index) + C(sim)
 
 Here is the linear model with coefficients and confidence intervals:
 
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                   main   R-squared:                       0.110
-Model:                            OLS   Adj. R-squared:                  0.073
-Method:                 Least Squares   F-statistic:                     2.918
-Date:                Fri, 19 Jan 2018   Prob (F-statistic):             0.0103
-Time:                        19:04:42   Log-Likelihood:                -144.55
-No. Observations:                 148   AIC:                             303.1
-Df Residuals:                     141   BIC:                             324.1
-Df Model:                           6                                         
+Dep. Variable:                   main   R-squared:                       0.099
+Model:                            OLS   Adj. R-squared:                  0.074
+Method:                 Least Squares   F-statistic:                     3.943
+Date:                Tue, 23 Jan 2018   Prob (F-statistic):            0.00457
+Time:                        15:01:26   Log-Likelihood:                -145.47
+No. Observations:                 148   AIC:                             300.9
+Df Residuals:                     143   BIC:                             315.9
+Df Model:                           4                                         
 Covariance Type:            nonrobust                                         
-==========================================================================================
-                             coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------------------
-Intercept                  1.6068      0.205      7.821      0.000       1.201       2.013
-C(CVS_levels)[T.1]         0.2966      0.293      1.012      0.313      -0.283       0.876
-C(CVS_levels)[T.2]         0.3202      0.248      1.290      0.199      -0.171       0.811
-C(sim_index)[T.2]          0.1608      0.114      1.414      0.159      -0.064       0.386
-pre                        0.3084      0.132      2.334      0.021       0.047       0.570
-C(CVS_levels)[T.1]:pre    -0.2493      0.191     -1.308      0.193      -0.626       0.127
-C(CVS_levels)[T.2]:pre    -0.0851      0.165     -0.515      0.607      -0.412       0.241
+======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept              1.7304      0.144     12.049      0.000       1.447       2.014
+C(CVS_levels)[T.1]    -0.0308      0.154     -0.201      0.841      -0.334       0.273
+C(CVS_levels)[T.2]     0.2093      0.127      1.651      0.101      -0.041       0.460
+C(sim_index)[T.2]      0.1749      0.112      1.568      0.119      -0.046       0.395
+pre                    0.2076      0.070      2.986      0.003       0.070       0.345
 ==============================================================================
-Omnibus:                       13.479   Durbin-Watson:                   2.169
-Prob(Omnibus):                  0.001   Jarque-Bera (JB):               14.449
-Skew:                          -0.685   Prob(JB):                     0.000728
-Kurtosis:                       3.681   Cond. No.                         17.0
+Omnibus:                       13.267   Durbin-Watson:                   2.162
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               14.144
+Skew:                          -0.683   Prob(JB):                     0.000849
+Kurtosis:                       3.656   Cond. No.                         6.91
 ==============================================================================
 
 Warnings:
@@ -14131,335 +15006,12 @@ Warnings:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Findings:</p>
 <ul>
-<li>CVS_levels=2 (graph) matters and pre doesn't matter for Width, Concentration, and Area.</li>
-<li>Pre matters for Separation</li>
+<li>CVS_levels=2 (graph) matters for all except Separation</li>
+<li>Pre matters for all except Width</li>
 </ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Post-hoc-analysis-on-levels">Post-hoc analysis on levels<a class="anchor-link" href="#Post-hoc-analysis-on-levels">&#194;&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)&#39;</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
-<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 2 errors</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)
-
-Anova table using type 2 errors
-
-                           sum_sq     df          F     PR(&gt;F)     eta_sq   omega_sq
-C(CVS_levels)           2.788e-01    1.0  1.114e+00  2.926e-01  1.993e-03  2.038e-04
-variable                6.558e-01    3.0  8.736e-01  4.559e-01  4.688e-03 -6.772e-04
-C(sim_index)            9.952e-01    1.0  3.977e+00  4.763e-02  7.114e-03  5.316e-03
-C(sid)                  8.703e+01  104.0  3.344e+00  5.522e-13  6.221e-01  4.353e-01
-C(sim)                  2.526e+00    1.0  1.009e+01  1.750e-03  1.805e-02  1.624e-02
-C(CVS_levels):variable  5.461e-01    3.0  7.274e-01  5.369e-01  3.904e-03 -1.460e-03
-C(sim_index):variable   2.373e+00    3.0  3.160e+00  2.595e-02  1.696e-02  1.157e-02
-pre                     9.479e-05    1.0  3.788e-04  9.845e-01  6.776e-07 -1.785e-03
-C(CVS_levels):pre       1.147e-01    1.0  4.582e-01  4.993e-01  8.197e-04 -9.674e-04
-pre:variable            7.783e-02    3.0  1.037e-01  9.578e-01  5.564e-04 -4.802e-03
-Residual                4.529e+01  181.0        NaN        NaN        NaN        NaN
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)&#39;</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
-<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 2 errors</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)
-
-Anova table using type 2 errors
-
-                        sum_sq     df      F     PR(&gt;F)     eta_sq   omega_sq
-C(CVS_levels)            1.594    1.0  5.484  1.992e-02  8.950e-03  7.306e-03
-variable                 3.068    3.0  3.518  1.564e-02  1.723e-02  1.231e-02
-C(sim_index)             2.209    1.0  7.601  6.230e-03  1.241e-02  1.076e-02
-C(sid)                  89.074  137.0  2.237  9.848e-09  5.001e-01  2.761e-01
-C(sim)                   0.610    1.0  2.098  1.486e-01  3.424e-03  1.789e-03
-C(CVS_levels):variable   0.595    3.0  0.683  5.632e-01  3.344e-03 -1.550e-03
-C(sim_index):variable    0.999    3.0  1.146  3.311e-01  5.609e-03  7.115e-04
-pre                      0.806    1.0  2.775  9.693e-02  4.528e-03  2.892e-03
-C(CVS_levels):pre        0.274    1.0  0.944  3.321e-01  1.541e-03 -9.110e-05
-pre:variable             0.096    3.0  0.111  9.539e-01  5.415e-04 -4.348e-03
-Residual                78.772  271.0    NaN        NaN        NaN        NaN
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)&#39;</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
-<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Anova table using type 2 errors</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  main ~ C(CVS_levels)*variable + C(CVS_levels)*pre + C(sim_index)*variable + pre*variable + C(sid) + C(sim)
-
-Anova table using type 2 errors
-
-                         sum_sq     df       F     PR(&gt;F)  eta_sq  omega_sq
-C(CVS_levels)             3.305    1.0  13.362  3.022e-04   0.017     0.015
-variable                  1.947    3.0   2.623  5.071e-02   0.010     0.006
-C(sim_index)              2.055    1.0   8.307  4.230e-03   0.010     0.009
-C(sid)                  110.381  137.0   3.257  6.759e-18   0.555     0.384
-C(sim)                    0.991    1.0   4.005  4.625e-02   0.005     0.004
-C(CVS_levels):variable    1.729    3.0   2.331  7.436e-02   0.009     0.005
-C(sim_index):variable     1.096    3.0   1.477  2.207e-01   0.006     0.002
-pre                       0.600    1.0   2.427  1.203e-01   0.003     0.002
-C(CVS_levels):pre         0.775    1.0   3.132  7.775e-02   0.004     0.003
-pre:variable              0.242    3.0   0.327  8.061e-01   0.001    -0.003
-Residual                 75.694  306.0     NaN        NaN     NaN       NaN
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">levels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_levels&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
-<span class="n">levels</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;This plot needs to be redone with standard deviation bars and colored by level and stars given the tests above&quot;</span>
-<span class="k">print</span> <span class="s1">&#39;0-1 =&gt; *&#39;</span>
-<span class="k">print</span> <span class="s1">&#39;1-2 =&gt; *&#39;</span>
-<span class="k">print</span> <span class="s1">&#39;0-2 =&gt; ***&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>This plot needs to be redone with standard deviation bars and colored by level and stars given the tests above
-0-1 =&gt; *
-1-2 =&gt; *
-0-2 =&gt; ***
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeEAAAFvCAYAAAB98HOmAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-AAALEgAACxIB0t1+/AAAFotJREFUeJzt3X1slfUd9/EPbRVaQJH5QGDTDR24LIgCPhE0VqsuYSNx
-biponJrImHMxG+o/6iayTjOMy0wGGo0LZrrErUON9+LmRId1yxTcYlQYPhCd4HyYElM5Fco59x+7
-dzJulVbX+mvr6/UX57pOe77t+ZF3zznXuc6IWq1WCwDwsWsoPQAAfFKJMAAUIsIAUIgIA0AhIgwA
-hYgwABQiwgBQSFOJG92yZUuJmx1yJk6c6HdFv7Ge6G/WVN9NnDjxfbd7JAwAhYgwABQiwgBQiAgD
-QCEiDACFiDAAFCLCAFBIkfcJ92bnhfP69fs13nJvv36//3jsscfy6quv5itf+cqAfH8AhrdBGeGh
-4qijjio9AgBDmAj/P/fff3/+9Kc/Zfv27fnXv/6V008/PY8++mg2bdqURYsW5fXXX88jjzySSqWS
-vffeO0uXLs2DDz6Yl156KfPmzcvSpUuz3377ZcuWLfnCF76Q7373u6V/JAAGORH+L5VKJcuWLcvq
-1avzq1/9KsuXL8/f/va3/PrXv86UKVNy/fXXp6GhIZdddlk2bNiwy9e+/PLLWbZsWUaOHJmzzz47
-b775ZsaPH1/oJwFgKBDh/3LIIYckScaMGZODDjooI0aMyNixY7Njx440NTVl6dKlaW5uzuuvv56d
-O3fu8rUTJ05MS0tLkmT8+PHZvn37xz4/AEOLCP+XESNGvO/2np6edHZ2ZsWKFenu7s43v/nN1Gq1
-Pn0tAHyQ3Ua4p6cnK1asyOuvv54dO3bk9NNPz6xZs+r777vvvqxevTp77bVXkmThwoUf+EkRQ1lj
-Y2Oam5tz8cUXJ0k+9alP5Y033ig8FQBD3Yja//+Q7r889NBDefHFF3Peeeelq6srl112WVasWFHf
-f+ONN+bLX/5yJk+e/KFu1Edf9Y2PCaM/WU9DW3+/dXO4Gqi3pP6vPugB6m4fCR977LE55phjkiS1
-Wi2NjY277N+0aVNWrVqVrVu3ZsaMGTnttNP6aVwAGP52G+FRo0Yl+fdRwzfccEPOOuusXfbPnj07
-p556alpaWrJs2bKsW7cuM2fO7PVGh+NT1gPF74r+ZD0NXf8oPcAQMdTWeK8HZr3xxhu5/vrrc8op
-p2TOnDn17bVaLXPnzq0fETxjxoxs2rSpTxH2lFjfePqQ/mQ98UkwWNf4B/1xsNtzR2/dujXt7e05
-++yzc+KJJ+6yr1KpZPHixenu7k6tVstTTz31oV8bBoBPst0+El61alW6urrS0dGRjo6OJMlJJ52U
-d999N21tbZk/f36WLFmSpqamTJs2LTNmzPhYhgaA4WC3R0cPlMH6dMFg4+lD+pP1NLQ5OrpvhtrR
-0T7KEAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAK
-EWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESE
-AaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKaSo9AAxHOy+cV3qE
-9/hH6QE+QOMt95YeAYrxSBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAo
-RIQBoBARBoBCRBgAChFhAChEhAGgkN1+nnBPT09WrFiR119/PTt27Mjpp5+eWbNm1fevXbs2HR0d
-aWhoSGtra9ra2gZ8YAAYLnYb4UceeSRjx47Nd77znXR1deWyyy6rR7inpycrV67Mtddem1GjRuWq
-q67KrFmzMm7cuI9l8P40GD+APRmcH8LuA9gB+s9un44+9thjc+aZZyZJarVaGhsb6/s2b96cCRMm
-ZMyYMWlqasrUqVOzfv36gZ0WAIaR3T4SHjVqVJKkUqnkhhtuyFlnnVXfV6lU0tLSUr/c3Nycbdu2
-DdCYADD87DbCSfLGG2/k+uuvzymnnJI5c+bUtzc3N6e7u7t+uVKpZPTo0X260YkTJ36EUQfOYHza
-d7AabPfdYGVN9Z011TfWVN8MtfW02whv3bo17e3tueCCCzJt2rRd9k2aNCmvvPJKurq6MmrUqKxf
-vz7z5vXttdUtW7Z89Ikpyn1Hf7Om6E+DdT190B8Hu43wqlWr0tXVlY6OjnR0dCRJTjrppLz77rtp
-a2vLueeem/b29lSr1bS2tmb8+PH9PzkADFO7jfD555+f888//wP3z5o1a5e3LAEAfedkHQBQiAgD
-QCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACF
-iDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLC
-AFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANA
-ISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAIU19udKz
-zz6bO+64I1dfffUu2++7776sXr06e+21V5Jk4cKFmThxYr8PCQDDUa8Rvueee7JmzZqMGjXqPfte
-eOGFXHzxxZk8efKADAcAw1mvT0cfcMABufTSS99336ZNm7Jq1apcddVVWbVqVb8PBwDDWa+PhI85
-5pi89tpr77tv9uzZOfXUU9PS0pJly5Zl3bp1mTlzZq83Otiesv5H6QGGkMF23w1W1lTfWVN9Y031
-zVBbT316Tfj91Gq1zJ07Ny0tLUmSGTNmZNOmTX2K8JYtWz7qzVKY+47+Zk3RnwbrevqgPw4+8tHR
-lUolixcvTnd3d2q1Wp566imvDQPAh/ChHwl3dnamu7s7bW1tmT9/fpYsWZKmpqZMmzYtM2bMGIgZ
-AWBY6lOE999//7S3tydJ5syZU99+/PHH5/jjjx+YyQBgmHOyDgAoRIQBoBARBoBCRBgAChFhAChE
-hAGgEBEGgEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEG
-gEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAK
-EWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESE
-AaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgkKa+XOnZZ5/NHXfckauvvnqX7WvX
-rk1HR0caGhrS2tqatra2gZgRAIalXiN8zz33ZM2aNRk1atQu23t6erJy5cpce+21GTVqVK666qrM
-mjUr48aNG7BhAWA46fXp6AMOOCCXXnrpe7Zv3rw5EyZMyJgxY9LU1JSpU6dm/fr1AzIkAAxHvT4S
-PuaYY/Laa6+9Z3ulUklLS0v9cnNzc7Zt29anG504ceKHGHHg/aP0AEPIYLvvBitrqu+sqb6xpvpm
-qK2nPr0m/H6am5vT3d1dv1ypVDJ69Og+fe2WLVs+6s1SmPuO/mZN0Z8G63r6oD8OPvLR0ZMmTcor
-r7ySrq6u9PT0ZP369ZkyZcpHHhAAPmk+9CPhzs7OdHd3p62tLeeee27a29tTrVbT2tqa8ePHD8SM
-ADAs9SnC+++/f9rb25Mkc+bMqW+fNWtWZs2aNTCTAcAw52QdAFCICANAISIMAIWIMAAUIsIAUIgI
-A0AhIgwAhYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwA
-hYgwABQiwgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQi
-wgBQiAgDQCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUIgIA0AhIgwAhYgwABQiwgBQiAgD
-QCEiDACFiDAAFCLCAFCICANAISIMAIWIMAAUIsIAUEhTb1eoVqu59dZb8+KLL2aPPfbIokWLMmHC
-hPr+++67L6tXr85ee+2VJFm4cGEmTpw4cBMDwDDRa4Qff/zx7NixI+3t7dm4cWNuv/32XH755fX9
-L7zwQi6++OJMnjx5QAcFgOGm1whv2LAhhx9+eJJkypQpef7553fZv2nTpqxatSpbt27NjBkzctpp
-pw3MpAAwzPQa4UqlkpaWlvrlhoaG7Ny5M42NjUmS2bNn59RTT01LS0uWLVuWdevWZebMmQM3MQAM
-E71GuLm5OZVKpX65VqvVA1yr1TJ37tx6pGfMmJFNmzb1GuHB9prxP0oPMIQMtvtusLKm+s6a6htr
-qm+G2nrqNcJTp07NunXrMnv27GzcuDEHHnhgfV+lUsnixYvzk5/8JCNHjsxTTz2V1tbWXm90y5Yt
-/9vUFOO+o79ZU/SnwbqePuiPg14jfNRRR+XJJ5/MlVdemVqtlosuuiidnZ3p7u5OW1tb5s+fnyVL
-lqSpqSnTpk3LjBkz+n14ABiOeo1wQ0NDFi5cuMu2SZMm1f99/PHH5/jjj+//yQBgmHOyDgAoRIQB
-oBARBoBCRBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBC
-RBgAChFhAChEhAGgEBEGgEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFh
-AChEhAGgEBEGgEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGg
-EBEGgEJEGAAKEWEAKESEAaAQEQaAQkQYAAoRYQAoRIQBoBARBoBCRBgAChFhAChEhAGgkKberlCt
-VnPrrbfmxRdfzB577JFFixZlwoQJ9f1r165NR0dHGhoa0tramra2tgEdGACGi14fCT/++OPZsWNH
-2tvbs2DBgtx+++31fT09PVm5cmWuuOKKLFmyJA8++GC2bt06oAMDwHDRa4Q3bNiQww8/PEkyZcqU
-PP/88/V9mzdvzoQJEzJmzJg0NTVl6tSpWb9+/cBNCwDDSK9PR1cqlbS0tNQvNzQ0ZOfOnWlsbHzP
-vubm5mzbtq3XG504ceJHHHeA/J+1pSdguLGm6G/W1LDU6yPh5ubmVCqV+uVarZbGxsb6vu7u7vq+
-SqWS0aNHD8CYADD89BrhqVOn5q9//WuSZOPGjTnwwAPr+yZNmpRXXnklXV1d6enpyfr16zNlypSB
-mxYAhpERtVqttrsr/Ofo6Jdeeim1Wi0XXXRRNm3alO7u7rS1tdWPjq5Wq2ltbc2XvvSlj2t2ABjS
-eo0wADAwnKwDAAoRYQAoRIQBoBARHmSq1WrpEQD6bMeOHaVHGNJ6PVkHA+/VV1/NypUr88ILL6Sx
-sTHVajUHHnhgvvGNbwy+E5sAn0hr167NbbfdlsbGxsyfPz+zZ89OkvzoRz/KD37wg8LTDV0iPAjc
-dNNNWbBgQT7/+c/Xt23cuDErVqzI0qVLC04G8G+rVq3Kj3/849Rqtdxwww3Zvn17TjjhhNJjDXki
-PAjs2LFjlwAncdIT/mdLlix5z1OFtVotI0aMyA9/+MNCUzFUNTU1ZcyYMUmSyy+/PNdcc0323Xff
-wlMNfSI8CBx00EFZvnx5Dj/88LS0tKS7uztPPPHELmcngw9rwYIFufnmm3PppZfWTzULH9V+++2X
-lStX5swzz0xzc3MWL16c9vb2Pn1eAB/MyToGgVqtlscffzwbNmzItm3b0tLSkqlTp+aoo47KiBEj
-So/HEHbvvfdmwoQJOeqoo0qPwhC3c+fOPPLIIzn22GMzcuTIJMnWrVtz991357zzzis73BAmwgBQ
-iLcoAUAhIgwAhTgwCwqoVqv57W9/m87OzuzcuTM9PT2ZOXNmTjzxxCxevDg/+9nPMn78+F2+5tJL
-L83Xv/71HH300bnnnnvS2dlZ/17Tp0/PggUL0tS0+//SZ5xxRm699dbstdde/frzfPvb3873vve9
-HHzwwf36fWG4E2Eo4JZbbsk777yT73//+/Uj4m+88cZ0dHRk+vTpefjhh/PVr361fv2NGzfmnXfe
-yZFHHpk///nPeeyxx9Le3p4999wz27dvzw033JC77rorCxYsKPhTAR+WCMPH7LXXXktnZ2duvvnm
-tLS0JElGjRqVhQsX5u9//3v22GOP/PznP89pp51WPzr+D3/4Q04++eQ0NDTkrbfeSrVazfbt27Pn
-nntmzz33zAUXXJC33377Q82xevXq/O53v0utVsvYsWNzwQUXZJ999sm3vvWt/PSnP824ceOSJFdc
-cUW+9rWvZdq0afnFL36R9evXp1qt5rOf/WzOP//8+s+QJN3d3Vm+fHleeeWVNDQ05HOf+1wWLlyY
-hgavfMH78T8DPmYvvPBCPv3pT+8SryQZN25cjj766Bx++OFJkmeeeSZJsm3btjz++OM56aSTkiQn
-nHBCRo8enQsvvDBXXHFFbr/99rzxxhs55JBD+jzDM888kz/+8Y+55ppr8uMf/zjz5s3L9ddfn5aW
-lhx55JFZs2ZNkuTll1/OW2+9lenTp+fuu+9OY2Njrrvuuixbtiz77LNP7rzzzl2+72OPPZZKpZJl
-y5bl2muvTfLvPzqA9+eRMHzMGhoasrt3BjY0NOTkk0/OQw89lC9+8YtZs2ZNjjjiiOy9995JkpaW
-llx55ZV59dVX8/TTT+fpp5/Oddddl1NOOSXnnHNOn2Z44okn8s9//jNXXnllfVtXV1e6urrS1taW
-W265JfPmzcvDDz+cE044IQ0NDVm3bl22bduWJ598MknS09NTn+k/Dj300Pzyl7/M1VdfncMOOyxz
-587NhAkTPuyvCD4xRBg+Zoccckg2b96cSqWS5ubm+vY333wzN998cxYvXpzW1tZccskl2bZtWx58
-8MFceOGF9evdc889OfTQQzN16tQccMABOfHEE7Nhw4a0t7f3OcLVajXHHXdc/frVajVvvfVWRo8e
-nUMPPTTVajXPPfdcOjs766e4rFarOe+883LEEUck+fdTz9u3b9/l++6///658cYb8/TTT+epp57K
-0qVLc8EFF+SYY475n35nMFx5Oho+ZuPHj8+cOXOyYsWK+in/tm3blltvvTVjx47NnnvumbFjx2bm
-zJm566670tDQsMu5xN99993ceeed6erqqm/bvHlzJk+e3OcZDjvssDz66KN56623kiQPPPBArrnm
-mvr+E088MbfddlsOOuig+vmBp0+fnvvvvz89PT2pVqu56aab3vN09O9///ssX74806dPzznnnJPp
-06fnpZde+vC/JPiEcMYsKGDnzp3p6OjIX/7ylzQ0NKSnpydHHnlkzjjjjPrbjJ577rlcccUVWbRo
-UVpbW+tfW61W85vf/CadnZ0ZMWJEqtVqDj744Jx77rn1g6k+yH+/Ren+++/PAw88kBEjRqS5uTkL
-Fy7MZz7zmSTJ22+/nUWLFuWSSy7J0UcfnSTZvn17br/99jzzzDP1A7MWLlyYlpaW+luUJk2alBUr
-VuSll17KyJEjs++++2bRokX1E/8DuxJhACjEa8IwjNx777155JFH3nffvHnzctxxx33MEwG745Ew
-ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -14488,7 +15040,7 @@ ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">sums</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_table&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
@@ -14505,7 +15057,7 @@ ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[40]:</div>
+<div class="prompt output_prompt">Out[44]:</div>
 
 
 
@@ -14576,7 +15128,7 @@ ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">once</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="n">sums</span><span class="p">[</span><span class="s1">&#39;CVS_table&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
@@ -14621,10 +15173,140 @@ ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">sums2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_table&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sim&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[46]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sid</th>
+      <th>variable</th>
+      <th>pre</th>
+      <th>main</th>
+      <th>sim</th>
+      <th>CVS_table</th>
+      <th>CVS_graph</th>
+      <th>sim_index</th>
+      <th>CVS_levels</th>
+      <th>CVS_table_only</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10127163</td>
+      <td>Concentration</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>L</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10232160</td>
+      <td>Concentration</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>L</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10537160</td>
+      <td>Concentration</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>L</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10375163</td>
+      <td>Concentration</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>L</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10420167</td>
+      <td>Concentration</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>L</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">sums2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_table&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">,</span><span class="s1">&#39;sim&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14634,7 +15316,7 @@ ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -14659,13 +15341,13 @@ ABTiwCwAKESEAaAQEQaAQkQYAAoRYQAoRIQBoJD/Cy1hoZ9MUVJCAAAAAElFTkSuQmCC
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[48]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0xf800a58&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0xf57eda0&gt;</pre>
 </div>
 
 </div>
@@ -15039,24 +15721,17 @@ AElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-does-incoming-knowledge-affect-doing-CVS">How does incoming knowledge affect doing CVS<a class="anchor-link" href="#How-does-incoming-knowledge-affect-doing-CVS">&#194;&#182;</a></h2><h3 id="For-CVS-collection">For CVS collection<a class="anchor-link" href="#For-CVS-collection">&#194;&#182;</a></h3>
+<h2 id="How-does-incoming-knowledge-affect-doing-CVS">How does incoming knowledge affect doing CVS<a class="anchor-link" href="#How-does-incoming-knowledge-affect-doing-CVS">&#194;&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># formula = &#39;CVS_table_only ~ pre*C(variable) + C(sim_index)*C(sim) &#39;</span>
-<span class="c1"># print &#39;model: &#39;, formula,&#39;\n&#39;</span>
-<span class="c1"># from patsy import dmatrices</span>
-<span class="c1"># Y, X = dmatrices(formula, data, return_type = &#39;dataframe&#39;)</span>
-<span class="c1"># # print X.columns</span>
-<span class="c1"># logit = Logit(Y, X)</span>
-<span class="c1"># model = logit.fit()</span>
-<span class="c1"># print model.summary()</span>
-<span class="c1"># # print model.params</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># export_data = data[[&quot;sid&quot;,&quot;variable&quot;,&quot;pre&quot;,&quot;main&quot;,&quot;sim&quot;,&quot;CVS_graph&quot;,&quot;sim_index&quot;]]</span>
+<span class="c1"># export_data.to_csv(&#39;dataframe for logreg of CVS.csv&#39;)</span>
 </pre></div>
 
 </div>
@@ -15064,20 +15739,12 @@ AElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="For-CVS-plotting">For CVS plotting<a class="anchor-link" href="#For-CVS-plotting">&#194;&#182;</a></h3>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_graph ~ pre*C(variable) + C(sim_index)*C(sim) &#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_graph ~ pre*variable + C(sim_index)*variable + pre*C(sim_index) + C(sim)&#39;</span>
 <span class="k">print</span> <span class="s1">&#39;model: &#39;</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
 <span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
 <span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">dmatrices</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
@@ -15085,7 +15752,7 @@ AElFTkSuQmCC
 <span class="n">logit</span> <span class="o">=</span> <span class="n">Logit</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-<span class="c1"># print model.params</span>
+<span class="c1"># print model.paramsdd</span>
 </pre></div>
 
 </div>
@@ -15102,35 +15769,50 @@ AElFTkSuQmCC
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>model:  CVS_graph ~ pre*C(variable) + C(sim_index)*C(sim)  
+<pre>model:  CVS_graph ~ pre*variable + C(sim_index)*variable + pre*C(sim_index) + C(sim) 
 
 Optimization terminated successfully.
-         Current function value: 0.671971
+         Current function value: 0.670840
          Iterations 5
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:              CVS_graph   No. Observations:                  592
-Model:                          Logit   Df Residuals:                      582
-Method:                           MLE   Df Model:                            9
-Date:                Fri, 19 Jan 2018   Pseudo R-squ.:                 0.03035
-Time:                        19:04:44   Log-Likelihood:                -397.81
+Model:                          Logit   Df Residuals:                      579
+Method:                           MLE   Df Model:                           12
+Date:                Tue, 23 Jan 2018   Pseudo R-squ.:                 0.03198
+Time:                        15:01:27   Log-Likelihood:                -397.14
 converged:                       True   LL-Null:                       -410.26
-                                        LLR p-value:                  0.003079
-====================================================================================================
-                                       coef    std err          z      P&gt;|z|      [0.025      0.975]
-----------------------------------------------------------------------------------------------------
-Intercept                           -0.6248      0.324     -1.930      0.054      -1.259       0.010
-C(variable)[T.Concentration]         0.5652   7.95e+06   7.11e-08      1.000   -1.56e+07    1.56e+07
-C(variable)[T.Separation]           -0.0336      0.448     -0.075      0.940      -0.911       0.844
-C(variable)[T.Width]                -0.4575   7.95e+06  -5.75e-08      1.000   -1.56e+07    1.56e+07
-C(sim_index)[T.2]                    0.7003      0.239      2.930      0.003       0.232       1.169
-C(sim)[T.L]                          0.1077   7.95e+06   1.35e-08      1.000   -1.56e+07    1.56e+07
-C(sim_index)[T.2]:C(sim)[T.L]       -0.4608      0.339     -1.360      0.174      -1.125       0.203
-pre                                  0.1689      0.204      0.828      0.407      -0.231       0.568
-pre:C(variable)[T.Concentration]    -0.2323      0.293     -0.793      0.428      -0.807       0.342
-pre:C(variable)[T.Separation]       -0.0066      0.296     -0.022      0.982      -0.586       0.573
-pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052      -0.005       1.177
-====================================================================================================
+                                        LLR p-value:                  0.009915
+===============================================================================================================
+                                                  coef    std err          z      P&gt;|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------
+Intercept                                      -0.5146      0.362     -1.421      0.155      -1.225       0.195
+variable[T.Concentration]                       0.6114        nan        nan        nan         nan         nan
+variable[T.Separation]                          0.0633      0.524      0.121      0.904      -0.964       1.090
+variable[T.Width]                              -0.5009        nan        nan        nan         nan         nan
+C(sim_index)[T.2]                               0.4587      0.428      1.073      0.283      -0.379       1.297
+C(sim)[T.L]                                     0.1105        nan        nan        nan         nan         nan
+C(sim_index)[T.2]:variable[T.Concentration]    -0.5904      0.475     -1.244      0.213      -1.520       0.340
+C(sim_index)[T.2]:variable[T.Separation]       -0.1249      0.479     -0.261      0.794      -1.063       0.813
+C(sim_index)[T.2]:variable[T.Width]            -0.3994      0.485     -0.824      0.410      -1.350       0.551
+pre                                             0.0535      0.230      0.233      0.816      -0.396       0.503
+pre:variable[T.Concentration]                  -0.2267      0.296     -0.767      0.443      -0.806       0.353
+pre:variable[T.Separation]                     -0.0142      0.297     -0.048      0.962      -0.597       0.569
+pre:variable[T.Width]                           0.5997      0.303      1.977      0.048       0.005       1.194
+pre:C(sim_index)[T.2]                           0.2372      0.215      1.105      0.269      -0.183       0.658
+===============================================================================================================
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>d:\applications\anaconda2\lib\site-packages\statsmodels\base\model.py:1029: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(np.diag(self.cov_params()))
 </pre>
 </div>
 </div>
@@ -15143,10 +15825,254 @@ pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052    
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>CVS plotting occurs more in second sim but no interaction with sim type. Pre doesn't matter, variable doesn't matter.</p>
+<h3 id="Parismonious-model">Parismonious model<a class="anchor-link" href="#Parismonious-model">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_graph ~ pre + variable + C(sim_index) + C(sim)&#39;</span>
+<span class="k">print</span> <span class="s1">&#39;model: &#39;</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">dmatrices</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+<span class="c1"># print X.columns</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">Logit</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="c1"># print model.paramsdd</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>model:  CVS_graph ~ pre + variable + C(sim_index) + C(sim) 
+
+Optimization terminated successfully.
+         Current function value: 0.680638
+         Iterations 4
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:              CVS_graph   No. Observations:                  592
+Model:                          Logit   Df Residuals:                      586
+Method:                           MLE   Df Model:                            5
+Date:                Tue, 23 Jan 2018   Pseudo R-squ.:                 0.01785
+Time:                        15:01:27   Log-Likelihood:                -402.94
+converged:                       True   LL-Null:                       -410.26
+                                        LLR p-value:                   0.01201
+=============================================================================================
+                                coef    std err          z      P&gt;|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                    -0.5972      0.227     -2.635      0.008      -1.041      -0.153
+variable[T.Concentration]     0.0770        nan        nan        nan         nan         nan
+variable[T.Separation]       -0.0487      0.235     -0.207      0.836      -0.510       0.413
+variable[T.Width]            -0.0204        nan        nan        nan         nan         nan
+C(sim_index)[T.2]             0.4677      0.167      2.808      0.005       0.141       0.794
+C(sim)[T.L]                   0.0565        nan        nan        nan         nan         nan
+pre                           0.2439      0.104      2.352      0.019       0.041       0.447
+=============================================================================================
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>CVS plotting occurs more in second sim but no interaction with sim type. Pre matters, variable doesn't matter.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="post-hoc-of-pre">post hoc of pre<a class="anchor-link" href="#post-hoc-of-pre">&#194;&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_pre</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;Here is the avg pre score of students depending if they do CVS graph or not&quot;</span>
+<span class="n">cvs_pre</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Here is the avg pre score of students depending if they do CVS graph or not
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[52]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x13a586d8&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeEAAAFvCAYAAAB98HOmAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAFtNJREFUeJzt3X9M1If9x/EXn7vjx4kp8R8vh6DBFcx+KFNLXdcs4NAZ
+/3DZsu4P1rWJsYSRmK6VplnFzsqIbdo0rqtrsSSdqEts5hKdVfej0+klNqXi5hJFHDbogI0t/oS7
+kx/32R92ty9fq6fC8ZaPz8df3Ofz4T5v8T4873McHzJc13UFAAAmnGM9AAAA9ysiDACAESIMAIAR
+IgwAgBEiDACAESIMAIARIgwAgBG/xU57enosdotxEA6H+f8DDHDsTW7hcPgzl3MmDACAESIMAIAR
+IgwAgBEiDACAESIMAIARIgwAgBEiDACAEZPfEwYA4FZGnloxrvfne2fPuN7feOFMGAAAI5wJAwAg
+6cCBA4pEIopGo7p8+bKeeOIJ/eIXv1BBQYH8fr+effZZvfrqq7py5YokafXq1SoqKhrTPokwAACf
+isfjeu2113Tp0iXV1tZqZGRE3//+9/Xggw+qqalJ8+fP1ze/+U39/e9/1yuvvKKf/exnY9ofEQYA
+4FPz5s2T4ziaNm2acnNzde7cORUUFEiSPvnkEx0/flwHDx6UJF29enXM+yPCAAB8qqOjQ5J04cIF
+RaNR5eXlyXGuv32qoKBAlZWVqqys1MWLF/X++++PeX9EGACAT124cEHPPvusBgYG9MMf/lCvv/56
+ct3jjz+uV199VXv37lU0GtWTTz455v1luK7rjvle7hB/jmvy4s+p4V413r/Sgol1L/wK0YEDB3Tu
+3DlVV1eP+33zpwwBALjH8HI0AACSli1bNuH75EwYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAA
+I0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNEGAAAI0QYAAAjRBgAACNE
+GAAAI0QYAAAj/tvZ6MyZM9qxY4fWr18/ankkEtG+ffvk8/lUUFCgVatWyXHoOgAAtyNlhHfv3q3D
+hw8rOzt71PLBwUHt3LlTr732mrKysrRp0ya1tbVp4cKFaRsWAAAvSXnaOn36dNXV1d2w3O/3q6Gh
+QVlZWZKkRCKhQCAw/hMCAOBRKc+EFy1apL6+vhuWO46jvLw8SdL+/fsVj8c1d+7c29ppOBy+wzFx
+L+H/D/ei89YDYEzu1+8rt/Uz4ZtJJBLavn27ent7tWbNGmVkZNzW5/X09IxltzAUDof5/wMw7rz+
+feVmTzLGFOEtW7YoEAjoueee4w1ZAADcoTuOcCQSUTweV1FRkQ4ePKg5c+Zow4YNkqTly5errKxs
+3IcEAMCLMlzXdSd6p15/2cHLeDka96qRp1ZYj4Ax8L2zx3qEtLrZy9G8hgwAgBEiDACAESIMAIAR
+IgwAgBEiDACAESIMAIARIgwAgBEiDACAESIMAICRMV07Gjfy+lV7vP6Xarx+1R4A9xbOhAEAMEKE
+AQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEA
+MEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBC
+hAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADDiv52Nzpw5ox07dmj9+vWjln/88cfatWuXHMdR
+RUWFKisr0zEjAACelDLCu3fv1uHDh5WdnT1q+fDwsLZu3aqNGzcqOztb69at08KFC5WXl5e2YQEA
+8JKUL0dPnz5ddXV1Nyzv7u5WKBRSbm6u/H6/SkpKdOrUqbQMCQCAF6U8E160aJH6+vpuWB6LxRQM
+BpO3c3JyFI1Gb2un4XD4DkacXM5bD4Ax8fJj0+s49ia3+/XYu62fCX+WnJwcxePx5O1YLKYpU6bc
+1uf29PTc7W6BtOKxCdjw+rF3sycZd/3u6Pz8fPX29qq/v1/Dw8M6deqUiouL73pAAADuN3d8JhyJ
+RBSPx1VZWaknnnhCjY2NSiQSqqio0LRp09IxIwAAnpThuq470Tv18ssOI0+tsB4BY+B7Z4/1CLhL
+HHuTm9ePvXF/ORoAAIwNEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEG
+AMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDA
+CBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgR
+BgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDAiD/VBolEQs3Nzerq6lIgEFBNTY1CoVBy
+/ZEjR7R37145jqOKigotXbo0rQMDAOAVKc+EW1tbNTQ0pMbGRlVVVamlpWXU+m3btmndunVqaGjQ
+b37zG/X396dtWAAAvCTlmXB7e7tKS0slScXFxers7By1fubMmYpGo3Kc6z3PyMhIw5gAAHhPygjH
+YjEFg8HkbcdxNDIyIp/PJ0kqKCjQ888/r+zsbJWVlWnKlCkpdxoOh8cw8r3tvPUAGBMvPza9jmNv
+crtfj72UEc7JyVEsFkvedl03GeCuri61tbVp8+bNys7O1htvvKGjR4/qK1/5yi3vs6enZ4xjA+nB
+YxOw4fVj72ZPMlL+TLikpETHjx+XJHV0dKiwsDC5LhgMKjMzU5mZmXIcRw888IAGBgbGaWQAALwt
+5ZlwWVmZTpw4ofr6ermuq9raWkUiEcXjcVVWVqqyslLr1q2T3+/X9OnTVV5ePgFjAwAw+aWMsOM4
+qq6uHrUsPz8/+fHSpUv5tSQAAO4CF+sAAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAI
+EQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEG
+AMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDA
+CBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMAIEQYAwAgRBgDACBEGAMCIP9UGiURC
+zc3N6urqUiAQUE1NjUKhUHL93/72N7W0tMh1XeXl5Wn16tXKzMxM69AAAHhByjPh1tZWDQ0NqbGx
+UVVVVWppaUmuc11XTU1Nqq2tVUNDg0pLS/Xvf/87rQMDAOAVKc+E29vbVVpaKkkqLi5WZ2dncl1v
+b6+mTp2qvXv36vz585o/f77C4XD6pgUAwENSRjgWiykYDCZvO46jkZER+Xw+XblyRadPn9bKlSsV
+CoX0yiuvaPbs2friF794y/v0cqjPWw+AMfHyY9PrOPYmt/v12EsZ4ZycHMViseRt13Xl8/kkSVOn
+TlUoFNKMGTMkSfPmzVNnZ2fKCPf09IxlZiBteGwCNrx+7N3sSUbKnwmXlJTo+PHjkqSOjg4VFhYm
+102fPl3xeFz/+Mc/JF1/6bqgoGA85gUAwPNSngmXlZXpxIkTqq+vl+u6qq2tVSQSUTweV2VlpX7w
+gx/opz/9qaTrPzOeP39+2ocGAMALMlzXdSd6p15+2WHkqRXWI2AMfO/ssR4Bd4ljb3Lz+rF31y9H
+AwCA9CDCAAAYIcIAABghwgAAGCHCAAAYIcIAABghwgAAGCHCAAAYIcIAABghwgAAGCHCAAAYIcIA
+ABghwgAAGCHCAAAYIcIAABghwgAAGCHCAAAYIcIAABghwgAAGCHCAAAYIcIAABghwgAAGCHCAAAY
+IcIAABghwgAAGCHCAAAYIcIAABghwgAAGCHCAAAYIcIAABghwgAAGCHCAAAYIcIAABghwgAAGCHC
+AAAYIcIAABghwgAAGCHCAAAYIcIAABjxp9ogkUioublZXV1dCgQCqqmpUSgUumG7pqYm5ebm6nvf
++15aBgUAwGtSngm3trZqaGhIjY2NqqqqUktLyw3b/P73v9e5c+fSMiAAAF6VMsLt7e0qLS2VJBUX
+F6uzs3PU+tOnT+vMmTNasmRJeiYEAMCjUr4cHYvFFAwGk7cdx9HIyIh8Pp8uXryoX/3qV6qrq9PR
+o0dve6fhcPjupp0EzlsPgDHx8mPT6zj2Jrf79dhLGeGcnBzFYrHkbdd15fP5JElHjx7VlStXtHHj
+Rl26dEnXrl1Tfn6+ysvLb3mfPT09Y5saSBMem4ANrx97N3uSkTLCJSUlOnbsmB555BF1dHSosLAw
+uW758uVavny5JOnQoUPq7u5OGWAAAHBdygiXlZXpxIkTqq+vl+u6qq2tVSQSUTweV2Vl5UTMCACA
+J6WMsOM4qq6uHrUsPz//hu04AwYA4M5wsQ4AAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEA
+AIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACM
+EGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBh
+AACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACM+FNtkEgk1Nzc
+rK6uLgUCAdXU1CgUCiXXRyIR7du3Tz6fTwUFBVq1apUch7YDAJBKylq2trZqaGhIjY2NqqqqUktL
+S3Ld4OCgdu7cqR//+MdqaGhQNBpVW1tbWgcGAMArUka4vb1dpaWlkqTi4mJ1dnYm1/n9fjU0NCgr
+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
+AElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -15158,7 +16084,196 @@ pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052    
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_order_only</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="s1">&#39;sim_index&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;Here is the percent of students who do CVS in graph given the order and sim&quot;</span>
+<span class="n">cvs_order_only</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Here is the percent of students who do CVS in graph given the order and sim
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[53]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x13ddd630&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeEAAAGCCAYAAADXKnv6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAHFNJREFUeJzt3X9U1fUdx/EX915U0Im6SgKjdAqekwrZiaUz02LTcP36
+Y7aR22nLiMPq1ETbnDRTYbqRudy0mdQM3WZq1mzpMisrTm2RuUgW4QjBxGz+QCPulcu9d390djfm
+j4sI9+29Ph9/ee/3y/2+uR/wyfdyuTcmEAgEBAAAws5hPQAAAOcrIgwAgBEiDACAESIMAIARIgwA
+gBEiDACAESIMAIARl8VBGxsbLQ4bFklJSVH9+UU71i9ysXaRLdrXLykp6aTXcyYMAIARIgwAgBEi
+DACAESIMAIARIgwAgBEiDACAESIMAIARk78TBgCcO3x33dSlt+dcuSnkPnV1dVqxYoWOHz8ut9ut
+rKws7d69W+np6crOzg7ut379eh07dkzTpk3TkiVLdOjQIXk8Hg0YMEAzZsxQQkJCl85+Kn//+9+1
+adMm/exnP+vS2+VMGAAQVs3NzVqwYIHuueceLVmyRMuWLVNNTY0GDRqkrVu3ttv3xRdf1JQpU7Rl
+yxYNGDBAJSUl+vWvf62RI0eqrKzM6DPoOpwJAwDCqry8XFdccYUGDRokSXI6nfrFL36hgwcP6uWX
+X9Ynn3yixMREVVdXa8CAAUpMTFT//v21efNmjRgxQunp6br11ltPe4zjx49r4cKFOnjwoC666CJV
+VlZqw4YNuv/++9WvXz999tlnmjdvnh5++GF9/vnnOnjwoG655RbdfPPNuv/++5WSkqKGhgYFAgHN
+nTtXkvTxxx/rxz/+sY4cOaKxY8fqjjvuOOv7gjNhAEBYHTp0SBdffHG763r37q3Y2FhlZ2dr27Zt
+kqQtW7boxhtvlCRde+21mjZtmjZv3qycnBwVFBSovr7+lMd4/vnnlZiYqN/85je64447dOTIkeC2
+66+/XosXL1ZjY6Ouu+46lZSUqKSkROvXrw/uc/nll+tXv/qVJk6cqDVr1kiSWltbtWDBAi1dulTP
+Pvtsl9wXRBgAEFYDBw7Uv/71r3bX7d27V++9954mTZqkV199Va2trXrvvfc0duxYSVJVVZVGjx6t
+oqIibdy4UZMnT9aiRYtOeYyGhgaNGDFCkpSSktLud8eXXHKJJKl///4qLy9XcXGxVq9erba2tuA+
+o0ePliSNGDFCe/fulSQNHjxYPXr0UK9eveR0OrvgniDCAIAwGzNmjN5++23t27dPktTW1qZFixap
+rq5OCQkJuvTSS1VWVqZx48YFY/fyyy/rmWeekfTFw9dDhgxRjx49TnmMwYMHq6qqSpK0b98+HT16
+NLjN4fgifevWrdPll1+uOXPmaMKECe0+/sMPP5Qkvf/++7rsssskSTExMWf/yf8ffieMc1pXP2sz
+lL1hPVrHnkUKRJvevXvrJz/5iRYvXiy/36+WlhZNmjRJN998syRpypQpmj17drsnXk2fPl2PPvqo
+pk+frl69eikuLk6zZs065TGys7O1aNEi3XfffRo4cOBJgz127FgtXbpUr7zyivr06SOn06nW1lZJ
+XzwhbP369YqLi9Ps2bNVV1fXxffCF2ICgUCgW275NKL97aqi+fMLt3BHONyIcNfhey+ydfX67dq1
+S263W1dddVXwCVW///3vO/Sx999/v2bMmKGUlJQum+dUb2XImTAAIGItWbLkpE/QevDBB1VUVKSn
+nnpKPp9P9913n8F0oXEm3MX4abxrcSaMjuJ7L7JF+/qd6kyYJ2YBAGCECAMAYIQIAwBghAgDAGCE
+CAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCEtzIEAJwg3O9gtjes
+Rzt33sGMM2EAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQ
+YQAAjBBhAACMEGEAAIwQYQAAjBBhAACMhHw/Yb/fr9LSUtXX1ys2NlZ5eXlKTEwMbv/zn/+sV155
+RX379pUk5ebmKikpqfsmBgAgSoSMcEVFhbxer4qLi1VTU6OysjI98MADwe0fffSR7rnnHg0ZMqRb
+BwUAINqEjHB1dbUyMjIkSampqaqtrW23va6uTs8++6yampo0evRo3Xrrrd0zKQAAUSZkhN1ut+Lj
+44OXHQ6HfD6fnE6nJGns2LGaNGmS4uPjVVJSoh07dujKK6887W1G+8PV0f75hdNe6wG6GV8rXYv7
+s+vwvRceISMcFxcnt9sdvBwIBIIBDgQCmjJlSjDSo0ePVl1dXcgINzY2ns3M57SkpKSo/vzQtfha
+6Tp87+FMhPtr5VTRD/ns6LS0NO3cuVOSVFNTo5SUlOA2t9utgoICeTweBQIB7dq1i98NAwDQQSHP
+hDMzM1VZWanCwkIFAgHl5+ervLxcHo9HWVlZ+s53vqN58+bJ5XJp5MiRGj16dDjmBgAg4oWMsMPh
+UG5ubrvrkpOTg/8eP368xo8f3/WTAQAQ5XixDgAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQ
+YQAAjBBhAACMEGEAAIwQYQAAjBBhAACMEGEAAIwQYQAAjIR8FyUA6AzfXTeF9Xh7w3o0yblyU5iP
+iGjEmTAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAA
+RogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaI
+MAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGiDAAAEaIMAAARogwAABGXKF2
+8Pv9Ki0tVX19vWJjY5WXl6fExMQT9luxYoX69Omj22+/vVsGBQAg2oQ8E66oqJDX61VxcbFycnJU
+VlZ2wj4vvfSSGhoaumVAAACiVcgIV1dXKyMjQ5KUmpqq2tradts//PBD7d69W1//+te7Z0IAAKJU
+yIej3W634uPjg5cdDod8Pp+cTqeOHDmiDRs2aObMmXrrrbc6fNCkpKTOTRshov3zC6e91gN0s2j+
+WmHtIhvrFx4hIxwXFye32x28HAgE5HQ6JUlvvfWWjh07poULF6qpqUnHjx9XcnKyJkyYcNrbbGxs
+PLupz2FJSUlR/fmha/G1ErlYu8gW7vU7VfRDRjgtLU07duzQ2LFjVVNTo5SUlOC27OxsZWdnS5K2
+b9+uffv2hQxwuPnuuimsxwv3T4/OlZvCfEQAQFcJGeHMzExVVlaqsLBQgUBA+fn5Ki8vl8fjUVZW
+VjhmBAAgKoWMsMPhUG5ubrvrkpOTT9jvXDsDBgDgXMeLdQAAYIQIAwBghAgDAGCECAMAYIQIAwBg
+hAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQI
+AwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMA
+YIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCE
+CAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBgxBVqB7/fr9LSUtXX1ys2NlZ5
+eXlKTEwMbv/rX/+qP/3pT5Kka665RtnZ2d03LQAAUSTkmXBFRYW8Xq+Ki4uVk5OjsrKy4Da/368/
+/OEPevDBB1VcXKwXX3xRx44d69aBAQCIFiHPhKurq5WRkSFJSk1NVW1tbXCbw+HQkiVL5HQ6dfTo
+Ufn9frlcIW8SAACoAxF2u92Kj48PXnY4HPL5fHI6nZIkp9Opv/3tb3riiSc0evRo9erVK+RBk5KS
+zmLkM7M3bEeyEc770gLrF7lYu8jG+oVHyAjHxcXJ7XYHLwcCgWCA/+OrX/2qrrrqKi1fvlyvvfaa
+Jk6ceNrbbGxs7OS4+H/cl5GN9YtcrF1kC/f6nSr6IX8nnJaWpp07d0qSampqlJKSEtzW0tKiuXPn
+yuv1yuFwqGfPnoqJiemikQEAiG4hz4QzMzNVWVmpwsJCBQIB5efnq7y8XB6PR1lZWbrmmms0d+5c
+OZ1OXXrppRo/fnw45gYAIOKFjLDD4VBubm6765KTk4P/zsrKUlZWVtdPBgBAlOPFOgAAMEKEAQAw
+QoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKE
+AQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEA
+MEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBC
+hAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAw4gq1
+g9/vV2lpqerr6xUbG6u8vDwlJiYGt5eXl2vz5s1yOp265JJLNH36dDkctB0AgFBC1rKiokJer1fF
+xcXKyclRWVlZcFtra6uefvppzZ07VwsWLFBLS4vefffdbh0YAIBoETLC1dXVysjIkCSlpqaqtrY2
+uM3lcmnBggXq2bOnpC/OmmNjY7tpVAAAokvIh6Pdbrfi4+ODlx0Oh3w+n5xOpxwOh/r16ydJ2rJl
+izwej0aNGhXyoElJSWcx8pnZG7Yj2QjnfWmB9YtcrF1kY/3CI2SE4+Li5Ha7g5cDgYCcTmfwst/v
+15o1a7R//34VFBQoJiYm5EEbGxs7OS7+H/dlZGP9IhdrF9nCvX6nin7Ih6PT0tK0c+dOSVJNTY1S
+UlLabX/88cfl9Xo1a9as4MPSAAAgtJBnwpmZmaqsrFRhYaECgYDy8/NVXl4uj8ejIUOG6NVXX9Xw
+4cM1f/58SVJ2drYyMzO7fXAAACJdyAg7HA7l5ua2uy45OTn476effrrrpwIA4DzAH/QCAGCECAMA
+YIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCE
+CAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgD
+AGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBg
+hAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYIQIAwBghAgDAGCECAMAYMQV
+age/36/S0lLV19crNjZWeXl5SkxMbLfP8ePHVVRUpLy8PCUnJ3fbsAAARJOQZ8IVFRXyer0qLi5W
+Tk6OysrK2m2vra3V3Llz9cknn3TbkAAARKOQEa6urlZGRoYkKTU1VbW1te22e71ezZw5kzNgAADO
+UMiHo91ut+Lj44OXHQ6HfD6fnE6nJGn48OFnfNCkpKQz/pjO2hu2I9kI531pgfWLXKxdZGP9wiNk
+hOPi4uR2u4OXA4FAMMCd1djYeFYfj//ivoxsrF/kYu0iW7jX71TRD/lwdFpamnbu3ClJqqmpUUpK
+StdOBgDAeSrkmXBmZqYqKytVWFioQCCg/Px8lZeXy+PxKCsrKxwzAgAQlUJG2OFwKDc3t911J3sS
+1kMPPdRlQwEAcD7gxToAADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAw
+QoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKE
+AQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEA
+MEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBChAEAMEKEAQAwQoQBADBC
+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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_order</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span><span class="s1">&#39;sim_index&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
@@ -15187,7 +16302,7 @@ pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052    
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[46]:</div>
+<div class="prompt output_prompt">Out[54]:</div>
 
 
 
@@ -15269,7 +16384,7 @@ pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052    
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_order</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
@@ -15285,13 +16400,13 @@ pre:C(variable)[T.Width]             0.5863      0.302      1.944      0.052    
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[47]:</div>
+<div class="prompt output_prompt">Out[55]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xfa8eeb8&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xfaa2da0&gt;</pre>
 </div>
 
 </div>
@@ -15531,315 +16646,6 @@ hlDCAAAYQgkDAGAIJQwAgCH/D/g9PywZU/nWAAAAAElFTkSuQmCC
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Can-we-predict-use-of-CVS?">Can we predict use of CVS?<a class="anchor-link" href="#Can-we-predict-use-of-CVS?">&#194;&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>First we have to collapse the data to what students did in their first and second sim</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">cvs_learn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="s1">&#39;main&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_graph&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_table_only&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">,</span><span class="s1">&#39;sid&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
-<span class="n">cvs_learn</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">cvs_learn_1</span> <span class="o">=</span> <span class="n">cvs_learn</span><span class="p">[</span><span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">cvs_learn_1</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_graph_1&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_table_only_1&#39;</span><span class="p">,</span> <span class="s1">&#39;main_1&#39;</span><span class="p">,</span> <span class="s1">&#39;pre_1&#39;</span><span class="p">]</span>
-<span class="n">cvs_learn_2</span> <span class="o">=</span> <span class="n">cvs_learn</span><span class="p">[</span><span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">cvs_learn_2</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_graph_2&#39;</span><span class="p">,</span><span class="s1">&#39;CVS_table_only_2&#39;</span><span class="p">,</span> <span class="s1">&#39;main_2&#39;</span><span class="p">,</span> <span class="s1">&#39;pre_2&#39;</span><span class="p">]</span>
-<span class="n">cvs_learn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cvs_learn_1</span><span class="p">,</span><span class="n">cvs_learn_2</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cvs_learn</span><span class="o">.</span><span class="n">index</span>
-<span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;first_sim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cvs_learn</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">sid</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sid&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">sid</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sim_index&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;sim&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">cvs_learn</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[52]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sim_index</th>
-      <th>CVS_graph_1</th>
-      <th>CVS_table_only_1</th>
-      <th>main_1</th>
-      <th>pre_1</th>
-      <th>sim_index</th>
-      <th>CVS_graph_2</th>
-      <th>CVS_table_only_2</th>
-      <th>main_2</th>
-      <th>pre_2</th>
-      <th>sid</th>
-      <th>first_sim</th>
-    </tr>
-    <tr>
-      <th>sid</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10127163</th>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>10127163</td>
-      <td>L</td>
-    </tr>
-    <tr>
-      <th>10192168</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.5</td>
-      <td>1.0</td>
-      <td>10192168</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>10232160</th>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>10232160</td>
-      <td>L</td>
-    </tr>
-    <tr>
-      <th>10375163</th>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>0.5</td>
-      <td>10375163</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>10420167</th>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2.5</td>
-      <td>2.0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>0</td>
-      <td>3.0</td>
-      <td>0.5</td>
-      <td>10420167</td>
-      <td>C</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_table_only_2 ~ CVS_table_only_1*main_1 +CVS_graph_1+ pre_1 + C(first_sim)&#39;</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">cvs_learn</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="c1"># print model.summary()</span>
-<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
-<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;Anova table using type 2 errors&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  CVS_table_only_2 ~ CVS_table_only_1*main_1 +CVS_graph_1+ pre_1 + C(first_sim)
-Anova table using type 2 errors
-                         sum_sq     df       F     PR(&gt;F)     eta_sq   omega_sq
-C(first_sim)              0.022    1.0   0.048  8.265e-01  3.039e-04 -5.962e-03
-CVS_table_only_1          5.290    1.0  11.821  7.701e-04  7.451e-02  6.778e-02
-main_1                    0.382    1.0   0.853  3.573e-01  5.376e-03 -9.214e-04
-CVS_table_only_1:main_1   0.021    1.0   0.046  8.303e-01  2.906e-04 -5.975e-03
-CVS_graph_1               2.117    1.0   4.732  3.127e-02  2.983e-02  2.338e-02
-pre_1                     0.065    1.0   0.144  7.045e-01  9.103e-04 -5.359e-03
-Residual                 63.094  141.0     NaN        NaN        NaN        NaN
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Student who uses CVS collect previously were more likely to do so again, and even more so depending on how much they learned! (need to investigate further if its learn more do more or not).</p>
-<p>The first sim doesn't matter surprisingly.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Learning-to-do-CVS-plot">Learning to do CVS plot<a class="anchor-link" href="#Learning-to-do-CVS-plot">&#194;&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s1">&#39;CVS_graph_2 ~ CVS_graph_1*main_1 +CVS_table_only_1 + pre_1 + C(first_sim)&#39;</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">cvs_learn</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="c1"># print model.summary()</span>
-<span class="k">print</span> <span class="s2">&quot;Model: &quot;</span><span class="p">,</span><span class="n">formula</span>
-<span class="n">aov_table</span> <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">eta_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="n">omega_squared</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;Anova table using type 2 errors&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Model:  CVS_graph_2 ~ CVS_graph_1*main_1 +CVS_table_only_1 + pre_1 + C(first_sim)
-Anova table using type 2 errors
-                    sum_sq     df       F     PR(&gt;F)     eta_sq  omega_sq
-C(first_sim)         0.006    1.0   0.010  9.223e-01  5.452e-05    -0.006
-CVS_graph_1         19.211    1.0  30.213  1.761e-07  1.727e-01     0.166
-main_1               1.168    1.0   1.836  1.776e-01  1.050e-02     0.005
-CVS_graph_1:main_1   0.046    1.0   0.073  7.873e-01  4.177e-04    -0.005
-CVS_table_only_1     0.971    1.0   1.527  2.186e-01  8.729e-03     0.003
-pre_1                0.176    1.0   0.277  5.998e-01  1.581e-03    -0.004
-Residual            89.658  141.0     NaN        NaN        NaN       NaN
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Sim doesn't matter.</p>
-<p>Only doing CVS graph does, regardless of if they learned from it or not!</p>
-
-</div>
-</div>
 </div>
     </div>
   </div>
