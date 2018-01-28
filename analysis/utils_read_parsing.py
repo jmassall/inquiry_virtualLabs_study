@@ -35,6 +35,52 @@ def get_pre_survey():
     df = pd.read_csv(filepath,sep='\t',encoding = "ISO-8859-1")
     return df
 
+def get_all_posts_surveys():
+    posts = pd.DataFrame()
+    for sim_order in ['Capacitance-assessment-2LC','Absorbance-assessment-1LC','Capacitance-assessment-1CL','Absorbance-assessment-2CL']:
+        filename = 'responses_{0}_downloaded_4.3.2017.txt'.format(sim_order)
+        filepath = os.path.join(BIG_FOLDER,'raw study data\\survey data\\'+filename)
+        newdf = pd.read_csv(filepath,sep='\t',encoding = "ISO-8859-1")
+        newdf['sim_index'] = sim_order[-3]
+
+        posts = pd.concat([posts,newdf])    
+        
+    #cleaning up columns
+    old_columns = list(posts.columns)
+    new_columns = [c.split(']')[0].replace('[','') for c in old_columns]
+    for i,(c,d) in enumerate(zip(new_columns,old_columns)):
+        if new_columns.count(c)>1:
+            new_columns[i] = d
+    posts.columns = new_columns
+
+    def ids_posts_to_logs(row):
+        sid = row['id']
+        if sid in [561164,192168,7868168]:
+            return sid+10000000
+        elif sid == 17595160:
+            return 17597160
+        elif sid == 31607164:
+            return 36107164
+        elif sid == 17931169:
+            if row['IP Address'] == '142.103.243.201':
+                return 17931169
+            else:
+                return 12345678 #cahnge the id so we don't use it
+        elif sid == 84135167:
+            return 83145167
+        else:
+            return sid
+
+    #adding an sid that matches logs.
+    posts['sid'] = posts.apply(lambda row: ids_posts_to_logs(row),axis=1)
+    posts = posts.rename(columns = {'id':'original id'})
+    
+    #filtering out all post survey data that is not analyzable
+    log_ids = set(get_students_to_analyze_log())
+    posts = posts[posts['sid'].isin(log_ids)]
+    return posts
+
+
 SIM_NAMES = {'beers':'ABSORBANCE','caps':'CAPACITORS'}
 def get_worksheet_metadata(sim):
     #get primary metadata file for that sim
