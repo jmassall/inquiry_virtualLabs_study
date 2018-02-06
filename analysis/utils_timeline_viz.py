@@ -413,7 +413,7 @@ function_to_use = {'Record':get_record_usage,
                    'Charge vs. area':axis_charge_area_usage,
                    'Charge vs. separation':axis_charge_separation_usage,                   
                    'Other axes':axis_other_usage,
-                   'Change axis scales':axis_change_scale_usage,
+                   'Change scales':axis_change_scale_usage,
                    'Linear axis':axis_scale_linear_usage,
                    'Log axis':axis_scale_log_usage,
                    'Inverse axis':axis_scale_inverse_usage,
@@ -431,7 +431,7 @@ function_to_use = {'Record':get_record_usage,
 colors = {'Interface':'#969696',
             'Notes':'#f1cb2d',
             'Pause':'#f1cb2d',
-            'Change axis scales':'#2a2d34',
+            'Change scales':'#2a2d34',
             'Linear axis':'#737373',
             'Log axis':'#737373',
             'Inverse axis':'#737373',
@@ -628,6 +628,7 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
     ax.set_yticks(range(0,len(to_plot)*spacing,spacing)) #for the grid
     ax.set_yticklabels(['' for p in to_plot])
     ax.set_yticks(range(spacing/2,len(to_plot)*spacing,spacing),minor=True) #minor ticks
+    to_plot = [fix_name(track) for track in to_plot]
     ax.set_yticklabels([a.capitalize() for a in to_plot],fontsize=20, minor=True)
     ax.grid(True)
     
