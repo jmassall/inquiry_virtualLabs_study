@@ -247,7 +247,7 @@ def merge_usage(x,y):
 def get_record_usage(df):
     record_usage = action_usage(df,'Family','M')
     #We want record events ot be singular not episodes
-    record_usage = [(time,2) for time,duration in record_usage]
+    record_usage = [(time,4) for time,duration in record_usage]
     return record_usage
 
 def axis_absorbance_usage(df):
@@ -378,6 +378,10 @@ def axis_scale_inverse_usage(df):
     y_axis_usage = action_usage(df,'Y axis scale','inverse')
     return merge_usage(x_axis_usage,y_axis_usage)
 
+def axis_change_scale_usage(df):
+    x_axis_usage = action_usage(df,'Event','Selecting scale of X-axis')
+    y_axis_usage = action_usage(df,'Event','Selecting scale of Y-axis')
+    return merge_usage(x_axis_usage,y_axis_usage)
 
 family_name_to_code = {'Interface':'I',
                         'Restore':'R',
@@ -409,6 +413,7 @@ function_to_use = {'Record':get_record_usage,
                    'Charge vs. area':axis_charge_area_usage,
                    'Charge vs. separation':axis_charge_separation_usage,                   
                    'Other axes':axis_other_usage,
+                   'Change axis scales':axis_change_scale_usage,
                    'Linear axis':axis_scale_linear_usage,
                    'Log axis':axis_scale_log_usage,
                    'Inverse axis':axis_scale_inverse_usage,
@@ -426,6 +431,7 @@ function_to_use = {'Record':get_record_usage,
 colors = {'Interface':'#969696',
             'Notes':'#f1cb2d',
             'Pause':'#f1cb2d',
+            'Change axis scales':'#2a2d34',
             'Linear axis':'#737373',
             'Log axis':'#737373',
             'Inverse axis':'#737373',
@@ -434,12 +440,12 @@ colors = {'Interface':'#969696',
             'Abs vs. Width':'#f1cb2d',
             'Abs vs. Concentration':'#5c8dfc',
             'Graph edit axes':'#6000fc',
-            'Graph add/del':'#6000fc',
+            'Graph add/del':'#2a2d34',#'#6000fc',
             'Restore':'#6000fc',
             'Data Table delete':'#6000fc',
             'Data Table move trial':'#6000fc',
             '':'white',
-            'Record':'#6000fc',
+            'Record':'#2a2d34',#'#6000fc',
             'Detector':'#32883b',
             'Wavelength':'#9b0017',
             'Connection':'#9b0017',
@@ -522,8 +528,11 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
             if len(values)>0:
                 min_v,max_v = 0.0,max(values)
                 #plot legend
-                ax.text(5,i*spacing+1,'0',horizontalalignment='left',fontsize=14, color=colors[action])
-                ax.text(5,(i+1)*spacing-3,str(max_v),horizontalalignment='left',fontsize=14, color=colors[action])
+                ax.text(coords[0]-10,i*spacing,'0',horizontalalignment='left',fontsize=14, color=colors[action])
+                ax.text(coords[-1]+2,(i+1)*spacing-2,str(max_v),horizontalalignment='left',fontsize=14, color=colors[action])
+                #Add "0 points" in the values and coords
+                coords.insert(0,coords[0])
+                values.insert(0,0)
                 norm_values = [(v-min_v)/(max_v-min_v)*(spacing-margin) +i*spacing for v in values] #normalize so it fits in x_axis
                 #split confounded and non
                 c_to_plot = []
