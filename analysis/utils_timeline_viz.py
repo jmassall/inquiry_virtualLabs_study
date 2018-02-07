@@ -628,7 +628,6 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
     ax.set_yticks(range(0,len(to_plot)*spacing,spacing)) #for the grid
     ax.set_yticklabels(['' for p in to_plot])
     ax.set_yticks(range(spacing/2,len(to_plot)*spacing,spacing),minor=True) #minor ticks
-    to_plot = [fix_name(track) for track in to_plot]
     ax.set_yticklabels([a.capitalize() for a in to_plot],fontsize=20, minor=True)
     ax.grid(True)
     
