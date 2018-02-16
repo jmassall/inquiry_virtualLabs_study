@@ -83,6 +83,8 @@ def get_all_posts_surveys():
 
 SIM_NAMES = {'beers':'ABSORBANCE','caps':'CAPACITORS'}
 def get_worksheet_metadata(sim):
+    if sim == 'capacitor':
+        sim = 'caps'
     #get primary metadata file for that sim
     primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_coded_worksheets_metadata.csv')
     primary_df = pd.read_csv(primary_filepath,sep=',')
@@ -151,19 +153,31 @@ def get_date_event_pairs(sim,row):
     if sim == "capacitor":
         return [(row["date caps 1"],row["events caps 1"]),(row["date caps 2"],row["events caps 2"]),(row["date caps 3"],row["events caps 3"])]
 
-# def get_students_order():
-#     df = get_student_metadata()
-#     return dict(zip(df.studentid,df['activity order']))
+import pickle
+def get_parsed_log_files_per_student_for_sim(sim,update=False):
 
-def get_parsed_log_files_per_student_for_sim(sim):
+    if update == False:
+        try:
+            log_files = pickle.load(open(sim+'_log_files_per_student.txt','r'))
+            print "The file "+sim+'_log_files_per_student.txt has been unpickled and loaded'
+            return log_files
+        except IOError:
+            print "The file "+sim+"_log_files_per_student.txt was not found. Creating it..."
+
     df = get_student_metadata()
-    df = df[df['use analysis']==True]
-    log_files = {sid:[] for sid in df.index.values}
+    students = get_students_to_analyze_log_worksheets(sim)
+    df['sid'] = df.index
+    print df.shape
+    df = df[df['sid'].isin(students)]
+    print df.shape
+    log_files = {sid:[] for sid in students}
+
     for sid, row in df.iterrows():
         #grab date-event number pairs
         pairs = get_date_event_pairs(sim,row)
         #for dates with non zero events
         for date,number_events in pairs:
+#             print date, number_events
             if number_events > 0 :
                 parsed_file = find_student_log_file(sim,sid,date=date)
                 if parsed_file == None: # try finding the parse file with the secondary id
@@ -171,4 +185,6 @@ def get_parsed_log_files_per_student_for_sim(sim):
                     if parsed_file == None:
                         print "ERROR: This student ({0}) has no log file for {1}, even using it's other id {2}".format(sid,sim,row['other id'])
                 log_files[sid].append(parsed_file)
+    pickle.dump(log_files,open(sim+'_log_files_per_student.txt','w'))
+    print "The file "+sim+'_log_files_per_student.txt has created and pickled'
     return log_files
