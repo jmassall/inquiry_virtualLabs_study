@@ -1,0 +1,1367 @@
+(dp0
+cnumpy.core.multiarray
+scalar
+p1
+(cnumpy
+dtype
+p2
+(S'i8'
+p3
+I0
+I1
+tp4
+Rp5
+(I3
+S'<'
+p6
+NNNI-1
+I-1
+I0
+tp7
+bS'\x00\xb6k\x01\x00\x00\x00\x00'
+p8
+tp9
+Rp10
+(lp11
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_23836160_2017-01-17_12.17.36.txt'
+p12
+asg1
+(g5
+S'\x020\xb1\x00\x00\x00\x00\x00'
+p13
+tp14
+Rp15
+(lp16
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11612162_2017-01-17_12.17.50.txt'
+p17
+asg1
+(g5
+S'\x06p\xd0\x00\x00\x00\x00\x00'
+p18
+tp19
+Rp20
+(lp21
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13660166_2017-03-28_15.28.56.txt'
+p22
+asg1
+(g5
+S'\x0b\x10\x80\x02\x00\x00\x00\x00'
+p23
+tp24
+Rp25
+(lp26
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_41947147_2017-01-17_12.17.51.txt'
+p27
+asg1
+(g5
+S'\x02r\xa6\x00\x00\x00\x00\x00'
+p28
+tp29
+Rp30
+(lp31
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10908162_2017-01-20_11.22.48.txt'
+p32
+asg1
+(g5
+S'\x0f\xa8\xd0\x03\x00\x00\x00\x00'
+p33
+tp34
+Rp35
+(lp36
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_64006159_2017-01-17_11.22.34.txt'
+p37
+asg1
+(g5
+S'\x11Z+\x01\x00\x00\x00\x00'
+p38
+tp39
+Rp40
+(lp41
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19618321_2017-03-22_15.28.45.txt'
+p42
+asg1
+(g5
+S'Y\xe5\xc1\x00\x00\x00\x00\x00'
+p43
+tp44
+Rp45
+(lp46
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12707161_2017-01-19_14.21.33.txt'
+p47
+asg1
+(g5
+S'\x1f\xf6\x1e\x05\x00\x00\x00\x00'
+p48
+tp49
+Rp50
+(lp51
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_85915167_2017-01-17_12.18.09.txt'
+p52
+asg1
+(g5
+S'!\xf2\r\x01\x00\x00\x00\x00'
+p53
+tp54
+Rp55
+(lp56
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17691169_2017-03-20_15.33.07.txt'
+p57
+asg1
+(g5
+S'%\x9e\xff\x00\x00\x00\x00\x00'
+p58
+tp59
+Rp60
+(lp61
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16752165_2017-01-19_13.25.34.txt'
+p62
+asg1
+(g5
+S'(P\xf0\x00\x00\x00\x00\x00'
+p63
+tp64
+Rp65
+(lp66
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15749160_2017-03-23_14.25.38.txt'
+p67
+asg1
+(g5
+S'*\xe4\x01\x01\x00\x00\x00\x00'
+p68
+tp69
+Rp70
+(lp71
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16901162_2017-03-21_18.25.03.txt'
+p72
+asg1
+(g5
+S',$\x15\x03\x00\x00\x00\x00'
+p73
+tp74
+Rp75
+(lp76
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_51717164_2017-01-17_16.21.04.txt'
+p77
+asg1
+(g5
+S'0d\xa7\x00\x00\x00\x00\x00'
+p78
+tp79
+Rp80
+(lp81
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10970160_2017-01-23_15.24.13.txt'
+p82
+asg1
+(g5
+S'1\x82\x03\x01\x00\x00\x00\x00'
+p83
+tp84
+Rp85
+(lp86
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17007153_2017-01-27_13.26.56.txt'
+p87
+asg1
+(g5
+S'9$\x05\x01\x00\x00\x00\x00'
+p88
+tp89
+Rp90
+(lp91
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17114169_2017-01-20_15.24.55.txt'
+p92
+asg1
+(g5
+S'?|\x04\x01\x00\x00\x00\x00'
+p93
+tp94
+Rp95
+(lp96
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17071167_2017-01-19_13.26.00.txt'
+p97
+asg1
+(g5
+S'E\xd2-\x01\x00\x00\x00\x00'
+p98
+tp99
+Rp100
+(lp101
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19780165_2017-01-19_09.28.09.txt'
+p102
+asg1
+(g5
+S'G\xe2T\x01\x00\x00\x00\x00'
+p103
+tp104
+Rp105
+(lp106
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_22340167_2017-01-17_16.21.00.txt'
+p107
+asg1
+(g5
+S'1\x19\x0e\x01\x00\x00\x00\x00'
+p108
+tp109
+Rp110
+(lp111
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17701169_2017-03-21_17.29.24.txt'
+p112
+asg1
+(g5
+S'I\x1c\x05\x01\x00\x00\x00\x00'
+p113
+tp114
+Rp115
+(lp116
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17112137_2017-03-23_14.25.27.txt'
+p117
+asg1
+(g5
+S'N\x06\xb6\x00\x00\x00\x00\x00'
+p118
+tp119
+Rp120
+(lp121
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11929166_2017-01-17_12.17.40.txt'
+p122
+asg1
+(g5
+S'\r^\xb7\x00\x00\x00\x00\x00'
+p123
+tp124
+Rp125
+(lp126
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12017165_2017-03-22_16.24.54.txt'
+p127
+asg1
+(g5
+S'X\x8e*\x01\x00\x00\x00\x00'
+p128
+tp129
+Rp130
+(lp131
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19566168_2017-01-27_13.27.13.txt'
+p132
+asg1
+(g5
+S'Z2+\x01\x00\x00\x00\x00'
+p133
+tp134
+Rp135
+(lp136
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19608154_2017-01-27_14.25.17.txt'
+p137
+asg1
+(g5
+S'[\xb2\x08\x01\x00\x00\x00\x00'
+p138
+tp139
+Rp140
+(lp141
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17347163_2017-03-21_18.25.04.txt'
+p142
+asg1
+(g5
+S'`D(\x01\x00\x00\x00\x00'
+p143
+tp144
+Rp145
+(lp146
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19416160_2017-03-20_16.24.16.txt'
+p147
+asg1
+(g5
+S'f:\xc8\x00\x00\x00\x00\x00'
+p148
+tp149
+Rp150
+(lp151
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13122150_2017-01-27_13.27.17.txt'
+p152
+asg1
+(g5
+S'i\xba"\x01\x00\x00\x00\x00'
+p153
+tp154
+Rp155
+(lp156
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19053161_2017-03-28_15.28.57.txt'
+p157
+asg1
+(g5
+S'j\xc2\xf7\x00\x00\x00\x00\x00'
+p158
+tp159
+Rp160
+(lp161
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16237162_2017-01-20_11.23.07.txt'
+p162
+asg1
+(g5
+S'vn\xe9\x00\x00\x00\x00\x00'
+p163
+tp164
+Rp165
+(lp166
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15298166_2017-01-27_13.27.55.txt'
+p167
+asg1
+(g5
+S'w\xdc\xad\x00\x00\x00\x00\x00'
+p168
+tp169
+Rp170
+(lp171
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11394167_2017-03-21_17.28.45.txt'
+p172
+asg1
+(g5
+S'{\xba,\x03\x00\x00\x00\x00'
+p173
+tp174
+Rp175
+(lp176
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_53262971_2017-01-17_15.22.52.txt'
+p177
+asg1
+(g5
+S'|\xc0N\x05\x00\x00\x00\x00'
+p178
+tp179
+Rp180
+(lp181
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_89047164_2017-01-17_15.22.57.txt'
+p182
+asg1
+(g5
+S'jL\xa9\x00\x00\x00\x00\x00'
+p183
+tp184
+Rp185
+(lp186
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11095146_2017-01-20_16.23.24.txt'
+p187
+asg1
+(g5
+S'\x80\xce\x02\x01\x00\x00\x00\x00'
+p188
+tp189
+Rp190
+(lp191
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16961152_2017-03-21_18.25.01.txt'
+p192
+asg1
+(g5
+S'\x82\x92(\x01\x00\x00\x00\x00'
+p193
+tp194
+Rp195
+(lp196
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19436162_2017-03-22_15.28.51.txt'
+p197
+asg1
+(g5
+S'\x83B\xe2\x00\x00\x00\x00\x00'
+p198
+tp199
+Rp200
+(lp201
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14828163_2017-01-27_14.25.04.txt'
+p202
+asg1
+(g5
+S'\x84\xd8\xc9\x00\x00\x00\x00\x00'
+p203
+tp204
+Rp205
+(lp206
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13228164_2017-01-19_13.25.28.txt'
+p207
+asg1
+(g5
+S'\x8a\x86\x0e\x01\x00\x00\x00\x00'
+p208
+tp209
+Rp210
+(lp211
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17729162_2017-01-19_14.21.49.txt'
+p212
+asg1
+(g5
+S'\x8b\xb4\xb3\x00\x00\x00\x00\x00'
+p213
+tp214
+Rp215
+(lp216
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11777163_2017-03-21_18.25.08.txt'
+p217
+asg1
+(g5
+S'\x8c&\xa1\x00\x00\x00\x00\x00'
+p218
+tp219
+Rp220
+(lp221
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10561164_2017-01-19_14.21.42.txt'
+p222
+asg1
+(g5
+S'\x8d\xf2\xc4\x00\x00\x00\x00\x00'
+p223
+tp224
+Rp225
+(lp226
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12907149_2017-03-21_17.28.26.txt'
+p227
+asg1
+(g5
+S'\x97X\xd0\x00\x00\x00\x00\x00'
+p228
+tp229
+Rp230
+(lp231
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13654167_2017-01-20_11.22.41.txt'
+p232
+asg1
+(g5
+S'\x9c\xec*\x05\x00\x00\x00\x00'
+p233
+tp234
+Rp235
+(lp236
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_86699164_2017-01-17_15.23.04.txt'
+p237
+asg1
+(g5
+S'\xa0\x021\x01\x00\x00\x00\x00'
+p238
+tp239
+Rp240
+(lp241
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19989152_2017-03-20_15.32.48.txt'
+p242
+asg1
+(g5
+S'\xa6~*\x01\x00\x00\x00\x00'
+p243
+tp244
+Rp245
+(lp246
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19562150_2017-01-19_13.25.35.txt'
+p247
+asg1
+(g5
+S'\xa7\xba \x01\x00\x00\x00\x00'
+p248
+tp249
+Rp250
+(lp251
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18922151_2017-01-19_13.25.36.txt'
+p252
+asg1
+(g5
+S'\xaa\x18\xda\x00\x00\x00\x00\x00'
+p253
+tp254
+Rp255
+(lp256
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14293162_2017-01-19_13.25.33.txt'
+p257
+asg1
+(g5
+S'\xb1\xe8\xe1\x00\x00\x00\x00\x00'
+p258
+tp259
+Rp260
+(lp261
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14805169_2017-01-27_13.27.07.txt'
+p262
+asg1
+(g5
+S'\xb3\x92\xfd\x00\x00\x00\x00\x00'
+p263
+tp264
+Rp265
+(lp266
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16618163_2017-01-20_12.18.28.txt'
+p267
+asg1
+(g5
+S'\xb8d\xa3\x00\x00\x00\x00\x00'
+p268
+tp269
+Rp270
+(lp271
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10708152_2017-03-20_16.24.15.txt'
+p272
+asg1
+(g5
+S'\xbb\x02v\x01\x00\x00\x00\x00'
+p273
+tp274
+Rp275
+(lp276
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_24511163_2017-01-17_11.23.01.txt'
+p277
+asg1
+(g5
+S'\xcb\xb2\xf7\x00\x00\x00\x00\x00'
+p278
+tp279
+Rp280
+(lp281
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16233163_2017-03-21_18.25.00.txt'
+p282
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16233163_2017-03-21_18.26.58.txt'
+p283
+asg1
+(g5
+S'\xc4\xa8\xeb\x00\x00\x00\x00\x00'
+p284
+tp285
+Rp286
+(lp287
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15444164_2017-01-23_15.25.24.txt'
+p288
+asg1
+(g5
+S'\xc5\x80\xc8\x00\x00\x00\x00\x00'
+p289
+tp290
+Rp291
+(lp292
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13140165_2017-03-21_18.25.14.txt'
+p293
+asg1
+(g5
+S'\xc7\xc0\xe7\x00\x00\x00\x00\x00'
+p294
+tp295
+Rp296
+(lp297
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15188167_2017-01-27_13.27.07.txt'
+p298
+asg1
+(g5
+S'\xc8\xc8\xa0\x00\x00\x00\x00\x00'
+p299
+tp300
+Rp301
+(lp302
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10537160_2017-03-21_18.25.09.txt'
+p303
+asg1
+(g5
+S'\xcaP\x15\x01\x00\x00\x00\x00'
+p304
+tp305
+Rp306
+(lp307
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18174154_2017-03-20_16.24.48.txt'
+p308
+asg1
+(g5
+S'\xcb \xbc\x00\x00\x00\x00\x00'
+p309
+tp310
+Rp311
+(lp312
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12329163_2017-01-20_12.18.23.txt'
+p313
+asg1
+(g5
+S'\xcc0\x0c\x01\x00\x00\x00\x00'
+p314
+tp315
+Rp316
+(lp317
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17576140_2017-03-22_15.28.40.txt'
+p318
+asg1
+(g5
+S'\xd1\xf8\x05\x01\x00\x00\x00\x00'
+p319
+tp320
+Rp321
+(lp322
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17168593_2017-03-21_18.25.18.txt'
+p323
+asg1
+(g5
+S'\xda|\xc8\x00\x00\x00\x00\x00'
+p324
+tp325
+Rp326
+(lp327
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13139162_2017-01-27_13.27.05.txt'
+p328
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13139162_2017-01-27_13.37.45.txt'
+p329
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13139162_2017-01-27_13.38.55.txt'
+p330
+asg1
+(g5
+S'\xdbv\xd6\x00\x00\x00\x00\x00'
+p331
+tp332
+Rp333
+(lp334
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14055131_2017-03-21_18.25.03.txt'
+p335
+asg1
+(g5
+S'\xde\x08\x05\x01\x00\x00\x00\x00'
+p336
+tp337
+Rp338
+(lp339
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17107166_2017-01-20_15.24.58.txt'
+p340
+asg1
+(g5
+S'\xe2\xbe\x9b\x01\x00\x00\x00\x00'
+p341
+tp342
+Rp343
+(lp344
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_26984162_2017-01-17_16.21.04.txt'
+p345
+asg1
+(g5
+S'\xe5<\n\x01\x00\x00\x00\x00'
+p346
+tp347
+Rp348
+(lp349
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17448165_2017-01-23_16.21.18.txt'
+p350
+asg1
+(g5
+S'\xe8\x82\x0c\x01\x00\x00\x00\x00'
+p351
+tp352
+Rp353
+(lp354
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17597160_2017-01-20_15.24.52.txt'
+p355
+asg1
+(g5
+S'\xea:\x18\x01\x00\x00\x00\x00'
+p356
+tp357
+Rp358
+(lp359
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18365162_2017-01-19_09.27.23.txt'
+p360
+asg1
+(g5
+S'\xee\xfa\xf8\x00\x00\x00\x00\x00'
+p361
+tp362
+Rp363
+(lp364
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16317166_2017-03-21_17.28.42.txt'
+p365
+asg1
+(g5
+S'(\x85\x9b\x00\x00\x00\x00\x00'
+p366
+tp367
+Rp368
+(lp369
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10192168_2017-01-20_16.22.58.txt'
+p370
+asg1
+(g5
+S'\xf2F#\x01\x00\x00\x00\x00'
+p371
+tp372
+Rp373
+(lp374
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19089138_2017-01-23_15.24.11.txt'
+p375
+asg1
+(g5
+S'\xf4\x1e\xbb\x00\x00\x00\x00\x00'
+p376
+tp377
+Rp378
+(lp379
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12263156_2017-01-20_15.25.01.txt'
+p380
+asg1
+(g5
+S'\xf8\xd2S\x03\x00\x00\x00\x00'
+p381
+tp382
+Rp383
+(lp384
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_55825144_2017-01-17_15.22.52.txt'
+p385
+asg1
+(g5
+S'\x02\xe9$\x01\x00\x00\x00\x00'
+p386
+tp387
+Rp388
+(lp389
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19196162_2017-01-20_16.23.13.txt'
+p390
+asg1
+(g5
+S'\xd7q\xd1\x00\x00\x00\x00\x00'
+p391
+tp392
+Rp393
+(lp394
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13726167_2017-01-19_13.25.30.txt'
+p395
+asg1
+(g5
+S'\r+\xfe\x00\x00\x00\x00\x00'
+p396
+tp397
+Rp398
+(lp399
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16657165_2017-03-21_18.25.15.txt'
+p400
+asg1
+(g5
+S"\x0f+'\x01\x00\x00\x00\x00"
+p401
+tp402
+Rp403
+(lp404
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19344143_2017-01-17_16.21.01.txt'
+p405
+asg1
+(g5
+S'\x19\xab\x04\x01\x00\x00\x00\x00'
+p406
+tp407
+Rp408
+(lp409
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17083161_2017-01-20_16.23.11.txt'
+p410
+asg1
+(g5
+S'\xfdm\x16\x01\x00\x00\x00\x00'
+p411
+tp412
+Rp413
+(lp414
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18247165_2017-01-17_16.21.07.txt'
+p415
+asg1
+(g5
+S'\x1c\xdf\xa2\x01\x00\x00\x00\x00'
+p416
+tp417
+Rp418
+(lp419
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_27451164_2017-01-17_11.22.53.txt'
+p420
+asg1
+(g5
+S'&S\xb5\x04\x00\x00\x00\x00'
+p421
+tp422
+Rp423
+(lp424
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_78992166_2017-01-17_15.22.52.txt'
+p425
+asg1
+(g5
+S'1\xa6\xd3\x00\x00\x00\x00\x00'
+p426
+tp427
+Rp428
+(lp429
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13870641_2017-03-21_17.28.31.txt'
+p430
+asg1
+(g5
+S'(\x8f\xc3\x00\x00\x00\x00\x00'
+p431
+tp432
+Rp433
+(lp434
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12816168_2017-03-21_18.25.29.txt'
+p435
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12816168_2017-03-21_18.30.06.txt'
+p436
+asg1
+(g5
+S'-\xad\x03\x01\x00\x00\x00\x00'
+p437
+tp438
+Rp439
+(lp440
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17018157_2017-01-19_14.21.32.txt'
+p441
+asg1
+(g5
+S'1E"\x01\x00\x00\x00\x00'
+p442
+tp443
+Rp444
+(lp445
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19023153_2017-01-27_14.24.46.txt'
+p446
+asg1
+(g5
+S';\x87\x9a\x00\x00\x00\x00\x00'
+p447
+tp448
+Rp449
+(lp450
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10127163_2017-01-27_13.26.59.txt'
+p451
+asg1
+(g5
+S'?\xb1\xd8\x00\x00\x00\x00\x00'
+p452
+tp453
+Rp454
+(lp455
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14201151_2017-01-27_13.28.01.txt'
+p456
+asg1
+(g5
+S'@\x1dd\x05\x00\x00\x00\x00'
+p457
+tp458
+Rp459
+(lp460
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_90447168_2017-01-17_11.22.45.txt'
+p461
+asg1
+(g5
+S'A\xb9\xe5\x00\x00\x00\x00\x00'
+p462
+tp463
+Rp464
+(lp465
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15055169_2017-01-17_12.17.39.txt'
+p466
+asg1
+(g5
+S'\xe1\xfd\xc9\x02\x00\x00\x00\x00'
+p467
+tp468
+Rp469
+(lp470
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_46792161_2017-01-17_11.22.57.txt'
+p471
+asg1
+(g5
+S'H\xc9\xd4\x00\x00\x00\x00\x00'
+p472
+tp473
+Rp474
+(lp475
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13945160_2017-03-21_18.25.20.txt'
+p476
+asg1
+(g5
+S'LA\xc1\x00\x00\x00\x00\x00'
+p477
+tp478
+Rp479
+(lp480
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12665164_2017-03-21_17.29.02.txt'
+p481
+asg1
+(g5
+S'\x8d\x12/\x01\x00\x00\x00\x00'
+p482
+tp483
+Rp484
+(lp485
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19862157_2017-01-20_16.23.13.txt'
+p486
+asg1
+(g5
+S'PI\xe5\x00\x00\x00\x00\x00'
+p487
+tp488
+Rp489
+(lp490
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15026512_2017-03-20_16.24.15.txt'
+p491
+asg1
+(g5
+S'Q\xb7\xbb\x00\x00\x00\x00\x00'
+p492
+tp493
+Rp494
+(lp495
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12302161_2017-01-20_16.23.20.txt'
+p496
+asg1
+(g5
+S'T\xbd\xba\x00\x00\x00\x00\x00'
+p497
+tp498
+Rp499
+(lp500
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12238164_2017-01-20_16.22.59.txt'
+p501
+asg1
+(g5
+S'Ui\xc8\x00\x00\x00\x00\x00'
+p502
+tp503
+Rp504
+(lp505
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13134165_2017-03-20_16.24.52.txt'
+p506
+asg1
+(g5
+S'Y\x17)\x01\x00\x00\x00\x00'
+p507
+tp508
+Rp509
+(lp510
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19470169_2017-03-22_16.25.24.txt'
+p511
+asg1
+(g5
+S']\xed\x84\x03\x00\x00\x00\x00'
+p512
+tp513
+Rp514
+(lp515
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_59043165_2017-01-17_15.22.51.txt'
+p516
+asg1
+(g5
+S'`!\x9c\x00\x00\x00\x00\x00'
+p517
+tp518
+Rp519
+(lp520
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10232160_2017-01-20_15.24.45.txt'
+p521
+asg1
+(g5
+S'dS\xe7\x00\x00\x00\x00\x00'
+p522
+tp523
+Rp524
+(lp525
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15160164_2017-03-21_18.25.28.txt'
+p526
+asg1
+(g5
+S'\x91\xd9v\x01\x00\x00\x00\x00'
+p527
+tp528
+Rp529
+(lp530
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_24566161_2017-01-17_12.17.34.txt'
+p531
+asg1
+(g5
+S'i\xe3\xcf\x00\x00\x00\x00\x00'
+p532
+tp533
+Rp534
+(lp535
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13624169_2017-01-20_15.25.04.txt'
+p536
+asg1
+(g5
+S'n\xdb\xeb\x00\x00\x00\x00\x00'
+p537
+tp538
+Rp539
+(lp540
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15457134_2017-03-20_16.24.37.txt'
+p541
+asg1
+(g5
+S'q\xd3\xac\x00\x00\x00\x00\x00'
+p542
+tp543
+Rp544
+(lp545
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11326321_2017-01-20_15.24.44.txt'
+p546
+asg1
+(g5
+S'r[*\x01\x00\x00\x00\x00'
+p547
+tp548
+Rp549
+(lp550
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19553138_2017-01-20_12.18.42.txt'
+p551
+asg1
+(g5
+S'x\xa5\x97\x04\x00\x00\x00\x00'
+p552
+tp553
+Rp554
+(lp555
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_77047160_2017-01-17_11.22.35.txt'
+p556
+asg1
+(g5
+S'}e\r\x01\x00\x00\x00\x00'
+p557
+tp558
+Rp559
+(lp560
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17655165_2017-03-28_16.20.43.txt'
+p561
+asg1
+(g5
+S'\x81_\xf2\x00\x00\x00\x00\x00'
+p562
+tp563
+Rp564
+(lp565
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15884161_2017-03-23_13.25.49.txt'
+p566
+asg1
+(g5
+S'\x84\xf3\x03\x01\x00\x00\x00\x00'
+p567
+tp568
+Rp569
+(lp570
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17036164_2017-01-20_12.18.44.txt'
+p571
+asg1
+(g5
+S'A?\xef\x04\x00\x00\x00\x00'
+p572
+tp573
+Rp574
+(lp575
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_82788161_2017-01-17_12.17.44.txt'
+p576
+asg1
+(g5
+S'\x88\xa5\x10\x01\x00\x00\x00\x00'
+p577
+tp578
+Rp579
+(lp580
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17868168_2017-01-19_13.25.44.txt'
+p581
+asg1
+(g5
+S'\x91M\xbd\x00\x00\x00\x00\x00'
+p582
+tp583
+Rp584
+(lp585
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_12406161_2017-01-19_13.25.55.txt'
+p586
+asg1
+(g5
+S'\x9c\xf3&\x02\x00\x00\x00\x00'
+p587
+tp588
+Rp589
+(lp590
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_36107164_2017-01-17_15.22.52.txt'
+p591
+asg1
+(g5
+S'\xa0\xfb\xe5\x00\x00\x00\x00\x00'
+p592
+tp593
+Rp594
+(lp595
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15072160_2017-01-19_13.25.36.txt'
+p596
+asg1
+(g5
+S'\xa1\x9b\x11\x01\x00\x00\x00\x00'
+p597
+tp598
+Rp599
+(lp600
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17931169_2017-01-23_16.21.23.txt'
+p601
+asg1
+(g5
+S'\xa8\x87\x93\x03\x00\x00\x00\x00'
+p602
+tp603
+Rp604
+(lp605
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_60000168_2017-01-17_15.22.57.txt'
+p606
+asg1
+(g5
+S'\xaa/\xcf\x00\x00\x00\x00\x00'
+p607
+tp608
+Rp609
+(lp610
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13578154_2017-03-22_16.24.51.txt'
+p611
+asg1
+(g5
+S'\xad\x9b\xd9\x00\x00\x00\x00\x00'
+p612
+tp613
+Rp614
+(lp615
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14261165_2017-03-21_18.25.05.txt'
+p616
+asg1
+(g5
+S'\xb51"\x01\x00\x00\x00\x00'
+p617
+tp618
+Rp619
+(lp620
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19018165_2017-03-21_17.28.18.txt'
+p621
+asg1
+(g5
+S'\xba\xb3\x1a\x01\x00\x00\x00\x00'
+p622
+tp623
+Rp624
+(lp625
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18527162_2017-03-20_16.24.27.txt'
+p626
+asg1
+(g5
+S'\xf5!\x15\x01\x00\x00\x00\x00'
+p627
+tp628
+Rp629
+(lp630
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18162165_2017-01-20_11.22.55.txt'
+p631
+asg1
+(g5
+S'\xc0\xad\x1b\x01\x00\x00\x00\x00'
+p632
+tp633
+Rp634
+(lp635
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18591168_2017-01-19_14.21.51.txt'
+p636
+asg1
+(g5
+S'\xc1\x93\xcc\x00\x00\x00\x00\x00'
+p637
+tp638
+Rp639
+(lp640
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13407169_2017-03-21_18.25.07.txt'
+p641
+asg1
+(g5
+S'\xc7\xff\x9e\x00\x00\x00\x00\x00'
+p642
+tp643
+Rp644
+(lp645
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10420167_2017-01-20_16.23.11.txt'
+p646
+asg1
+(g5
+S'\xc9u\xb5\x00\x00\x00\x00\x00'
+p647
+tp648
+Rp649
+(lp650
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11892169_2017-01-23_15.24.10.txt'
+p651
+asg1
+(g5
+S'\xcd\xd9/\x01\x00\x00\x00\x00'
+p652
+tp653
+Rp654
+(lp655
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19913165_2017-03-28_15.28.49.txt'
+p656
+asg1
+(g5
+S'\xceO\xc9\x00\x00\x00\x00\x00'
+p657
+tp658
+Rp659
+(lp660
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13193166_2017-01-19_09.28.04.txt'
+p661
+asg1
+(g5
+S'\xcf\xb1\xf4\x04\x00\x00\x00\x00'
+p662
+tp663
+Rp664
+(lp665
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_83145167_2017-01-17_16.20.58.txt'
+p666
+asg1
+(g5
+S'\xd0%\xf9\x00\x00\x00\x00\x00'
+p667
+tp668
+Rp669
+(lp670
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16328144_2017-03-23_13.25.52.txt'
+p671
+asg1
+(g5
+S'\xd1\x0f\x0b\x01\x00\x00\x00\x00'
+p672
+tp673
+Rp674
+(lp675
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_17502161_2017-01-19_13.25.30.txt'
+p676
+asg1
+(g5
+S'\xd3\xfb\xa8\x03\x00\x00\x00\x00'
+p677
+tp678
+Rp679
+(lp680
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_61406163_2017-01-17_16.20.51.txt'
+p681
+asg1
+(g5
+S'\xd7c\xfd\x00\x00\x00\x00\x00'
+p682
+tp683
+Rp684
+(lp685
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16606167_2017-03-20_15.32.40.txt'
+p686
+asg1
+(g5
+S'\xd8;\xda\x00\x00\x00\x00\x00'
+p687
+tp688
+Rp689
+(lp690
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14302168_2017-01-20_15.25.00.txt'
+p691
+asg1
+(g5
+S'\xdb\xb7\xad\x00\x00\x00\x00\x00'
+p692
+tp693
+Rp694
+(lp695
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11384795_2017-03-20_16.24.15.txt'
+p696
+asg1
+(g5
+S'\xdf7\xf6\x00\x00\x00\x00\x00'
+p697
+tp698
+Rp699
+(lp700
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_16136159_2017-03-20_15.32.58.txt'
+p701
+asg1
+(g5
+S'\xe1s\xec\x00\x00\x00\x00\x00'
+p702
+tp703
+Rp704
+(lp705
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15496161_2017-03-20_16.24.20.txt'
+p706
+asg1
+(g5
+S'\xe2\xcd\xa5\x00\x00\x00\x00\x00'
+p707
+tp708
+Rp709
+(lp710
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10866146_2017-01-20_12.18.39.txt'
+p711
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10866146_2017-01-20_12.19.33.txt'
+p712
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10866146_2017-01-20_12.19.49.txt'
+p713
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10866146_2017-01-20_12.29.25.txt'
+p714
+aS'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10866146_2017-01-20_12.43.23.txt'
+p715
+asg1
+(g5
+S'\xe7\x0f\xb7\x00\x00\x00\x00\x00'
+p716
+tp717
+Rp718
+(lp719
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_11997159_2017-01-19_09.27.39.txt'
+p720
+asg1
+(g5
+S'\xe8\xf7\xd6\x00\x00\x00\x00\x00'
+p721
+tp722
+Rp723
+(lp724
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14088168_2017-03-20_16.24.46.txt'
+p725
+asg1
+(g5
+S"\xed'0\x01\x00\x00\x00\x00"
+p726
+tp727
+Rp728
+(lp729
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_19933165_2017-01-20_16.23.15.txt'
+p730
+asg1
+(g5
+S'\xefU\xd5\x00\x00\x00\x00\x00'
+p731
+tp732
+Rp733
+(lp734
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_13981167_2017-01-19_14.21.51.txt'
+p735
+asg1
+(g5
+S'\xf5\xdf\x1f\x01\x00\x00\x00\x00'
+p736
+tp737
+Rp738
+(lp739
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_18866165_2017-03-20_15.32.56.txt'
+p740
+asg1
+(g5
+S'\xf9\xa7\xd5\x00\x00\x00\x00\x00'
+p741
+tp742
+Rp743
+(lp744
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_14002169_2017-01-20_11.23.02.txt'
+p745
+asg1
+(g5
+S'\xfbO\x9e\x00\x00\x00\x00\x00'
+p746
+tp747
+Rp748
+(lp749
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_10375163_2017-01-17_16.21.15.txt'
+p750
+asg1
+(g5
+S'\xaa\xb8\xe9\x00\x00\x00\x00\x00'
+p751
+tp752
+Rp753
+(lp754
+S'C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\parsed log data\\parsed_e92af660-e970-4c28-b3e2-e09ad0fe3963\\dream_table_beers-law-lab_15317162_2017-01-23_15.24.26.txt'
+p755
+as.
