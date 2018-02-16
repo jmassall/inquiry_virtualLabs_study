@@ -83,17 +83,18 @@ def add_family(df):
     df['Family'] = df.apply(lambda row: map_event_family(row['Event'],row['Item']), axis=1)
     return df
 
-def remove_model_events(df):
+def remove_model_events_from_df(df):
     return df[df['User or Model'] != 'model']
 
-def prep_parsing_data(parsing_file):
+def prep_parsing_data(parsing_file,remove_model_events=True):
     df = pd.read_table(parsing_file, sep='\t')
-    df = remove_model_events(df)
-    if len(df)==0:
-        print "The parsed file has no user events, only model events. No dataframe prepared."
-        return df
-    df = add_pauses(df)
-    df = add_family(df)
+    if remove_model_events:
+        df = remove_model_events_from_df(df)
+        if len(df)==0:
+            print "The parsed file has no user events, only model events. No dataframe prepared."
+            return df
+        df = add_pauses(df)
+        df = add_family(df)
     return df
 
 
