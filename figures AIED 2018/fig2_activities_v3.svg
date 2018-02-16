@@ -16,8 +16,8 @@
    version="1.1"
    id="svg4863"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="fig2_activities_v2.svg"
-   inkscape:export-filename="C:\Users\sperez8\Documents\fig2_activities_v2.png"
+   sodipodi:docname="fig2_activities_v3.svg"
+   inkscape:export-filename="C:\Users\Sarah\git\inquiry_virtualLabs_study\figures AIED 2018\fig2_activity_v3.png"
    inkscape:export-xdpi="500"
    inkscape:export-ydpi="500">
   <defs
@@ -2734,8 +2734,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.06"
-     inkscape:cx="274.88626"
+     inkscape:zoom="1.31"
+     inkscape:cx="91.395694"
      inkscape:cy="457.35442"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -2754,7 +2754,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -13221,8 +13221,8 @@
        rx="3.0821824"
        ry="3.8569171" />
     <path
-       style="fill:none;stroke:#273493;stroke-width:0.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215689"
-       d="m 38.478458,227.58877 v -23.5046"
+       style="fill:none;stroke:#273493;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215686"
+       d="m 38.478458,228.11794 v -23.5046"
        id="path39131"
        inkscape:connector-curvature="0" />
     <ellipse
@@ -13233,8 +13233,8 @@
        rx="3.89801"
        ry="16.715353" />
     <path
-       style="fill:none;stroke:#273493;stroke-width:0.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215689"
-       d="M 64.981172,220.25538 V 204.10591"
+       style="fill:none;stroke:#273493;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215686"
+       d="M 64.981172,219.72621 V 203.57674"
        id="path39133"
        inkscape:connector-curvature="0" />
     <ellipse
@@ -13283,13 +13283,13 @@
          x="76.866646"
          y="202.15688">CVS-plot</tspan></text>
     <path
-       style="fill:none;stroke:#273493;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215686"
-       d="M 38.298458,198.36047 V 127.90379"
+       style="fill:none;stroke:#273493;stroke-width:0.60598999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215686"
+       d="M 38.298458,198.36047 V 126.48999"
        id="path39131-5"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#273493;stroke-width:0.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215689"
-       d="M 58.896551,198.03735 V 144.47419"
+       style="fill:none;stroke:#273493;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:0.59215686"
+       d="M 58.896551,198.56652 V 145.00336"
        id="path39131-5-7"
        inkscape:connector-curvature="0" />
     <ellipse
