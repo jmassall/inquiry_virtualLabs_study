@@ -158,11 +158,11 @@ def get_parsed_log_files_per_student_for_sim(sim,update=False):
 
     if update == False:
         try:
-            log_files = pickle.load(open(sim+'_log_files_per_student.txt','r'))
-            print "The file "+sim+'_log_files_per_student.txt has been unpickled and loaded'
+            log_files = pickle.load(open(getpass.getuser()+'_'+sim+'_log_files_per_student.txt','r'))
+            print "The file "+getpass.getuser()+'_'+sim+'_log_files_per_student.txt has been unpickled and loaded'
             return log_files
         except IOError:
-            print "The file "+sim+"_log_files_per_student.txt was not found. Creating it..."
+            print "The file "+getpass.getuser()+'_'+sim+"_log_files_per_student.txt was not found. Creating it..."
 
     df = get_student_metadata()
     students = get_students_to_analyze_log_worksheets(sim)
@@ -185,6 +185,6 @@ def get_parsed_log_files_per_student_for_sim(sim,update=False):
                     if parsed_file == None:
                         print "ERROR: This student ({0}) has no log file for {1}, even using it's other id {2}".format(sid,sim,row['other id'])
                 log_files[sid].append(parsed_file)
-    pickle.dump(log_files,open(sim+'_log_files_per_student.txt','w'))
-    print "The file "+sim+'_log_files_per_student.txt has created and pickled'
+    pickle.dump(log_files,open(getpass.getuser()+'_'+sim+'_log_files_per_student.txt','w'))
+    print "The file "+getpass.getuser()+'_'+sim+'_log_files_per_student.txt has created and pickled'
     return log_files
