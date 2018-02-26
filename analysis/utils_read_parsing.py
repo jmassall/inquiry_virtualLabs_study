@@ -186,5 +186,5 @@ def get_parsed_log_files_per_student_for_sim(sim,update=False):
                         print "ERROR: This student ({0}) has no log file for {1}, even using it's other id {2}".format(sid,sim,row['other id'])
                 log_files[sid].append(parsed_file)
     pickle.dump(log_files,open(getpass.getuser()+'_'+sim+'_log_files_per_student.txt','w'))
-    print "The file "+getpass.getuser()+'_'+sim+'_log_files_per_student.txt has created and pickled'
+    print "The file "+getpass.getuser()+'_'+sim+'_log_files_per_student.txt has been created and pickled'
     return log_files
