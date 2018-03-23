@@ -1,149 +1,149 @@
-	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [High school level laboratory]	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [First year undergraduate physics laboratory]	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [First year undergraduate chemistry laboratory]	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [Higher level chemistry labs]	prior_sims_phet	prio_sims_other	prior_number_virtual_labs	perceivedvalue.0	perceivedvalue.1	perceivedvalue.2	perceivedvalue.3	taskinterpretation.0	taskinterpretation.1	taskinterpretation.2	taskinterpretation.3	taskinterpretation.4	pocc.0	pocc.1	pocc.2	pocc.3	pocc.4	sid
-5	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Mostly	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Mostly	Somewhat	Somewhat	Often	Often	Often	Sometimes	Often	77047160
-6	1.0	1.0			Neither.	No.	None	Somewhat	Definitely	Not at all	Mostly	Definitely	Definitely	Mostly	Definitely	Definitely	Often	Sometimes	Sometimes	Sometimes	Often	23836160
-7		1.0	1.0		Neither.	No.	1-2 (roughly)	Not at all	Somewhat	Not at all	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Often	Often	Often	Often	Sometimes	64006159
-8	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on capacitors before.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Mostly	Definitely	Mostly	Definitely	Mostly	Almost always	Almost always	Often	Often	Often	24566161
-9		1.0			Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Mostly	Definitely	Often	Often	Often	Sometimes	Almost always	46792161
-10	1.0	1.0	1.0		I have used the Capacitor virtual lab before	No.	6+ (roughly)	Somewhat	Mostly	Somewhat	Mostly	Definitely	Somewhat	Somewhat	Mostly	Somewhat	Often	Sometimes	Sometimes	Sometimes	Sometimes	82788161
-11	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Mostly	Almost always	Sometimes	Often	Often	Often	27451164
-12	1.0	1.0			Neither.	No.	1-2 (roughly)	Somewhat	Somewhat	Mostly	Somewhat	Definitely	Mostly	Mostly	Somewhat	Definitely	Almost always	Almost always	Almost always	Often	Often	24511163
-13	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Somewhat	Somewhat	Mostly	Definitely	Somewhat	Mostly	Definitely	Mostly	Almost always	Often	Almost always	Almost always	Often	90447168
-14	1.0	1.0	1.0	1.0	Neither.	Yes, I have used a different virtual lab on capacitors before.	6+ (roughly)	Not at all	Definitely	Somewhat	Definitely	Definitely	Definitely	Not at all	Somewhat	Definitely	Almost always	Almost always	Almost always	Almost always	Almost always	41947147
-15	1.0	1.0	1.0		I have used the Light Absorbance virtual lab before.	No.	3-5 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Definitely	Mostly	Somewhat	Definitely	Mostly	Often	Almost always	Often	Sometimes	Almost always	11929166
-16	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Not at all	Mostly	Not at all	Mostly	Mostly	Definitely	Not at all	Somewhat	Definitely	Almost always	Sometimes	Almost always	Almost never	Often	11612162
-17	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Somewhat	Not at all	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Sometimes	Almost always	Sometimes	Almost never	Often	15055169
-18	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Somewhat	Mostly	Mostly	Often	Often	Often	Sometimes	Often	85915167
-19	1.0	1.0	1.0		Neither.	No.	None	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Sometimes	59043165
-20	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Somewhat	Definitely	Mostly	Sometimes	Almost never	Almost never	Sometimes	Almost never	10375163
-21	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Somewhat	Mostly	Definitely	Definitely	Not at all	Not at all	Definitely	Often	Almost always	Often	Sometimes	Almost always	61406163
-22	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Mostly	Not at all	Mostly	Mostly	Mostly	Somewhat	Mostly	Mostly	Almost always	Sometimes	Almost always	Often	Almost always	19344143
-23	1.0	1.0			Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Not at all	Sometimes	Often	Sometimes	Almost never	Often	22340167
-24	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Not at all	Not at all	Somewhat	Sometimes	Almost never	Almost never	Sometimes	Sometimes	89047164
-25	1.0				Neither.	No.	3-5 (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Definitely	Mostly	Somewhat	Somewhat	Definitely	Often	Often	Sometimes	Sometimes	Often	55825144
-26	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Sometimes	Sometimes	Sometimes	Almost never	Sometimes	83145167
-27	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Definitely	Mostly	Not at all	Somewhat	Definitely	Often	Almost always	Almost always	Almost never	Almost always	26984162
-28	1.0		1.0		Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Not at all	Mostly	Mostly	Not at all	Not at all	Definitely	Definitely	Often	Often	Almost always	Sometimes	Almost always	53262971
-29	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Mostly	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Often	Often	Often	Often	Often	36107164
-30		1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Definitely	Not at all	Mostly	Definitely	Somewhat	Sometimes	Almost always	Often	Sometimes	Often	78992166
-32		1.0			Neither.	No.	3-5 (roughly)			Not at all		Definitely	Not at all	Definitely	Mostly	Somewhat	Almost always	Often	Often	Almost always	Often	60000168
-33	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Not at all	Mostly	Definitely	Somewhat	Mostly	Somewhat	Often	Sometimes	Sometimes	Sometimes	Sometimes	86699164
-35	1.0	1.0			Neither.	No.	1-2 (roughly)	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Mostly	Mostly	Almost always	Sometimes	Almost always	Almost always	Sometimes	18247165
-36	1.0	1.0			Neither.	Yes, I have used a different virtual lab on capacitors before.	1-2 (roughly)	Somewhat	Mostly	Mostly	Definitely	Mostly	Definitely	Somewhat	Somewhat	Mostly	Often	Almost always	Often	Often	Almost always	51717164
-38	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Not at all	Mostly	Somewhat	Definitely	Not at all	Somewhat	Definitely	Almost always	Often	Often	Sometimes	Almost always	13193166
-39	1.0	1.0	1.0		Neither.	No.	6+ (roughly)	Not at all	Mostly	Not at all	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Often	Often	Often	Sometimes	Almost always	18365162
-40		1.0			Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Definitely	Definitely	Somewhat	Mostly	Definitely	Often	Often	Often	Often	Often	11997159
-41	1.0		1.0		Neither.	No.	1-2 (roughly)	Definitely	Not at all	Mostly	Not at all	Mostly	Not at all	Definitely	Definitely	Somewhat	Almost always	Often	Sometimes	Often	Almost never	19780165
-43	1.0	1.0			Neither.	No.	3-5 (roughly)	Not at all	Somewhat	Somewhat	Definitely	Mostly	Mostly	Not at all	Mostly	Somewhat	Often	Almost never	Often	Almost never	Sometimes	10561164
-44	1.0	1.0	1.0	1.0	Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Somewhat	Somewhat	Not at all	Mostly	Mostly	Somewhat	Somewhat	Mostly	Somewhat	Almost always	Often	Almost always	Often	Often	19562150
-45	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Not at all	Somewhat	Somewhat	Mostly	Definitely	Mostly	Somewhat	Mostly	Mostly	Often	Sometimes	Often	Almost never	Almost always	13981167
-46	1.0	1.0	1.0		Neither.	Yes, I have used different virtual labs that relate to both topics.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Somewhat	Not at all	Somewhat	Definitely	Mostly	Sometimes	Sometimes	Sometimes	Often	Almost never	13726167
-47	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Not at all	Definitely	Definitely	Not at all	Somewhat	Mostly	Somewhat	Often	Often	Often	Often	Almost always	15072160
-48		1.0			Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Not at all	Somewhat	Not at all	Somewhat	Not at all	Somewhat	Not at all	Somewhat	Somewhat	Often	Often	Sometimes	Sometimes	Sometimes	18922151
-49	1.0	1.0	1.0		Neither.	No.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Mostly	Mostly	Almost always	Often	Often	Sometimes	Often	13228164
-50	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Somewhat	Mostly	Sometimes	Almost always	Often	Almost always	Often	12406161
-51	1.0	1.0	1.0		Neither.	No.	6+ (roughly)	Mostly	Mostly	Not at all	Somewhat	Definitely	Mostly	Somewhat	Mostly	Somewhat	Often	Almost always	Often	Sometimes	Often	18591168
-52	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Not at all	Somewhat	Definitely	Definitely	Not at all	Somewhat	Not at all	Often	Sometimes	Often	Sometimes	Sometimes	12707161
-53	1.0	1.0			I have used the Capacitor virtual lab before	Yes, I have used different virtual labs that relate to both topics.	3-5 (roughly)	Somewhat	Mostly	Somewhat	Mostly	Definitely	Definitely	Mostly	Mostly	Definitely	Almost always	Almost always	Often	Often	Almost always	16752165
-54		1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Sometimes	Often	Sometimes	Sometimes	Sometimes	17868168
-55	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Not at all	Somewhat	Not at all	Somewhat	Somewhat	Somewhat	Not at all	Somewhat	Somewhat	Often	Sometimes	Sometimes	Sometimes	Often	17018157
-56	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Mostly	Somewhat	Definitely	Mostly	Almost always	Often	Almost always	Sometimes	Almost always	17071167
-57	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Not at all	Mostly	Somewhat	Mostly	Definitely	Mostly	Not at all	Somewhat	Mostly	Often	Almost always	Sometimes	Sometimes	Often	17502161
-58	1.0	1.0	1.0		I have used the Light Absorbance virtual lab before.	No.	6+ (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Somewhat	Mostly	Mostly	Often	Often	Often	Often	Sometimes	14293162
-59	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Somewhat	Somewhat	Mostly	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Not at all	Often	Often	Sometimes	Sometimes	Often	17729162
-61	1.0				Neither.	No.	None	Not at all	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Mostly	Somewhat	Somewhat	Sometimes	Often	Often	Sometimes	Sometimes	10866146
-62	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Mostly	Somewhat	Mostly	Almost always	Almost always	Often	Often	Almost always	10908162
-63	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Definitely	Somewhat	Somewhat	Somewhat	Definitely	Somewhat	Not at all	Not at all	Definitely	Sometimes	Often	Often	Often	Often	19553138
-64					Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Definitely	Mostly	Mostly	Mostly	Somewhat	Mostly	Mostly	Often	Almost always	Sometimes	Often	Often	16618163
-65	1.0	1.0			Neither.	No.	1-2 (roughly)	Not at all	Mostly	Not at all	Definitely	Definitely	Mostly	Somewhat	Mostly	Somewhat	Almost always	Almost always	Often	Sometimes	Almost always	13654167
-66	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Somewhat	Somewhat	Often	Often	Often	Sometimes	Sometimes	16237162
-67	1.0	1.0	1.0	1.0	Neither.	No.	3-5 (roughly)	Not at all	Definitely	Not at all	Mostly	Definitely	Somewhat	Not at all	Mostly	Somewhat	Almost always	Almost always	Often	Often	Often	14002169
-68	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Somewhat	Not at all	Mostly	Mostly	Mostly	Somewhat	Mostly	Not at all	Almost always	Almost never	Often	Often	Sometimes	18162165
-69	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Mostly	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Somewhat	Often	Often	Often	Almost never	Often	12329163
-70	1.0	1.0	1.0	1.0	Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Not at all	Definitely	Somewhat	Often	Often	Often	Sometimes	Often	17036164
-71	1.0		1.0		Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Definitely	Not at all	Definitely	Definitely	Often	Often	Often	Often	Often	10192168
-72		1.0	1.0		Neither.	No.	6+ (roughly)	Somewhat	Mostly	Somewhat	Mostly	Definitely	Somewhat	Not at all	Mostly	Mostly	Often	Almost always	Often	Sometimes	Often	10420167
-73	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Somewhat	Mostly	Somewhat	Sometimes	Sometimes	Often	Almost never	Often	11095146
-74	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Not at all	Definitely	Not at all	Mostly	Mostly	Mostly	Somewhat	Mostly	Somewhat	Almost always	Often	Often	Sometimes	Often	10232160
-75	1.0	1.0	1.0		Neither.	Yes, I have used different virtual labs that relate to both topics.	6+ (roughly)	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Somewhat	Somewhat	Mostly	Often	Sometimes	Often	Sometimes	Often	19196162
-76	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Definitely	Mostly	Somewhat	Definitely	Definitely	Almost always	Almost always	Almost always	Often	Almost always	14302168
-77	1.0		1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Not at all	Mostly	Somewhat	Often	Often	Often	Often	Sometimes	11326321
-78	1.0		1.0		Neither.	No.	3-5 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Mostly	Sometimes	Sometimes	Sometimes	Sometimes	Sometimes	17597160
-79	1.0	1.0	1.0		Neither.	No.	6+ (roughly)	Not at all	Mostly	Not at all	Somewhat	Mostly	Not at all	Definitely	Somewhat	Not at all	Often	Often	Almost always	Often	Sometimes	17114169
-81	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Not at all	Somewhat	Not at all	Mostly	Mostly	Somewhat	Somewhat	Definitely	Mostly	Often	Often	Often	Sometimes	Almost always	17083161
-82	1.0	1.0	1.0	1.0	Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Somewhat	Not at all	Mostly	Mostly	Mostly	Not at all	Mostly	Definitely	Often	Sometimes	Often	Sometimes	Sometimes	12263156
-83	1.0				Neither.	No.	3-5 (roughly)	Somewhat	Mostly	Somewhat	Mostly	Mostly	Somewhat	Mostly	Mostly	Mostly	Almost always	Almost always	Often	Often	Often	13624169
-84	1.0	1.0	1.0		Neither.	No.	6+ (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Mostly	Almost always	Almost always	Often	Almost never	Sometimes	12302161
-85	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Not at all	Somewhat	Definitely	Mostly	Often	Sometimes	Often	Sometimes	Almost always	19862157
-86	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Not at all	Mostly	Often	Often	Sometimes	Sometimes	Often	12238164
-87	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Mostly	Not at all	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Almost always	17107166
-88		1.0	1.0		Neither.	No.	6+ (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Definitely	Not at all	Somewhat	Definitely	Sometimes	Sometimes	Often	Almost never	Often	19933165
-89	1.0				Neither.	No.	1-2 (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Definitely	Definitely	Somewhat	Somewhat		Often	Often	Often	Often	Sometimes	19089138
-90	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Definitely	Not at all	Not at all	Somewhat	Definitely	Almost always	Almost always	Sometimes	Sometimes	Almost always	11892169
-91	1.0	1.0	1.0		Neither.	Yes, I have used different virtual labs that relate to both topics.	3-5 (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Definitely	Mostly	Somewhat	Mostly	Mostly	Almost always	Sometimes	Often	Often	Often	10970160
-92	1.0				Neither.	No.	1-2 (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Mostly	Definitely	Often	Often	Almost always	Sometimes	Almost always	17931169
-93		1.0			Neither.	No.	None	Somewhat	Mostly	Not at all	Somewhat	Somewhat	Mostly	Not at all	Mostly	Somewhat	Often	Sometimes	Sometimes	Sometimes	Often	15444164
-94	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Mostly	Definitely	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	17448165
-95	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Not at all	Definitely	Mostly	Almost always	Often	Often	Sometimes	Almost always	15317162
-96	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Definitely	Somewhat	Often	Sometimes	Often	Almost never	Almost always	14201151
-97	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Definitely	Somewhat	Mostly	Somewhat	Mostly	Not at all	Not at all	Somewhat	Somewhat	Often	Sometimes	Often	Sometimes	Often	14828163
-98	1.0				Neither.	No.	None	Somewhat	Somewhat	Not at all	Mostly	Mostly	Somewhat	Not at all	Mostly	Mostly	Often	Often	Almost always	Sometimes	Often	15188167
-99	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Often	Often	Sometimes	Often	Sometimes	13139162
-100		1.0			I have used the Light Absorbance virtual lab before.	No.	1-2 (roughly)	Somewhat	Mostly	Somewhat		Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	19566168
-101		1.0			Neither.	No.	3-5 (roughly)	Somewhat	Mostly	Somewhat	Mostly	Definitely	Somewhat	Somewhat	Definitely	Definitely	Almost always	Often	Often	Often	Sometimes	14805169
-102		1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Not at all	Not at all	Definitely	Mostly	Often	Often	Often	Often	Often	17007153
-103	1.0		1.0		Neither.	No.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Not at all	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Sometimes	Almost never	Almost never	Sometimes	Often	15298166
-104	1.0				Neither.	No.	None	Somewhat	Definitely	Not at all	Mostly	Definitely	Definitely	Mostly	Definitely	Mostly	Almost always	Often	Almost always	Often	Almost always	19023153
-105	1.0	1.0	1.0		Neither.	No.	1-2 (roughly)	Mostly	Mostly	Somewhat	Somewhat	Definitely	Not at all	Not at all	Somewhat	Definitely	Almost always	Often	Often	Often	Almost always	10127163
-106		1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Definitely	Not at all	Definitely	Mostly	Definitely	Mostly	Mostly	Mostly	Sometimes	Almost always	Often	Sometimes	Often	13122150
-107		1.0	1.0		Neither.	No.	6+ (roughly)	Somewhat	Mostly	Somewhat	Mostly	Definitely	Mostly	Not at all	Somewhat	Somewhat	Almost always	Often	Sometimes	Sometimes	Often	19608154
-108	1.0				Neither.	No.	1-2 (roughly)	Somewhat	Mostly	Somewhat	Somewhat	Definitely	Mostly	Somewhat	Somewhat	Definitely	Often	Often	Often	Sometimes	Often	19416160
-109	1.0	1.0	1.0	1.0	Neither.	No.	3-5 (roughly)	Somewhat	Somewhat	Not at all	Mostly	Mostly	Somewhat	Not at all	Somewhat	Mostly	Often	Almost never	Sometimes	Sometimes	Often	19989152
-110	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Definitely	Mostly	Often	Almost always	Almost always	Sometimes	Almost always	10708152
-111	1.0		1.0		Neither.	No.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Mostly	Not at all	Definitely	Definitely	Sometimes	Often	Sometimes	Almost never	Almost always	18527162
-112	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Not at all	Definitely	Somewhat	Sometimes	Sometimes	Often	Sometimes	Often	15026512
-113					Neither.	No.	None	Somewhat	Mostly	Mostly	Mostly	Mostly	Somewhat	Mostly	Mostly	Mostly	Often	Sometimes	Often	Often	Sometimes	15457134
-114	1.0				Neither.	No.	None	Not at all	Definitely	Somewhat	Mostly	Definitely	Somewhat	Somewhat	Definitely	Definitely	Sometimes	Almost never	Almost never	Almost never	Often	11384795
-115	1.0	1.0	1.0		Neither.	No.	None	Somewhat	Definitely	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Definitely	Somewhat	Almost always	Almost always	Almost always	Often	Almost always	13134165
-116	1.0	1.0	1.0		Neither.	Yes, I have used different virtual labs that relate to both topics.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Almost always	Almost always	Often	Sometimes	16606167
-117	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Sometimes	Sometimes	Often	14088168
-118	1.0	1.0	1.0	1.0	Neither.	No.	3-5 (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Definitely	Somewhat	Mostly	Mostly	Sometimes	Often	Often	Sometimes	Often	16136159
-119	1.0	1.0	1.0		I have used the Light Absorbance virtual lab before.	No.	6+ (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Often	Often	Almost always	Often	Often	18174154
-120	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Definitely	Definitely	Somewhat	Not at all	Somewhat	Mostly	Often	Sometimes	Sometimes	Sometimes	Almost always	15496161
-121	1.0		1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Mostly	Mostly	Somewhat	Almost always	Often	Almost always	Almost always	Often	18866165
-122	1.0		1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Mostly	Somewhat	Not at all	Somewhat	Somewhat	Not at all	Somewhat	Definitely	Definitely	Sometimes	Sometimes	Sometimes	Often	Sometimes	17691169
-123	1.0				Neither.	No.	None	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Somewhat	Mostly	Definitely	Often	Often	Often	Sometimes	Almost always	19018165
-124	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Not at all	Definitely	Not at all	Definitely	Definitely	Mostly	Mostly	Definitely	Definitely	Almost always	Sometimes	Almost always	Often	Almost always	16657165
-125	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Mostly	Mostly	Somewhat	Sometimes	Sometimes	Often	Often	Often	16317166
-126				1.0	Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Mostly	Not at all	Not at all	Mostly	Somewhat	Often	Often	Often	Sometimes	Often	16961152
-127		1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Mostly	Mostly	Mostly	Almost always	Almost always	Often	Sometimes	Often	16901162
-128	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on capacitors before.	6+ (roughly)	Not at all	Definitely	Not at all	Mostly	Mostly	Mostly	Not at all	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	12665164
-129	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Definitely	Somewhat	Somewhat	Definitely	Not at all	Somewhat	Mostly	Mostly	Almost always	Sometimes	Almost always	Often	Often	15160164
-130	1.0	1.0	1.0	1.0	I have used the Capacitor virtual lab before	No.	3-5 (roughly)	Somewhat	Definitely	Not at all	Mostly	Definitely	Somewhat	Somewhat	Definitely	Definitely	Almost always	Often	Almost always	Often	Often	12907149
-131	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on capacitors before.	3-5 (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Somewhat	Mostly	Definitely	Often	Often	Often	Sometimes	Almost always	13140165
-132	1.0		1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Definitely	Somewhat	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Mostly	Somewhat	Often	Sometimes	Often	Often	Sometimes	13945160
-133	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Not at all	Mostly	Not at all	Mostly	Definitely	Definitely	Mostly	Mostly	Definitely	Often	Often	Often	Often	Often	12816168
-134	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Mostly	Somewhat	Mostly	Not at all	Mostly	Not at all	Not at all	Definitely	Not at all	Sometimes	Almost never	Often	Almost never	Sometimes	16233163
-135		1.0	1.0	1.0	Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Not at all	Somewhat	Not at all	Mostly	Definitely	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	14055131
-136	1.0	1.0	1.0		Neither.	Yes, I have used different virtual labs that relate to both topics.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Sometimes	Often	Sometimes	Sometimes	Sometimes	13870641
-137	1.0	1.0	1.0		Neither.	No.	None	Somewhat	Definitely	Somewhat	Mostly	Definitely	Not at all	Somewhat	Mostly	Mostly	Often	Sometimes	Sometimes	Sometimes	Often	17168593
-138	1.0	1.0	1.0		Neither.	No.	3-5 (roughly)	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Mostly	Definitely	Mostly	Often	Often	Often	Often	Often	11777163
-139	1.0		1.0		I have used the Light Absorbance virtual lab before.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Not at all	Somewhat	Somewhat	Sometimes	Sometimes	Often	Almost never	Almost never	10537160
-140	1.0	1.0	1.0		Neither.	No.	6+ (roughly)	Not at all	Mostly	Somewhat	Definitely	Mostly	Somewhat	Not at all	Mostly	Not at all	Often	Often	Almost always	Sometimes	Often	14261165
-141	1.0	1.0	1.0		Neither.	No.	6+ (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Somewhat	Definitely	Mostly	Often	Sometimes	Almost always	Sometimes	Almost always	17347163
-142	1.0				Neither.	No.	None	Definitely	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Mostly	Mostly	Definitely	Often	Sometimes	Often	Often	Often	11394167
-143	1.0		1.0		Neither.	No.	6+ (roughly)	Somewhat	Somewhat	Not at all	Mostly	Mostly	Mostly	Somewhat	Definitely	Mostly	Often	Sometimes	Often	Sometimes	Often	13407169
-144			1.0		Neither.	No.	1-2 (roughly)	Not at all	Not at all	Somewhat	Not at all	Somewhat	Not at all	Not at all	Somewhat	Somewhat	Sometimes	Almost never	Sometimes	Often	Often	17701169
-160	1.0		1.0		I have used the Light Absorbance virtual lab before.	No.	6+ (roughly)	Somewhat	Somewhat	Somewhat	Mostly	Definitely	Mostly	Mostly	Definitely	Mostly	Almost always	Often	Often	Often	Often	19618321
-161	1.0	1.0	1.0		I have used both.	No.	6+ (roughly)	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Definitely	Often	Often	Sometimes	Often	Often	19470169
-163	1.0	1.0	1.0	1.0	Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Mostly	Somewhat	Mostly	Often	Sometimes	Often	Often	Almost always	17576140
-168	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	3-5 (roughly)	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Not at all	Mostly	Mostly	Sometimes	Sometimes	Sometimes	Almost never	Sometimes	12017165
-171	1.0	1.0	1.0		Neither.	No.	None	Somewhat	Somewhat	Not at all	Not at all	Mostly	Not at all	Definitely	Mostly	Mostly	Often	Sometimes	Often	Often	Sometimes	13578154
-176	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Definitely	Mostly	Somewhat	Not at all	Mostly	Mostly	Mostly	Mostly	Somewhat	Almost always	Often	Often	Often	Almost always	19436162
-184	1.0				Neither.	No.	None	Somewhat	Somewhat	Mostly	Somewhat	Mostly	Definitely	Not at all	Mostly	Somewhat	Often	Sometimes	Often	Almost never	Sometimes	16328144
-187	1.0				Neither.	No.	1-2 (roughly)	Somewhat	Not at all	Definitely	Somewhat	Mostly	Somewhat	Mostly	Mostly	Mostly	Often	Sometimes	Often	Often	Often	17112137
-190	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on capacitors before.	3-5 (roughly)	Not at all	Definitely	Not at all	Mostly	Definitely	Not at all	Somewhat	Not at all	Somewhat	Almost always	Almost always	Often	Often	Almost always	15884161
-197	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Not at all	Somewhat	Definitely	Somewhat	Not at all	Definitely	Definitely	Almost always	Often	Almost always	Often	Almost always	15749160
-200	1.0	1.0	1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	6+ (roughly)	Somewhat	Mostly	Not at all	Somewhat	Somewhat	Somewhat	Mostly	Definitely	Somewhat	Sometimes	Often	Often	Sometimes	Sometimes	19053161
-201	1.0				Neither.	No.	None	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Mostly	Mostly	Sometimes	Sometimes	Sometimes	Sometimes	Sometimes	19913165
-202	1.0	1.0	1.0		Neither.	Yes, I have used different virtual labs that relate to both topics.	6+ (roughly)	Somewhat	Definitely	Not at all	Mostly	Definitely	Somewhat	Somewhat	Mostly	Mostly	Often	Sometimes	Sometimes	Almost never	Almost always	17655165
-204			1.0		Neither.	Yes, I have used a different virtual lab on light absorbance before.	1-2 (roughly)	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Not at all	Not at all	Mostly	Somewhat	Often	Often	Often	Almost never	Often	13660166
+	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [High school level laboratory]	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [First year undergraduate physics laboratory]	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [First year undergraduate chemistry laboratory]	[prior_lab] What lab courses are you presently taking or have taken in the past? Check all that apply. [Higher level chemistry labs]	similar_L	similar_C	same_L	same_C	prior_number_virtual_labs	perceivedvalue.0	perceivedvalue.1	perceivedvalue.2	perceivedvalue.3	taskinterpretation.0	taskinterpretation.1	taskinterpretation.2	taskinterpretation.3	taskinterpretation.4	pocc.0	pocc.1	pocc.2	pocc.3	pocc.4	sid
+5	1.0	1.0	1.0		0	0	0	0	2	Mostly	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Mostly	Somewhat	Somewhat	Often	Often	Often	Sometimes	Often	77047160
+6	1.0	1.0			0	0	0	0	0	Somewhat	Definitely	Not at all	Mostly	Definitely	Definitely	Mostly	Definitely	Definitely	Often	Sometimes	Sometimes	Sometimes	Often	23836160
+7		1.0	1.0		0	0	0	0	1	Not at all	Somewhat	Not at all	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Often	Often	Often	Often	Sometimes	64006159
+8	1.0	1.0	1.0		0	1	0	0	3	Somewhat	Mostly	Not at all	Mostly	Mostly	Definitely	Mostly	Definitely	Mostly	Almost always	Almost always	Often	Often	Often	24566161
+9		1.0			1	0	0	0	2	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Mostly	Definitely	Often	Often	Often	Sometimes	Almost always	46792161
+10	1.0	1.0	1.0		0	0	0	1	3	Somewhat	Mostly	Somewhat	Mostly	Definitely	Somewhat	Somewhat	Mostly	Somewhat	Often	Sometimes	Sometimes	Sometimes	Sometimes	82788161
+11	1.0	1.0	1.0		0	0	0	0	2	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Mostly	Almost always	Sometimes	Often	Often	Often	27451164
+12	1.0	1.0			0	0	0	0	1	Somewhat	Somewhat	Mostly	Somewhat	Definitely	Mostly	Mostly	Somewhat	Definitely	Almost always	Almost always	Almost always	Often	Often	24511163
+13	1.0	1.0	1.0		0	0	0	0	2	Not at all	Somewhat	Somewhat	Mostly	Definitely	Somewhat	Mostly	Definitely	Mostly	Almost always	Often	Almost always	Almost always	Often	90447168
+14	1.0	1.0	1.0	1.0	0	1	0	0	3	Not at all	Definitely	Somewhat	Definitely	Definitely	Definitely	Not at all	Somewhat	Definitely	Almost always	Almost always	Almost always	Almost always	Almost always	41947147
+15	1.0	1.0	1.0		0	0	1	0	2	Somewhat	Mostly	Not at all	Somewhat	Definitely	Mostly	Somewhat	Definitely	Mostly	Often	Almost always	Often	Sometimes	Almost always	11929166
+16	1.0	1.0	1.0		1	0	0	0	1	Not at all	Mostly	Not at all	Mostly	Mostly	Definitely	Not at all	Somewhat	Definitely	Almost always	Sometimes	Almost always	Almost never	Often	11612162
+17	1.0	1.0	1.0		0	0	0	0	2	Not at all	Somewhat	Not at all	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Sometimes	Almost always	Sometimes	Almost never	Often	15055169
+18	1.0	1.0	1.0		0	0	0	0	2	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Somewhat	Mostly	Mostly	Often	Often	Often	Sometimes	Often	85915167
+19	1.0	1.0	1.0		0	0	0	0	0	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Sometimes	59043165
+20	1.0	1.0	1.0		0	0	0	0	2	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Somewhat	Definitely	Mostly	Sometimes	Almost never	Almost never	Sometimes	Almost never	10375163
+21	1.0	1.0	1.0		0	0	0	0	1	Somewhat	Mostly	Somewhat	Mostly	Definitely	Definitely	Not at all	Not at all	Definitely	Often	Almost always	Often	Sometimes	Almost always	61406163
+22	1.0	1.0	1.0		0	0	0	0	2	Somewhat	Mostly	Not at all	Mostly	Mostly	Mostly	Somewhat	Mostly	Mostly	Almost always	Sometimes	Almost always	Often	Almost always	19344143
+23	1.0	1.0			0	0	0	0	1	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Not at all	Sometimes	Often	Sometimes	Almost never	Often	22340167
+24	1.0	1.0	1.0		1	0	0	0	1	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Not at all	Not at all	Somewhat	Sometimes	Almost never	Almost never	Sometimes	Sometimes	89047164
+25	1.0				0	0	0	0	2	Mostly	Somewhat	Somewhat	Somewhat	Definitely	Mostly	Somewhat	Somewhat	Definitely	Often	Often	Sometimes	Sometimes	Often	55825144
+26	1.0	1.0	1.0		1	0	0	0	2	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Sometimes	Sometimes	Sometimes	Almost never	Sometimes	83145167
+27	1.0	1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Definitely	Mostly	Not at all	Somewhat	Definitely	Often	Almost always	Almost always	Almost never	Almost always	26984162
+28	1.0		1.0		0	0	0	0	1	Somewhat	Mostly	Not at all	Mostly	Mostly	Not at all	Not at all	Definitely	Definitely	Often	Often	Almost always	Sometimes	Almost always	53262971
+29	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Mostly	Mostly	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Often	Often	Often	Often	Often	36107164
+30		1.0	1.0		1	0	0	0	3	Mostly	Somewhat	Somewhat	Somewhat	Definitely	Not at all	Mostly	Definitely	Somewhat	Sometimes	Almost always	Often	Sometimes	Often	78992166
+32		1.0			0	0	0	0	2			Not at all		Definitely	Not at all	Definitely	Mostly	Somewhat	Almost always	Often	Often	Almost always	Often	60000168
+33	1.0	1.0	1.0		0	0	0	0	1	Mostly	Somewhat	Somewhat	Not at all	Mostly	Definitely	Somewhat	Mostly	Somewhat	Often	Sometimes	Sometimes	Sometimes	Sometimes	86699164
+35	1.0	1.0			0	0	0	0	1	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Mostly	Mostly	Almost always	Sometimes	Almost always	Almost always	Sometimes	18247165
+36	1.0	1.0			0	1	0	0	1	Somewhat	Mostly	Mostly	Definitely	Mostly	Definitely	Somewhat	Somewhat	Mostly	Often	Almost always	Often	Often	Almost always	51717164
+38	1.0	1.0	1.0		0	0	0	0	1	Somewhat	Mostly	Not at all	Mostly	Somewhat	Definitely	Not at all	Somewhat	Definitely	Almost always	Often	Often	Sometimes	Almost always	13193166
+39	1.0	1.0	1.0		0	0	0	0	3	Not at all	Mostly	Not at all	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Often	Often	Often	Sometimes	Almost always	18365162
+40		1.0			0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Definitely	Definitely	Somewhat	Mostly	Definitely	Often	Often	Often	Often	Often	11997159
+41	1.0		1.0		0	0	0	0	1	Definitely	Not at all	Mostly	Not at all	Mostly	Not at all	Definitely	Definitely	Somewhat	Almost always	Often	Sometimes	Often	Almost never	19780165
+43	1.0	1.0			0	0	0	0	2	Not at all	Somewhat	Somewhat	Definitely	Mostly	Mostly	Not at all	Mostly	Somewhat	Often	Almost never	Often	Almost never	Sometimes	10561164
+44	1.0	1.0	1.0	1.0	1	0	0	0	1	Somewhat	Somewhat	Not at all	Mostly	Mostly	Somewhat	Somewhat	Mostly	Somewhat	Almost always	Often	Almost always	Often	Often	19562150
+45	1.0	1.0	1.0		1	0	0	0	3	Not at all	Somewhat	Somewhat	Mostly	Definitely	Mostly	Somewhat	Mostly	Mostly	Often	Sometimes	Often	Almost never	Almost always	13981167
+46	1.0	1.0	1.0		1	1	0	0	2	Not at all	Mostly	Not at all	Mostly	Somewhat	Not at all	Somewhat	Definitely	Mostly	Sometimes	Sometimes	Sometimes	Often	Almost never	13726167
+47	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Mostly	Not at all	Definitely	Definitely	Not at all	Somewhat	Mostly	Somewhat	Often	Often	Often	Often	Almost always	15072160
+48		1.0			1	0	0	0	1	Not at all	Somewhat	Not at all	Somewhat	Not at all	Somewhat	Not at all	Somewhat	Somewhat	Often	Often	Sometimes	Sometimes	Sometimes	18922151
+49	1.0	1.0	1.0		0	0	0	0	3	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Mostly	Mostly	Almost always	Often	Often	Sometimes	Often	13228164
+50	1.0	1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Somewhat	Mostly	Sometimes	Almost always	Often	Almost always	Often	12406161
+51	1.0	1.0	1.0		0	0	0	0	3	Mostly	Mostly	Not at all	Somewhat	Definitely	Mostly	Somewhat	Mostly	Somewhat	Often	Almost always	Often	Sometimes	Often	18591168
+52	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Mostly	Not at all	Somewhat	Definitely	Definitely	Not at all	Somewhat	Not at all	Often	Sometimes	Often	Sometimes	Sometimes	12707161
+53	1.0	1.0			1	1	0	1	2	Somewhat	Mostly	Somewhat	Mostly	Definitely	Definitely	Mostly	Mostly	Definitely	Almost always	Almost always	Often	Often	Almost always	16752165
+54		1.0	1.0		1	0	0	0	2	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Sometimes	Often	Sometimes	Sometimes	Sometimes	17868168
+55	1.0	1.0	1.0		0	0	0	0	1	Not at all	Somewhat	Not at all	Somewhat	Somewhat	Somewhat	Not at all	Somewhat	Somewhat	Often	Sometimes	Sometimes	Sometimes	Often	17018157
+56	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Mostly	Not at all	Mostly	Definitely	Mostly	Somewhat	Definitely	Mostly	Almost always	Often	Almost always	Sometimes	Almost always	17071167
+57	1.0	1.0	1.0		1	0	0	0	3	Not at all	Mostly	Somewhat	Mostly	Definitely	Mostly	Not at all	Somewhat	Mostly	Often	Almost always	Sometimes	Sometimes	Often	17502161
+58	1.0	1.0	1.0		0	0	1	0	3	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Mostly	Somewhat	Mostly	Mostly	Often	Often	Often	Often	Sometimes	14293162
+59	1.0	1.0	1.0		0	0	0	0	1	Somewhat	Somewhat	Mostly	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Not at all	Often	Often	Sometimes	Sometimes	Often	17729162
+61	1.0				0	0	0	0	0	Not at all	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Mostly	Somewhat	Somewhat	Sometimes	Often	Often	Sometimes	Sometimes	10866146
+62	1.0	1.0	1.0		1	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Mostly	Somewhat	Mostly	Almost always	Almost always	Often	Often	Almost always	10908162
+63	1.0	1.0	1.0		1	0	0	0	2	Definitely	Somewhat	Somewhat	Somewhat	Definitely	Somewhat	Not at all	Not at all	Definitely	Sometimes	Often	Often	Often	Often	19553138
+64					0	0	0	0	1	Somewhat	Mostly	Definitely	Mostly	Mostly	Mostly	Somewhat	Mostly	Mostly	Often	Almost always	Sometimes	Often	Often	16618163
+65	1.0	1.0			0	0	0	0	1	Not at all	Mostly	Not at all	Definitely	Definitely	Mostly	Somewhat	Mostly	Somewhat	Almost always	Almost always	Often	Sometimes	Almost always	13654167
+66	1.0	1.0	1.0		1	0	0	0	2	Somewhat	Mostly	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Somewhat	Somewhat	Often	Often	Often	Sometimes	Sometimes	16237162
+67	1.0	1.0	1.0	1.0	0	0	0	0	2	Not at all	Definitely	Not at all	Mostly	Definitely	Somewhat	Not at all	Mostly	Somewhat	Almost always	Almost always	Often	Often	Often	14002169
+68	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Somewhat	Not at all	Mostly	Mostly	Mostly	Somewhat	Mostly	Not at all	Almost always	Almost never	Often	Often	Sometimes	18162165
+69	1.0	1.0	1.0		0	0	0	0	2	Mostly	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Somewhat	Often	Often	Often	Almost never	Often	12329163
+70	1.0	1.0	1.0	1.0	0	0	0	0	1	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Not at all	Definitely	Somewhat	Often	Often	Often	Sometimes	Often	17036164
+71	1.0		1.0		0	0	0	0	1	Somewhat	Mostly	Not at all	Somewhat	Mostly	Definitely	Not at all	Definitely	Definitely	Often	Often	Often	Often	Often	10192168
+72		1.0	1.0		0	0	0	0	3	Somewhat	Mostly	Somewhat	Mostly	Definitely	Somewhat	Not at all	Mostly	Mostly	Often	Almost always	Often	Sometimes	Often	10420167
+73	1.0	1.0	1.0		0	0	0	0	1	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Somewhat	Mostly	Somewhat	Sometimes	Sometimes	Often	Almost never	Often	11095146
+74	1.0	1.0	1.0		1	0	0	0	1	Not at all	Definitely	Not at all	Mostly	Mostly	Mostly	Somewhat	Mostly	Somewhat	Almost always	Often	Often	Sometimes	Often	10232160
+75	1.0	1.0	1.0		1	1	0	0	3	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Somewhat	Somewhat	Mostly	Often	Sometimes	Often	Sometimes	Often	19196162
+76	1.0	1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Definitely	Mostly	Somewhat	Definitely	Definitely	Almost always	Almost always	Almost always	Often	Almost always	14302168
+77	1.0		1.0		1	0	0	0	2	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Not at all	Mostly	Somewhat	Often	Often	Often	Often	Sometimes	11326321
+78	1.0		1.0		0	0	0	0	2	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Mostly	Sometimes	Sometimes	Sometimes	Sometimes	Sometimes	17597160
+79	1.0	1.0	1.0		0	0	0	0	3	Not at all	Mostly	Not at all	Somewhat	Mostly	Not at all	Definitely	Somewhat	Not at all	Often	Often	Almost always	Often	Sometimes	17114169
+81	1.0	1.0	1.0		0	0	0	0	1	Not at all	Somewhat	Not at all	Mostly	Mostly	Somewhat	Somewhat	Definitely	Mostly	Often	Often	Often	Sometimes	Almost always	17083161
+82	1.0	1.0	1.0	1.0	1	0	0	0	2	Somewhat	Somewhat	Not at all	Mostly	Mostly	Mostly	Not at all	Mostly	Definitely	Often	Sometimes	Often	Sometimes	Sometimes	12263156
+83	1.0				0	0	0	0	2	Somewhat	Mostly	Somewhat	Mostly	Mostly	Somewhat	Mostly	Mostly	Mostly	Almost always	Almost always	Often	Often	Often	13624169
+84	1.0	1.0	1.0		0	0	0	0	3	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Mostly	Almost always	Almost always	Often	Almost never	Sometimes	12302161
+85	1.0	1.0	1.0		1	0	0	0	1	Somewhat	Mostly	Not at all	Mostly	Definitely	Not at all	Somewhat	Definitely	Mostly	Often	Sometimes	Often	Sometimes	Almost always	19862157
+86	1.0	1.0	1.0		1	0	0	0	2	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Not at all	Mostly	Often	Often	Sometimes	Sometimes	Often	12238164
+87	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Mostly	Not at all	Mostly	Mostly	Not at all	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Almost always	17107166
+88		1.0	1.0		0	0	0	0	3	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Definitely	Not at all	Somewhat	Definitely	Sometimes	Sometimes	Often	Almost never	Often	19933165
+89	1.0				0	0	0	0	1	Somewhat	Somewhat	Not at all	Somewhat	Definitely	Definitely	Somewhat	Somewhat		Often	Often	Often	Often	Sometimes	19089138
+90	1.0	1.0	1.0		1	0	0	0	2	Somewhat	Mostly	Not at all	Somewhat	Definitely	Not at all	Not at all	Somewhat	Definitely	Almost always	Almost always	Sometimes	Sometimes	Almost always	11892169
+91	1.0	1.0	1.0		1	1	0	0	2	Mostly	Somewhat	Somewhat	Somewhat	Definitely	Mostly	Somewhat	Mostly	Mostly	Almost always	Sometimes	Often	Often	Often	10970160
+92	1.0				0	0	0	0	1	Somewhat	Somewhat	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Mostly	Definitely	Often	Often	Almost always	Sometimes	Almost always	17931169
+93		1.0			0	0	0	0	0	Somewhat	Mostly	Not at all	Somewhat	Somewhat	Mostly	Not at all	Mostly	Somewhat	Often	Sometimes	Sometimes	Sometimes	Often	15444164
+94	1.0	1.0	1.0		1	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Mostly	Definitely	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	17448165
+95	1.0	1.0	1.0		0	0	0	0	1	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Not at all	Definitely	Mostly	Almost always	Often	Often	Sometimes	Almost always	15317162
+96	1.0	1.0	1.0		0	0	0	0	2	Somewhat	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Definitely	Somewhat	Often	Sometimes	Often	Almost never	Almost always	14201151
+97	1.0	1.0	1.0		0	0	0	0	2	Definitely	Somewhat	Mostly	Somewhat	Mostly	Not at all	Not at all	Somewhat	Somewhat	Often	Sometimes	Often	Sometimes	Often	14828163
+98	1.0				0	0	0	0	0	Somewhat	Somewhat	Not at all	Mostly	Mostly	Somewhat	Not at all	Mostly	Mostly	Often	Often	Almost always	Sometimes	Often	15188167
+99	1.0	1.0	1.0		0	0	0	0	2	Somewhat	Mostly	Not at all	Somewhat	Mostly	Mostly	Somewhat	Somewhat	Somewhat	Often	Often	Sometimes	Often	Sometimes	13139162
+100		1.0			0	0	1	0	1	Somewhat	Mostly	Somewhat		Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	19566168
+101		1.0			0	0	0	0	2	Somewhat	Mostly	Somewhat	Mostly	Definitely	Somewhat	Somewhat	Definitely	Definitely	Almost always	Often	Often	Often	Sometimes	14805169
+102		1.0	1.0		0	0	0	0	2	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Not at all	Not at all	Definitely	Mostly	Often	Often	Often	Often	Often	17007153
+103	1.0		1.0		0	0	0	0	1	Mostly	Somewhat	Somewhat	Not at all	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Sometimes	Almost never	Almost never	Sometimes	Often	15298166
+104	1.0				0	0	0	0	0	Somewhat	Definitely	Not at all	Mostly	Definitely	Definitely	Mostly	Definitely	Mostly	Almost always	Often	Almost always	Often	Almost always	19023153
+105	1.0	1.0	1.0		0	0	0	0	1	Mostly	Mostly	Somewhat	Somewhat	Definitely	Not at all	Not at all	Somewhat	Definitely	Almost always	Often	Often	Often	Almost always	10127163
+106		1.0	1.0		0	0	0	0	2	Not at all	Definitely	Not at all	Definitely	Mostly	Definitely	Mostly	Mostly	Mostly	Sometimes	Almost always	Often	Sometimes	Often	13122150
+107		1.0	1.0		0	0	0	0	3	Somewhat	Mostly	Somewhat	Mostly	Definitely	Mostly	Not at all	Somewhat	Somewhat	Almost always	Often	Sometimes	Sometimes	Often	19608154
+108	1.0				0	0	0	0	1	Somewhat	Mostly	Somewhat	Somewhat	Definitely	Mostly	Somewhat	Somewhat	Definitely	Often	Often	Often	Sometimes	Often	19416160
+109	1.0	1.0	1.0	1.0	0	0	0	0	2	Somewhat	Somewhat	Not at all	Mostly	Mostly	Somewhat	Not at all	Somewhat	Mostly	Often	Almost never	Sometimes	Sometimes	Often	19989152
+110	1.0	1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Definitely	Somewhat	Not at all	Definitely	Mostly	Often	Almost always	Almost always	Sometimes	Almost always	10708152
+111	1.0		1.0		0	0	0	0	3	Somewhat	Mostly	Not at all	Mostly	Definitely	Mostly	Not at all	Definitely	Definitely	Sometimes	Often	Sometimes	Almost never	Almost always	18527162
+112	1.0	1.0	1.0		0	0	0	0	2	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Not at all	Definitely	Somewhat	Sometimes	Sometimes	Often	Sometimes	Often	15026512
+113					0	0	0	0	0	Somewhat	Mostly	Mostly	Mostly	Mostly	Somewhat	Mostly	Mostly	Mostly	Often	Sometimes	Often	Often	Sometimes	15457134
+114	1.0				0	0	0	0	0	Not at all	Definitely	Somewhat	Mostly	Definitely	Somewhat	Somewhat	Definitely	Definitely	Sometimes	Almost never	Almost never	Almost never	Often	11384795
+115	1.0	1.0	1.0		0	0	0	0	0	Somewhat	Definitely	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Definitely	Somewhat	Almost always	Almost always	Almost always	Often	Almost always	13134165
+116	1.0	1.0	1.0		1	1	0	0	3	Somewhat	Mostly	Not at all	Mostly	Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Almost always	Almost always	Often	Sometimes	16606167
+117	1.0	1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Sometimes	Sometimes	Often	14088168
+118	1.0	1.0	1.0	1.0	0	0	0	0	2	Somewhat	Mostly	Not at all	Mostly	Definitely	Definitely	Somewhat	Mostly	Mostly	Sometimes	Often	Often	Sometimes	Often	16136159
+119	1.0	1.0	1.0		0	0	1	0	3	Somewhat	Mostly	Not at all	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Often	Often	Almost always	Often	Often	18174154
+120	1.0	1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Definitely	Definitely	Somewhat	Not at all	Somewhat	Mostly	Often	Sometimes	Sometimes	Sometimes	Almost always	15496161
+121	1.0		1.0		1	0	0	0	3	Somewhat	Somewhat	Not at all	Somewhat	Mostly	Somewhat	Mostly	Mostly	Somewhat	Almost always	Often	Almost always	Almost always	Often	18866165
+122	1.0		1.0		1	0	0	0	1	Mostly	Somewhat	Not at all	Somewhat	Somewhat	Not at all	Somewhat	Definitely	Definitely	Sometimes	Sometimes	Sometimes	Often	Sometimes	17691169
+123	1.0				0	0	0	0	0	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Somewhat	Mostly	Definitely	Often	Often	Often	Sometimes	Almost always	19018165
+124	1.0	1.0	1.0		1	0	0	0	3	Not at all	Definitely	Not at all	Definitely	Definitely	Mostly	Mostly	Definitely	Definitely	Almost always	Sometimes	Almost always	Often	Almost always	16657165
+125	1.0	1.0	1.0		1	0	0	0	1	Mostly	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Mostly	Mostly	Somewhat	Sometimes	Sometimes	Often	Often	Often	16317166
+126				1.0	1	0	0	0	3	Somewhat	Mostly	Not at all	Mostly	Mostly	Not at all	Not at all	Mostly	Somewhat	Often	Often	Often	Sometimes	Often	16961152
+127		1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Mostly	Mostly	Mostly	Almost always	Almost always	Often	Sometimes	Often	16901162
+128	1.0	1.0	1.0		0	1	0	0	3	Not at all	Definitely	Not at all	Mostly	Mostly	Mostly	Not at all	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	12665164
+129	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Definitely	Somewhat	Somewhat	Definitely	Not at all	Somewhat	Mostly	Mostly	Almost always	Sometimes	Almost always	Often	Often	15160164
+130	1.0	1.0	1.0	1.0	0	0	0	1	2	Somewhat	Definitely	Not at all	Mostly	Definitely	Somewhat	Somewhat	Definitely	Definitely	Almost always	Often	Almost always	Often	Often	12907149
+131	1.0	1.0	1.0		0	1	0	0	2	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Somewhat	Mostly	Definitely	Often	Often	Often	Sometimes	Almost always	13140165
+132	1.0		1.0		1	0	0	0	2	Definitely	Somewhat	Not at all	Somewhat	Definitely	Somewhat	Somewhat	Mostly	Somewhat	Often	Sometimes	Often	Often	Sometimes	13945160
+133	1.0	1.0	1.0		1	0	0	0	3	Not at all	Mostly	Not at all	Mostly	Definitely	Definitely	Mostly	Mostly	Definitely	Often	Often	Often	Often	Often	12816168
+134	1.0	1.0	1.0		0	0	0	0	2	Mostly	Somewhat	Mostly	Not at all	Mostly	Not at all	Not at all	Definitely	Not at all	Sometimes	Almost never	Often	Almost never	Sometimes	16233163
+135		1.0	1.0	1.0	1	0	0	0	2	Not at all	Somewhat	Not at all	Mostly	Definitely	Mostly	Somewhat	Somewhat	Mostly	Often	Often	Often	Sometimes	Often	14055131
+136	1.0	1.0	1.0		1	1	0	0	1	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Somewhat	Sometimes	Often	Sometimes	Sometimes	Sometimes	13870641
+137	1.0	1.0	1.0		0	0	0	0	0	Somewhat	Definitely	Somewhat	Mostly	Definitely	Not at all	Somewhat	Mostly	Mostly	Often	Sometimes	Sometimes	Sometimes	Often	17168593
+138	1.0	1.0	1.0		0	0	0	0	2	Not at all	Mostly	Not at all	Mostly	Mostly	Mostly	Mostly	Definitely	Mostly	Often	Often	Often	Often	Often	11777163
+139	1.0		1.0		1	0	1	0	1	Mostly	Somewhat	Somewhat	Somewhat	Mostly	Not at all	Not at all	Somewhat	Somewhat	Sometimes	Sometimes	Often	Almost never	Almost never	10537160
+140	1.0	1.0	1.0		0	0	0	0	3	Not at all	Mostly	Somewhat	Definitely	Mostly	Somewhat	Not at all	Mostly	Not at all	Often	Often	Almost always	Sometimes	Often	14261165
+141	1.0	1.0	1.0		0	0	0	0	3	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Somewhat	Definitely	Mostly	Often	Sometimes	Almost always	Sometimes	Almost always	17347163
+142	1.0				0	0	0	0	0	Definitely	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Mostly	Mostly	Definitely	Often	Sometimes	Often	Often	Often	11394167
+143	1.0		1.0		0	0	0	0	3	Somewhat	Somewhat	Not at all	Mostly	Mostly	Mostly	Somewhat	Definitely	Mostly	Often	Sometimes	Often	Sometimes	Often	13407169
+144			1.0		0	0	0	0	1	Not at all	Not at all	Somewhat	Not at all	Somewhat	Not at all	Not at all	Somewhat	Somewhat	Sometimes	Almost never	Sometimes	Often	Often	17701169
+160	1.0		1.0		0	0	1	0	3	Somewhat	Somewhat	Somewhat	Mostly	Definitely	Mostly	Mostly	Definitely	Mostly	Almost always	Often	Often	Often	Often	19618321
+161	1.0	1.0	1.0		0	0	1	1	3	Somewhat	Mostly	Not at all	Somewhat	Mostly	Somewhat	Not at all	Somewhat	Definitely	Often	Often	Sometimes	Often	Often	19470169
+163	1.0	1.0	1.0	1.0	1	0	0	0	2	Somewhat	Mostly	Not at all	Mostly	Definitely	Somewhat	Mostly	Somewhat	Mostly	Often	Sometimes	Often	Often	Almost always	17576140
+168	1.0	1.0	1.0		1	0	0	0	2	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Mostly	Not at all	Mostly	Mostly	Sometimes	Sometimes	Sometimes	Almost never	Sometimes	12017165
+171	1.0	1.0	1.0		0	0	0	0	0	Somewhat	Somewhat	Not at all	Not at all	Mostly	Not at all	Definitely	Mostly	Mostly	Often	Sometimes	Often	Often	Sometimes	13578154
+176	1.0	1.0	1.0		1	0	0	0	3	Definitely	Mostly	Somewhat	Not at all	Mostly	Mostly	Mostly	Mostly	Somewhat	Almost always	Often	Often	Often	Almost always	19436162
+184	1.0				0	0	0	0	0	Somewhat	Somewhat	Mostly	Somewhat	Mostly	Definitely	Not at all	Mostly	Somewhat	Often	Sometimes	Often	Almost never	Sometimes	16328144
+187	1.0				0	0	0	0	1	Somewhat	Not at all	Definitely	Somewhat	Mostly	Somewhat	Mostly	Mostly	Mostly	Often	Sometimes	Often	Often	Often	17112137
+190	1.0	1.0	1.0		0	1	0	0	2	Not at all	Definitely	Not at all	Mostly	Definitely	Not at all	Somewhat	Not at all	Somewhat	Almost always	Almost always	Often	Often	Almost always	15884161
+197	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Mostly	Not at all	Somewhat	Definitely	Somewhat	Not at all	Definitely	Definitely	Almost always	Often	Almost always	Often	Almost always	15749160
+200	1.0	1.0	1.0		1	0	0	0	3	Somewhat	Mostly	Not at all	Somewhat	Somewhat	Somewhat	Mostly	Definitely	Somewhat	Sometimes	Often	Often	Sometimes	Sometimes	19053161
+201	1.0				0	0	0	0	0	Somewhat	Somewhat	Somewhat	Somewhat	Mostly	Somewhat	Somewhat	Mostly	Mostly	Sometimes	Sometimes	Sometimes	Sometimes	Sometimes	19913165
+202	1.0	1.0	1.0		1	1	0	0	3	Somewhat	Definitely	Not at all	Mostly	Definitely	Somewhat	Somewhat	Mostly	Mostly	Often	Sometimes	Sometimes	Almost never	Almost always	17655165
+204			1.0		1	0	0	0	1	Mostly	Somewhat	Somewhat	Somewhat	Somewhat	Not at all	Not at all	Mostly	Somewhat	Often	Often	Often	Almost never	Often	13660166
