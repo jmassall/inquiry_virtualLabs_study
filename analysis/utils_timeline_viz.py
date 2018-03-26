@@ -540,9 +540,10 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
                 v_to_plot = []
                 f_to_plot = []
                 prev_conf = None
+                ax.plot(coords, norm_values,'-',color=color, linewidth=1.5,alpha=1)
                 ###CONFOUNDING NEEDS FIXING
-                for j,(c,v,f) in enumerate(zip(coords, norm_values, confounded)):
-                    ax.plot([c],[v],'.',color=color, linewidth=1.5,alpha=1)
+                # for j,(c,v,f) in enumerate(zip(coords, norm_values, confounded)):
+                #     ax.plot([c],[v],'.',color=color, linewidth=1.5,alpha=1)
                     # # print c,v,f, prev_conf
                     # if (j == len(norm_values)-1) or f != prev_conf:
                     #     if f and len(v_to_plot)>0:
