@@ -671,9 +671,16 @@ def pts_are_confounded(values_per_variable):
     else:
         return False
 
-def get_pts(table, in_graph =False):
+def get_pts(table, in_graph = False, remove_bad_point = False):
     points = []
     for datapoint, attributes in table.iteritems():
+        if remove_bad_point:
+            if "Laser toggle" in attributes.keys():
+                if attributes["Laser toggle"]==0:
+                    continue
+            elif "Connection" in attributes.keys():
+                if attributes["Connection"]=="LIGHT_BULB_CONNECTED":
+                    continue
         if not in_graph:
             points.append(attributes)
         elif attributes['visible']:
