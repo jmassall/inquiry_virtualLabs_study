@@ -120,12 +120,12 @@ C,quant.0.1,1000,0
 C,quant.2.1,1000,0
 C,quant.1.1,1600,0
 C,quant.3.1,10000,0
-C,quant.3.1,.25 pC,3
-C,quant.0.1,02-Jan,3
-C,quant.1.1,02-Jan,3
-C,quant.3.1,04-Jan,3
-C,quant.2.1,08-Jan,0
-C,quant.3.1,08-Jan,0
+C,quant.0.1,2-Jan,3
+C,quant.1.1,2-Jan,3
+C,quant.3.1,4-Jan,3
+C,quant.3.1,4-Jan,3
+C,quant.2.1,8-Jan,0
+C,quant.3.1,8-Jan,0
 L,qual1, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
 L,qual2, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
 L,qual3, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
@@ -152,8 +152,8 @@ C,qual5, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),1
 C,qual6, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),0
 C,quant.3.1,(0.5x0.25)pC,0
 C,quant.3.1,(1/8),0
+C,quant.3.1,.25 pC,3
 C,quant.0.1,.25 pC,0
-C,quant.3.1,04-Jan,3
 C,quant.2.1,.25pC,0
 C,quant.3.1,.25pC,3
 C,quant.0.1,.5pC,3
