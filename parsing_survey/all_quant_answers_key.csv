@@ -120,12 +120,12 @@ C,quant.0.1,1000,0
 C,quant.2.1,1000,0
 C,quant.1.1,1600,0
 C,quant.3.1,10000,0
-C,quant.0.1,2-Jan,3
-C,quant.1.1,2-Jan,3
-C,quant.3.1,4-Jan,3
-C,quant.3.1,4-Jan,3
-C,quant.2.1,8-Jan,0
-C,quant.3.1,8-Jan,0
+C,quant.0.1,02-Jan,3
+C,quant.1.1,02-Jan,3
+C,quant.3.1,04-Jan,3
+C,quant.3.1,04-Jan,3
+C,quant.2.1,08-Jan,0
+C,quant.3.1,08-Jan,0
 L,qual1, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
 L,qual2, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
 L,qual3, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
