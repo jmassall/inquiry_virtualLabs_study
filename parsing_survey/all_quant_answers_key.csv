@@ -1,0 +1,363 @@
+sim,question,answer,score
+L,quant.0,0,0
+L,quant.1,0,0
+L,quant.2,0,0
+L,quant.3,0,0
+C,quant.3.1,0,0
+L,quant.0,0.01,0
+L,quant.3,0.025,0
+L,quant.2,0.05,0
+C,quant.3.1,0.05,0
+L,quant.0,0.1,3
+L,quant.1,0.1,0
+L,quant.2,0.1,0
+L,quant.3,0.1,0
+C,quant.0.1,0.1,0
+C,quant.2.1,0.1,0
+C,quant.3.1,0.1,0
+C,quant.3.1,0.12,0
+C,quant.3.1,0.125,0
+C,quant.2.1,0.13,0
+L,quant.0,0.15,0
+L,quant.3,0.15,0
+L,quant.0,0.2,0
+L,quant.2,0.2,0
+L,quant.3,0.2,3
+C,quant.2.1,0.2,0
+C,quant.3.1,0.2,0
+L,quant.3,0.25,0
+C,quant.0.1,0.25,0
+C,quant.1.1,0.25,0
+C,quant.2.1,0.25,0
+C,quant.3.1,0.25,3
+L,quant.1,0.3,0
+L,quant.3,0.3,0
+C,quant.1.1,0.3,0
+C,quant.3.1,0.3,0
+C,quant.0.1,0.33,0
+L,quant.1,0.35,0
+C,quant.0.1,0.38,0
+L,quant.0,0.4,0
+L,quant.1,0.4,3
+L,quant.2,0.4,0
+L,quant.3,0.4,0
+C,quant.1.1,0.4,0
+L,quant.0,0.5,0
+L,quant.1,0.5,0
+L,quant.2,0.5,0
+L,quant.3,0.5,0
+C,quant.0.1,0.5,3
+C,quant.1.1,0.5,3
+C,quant.2.1,0.5,0
+C,quant.3.1,0.5,0
+L,quant.1,0.6,0
+L,quant.2,0.6,0
+L,quant.3,0.6,0
+C,quant.1.1,0.6,0
+C,quant.2.1,0.6,0
+C,quant.3.1,0.6,0
+C,quant.0.1,0.66,0
+C,quant.2.1,0.67,0
+L,quant.3,0.7,0
+C,quant.3.1,0.7,0
+L,quant.1,0.75,0
+C,quant.2.1,0.75,0
+L,quant.1,0.8,0
+L,quant.2,0.8,3
+L,quant.3,0.8,0
+C,quant.1.1,0.8,0
+C,quant.2.1,0.8,0
+L,quant.3,0.85,0
+C,quant.3.1,0.85,0
+C,quant.2.1,0.9,0
+L,quant.1,1,0
+L,quant.2,1,0
+L,quant.3,1,0
+C,quant.0.1,1,0
+C,quant.1.1,1,0
+C,quant.2.1,1,3
+C,quant.3.1,1,0
+C,quant.2.1,1.1,0
+C,quant.3.1,1.2,0
+C,quant.2.1,1.25,0
+L,quant.2,1.5,0
+L,quant.3,1.5,0
+C,quant.3.1,1.5,0
+L,quant.2,1.6,0
+C,quant.2.1,1.6,0
+L,quant.3,1.7,0
+L,quant.2,2,0
+L,quant.3,2,0
+C,quant.0.1,2,0
+C,quant.1.1,2,0
+C,quant.2.1,2,0
+C,quant.3.1,2,0
+L,quant.2,2.1,0
+L,quant.1,2.3,0
+C,quant.2.1,2.5,0
+C,quant.3.1,2.5,0
+L,quant.3,3,0
+C,quant.0.1,3,0
+L,quant.2,3.2,0
+L,quant.1,3.4,0
+L,quant.2,3.6,0
+C,quant.1.1,4,0
+C,quant.2.1,4,0
+C,quant.3.1,4,0
+C,quant.0.1,5,0
+L,quant.3,5.1,0
+L,quant.1,5.2,0
+L,quant.2,5.4,0
+C,quant.1.1,7,0
+C,quant.2.1,8,0
+C,quant.3.1,9,0
+C,quant.2.1,10,0
+C,quant.1.1,100,0
+C,quant.2.1,200,0
+C,quant.0.1,400,0
+C,quant.3.1,800,0
+C,quant.0.1,1000,0
+C,quant.2.1,1000,0
+C,quant.1.1,1600,0
+C,quant.3.1,10000,0
+C,quant.0.1,02-Jan,3
+C,quant.1.1,02-Jan,3
+C,quant.3.1,04-Jan,3
+C,quant.3.1,04-Jan,3
+C,quant.2.1,08-Jan,0
+C,quant.3.1,08-Jan,0
+L,qual1, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
+L,qual2, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
+L,qual3, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
+L,qual4, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),1
+L,qual5, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
+L,qual6, (https://survey.ubc.ca/media/assets/groups/5494/equal%20(1).png),0
+L,qual1, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+L,qual2, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+L,qual3, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+L,qual4, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+L,qual5, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+L,qual6, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+C,qual1, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+C,qual2, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+C,qual3, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+C,qual4, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+C,qual5, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+C,qual6, (https://survey.ubc.ca/media/assets/groups/5494/Notenoughinfo.png),0
+C,qual1, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),0
+C,qual2, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),0
+C,qual3, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),1
+C,qual4, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),0
+C,qual5, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),1
+C,qual6, (https://survey.ubc.ca/media/assets/user/23165/storage/equal2.png),0
+C,quant.3.1,(0.5x0.25)pC,0
+C,quant.3.1,(1/8),0
+C,quant.3.1,.25 pC,3
+C,quant.0.1,.25 pC,0
+C,quant.2.1,.25pC,0
+C,quant.3.1,.25pC,3
+C,quant.0.1,.5pC,3
+C,quant.1.1,.5pC,3
+C,quant.3.1,.5pC,0
+C,quant.1.1,.67 pC,0
+L,quant.0,0.1?? I am not sure because I didn't finish the experiment but definately smaller than 0.2,2
+L,quant.1,0.2*2,3
+L,quant.2,0.2*4,3
+L,quant.0,0.2/2,3
+C,quant.1.1,0.25pC,0
+C,quant.3.1,0.25pC,3
+C,quant.3.1,0.2pC,0
+C,quant.3.1,0.34 pC,0
+C,quant.1.1,0.3pC,0
+C,quant.3.1,0.3pC,0
+L,quant.1,0.4ish,2
+C,quant.1.1,0.4pC,0
+C,quant.0.1,0.5 pC,3
+C,quant.1.1,0.5 pC,3
+C,quant.0.1,0.5pC,3
+C,quant.1.1,0.5pC,3
+C,quant.1.1,0.6pc,0
+C,quant.2.1,0.8pC,0
+C,quant.2.1,1 pC,3
+C,quant.0.1,1/2 pC,3
+C,quant.1.1,1/2 pC,3
+C,quant.2.1,1/4 pC,0
+C,quant.3.1,1/4 pC,3
+C,quant.2.1,1/4pc,0
+C,quant.3.1,1/8pc,0
+C,quant.0.1,1pC,0
+C,quant.2.1,1pC,3
+C,quant.2.1,1pc,3
+C,quant.3.1,1pC,0
+C,quant.0.1,2 pC,0
+C,quant.0.1,2pC,0
+C,quant.1.1,2pC,0
+C,quant.1.1,2pc,0
+C,quant.2.1,2pC,0
+C,quant.3.1,4 pC,0
+C,quant.2.1,4.5pC,0
+C,quant.0.1,4pc,0
+C,quant.2.1,4pC,0
+C,quant.3.1,4pC,0
+L,quant.2,4x the absorbance,3
+L,quant.0,absorbance would decrease,1
+L,quant.1,absorbance would increase,1
+L,quant.2,absorbance would increase significantly,1
+L,quant.3,absorbance would stay the same ,3
+L,qual5,angled laser beam (https://survey.ubc.ca/media/assets/user/23165/storage/setup_narrow_light_green_crooked2.png),1
+L,quant.2,around 0.8 ,2
+C,quant.2.1,around the same,2
+L,qual3,big beaker (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_wide_light_green.png),1
+L,quant.1,bigger than 0.2,1
+L,quant.2,bigger than 0.2,1
+L,qual6,blue laser beam (https://survey.ubc.ca/media/assets/user/23165/storage/setup_narrow_dark_blue.png),0
+L,qual4,close to detector (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_narrow_dark_green_far.png),0
+L,quant.0,decrease,1
+L,quant.0,Decrease,1
+L,quant.1,decrease,0
+L,quant.3,decrease,0
+C,quant.0.1,Decrease,1
+C,quant.1.1,Decrease,1
+C,quant.3.1,Decrease,1
+L,quant.0,decrease 0.1,3
+L,quant.2,decrease a lot (relative to other qs),0
+C,quant.3.1,"decrease by a lot, area losing decreases so does separation further apart. might become 0",1
+C,quant.0.1,Decrease in plate charge,1
+C,quant.1.1,Decrease in plate charge,1
+C,quant.3.1,Decrease in plate charge,1
+C,quant.1.1,decrease its further apart 0.5 pC,3
+L,quant.0,double maybe,0
+L,quant.1,double maybe,3
+L,quant.1,Double the absorbance,3
+L,qual4,far from detector (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_narrow_dark_green.png),0
+L,quant.1,Greater,1
+L,quant.2,Greater,1
+L,quant.0,Half the absorbance,3
+L,qual1,high concentration (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_wide_dark_green.png),1
+L,qual2,"high concentration, low volume (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_wide_dark_green_low%20(1).png)",1
+L,quant.1,higher,1
+L,quant.2,higher,1
+L,quant.3,higher,0
+C,quant.2.1,higher,0
+L,quant.1,higher (around 0.4),2
+L,quant.2,higher (around 0.8),2
+L,quant.1,higher than 0.2,1
+C,qual2,higher voltage battery (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_10V.png),1
+L,quant.0,highrer than 0.2,0
+L,qual5,horizontal laser beam (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_narrow_light_green.png),0
+L,quant.1,Increaes,1
+L,quant.0,increase,0
+L,quant.1,increase,1
+L,quant.2,increase,1
+L,quant.2,Increase,1
+L,quant.1,increase 0.4,3
+L,quant.2,increase 0.6,1
+C,quant.0.1,increase 2 pc,0
+L,quant.3,increase and decrease so maybe the same 0.2,3
+L,quant.3,increase x2,0
+L,quant.2,increase x4,3
+C,quant.2.1,increased since it is closer and but decrease since area decreased. So it should stay the same,3
+L,quant.0,it will decrease,1
+L,quant.1,it will increase,1
+L,quant.2,it will increase much more,1
+C,qual3,larger plates (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_0V.png),0
+C,qual1,larger plates (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_10V.png),1
+C,qual4,larger separation (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_largeSep_10V.png),0
+C,quant.2.1,larger than 0.5,0
+C,quant.0.1,less,1
+C,quant.1.1,less,1
+C,quant.3.1,less,1
+L,quant.0,less than 0.2,1
+L,quant.3,less than 0.2,0
+C,quant.1.1,less than 1 pc,1
+C,quant.0.1,less than 1pc,1
+C,quant.0.1,Less than 1pC,1
+C,quant.0.1,less than 1pC,1
+C,quant.1.1,Less than 1pC,1
+C,quant.1.1,less than 1pc,1
+C,quant.1.1,less than 1pC,1
+C,quant.2.1,less than 1pc,0
+C,quant.3.1,less than 1pc,1
+C,quant.3.1,Less than 1pC,1
+L,qual1,low concentration (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_wide_light_green.png),0
+L,qual2,"low concentration, high volume (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_wide_light_green_high.png)",0
+C,quant.0.1,loweor,1
+L,quant.0,lower,1
+C,quant.1.1,lower,1
+C,quant.3.1,lower,1
+L,quant.0,lower ( around 0.1),2
+L,quant.1,lower than 0.2,0
+L,quant.2,lower than 0.2,0
+L,quant.3,lower than 0.2,0
+C,qual2,lower voltage battery,0
+C,quant.3.1,"Lower, assuming the charge may be a quarter of its original charge as a result",3
+C,quant.0.1,"Lower, assuming the charge may be halved as a result",3
+C,quant.1.1,"Lower, assuming the charge may be halved as a result",3
+C,quant.1.1,more,0
+C,quant.2.1,more,0
+L,quant.1,more than 0.2,1
+L,quant.2,more than 0.2,1
+L,quant.2,much higher than 0.2,1
+C,qual5,negative voltage battery (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_neg10V.png),0
+L,quant.3,no change,3
+C,quant.3.1,no change,0
+C,qual5,positive voltage battery (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_10V.png),0
+L,quant.2,quadruple maybe,3
+L,qual6,red laser beam (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_narrow_dark_red.png),1
+L,quant.0,same,0
+L,quant.3,same,3
+L,quant.3,Same,3
+L,quant.3,Same level of absorbance,3
+C,quant.2.1,same?,3
+L,qual3,small beaker (https://survey.ubc.ca/media/assets/user/23165/storage/absorbance%20empty%20laser/setup_narrow_light_green.png),0
+L,quant.0,smaller,1
+L,quant.0,Smaller,1
+L,quant.3,smaller,0
+C,quant.0.1,smaller,1
+C,quant.1.1,smaller,1
+C,quant.2.1,smaller,0
+C,quant.3.1,smaller,1
+C,qual1,smaller plates (https://survey.ubc.ca/media/assets/user/27714/storage/smallPlates_10V.png),0
+C,qual3,smaller plates (https://survey.ubc.ca/media/assets/user/27714/storage/smallPlates_10V.png),0
+C,qual4,smaller separation (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_10V.png),1
+L,quant.0,smaller than 0.2,1
+L,quant.3,smaller than 0.2,0
+C,quant.3.1,smaller than 0.5,1
+C,quant.1.1,smaller than 1,1
+L,quant.3,Stay the same,3
+C,quant.2.1,Stay the same,3
+C,quant.2.1,stays the same,3
+L,quant.3,stays the same ,3
+C,quant.2.1,Stays the same (ratio is the same),3
+C,quant.0.1,the charge decreases,1
+C,quant.1.1,the charge decreases,1
+C,quant.2.1,the charge does not change,3
+C,quant.3.1,the charge does not change,0
+C,quant.2.1,The charge may stay the same; unsure whether the changes will cancel each other out as one factor increases and the other decreases the charge,2
+C,quant.0.1,the charge would decrease,1
+C,quant.1.1,the charge would decrease,1
+C,quant.2.1,the charge would stay the same,3
+C,quant.3.1,the charge would stay the same,0
+L,quant.3,the same,3
+L,quant.3,the same (around 0.2),3
+L,quant.3,the same as before,3
+C,quant.3.1,the smallest value of the other possibilities,1
+L,quant.0,the value of absorbance will decrease,1
+L,quant.1,the value of absorbannce will increase,1
+L,quant.0,The value will be lowered.,1
+L,quant.1,The value will be lowered.,0
+L,quant.2,The value will be significantly higher.,1
+L,quant.3,the value will not change,3
+L,quant.3,The value will stay around the same level.,3
+L,quant.2,the value will stay the same,0
+C,qual6,two large plates offset from one another (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_offset_10V.png),0
+C,qual6,two large plates perfectly aligned (https://survey.ubc.ca/media/assets/user/27714/storage/bigPlates_10V.png),1
+L,quant.3,unable to tell (no change?),3
+C,quant.2.1,Value will be around the same.,2
+C,quant.3.1,Value will be significantly smaller.,1
+C,quant.0.1,value will be smaller.,1
+C,quant.1.1,Value will be smaller.,1
+C,quant.2.1,Will be greater,0
+C,quant.0.1,Will be smaller,1
+C,quant.1.1,Will be smaller,1
+C,quant.3.1,Will be smaller,1
