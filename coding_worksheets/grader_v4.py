@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 if __name__ == "__main__":
 
 	# filename = 'coded_worksheet_test.csv'
-	filename = 'absorbance_coded_worksheet_cleaned_final.csv'
+	# filename = 'absorbance_coded_worksheet_cleaned_final.csv'
 	# filename = 'capacitors_coded_worksheets_cleaned_final.csv'
-	# filename = 'extra_session_coded_worksheets_cleaned.csv'
+	filename = 'extra_session_coded_worksheets_cleaned.csv'
 
 	categories = ['unified', 'verbal', 'math', 'qt-bad-ql-good', 
 	'qual', 'zero-outcome', 'extreme-outcome', 'unified-extremes', 'unified-slope',	'unified-zero',
@@ -73,13 +73,14 @@ dft = pd.DataFrame.from_dict({(i,j,k,l): data[i][j][k][l]
 	                            for k in data[i][j].keys()
 	                            for l in data[i][j][k].keys()}, 
 	                            orient='index')
+
 dft = dft.reset_index()
-model_types = ['qual', 'quant', 'ident']
+model_types = ['qual', 'ident', 'quant']
 ws_id = ['Student ID', 'Topic', 'Type', 'Factors']
 dft.columns = ws_id+model_types
 dft = dft.melt(id_vars = ws_id, value_vars = model_types, var_name = ['Model'], value_name = 'Correct')
 # print dft
-dft.to_csv('absorbance_coded_with_model-type.csv', sep=',', index=False)
+dft.to_csv('extra_coded_with_model-type.csv', sep=',', index=False)
 
 
 
