@@ -43,6 +43,9 @@ if __name__ == "__main__":
 				for factor in df.loc[idx[student,topic,:],:].index.get_level_values('Factors').unique():
 					data[student][topic][atype][factor] = {}
 					selection = idx[student, topic, atype, factor]
+					data[student][topic][atype][factor]['quant'] = np.nan
+					data[student][topic][atype][factor]['qual'] = np.nan
+					data[student][topic][atype][factor]['ident'] = np.nan
 					if ((df.loc[selection, 'unified'] != 0 ) | (df.loc[selection, 'verbal'] != 0 ) | (df.loc[selection, 'math'] != 0 )):
 						if ((df.loc[selection, 'unified'] == 1 ) & (df.loc[selection, 'verbal'] >= 0 ) & (df.loc[selection, 'math'] >=0 )):
 							data[student][topic][atype][factor]['quant'] = 1
@@ -70,13 +73,14 @@ dft = pd.DataFrame.from_dict({(i,j,k,l): data[i][j][k][l]
 	                            for k in data[i][j].keys()
 	                            for l in data[i][j][k].keys()}, 
 	                            orient='index')
+
 dft = dft.reset_index()
-model_types = ['qual', 'quant', 'ident']
+model_types = ['qual', 'ident', 'quant']
 ws_id = ['Student ID', 'Topic', 'Type', 'Factors']
 dft.columns = ws_id+model_types
 dft = dft.melt(id_vars = ws_id, value_vars = model_types, var_name = ['Model'], value_name = 'Correct')
 # print dft
-dft.to_csv('extras_coded_with_model-type.csv', sep=',', index=False)
+dft.to_csv('extra_coded_with_model-type.csv', sep=',', index=False)
 
 
 
