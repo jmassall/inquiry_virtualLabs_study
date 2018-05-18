@@ -1,3 +1,8 @@
+'''
+Here are all the functions related to loading student log data, cleaning it, parsing it and
+visualizing it using a timeline visualization.
+'''
+
 import os
 import matplotlib
 import matplotlib.pyplot as plt

@@ -1,3 +1,8 @@
+'''
+Here are all the functions related to loading student data (log, worksheet, metadata and survey data)
+as well as connecting these different data sources using student ids (which often have mistakes in them)
+'''
+
 import os
 import datetime
 import getpass
@@ -9,6 +14,10 @@ BIG_FOLDER =  'C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\La
 
 
 def find_latest_parsing_report_file(sim, date=None, infolder=FOLDER):
+    '''
+    Given a sim (beers or capacitor), find the latest parsing report from a certain folder.
+    You can also specific a report from a certain date or folder.
+    '''
     if date:
         for root, dirs, files in os.walk(infolder):
             for f in files:
@@ -29,6 +38,10 @@ def find_latest_parsing_report_file(sim, date=None, infolder=FOLDER):
             return find_latest_parsing_report_file(sim, date=sorteddates[-1], infolder=infolder)
         else:
             print "No file found for {0} sim.".format(sim)
+
+def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
+    return  pd.read_table(find_latest_parsing_report_file(sim, date=None, infolder=FOLDER), sep='\t')
+
 
 def get_pre_survey():
     filepath = os.path.join(BIG_FOLDER,'raw study data\\survey data\\responses_pre-assessment_downloaded_4.3.2017.txt')
@@ -128,9 +141,6 @@ def get_main_worksheet(sim):
     df = pd.concat([primary_df,extras_df])   
     df = df.reset_index(drop=True)
     return df
-
-def get_latest_parsing_report(sim, date=None, infolder=FOLDER):
-    return  pd.read_table(find_latest_parsing_report_file(sim, date=None, infolder=FOLDER), sep='\t')
 
 def get_session_data():
     return pd.read_table('C:\\Users\\'+getpass.getuser()+'\\Documents\\Personal Content\\Lab_study_data\\signout sheets\\session_data.txt',sep='\t')            
