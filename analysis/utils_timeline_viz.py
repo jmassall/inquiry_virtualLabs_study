@@ -1,4 +1,5 @@
 '''
+author: sperez8
 Here are all the functions related to loading student log data, cleaning it, parsing it and
 visualizing it using a timeline visualization.
 '''
@@ -509,7 +510,6 @@ def fix_laser(values,coords):
 #     newvalues = list(chain.from_iterable(izip(values,opp)))
 #     newcoords = list(chain.from_iterable(izip(coords,coords)))
 #     return newvalues,newcoords
-
 
 def plot(df,to_plot,family_name_to_code,function_to_use,colors):
     ax = plt.subplot()
