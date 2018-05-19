@@ -60,6 +60,44 @@ def get_massaged_post_survey():
     df = pd.read_csv(filepath,sep='\t')
     return df 
 
+def get_massaged_worksheet_model_data():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\worksheets_models.txt')
+    df = pd.read_csv(filepath,sep='\t')
+    return df 
+
+def get_use_wrapper_results():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\use_wrapper_results.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
+def get_table_cvs_results():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\table_cvs_results.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
+def get_table_non_consecutive_cvs_results():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\table_non_consecutive_cvs_results_2-3-4.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
+def get_table_intervals_results():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\table_intervals_results.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
+def get_graph_cvs_results():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\graph_cvs_results.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
+def get_cvs_results(number_trials,merged=True):
+    if merged:
+        filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\cvs_{0}_merged_context.txt'.format(number_trials))
+    else:
+        filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\cvs_{0}_context.txt'.format(number_trials))
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
 SIM_NAMES = {'beers':'ABSORBANCE','caps':'CAPACITORS'}
 def get_worksheet_metadata(sim):
     if sim == 'capacitor':
@@ -132,11 +170,6 @@ def get_student_metadata():
 def get_students_to_analyze_log():
     df = get_student_metadata()
     return df[df['use analysis']==True].index.values
-
-def get_students_to_analyze_log_worksheets(sim):
-    ids = set(get_students_to_analyze_log())
-    worksheets = get_worksheet_metadata(sim)
-    return set(list(worksheets[worksheets['use analysis']==True]['Student ID']))&set(ids)
 
 def get_date_event_pairs(sim,row):
     if sim == "beers":
