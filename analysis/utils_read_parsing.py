@@ -50,6 +50,11 @@ def get_pre_survey():
     df = pd.read_csv(filepath,sep='\t',encoding = "ISO-8859-1")
     return df
 
+def get_post_answers_key():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\all_quant_answers_key.txt')
+    df = pd.read_csv(filepath,sep='\t')
+    return df   
+
 def get_massaged_pre_survey():
     filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\pre_survey_results.txt')
     df = pd.read_csv(filepath,sep='\t')
@@ -64,6 +69,16 @@ def get_massaged_worksheet_model_data():
     filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\worksheets_models.txt')
     df = pd.read_csv(filepath,sep='\t')
     return df 
+
+def get_massaged_near_transfer_data():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\post_scores_near_transfer_per_variable.txt')
+    df = pd.read_csv(filepath,sep='\t')
+    return df 
+
+def get_incoming_attitudes():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\incoming_attitudes.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
 
 def get_use_wrapper_results():
     filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\use_wrapper_results.txt')
