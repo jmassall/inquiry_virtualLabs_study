@@ -70,6 +70,11 @@ def get_massaged_worksheet_model_data():
     df = pd.read_csv(filepath,sep='\t')
     return df 
 
+def get_massaged_worksheet_highest_understanding_data():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\worksheets_highest_understanding.txt')
+    df = pd.read_csv(filepath,sep='\t')
+    return df 
+
 def get_massaged_near_transfer_data():
     filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\post_scores_near_transfer_per_variable.txt')
     df = pd.read_csv(filepath,sep='\t')
@@ -129,7 +134,7 @@ def get_worksheet_metadata(sim):
     df = df.reset_index(drop=True)
     return df
 
-def get_worksheet_data_per_sim(sim):
+def get_worksheet_data_by_model_per_sim(sim):
     if sim == 'capacitor':
         sim = 'caps'
     #get primary metadata file for that sim
@@ -137,20 +142,20 @@ def get_worksheet_data_per_sim(sim):
     primary_df = pd.read_csv(primary_filepath,sep=',')
     
     #get metadata file for extras worksheets
-    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\all_model_types_correctness_coding\extras_coded_with_model-type.csv')
+    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\all_model_types_correctness_coding\\extras_coded_with_model-type.csv')
     extras_df = pd.read_csv(extras_filepath,sep=',')
     extras_df = extras_df[extras_df['Topic']==SIM_NAMES[sim]]
     df = pd.concat([primary_df,extras_df])   
     df = df.reset_index(drop=True)
     return df
 
-def get_pre_worksheet(sim):
+def get_pre_worksheet_highest_understanding(sim):
     #sim = beers or caps    
-    primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_pre.csv')
+    primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\highest_correct_model_coding\\'+sim+'_gradebook_pre.csv')
     primary_df = pd.read_csv(primary_filepath,sep=',')
     
     #get file for extras worksheets
-    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\gradebook_extras_pre.csv')
+    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\highest_correct_model_coding\\gradebook_extras_pre.csv')
     extras_df = pd.read_csv(extras_filepath,sep=',')
     if sim == 'beers':
         extras_df = extras_df[['Student ID','Concentration','Wavelength','Width']]
@@ -160,13 +165,13 @@ def get_pre_worksheet(sim):
     df = df.reset_index(drop=True)
     return df
 
-def get_main_worksheet(sim):
+def get_main_worksheet_highest_understanding(sim):
     #sim = beers or caps
-    primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\'+sim+'_gradebook_main.csv')
+    primary_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\highest_correct_model_coding\\'+sim+'_gradebook_main.csv')
     primary_df = pd.read_csv(primary_filepath,sep=',')
     
     #get file for extras worksheets
-    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\gradebook_extras_main.csv')
+    extras_filepath = os.path.join(BIG_FOLDER,'coded worksheet data\\highest_correct_model_coding\\gradebook_extras_main.csv')
     extras_df = pd.read_csv(extras_filepath,sep=',')
     if sim == 'beers':
         extras_df = extras_df[['Student ID','Concentration','Wavelength','Width']]
