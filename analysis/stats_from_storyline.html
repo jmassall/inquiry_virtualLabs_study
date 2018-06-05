@@ -11785,7 +11785,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="kn">require</span><span class="p">(</span>ggplot2<span class="p">)</span>
@@ -11814,7 +11814,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>mydata <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\all_massaged_data\\dataframe_all_factors_for_analysis.txt&quot;</span><span class="p">,</span>sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
@@ -11836,7 +11836,7 @@ mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="kp">head</span><span class="p">(</span>mydata<span class="p">)</span>
@@ -11925,7 +11925,7 @@ mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stat-model-1:-Predicting-main-model-scores">Stat model 1: Predicting main model scores<a class="anchor-link" href="#Stat-model-1:-Predicting-main-model-scores">&#194;&#182;</a></h2>
+<h1 id="Stat-model-1:-Predicting-main-model-scores">Stat model 1: Predicting main model scores<a class="anchor-link" href="#Stat-model-1:-Predicting-main-model-scores">&#194;&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11951,22 +11951,14 @@ mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Filtering-data">Filtering data<a class="anchor-link" href="#Filtering-data">&#194;&#182;</a></h3><p><strong>Should we remove students with max pre for a certain variables???</strong></p>
+<p><strong>Should we remove students with max pre for a certain variables???</strong></p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Results">Results<a class="anchor-link" href="#Results">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>am1 <span class="o">&lt;-</span> aov<span class="p">(</span>main
@@ -12042,13 +12034,97 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stat-model-2:-Predicting-transfer-data">Stat model 2: Predicting transfer data<a class="anchor-link" href="#Stat-model-2:-Predicting-transfer-data">&#194;&#182;</a></h2>
+<h2 id="Repeat-to-compare-cvs_table-to-cvs_graph">Repeat to compare cvs_table to cvs_graph<a class="anchor-link" href="#Repeat-to-compare-cvs_table-to-cvs_graph">&#194;&#182;</a></h2><p>We rerun the model for all students who did cvs_table to see if doing cvs_graph actually helps more.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>am1_graph <span class="o">&lt;-</span> aov<span class="p">(</span>main
+    <span class="o">~</span> cvs_graph <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre
+    <span class="o">+</span> lab_experience <span class="o">+</span> similar_sim <span class="o">+</span> prior_number_virtual_labs <span class="o">+</span> overall.POCC
+    <span class="o">+</span>  PC1 <span class="o">+</span> PC2 <span class="o">+</span> Error<span class="p">(</span>sid<span class="o">/</span>variable<span class="p">),</span> data<span class="o">=</span>filter<span class="p">(</span>mydata<span class="p">,</span> cvs_table <span class="o">==</span> <span class="m">1</span><span class="p">))</span>
+<span class="kp">summary</span><span class="p">(</span>am1_graph<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Warning message:
+&#34;package &#39;bindrcpp&#39; was built under R version 3.4.4&#34;Warning message in aov(main ~ cvs_graph + variable + sim_index + pre + lab_experience + :
+&#34;Error() model is singular&#34;</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Error: sid
+                           Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+cvs_graph                   1   6.27   6.267  11.616 0.000915 ***
+variable                    3   2.54   0.847   1.571 0.200569    
+sim_index                   1   1.53   1.526   2.828 0.095472 .  
+pre                         1   5.38   5.377   9.966 0.002058 ** 
+lab_experience              1   0.02   0.015   0.028 0.867067    
+similar_sim                 1   0.07   0.073   0.135 0.713886    
+prior_number_virtual_labs   1   0.01   0.007   0.014 0.906797    
+overall.POCC                1   0.67   0.672   1.246 0.266760    
+PC1                         1   0.28   0.276   0.511 0.476288    
+PC2                         1   0.05   0.050   0.093 0.761382    
+Residuals                 110  59.35   0.540                     
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Error: sid:variable
+             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+cvs_graph     1   2.19  2.1852   8.293 0.00436 **
+variable      3   3.85  1.2837   4.872 0.00265 **
+sim_index     1   1.58  1.5830   6.007 0.01501 * 
+pre           1   1.01  1.0088   3.828 0.05163 . 
+similar_sim   1   0.48  0.4843   1.838 0.17654   
+Residuals   226  59.55  0.2635                   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Stat-model-2:-Predicting-transfer-data">Stat model 2: Predicting transfer data<a class="anchor-link" href="#Stat-model-2:-Predicting-transfer-data">&#194;&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>am2 <span class="o">&lt;-</span> aov<span class="p">(</span>quant_score
@@ -12119,17 +12195,90 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>am2 <span class="o">&lt;-</span> aov<span class="p">(</span>quant_score
+    <span class="o">~</span>  cvs_table <span class="o">+</span> cvs_graph <span class="o">+</span> main <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre
+    <span class="o">+</span> lab_experience <span class="o">+</span> similar_sim <span class="o">+</span> prior_number_virtual_labs <span class="o">+</span> overall.POCC
+    <span class="o">+</span>  PC1 <span class="o">+</span> PC2 <span class="o">+</span> Error<span class="p">(</span>sid<span class="o">/</span>variable<span class="p">),</span> data<span class="o">=</span>mydata<span class="p">)</span>
+<span class="kp">summary</span><span class="p">(</span>am2<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Error: sid
+                           Df Sum Sq Mean Sq F value Pr(&gt;F)   
+cvs_table                   1   0.05  0.0542   0.132 0.7167   
+cvs_graph                   1   2.04  2.0383   4.977 0.0273 * 
+main                        1   2.98  2.9769   7.269 0.0079 **
+pre                         1   0.50  0.4975   1.215 0.2723   
+lab_experience              1   0.10  0.1046   0.256 0.6140   
+similar_sim                 1   0.51  0.5054   1.234 0.2686   
+prior_number_virtual_labs   1   1.93  1.9331   4.720 0.0315 * 
+overall.POCC                1   0.26  0.2623   0.641 0.4249   
+PC1                         1   0.05  0.0464   0.113 0.7370   
+PC2                         1   0.31  0.3074   0.751 0.3878   
+Residuals                 136  55.70  0.4095                  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Error: sid:variable
+             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+cvs_table     1   0.06   0.056   0.436   0.5096    
+cvs_graph     1   0.24   0.240   1.875   0.1716    
+main          1   4.51   4.512  35.302 5.82e-09 ***
+variable      3   0.79   0.263   2.058   0.1052    
+sim_index     1   0.03   0.028   0.222   0.6380    
+pre           1   0.31   0.314   2.460   0.1175    
+similar_sim   1   0.84   0.845   6.608   0.0105 *  
+Residuals   432  55.22   0.128                     
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stat-model-3:-Predicting-the-use-of-CVS">Stat model 3: Predicting the use of CVS<a class="anchor-link" href="#Stat-model-3:-Predicting-the-use-of-CVS">&#194;&#182;</a></h2>
+<h1 id="Stat-model-3:-Predicting-the-use-of-CVS">Stat model 3: Predicting the use of CVS<a class="anchor-link" href="#Stat-model-3:-Predicting-the-use-of-CVS">&#194;&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="For-cvs_table">For cvs_table<a class="anchor-link" href="#For-cvs_table">&#194;&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># mydata$variable &lt;- relevel(mydata$variable, &quot;Width&quot;)</span>
@@ -12231,9 +12380,17 @@ PC2         -0.344  0.207</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="For-cvs_graph">For cvs_graph<a class="anchor-link" href="#For-cvs_graph">&#194;&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>mixed <span class="o">&lt;-</span> glmer<span class="p">(</span>
