@@ -11785,21 +11785,88 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="kn">require</span><span class="p">(</span>ggplot2<span class="p">)</span>
-<span class="c1">#require(GGally)</span>
 <span class="kn">require</span><span class="p">(</span>reshape2<span class="p">)</span>
 <span class="kn">require</span><span class="p">(</span>lme4<span class="p">)</span>
 <span class="kn">require</span><span class="p">(</span>compiler<span class="p">)</span>
 <span class="kn">require</span><span class="p">(</span>parallel<span class="p">)</span>
+<span class="kn">require</span><span class="p">(</span>car<span class="p">)</span>
 <span class="kn">require</span><span class="p">(</span>boot<span class="p">)</span>
-<span class="c1"># require(aod)</span>
 <span class="kn">require</span><span class="p">(</span>dplyr<span class="p">)</span>
+<span class="kn">require</span><span class="p">(</span>sjstats<span class="p">)</span>
+<span class="kn">require</span><span class="p">(</span>broom<span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Loading required package: ggplot2
+Warning message:
+&#34;package &#39;ggplot2&#39; was built under R version 3.4.4&#34;Loading required package: reshape2
+Warning message:
+&#34;package &#39;reshape2&#39; was built under R version 3.4.4&#34;Loading required package: lme4
+Warning message:
+&#34;package &#39;lme4&#39; was built under R version 3.4.4&#34;Loading required package: Matrix
+Loading required package: compiler
+Loading required package: parallel
+Loading required package: car
+Loading required package: boot
+
+Attaching package: &#39;boot&#39;
+
+The following object is masked from &#39;package:car&#39;:
+
+    logit
+
+Loading required package: dplyr
+
+Attaching package: &#39;dplyr&#39;
+
+The following object is masked from &#39;package:car&#39;:
+
+    recode
+
+The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag
+
+The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: sjstats
+Warning message:
+&#34;package &#39;sjstats&#39; was built under R version 3.4.4&#34;Warning message in checkMatrixPackageVersion():
+&#34;Package version inconsistency detected.
+TMB was built with Matrix version 1.2.14
+Current Matrix version is 1.2.12
+Please re-install &#39;TMB&#39; from source using install.packages(&#39;TMB&#39;, type = &#39;source&#39;) or ask CRAN for a binary version of &#39;TMB&#39; matching CRAN&#39;s &#39;Matrix&#39; package&#34;Loading required package: broom
+Warning message:
+&#34;package &#39;broom&#39; was built under R version 3.4.4&#34;
+Attaching package: &#39;broom&#39;
+
+The following object is masked from &#39;package:sjstats&#39;:
+
+    bootstrap
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11818,15 +11885,13 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>mydata <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;C:\\Users\\Sarah\\Documents\\Personal Content\\Lab_study_data\\all_massaged_data\\dataframe_all_factors_for_analysis.txt&quot;</span><span class="p">,</span>sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
-<span class="c1"># # SID is the student number</span>
+<span class="c1"># sid is the student number</span>
 mydata<span class="o">$</span>sid <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>sid<span class="p">)</span>
 mydata<span class="o">$</span>sim_index <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>sim_index<span class="p">)</span>
 mydata<span class="o">$</span>lab_experience <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>lab_experience<span class="p">)</span>
 mydata<span class="o">$</span>similar_sim <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>similar_sim<span class="p">)</span>
-mydata<span class="o">$</span>CVS_graph <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>cvs_graph<span class="p">)</span>
-mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>cvs_table<span class="p">)</span>
-<span class="c1"># mydata$pre &lt;- factor(mydata$pre)</span>
-<span class="c1"># mydata$main &lt;- factor(mydata$main)</span>
+mydata<span class="o">$</span>cvs_graph <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>cvs_graph<span class="p">)</span>
+mydata<span class="o">$</span>cvs_table <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mydata<span class="o">$</span>cvs_table<span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11859,14 +11924,14 @@ mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<thead><tr><th scope=col>sid</th><th scope=col>sim</th><th scope=col>variable</th><th scope=col>pre</th><th scope=col>main</th><th scope=col>cvs_graph</th><th scope=col>cvs_table</th><th scope=col>qual_score</th><th scope=col>quant_score</th><th scope=col>activity_order</th><th scope=col>...</th><th scope=col>CVS_context</th><th scope=col>use_table</th><th scope=col>use_graph</th><th scope=col>use_concentration</th><th scope=col>use_width</th><th scope=col>use_area</th><th scope=col>use_separation</th><th scope=col>use_all_vars</th><th scope=col>CVS_graph</th><th scope=col>CVS_table</th></tr></thead>
+<thead><tr><th scope=col>sid</th><th scope=col>sim</th><th scope=col>variable</th><th scope=col>pre</th><th scope=col>main</th><th scope=col>cvs_graph</th><th scope=col>cvs_table</th><th scope=col>qual_score</th><th scope=col>quant_score</th><th scope=col>activity_order</th><th scope=col>...</th><th scope=col>pre_with_ident</th><th scope=col>main_with_ident</th><th scope=col>CVS_context</th><th scope=col>use_table</th><th scope=col>use_graph</th><th scope=col>use_concentration</th><th scope=col>use_width</th><th scope=col>use_area</th><th scope=col>use_separation</th><th scope=col>use_all_vars</th></tr></thead>
 <tbody>
-	<tr><td>10127163     </td><td>L            </td><td>Concentration</td><td>0            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td><td>1            </td><td>1            </td></tr>
-	<tr><td>10127163     </td><td>L            </td><td>Width        </td><td>0            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td><td>1            </td><td>1            </td></tr>
-	<tr><td>10127163     </td><td>C            </td><td>Area         </td><td>2            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td><td>1            </td><td>1            </td></tr>
-	<tr><td>10127163     </td><td>C            </td><td>Separation   </td><td>2            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td><td>1            </td><td>1            </td></tr>
-	<tr><td>10232160     </td><td>L            </td><td>Concentration</td><td>0            </td><td>0            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td><td>1            </td><td>1            </td></tr>
-	<tr><td>10232160     </td><td>L            </td><td>Width        </td><td>0            </td><td>0            </td><td>0            </td><td>0            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>0            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td><td>0            </td><td>0            </td></tr>
+	<tr><td>10127163     </td><td>L            </td><td>Concentration</td><td>0            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>1            </td><td>3            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td></tr>
+	<tr><td>10127163     </td><td>L            </td><td>Width        </td><td>0            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>1            </td><td>3            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td></tr>
+	<tr><td>10127163     </td><td>C            </td><td>Area         </td><td>2            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>3            </td><td>3            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td></tr>
+	<tr><td>10127163     </td><td>C            </td><td>Separation   </td><td>2            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>3            </td><td>3            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td></tr>
+	<tr><td>10232160     </td><td>L            </td><td>Concentration</td><td>0            </td><td>0            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>1            </td><td>1            </td><td>2            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td></tr>
+	<tr><td>10232160     </td><td>L            </td><td>Width        </td><td>0            </td><td>0            </td><td>0            </td><td>0            </td><td>1            </td><td>1            </td><td>LC           </td><td>...          </td><td>1            </td><td>1            </td><td>0            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>1            </td><td>4            </td></tr>
 </tbody>
 </table>
 
@@ -11909,8 +11974,6 @@ mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class
 	<li>'use_area'</li>
 	<li>'use_separation'</li>
 	<li>'use_all_vars'</li>
-	<li>'CVS_graph'</li>
-	<li>'CVS_table'</li>
 </ol>
 
 </div>
@@ -11940,18 +12003,15 @@ mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class
 <li>CVS_graph (0 or 1)</li>
 <li>CVS_table (0 or 1)</li>
 <li>pre (0,1,2)</li>
-<li>student attributes: lab_experience, similar_sim, prior_number_virtual_labs, attitude components</li>
 </ul>
-<p>We do so using a repeated measures anova where we have repeat measures of "variable" by student.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Should we remove students with max pre for a certain variables???</strong></p>
+<p>We could add student attributes but since these are mostly unbalanced, we ignore (lab_experience, similar_sim, prior_number_virtual_labs, attitude components)</p>
+<p>Some resources:</p>
+<ul>
+<li>On SS Types: <a href="https://mcfromnz.wordpress.com/2011/03/02/anova-type-iiiiii-ss-explained/">https://mcfromnz.wordpress.com/2011/03/02/anova-type-iiiiii-ss-explained/</a></li>
+<li>on drop() function to do type 3: <a href="https://www.statmethods.net/stats/anova.html">https://www.statmethods.net/stats/anova.html</a></li>
+<li>On repeated measures: <a href="http://psych.wisc.edu/moore/Rpdf/610-R8_OneWayWithin.pdf">http://psych.wisc.edu/moore/Rpdf/610-R8_OneWayWithin.pdf</a>, <a href="https://datascienceplus.com/two-way-anova-with-repeated-measures/">https://datascienceplus.com/two-way-anova-with-repeated-measures/</a></li>
+<li>the car package: <a href="https://cran.r-project.org/web/packages/car/car.pdf">https://cran.r-project.org/web/packages/car/car.pdf</a></li>
+</ul>
 
 </div>
 </div>
@@ -11961,94 +12021,13 @@ mydata<span class="o">$</span>CVS_table <span class="o">&lt;-</span> <span class
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>am1 <span class="o">&lt;-</span> aov<span class="p">(</span>main
-    <span class="o">~</span>  cvs_table <span class="o">+</span> cvs_graph <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre
-    <span class="o">+</span> lab_experience <span class="o">+</span> similar_sim <span class="o">+</span> prior_number_virtual_labs <span class="o">+</span> overall.POCC
-    <span class="o">+</span>  PC1 <span class="o">+</span> PC2 <span class="o">+</span> Error<span class="p">(</span>sid<span class="o">/</span>variable<span class="p">),</span> data<span class="o">=</span>mydata<span class="p">)</span>
-<span class="kp">summary</span><span class="p">(</span>am1<span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_text output_subarea ">
-<pre>
-Error: sid
-                           Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-cvs_table                   1  21.10  21.101  31.621 1.01e-07 ***
-cvs_graph                   1   2.83   2.825   4.234   0.0415 *  
-pre                         1  12.57  12.571  18.839 2.74e-05 ***
-lab_experience              1   0.23   0.233   0.350   0.5551    
-similar_sim                 1   0.30   0.302   0.452   0.5024    
-prior_number_virtual_labs   1   0.20   0.204   0.306   0.5809    
-overall.POCC                1   0.34   0.342   0.513   0.4751    
-PC1                         1   0.02   0.019   0.029   0.8658    
-PC2                         1   0.58   0.584   0.874   0.3514    
-Residuals                 137  91.42   0.667                     
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Error: sid:variable
-             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-cvs_table     1   2.84   2.841  12.470 0.000458 ***
-cvs_graph     1   4.23   4.231  18.573 2.03e-05 ***
-variable      3   2.00   0.667   2.926 0.033535 *  
-sim_index     1   2.78   2.777  12.190 0.000530 ***
-pre           1   0.51   0.506   2.223 0.136717    
-similar_sim   1   0.00   0.001   0.005 0.945186    
-Residuals   433  98.64   0.228                     
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that the variance from having repeated measures for each student (first table) has been removed from the overall model error and thus separated in the output.</p>
-<p>Looking the second table we notice that both cvs are significant, cvs_graph more significant than cvs_table, variable is significant and so is sim_index.</p>
-<p>eta squares, and post hoc test are coming!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Repeat-to-compare-cvs_table-to-cvs_graph">Repeat to compare cvs_table to cvs_graph<a class="anchor-link" href="#Repeat-to-compare-cvs_table-to-cvs_graph">&#194;&#182;</a></h2><p>We rerun the model for all students who did cvs_table to see if doing cvs_graph actually helps more.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>am1_graph <span class="o">&lt;-</span> aov<span class="p">(</span>main
-    <span class="o">~</span> cvs_graph <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre
-    <span class="o">+</span> lab_experience <span class="o">+</span> similar_sim <span class="o">+</span> prior_number_virtual_labs <span class="o">+</span> overall.POCC
-    <span class="o">+</span>  PC1 <span class="o">+</span> PC2 <span class="o">+</span> Error<span class="p">(</span>sid<span class="o">/</span>variable<span class="p">),</span> data<span class="o">=</span>filter<span class="p">(</span>mydata<span class="p">,</span> cvs_table <span class="o">==</span> <span class="m">1</span><span class="p">))</span>
-<span class="kp">summary</span><span class="p">(</span>am1_graph<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span>lm1 <span class="o">=</span> lm<span class="p">(</span>main
+        <span class="o">~</span>  cvs_table <span class="o">+</span> cvs_graph <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre <span class="o">+</span> sid<span class="p">,</span>
+         data<span class="o">=</span>mydata<span class="p">)</span>
+results1 <span class="o">=</span> Anova<span class="p">(</span>lm1<span class="p">,</span> type<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+results_table1 <span class="o">=</span> tidy<span class="p">(</span>results1<span class="p">)</span>
+results_table1<span class="o">$</span>eta <span class="o">&lt;-</span> results_table1<span class="o">$</span>sumsq<span class="o">/</span><span class="p">(</span>results_table1<span class="o">$</span>sumsq <span class="o">+</span> results_table1<span class="o">$</span>sumsq<span class="p">[</span><span class="kp">dim</span><span class="p">(</span>results_table1<span class="p">)[</span><span class="m">1</span><span class="p">]])</span>
+results_table1
 </pre></div>
 
 </div>
@@ -12066,8 +12045,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>Warning message:
-&#34;package &#39;bindrcpp&#39; was built under R version 3.4.4&#34;Warning message in aov(main ~ cvs_graph + variable + sim_index + pre + lab_experience + :
-&#34;Error() model is singular&#34;</pre>
+&#34;package &#39;bindrcpp&#39; was built under R version 3.4.4&#34;</pre>
 </div>
 </div>
 
@@ -12077,35 +12055,20 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 
 
 
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr><th scope=col>term</th><th scope=col>sumsq</th><th scope=col>df</th><th scope=col>statistic</th><th scope=col>p.value</th><th scope=col>eta</th></tr></thead>
+<tbody>
+	<tr><td>cvs_table   </td><td>2.875905e-03</td><td>  1         </td><td> 0.01265297 </td><td>9.104905e-01</td><td>2.915345e-05</td></tr>
+	<tr><td>cvs_graph   </td><td>2.846821e+00</td><td>  1         </td><td>12.52501086 </td><td>4.449018e-04</td><td>2.804996e-02</td></tr>
+	<tr><td>variable    </td><td>2.341790e+00</td><td>  3         </td><td> 3.43434961 </td><td>1.698431e-02</td><td>2.318924e-02</td></tr>
+	<tr><td>sim_index   </td><td>2.769224e+00</td><td>  1         </td><td>12.18360845 </td><td>5.314560e-04</td><td>2.730627e-02</td></tr>
+	<tr><td>pre         </td><td>5.063759e-01</td><td>  1         </td><td> 2.22787537 </td><td>1.362667e-01</td><td>5.107137e-03</td></tr>
+	<tr><td>sid         </td><td>1.003316e+02</td><td>146         </td><td> 3.02345002 </td><td>6.702068e-19</td><td>5.042401e-01</td></tr>
+	<tr><td>Residuals   </td><td>9.864427e+01</td><td>434         </td><td>         NA </td><td>          NA</td><td>5.000000e-01</td></tr>
+</tbody>
+</table>
 
-<div class="output_text output_subarea ">
-<pre>
-Error: sid
-                           Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-cvs_graph                   1   6.27   6.267  11.616 0.000915 ***
-variable                    3   2.54   0.847   1.571 0.200569    
-sim_index                   1   1.53   1.526   2.828 0.095472 .  
-pre                         1   5.38   5.377   9.966 0.002058 ** 
-lab_experience              1   0.02   0.015   0.028 0.867067    
-similar_sim                 1   0.07   0.073   0.135 0.713886    
-prior_number_virtual_labs   1   0.01   0.007   0.014 0.906797    
-overall.POCC                1   0.67   0.672   1.246 0.266760    
-PC1                         1   0.28   0.276   0.511 0.476288    
-PC2                         1   0.05   0.050   0.093 0.761382    
-Residuals                 110  59.35   0.540                     
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Error: sid:variable
-             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
-cvs_graph     1   2.19  2.1852   8.293 0.00436 **
-variable      3   3.85  1.2837   4.872 0.00265 **
-sim_index     1   1.58  1.5830   6.007 0.01501 * 
-pre           1   1.01  1.0088   3.828 0.05163 . 
-similar_sim   1   0.48  0.4843   1.838 0.17654   
-Residuals   226  59.55  0.2635                   
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
 </div>
 
 </div>
@@ -12113,6 +12076,15 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We see that, in order of significance: cvs_graph, sim_index, and variable matter.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12127,11 +12099,13 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>am2 <span class="o">&lt;-</span> aov<span class="p">(</span>quant_score
-    <span class="o">~</span>  cvs_table <span class="o">+</span> cvs_graph <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre
-    <span class="o">+</span> lab_experience <span class="o">+</span> similar_sim <span class="o">+</span> prior_number_virtual_labs <span class="o">+</span> overall.POCC
-    <span class="o">+</span>  PC1 <span class="o">+</span> PC2 <span class="o">+</span> Error<span class="p">(</span>sid<span class="o">/</span>variable<span class="p">),</span> data<span class="o">=</span>mydata<span class="p">)</span>
-<span class="kp">summary</span><span class="p">(</span>am2<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span>lm1 <span class="o">=</span> lm<span class="p">(</span>quant_score
+        <span class="o">~</span>  cvs_table <span class="o">+</span> cvs_graph <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre <span class="o">+</span> sid<span class="p">,</span>
+         data<span class="o">=</span>mydata<span class="p">)</span>
+results1 <span class="o">=</span> Anova<span class="p">(</span>lm1<span class="p">,</span> type<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+results_table1 <span class="o">=</span> tidy<span class="p">(</span>results1<span class="p">)</span>
+results_table1<span class="o">$</span>eta <span class="o">&lt;-</span> results_table1<span class="o">$</span>sumsq<span class="o">/</span><span class="p">(</span>results_table1<span class="o">$</span>sumsq <span class="o">+</span> results_table1<span class="o">$</span>sumsq<span class="p">[</span><span class="kp">dim</span><span class="p">(</span>results_table1<span class="p">)[</span><span class="m">1</span><span class="p">]])</span>
+results_table1
 </pre></div>
 
 </div>
@@ -12148,35 +12122,20 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 
 
 
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr><th scope=col>term</th><th scope=col>sumsq</th><th scope=col>df</th><th scope=col>statistic</th><th scope=col>p.value</th><th scope=col>eta</th></tr></thead>
+<tbody>
+	<tr><td>cvs_table   </td><td>3.560571e-04</td><td>  1         </td><td>0.002591862 </td><td>9.594204e-01</td><td>5.971997e-06</td></tr>
+	<tr><td>cvs_graph   </td><td>3.313290e-01</td><td>  1         </td><td>2.411858311 </td><td>1.211482e-01</td><td>5.526565e-03</td></tr>
+	<tr><td>variable    </td><td>1.514087e+00</td><td>  3         </td><td>3.673853147 </td><td>1.229926e-02</td><td>2.476635e-02</td></tr>
+	<tr><td>sim_index   </td><td>2.417089e-01</td><td>  1         </td><td>1.759482309 </td><td>1.853867e-01</td><td>4.037737e-03</td></tr>
+	<tr><td>pre         </td><td>4.862882e-01</td><td>  1         </td><td>3.539859443 </td><td>6.057962e-02</td><td>8.090370e-03</td></tr>
+	<tr><td>sid         </td><td>6.299217e+01</td><td>146         </td><td>3.140696461 </td><td>3.782563e-20</td><td>5.137482e-01</td></tr>
+	<tr><td>Residuals   </td><td>5.962075e+01</td><td>434         </td><td>         NA </td><td>          NA</td><td>5.000000e-01</td></tr>
+</tbody>
+</table>
 
-<div class="output_text output_subarea ">
-<pre>
-Error: sid
-                           Df Sum Sq Mean Sq F value Pr(&gt;F)  
-cvs_table                   1   0.05  0.0542   0.130 0.7195  
-cvs_graph                   1   2.04  2.0383   4.875 0.0289 *
-pre                         1   1.58  1.5804   3.780 0.0539 .
-lab_experience              1   0.06  0.0646   0.154 0.6949  
-similar_sim                 1   0.62  0.6225   1.489 0.2245  
-prior_number_virtual_labs   1   2.11  2.1087   5.044 0.0263 *
-overall.POCC                1   0.19  0.1877   0.449 0.5040  
-PC1                         1   0.05  0.0549   0.131 0.7177  
-PC2                         1   0.43  0.4314   1.032 0.3115  
-Residuals                 137  57.28  0.4181                 
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Error: sid:variable
-             Df Sum Sq Mean Sq F value Pr(&gt;F)  
-cvs_table     1   0.06  0.0557   0.410 0.5222  
-cvs_graph     1   0.24  0.2397   1.766 0.1845  
-variable      3   1.35  0.4512   3.325 0.0197 *
-sim_index     1   0.24  0.2440   1.798 0.1807  
-pre           1   0.49  0.4863   3.583 0.0590 .
-similar_sim   1   0.86  0.8561   6.308 0.0124 *
-Residuals   433  58.76  0.1357                 
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
 </div>
 
 </div>
@@ -12189,76 +12148,10 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As expected, CVS doesn't predict quant transfer scores.</p>
-<p>Post hoc by variable and similar sim (weither students had worked with a similar sim before) coming soon.</p>
+<p>As expected, CVS doesn't predict quant transfer scores, only variable does.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>am2 <span class="o">&lt;-</span> aov<span class="p">(</span>quant_score
-    <span class="o">~</span>  cvs_table <span class="o">+</span> cvs_graph <span class="o">+</span> main <span class="o">+</span> variable <span class="o">+</span> sim_index <span class="o">+</span> pre
-    <span class="o">+</span> lab_experience <span class="o">+</span> similar_sim <span class="o">+</span> prior_number_virtual_labs <span class="o">+</span> overall.POCC
-    <span class="o">+</span>  PC1 <span class="o">+</span> PC2 <span class="o">+</span> Error<span class="p">(</span>sid<span class="o">/</span>variable<span class="p">),</span> data<span class="o">=</span>mydata<span class="p">)</span>
-<span class="kp">summary</span><span class="p">(</span>am2<span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_text output_subarea ">
-<pre>
-Error: sid
-                           Df Sum Sq Mean Sq F value Pr(&gt;F)   
-cvs_table                   1   0.05  0.0542   0.132 0.7167   
-cvs_graph                   1   2.04  2.0383   4.977 0.0273 * 
-main                        1   2.98  2.9769   7.269 0.0079 **
-pre                         1   0.50  0.4975   1.215 0.2723   
-lab_experience              1   0.10  0.1046   0.256 0.6140   
-similar_sim                 1   0.51  0.5054   1.234 0.2686   
-prior_number_virtual_labs   1   1.93  1.9331   4.720 0.0315 * 
-overall.POCC                1   0.26  0.2623   0.641 0.4249   
-PC1                         1   0.05  0.0464   0.113 0.7370   
-PC2                         1   0.31  0.3074   0.751 0.3878   
-Residuals                 136  55.70  0.4095                  
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Error: sid:variable
-             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-cvs_table     1   0.06   0.056   0.436   0.5096    
-cvs_graph     1   0.24   0.240   1.875   0.1716    
-main          1   4.51   4.512  35.302 5.82e-09 ***
-variable      3   0.79   0.263   2.058   0.1052    
-sim_index     1   0.03   0.028   0.222   0.6380    
-pre           1   0.31   0.314   2.460   0.1175    
-similar_sim   1   0.84   0.845   6.608   0.0105 *  
-Residuals   432  55.22   0.128                     
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12278,7 +12171,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># mydata$variable &lt;- relevel(mydata$variable, &quot;Width&quot;)</span>
@@ -12390,7 +12283,7 @@ PC2         -0.344  0.207</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>mixed <span class="o">&lt;-</span> glmer<span class="p">(</span>
