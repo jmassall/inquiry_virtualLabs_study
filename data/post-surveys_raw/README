@@ -1,0 +1,3 @@
+*_mod.csv are the same files as *.csv but with different UTF encoding to make it easier to import with the format_for_coding.py script.
+
+*_mod_reshaped.csv are output of that script that strip unimportant data and reshape it in a from more easily codable.
