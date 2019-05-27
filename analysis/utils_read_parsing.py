@@ -118,6 +118,11 @@ def get_cvs_results(number_trials,merged=True):
     df = pd.read_csv(filepath, sep='\t')
     return df
 
+def get_cvs_graph_inverse_results():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\graph_inverse_cvs_df.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
 SIM_NAMES = {'beers':'ABSORBANCE','caps':'CAPACITORS'}
 def get_worksheet_metadata(sim):
     if sim == 'capacitor':
