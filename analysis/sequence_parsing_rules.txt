@@ -1,26 +1,45 @@
 Sequence Action	User	Sim	Time	Index	User	Component	Event	Item	Action	Laser toggle	Wavelength	Width	Concentration	Absorbance	Detector location	Ruler location	diff in parsed table	Table	X axis	Y axis	X axis scale	Y axis scale	Notes
-change_concentration							dragEnded	solutionControls		1													
-change_concentration							dragStarted	solutionControls		1													
-change_concentration							dragged	solutionControls		1													
 change_concentration							Changed concentration			1													
-change_detector							dragEnded	detectorNode		1													
-change_detector							dragStarted	detectorNode		1													
-change_detector							dragged	detectorNode		1													
+change_concentration							dragEnded	solutionControls		1													
+change_concentration							dragged	solutionControls		1													
+change_concentration							dragStarted	solutionControls		1													
+change_other							dragEnded	detectorNode		1													
+change_other							dragged	detectorNode		1													
+change_other							dragStarted	detectorNode		1													
+change_other							Changed concentration			0													
+change_other							dragEnded	solutionControls		0													
+change_other							dragEnded	detectorNode		0													
+change_other							dragEnded	wavelengthControls		0													
+change_other							dragEnded	cuvetteNode		0													
+change_other							dragged	solutionControls		0													
+change_other							dragged	detectorNode		0													
+change_other							dragged	wavelengthControls		0													
+change_other							dragged	cuvetteNode		0													
+change_other							dragStarted	solutionControls		0													
+change_other							dragStarted	detectorNode		0													
+change_other							dragStarted	wavelengthControls		0													
+change_other							dragStarted	cuvetteNode		0													
+change_wavelength							Changed wavelength																
 change_wavelength							dragEnded	wavelengthControls		1													
-change_wavelength							dragStarted	wavelengthControls		1													
 change_wavelength							dragged	wavelengthControls		1													
+change_wavelength							dragStarted	wavelengthControls		1													
 change_width							dragEnded	cuvetteNode		1													
 change_width							dragged	cuvetteNode		1													
 change_width							dragStarted	cuvetteNode		1													
-graph_add						table	Adding data to graph		Data added to graph successfully														
-graph_axis						graph	Selecting Y-axis																
-graph_axis						graph	Selecting X-axis																
-graph_error						table	Adding data to graph		Error: failed to add trial														
-graph_scale						graph	Selecting scale of X-axis																
-graph_scale						graph	Selecting scale of Y-axis																
-interface						interface																	
+graph_add							Adding data to graph		Data added to graph successfully														
+graph_axis							Selecting X-axis																
+graph_axis							Selecting Y-axis																
+ignore							Adding data to graph		Error: failed to add trial														
+graph_scale							Selecting scale of X-axis																
+graph_scale							Selecting scale of Y-axis																
+ignore						interface																	
 laser_on							toggle laser	laser button		0													
-pause_notes							editing notes																
-pause_time							Pause																
+pause							editing notes																
 table_add							recording data																
-table_remove						table	Removing data from table																
+ignore							Removing data from table																
+pause							Pause																
+graph_remove							Removing data from graph																
+change_other							toggle laser	laser button		1.0													
+ignore							Moving trial in table																
+ignore							Restoring sim state from trial																
+ignore								rulerNode															
