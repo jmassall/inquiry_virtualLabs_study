@@ -31,7 +31,7 @@ def find_student_log_file(sim, studentid, date=None, infolder = FOLDER):
                 if sim in f and studentid in f:
                     return os.path.join(root, f)
 
-def add_pauses(df,pause_length=15):
+def add_pauses(df,pause_length=9):
 
     def detect_pause(row,current_time,next_time):
         duration_of_action = next_time - current_time
