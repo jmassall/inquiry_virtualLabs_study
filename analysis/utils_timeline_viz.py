@@ -649,6 +649,17 @@ def plot(df,to_plot,family_name_to_code,function_to_use,colors):
 def count_pts_in_graph(table):
     return len(get_pts_in_graph(table))
 
+def get_outcome_values(pts):
+    outcomes = []
+    for pt in pts:
+        if "Charge" in pt.keys():
+            outcomes.append(pt["Charge"])
+        elif "Absorbance" in pt.keys():
+            outcomes.append(pt["Absorbance"])
+        else:
+            print "OUTCOME MISSING"
+    return outcomes
+    
 def get_empty_values():
     return {"Battery voltage":set(),
                         "Area":set(),
