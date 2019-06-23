@@ -36,7 +36,7 @@ ignore						interface
 laser_on							toggle laser	laser button		0													
 pause							editing notes																
 table_add							recording data																
-ignore							Removing data from table																
+table_remove							Removing data from table																
 pause							Pause																
 graph_remove							Removing data from graph																
 change_other							toggle laser	laser button		1.0													
