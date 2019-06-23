@@ -123,6 +123,11 @@ def get_cvs_graph_inverse_results():
     df = pd.read_csv(filepath, sep='\t')
     return df
 
+def get_df_all_factors():
+    filepath = os.path.join(BIG_FOLDER,'all_massaged_data\\dataframe_all_factors_for_analysis.txt')
+    df = pd.read_csv(filepath, sep='\t')
+    return df
+
 SIM_NAMES = {'beers':'ABSORBANCE','caps':'CAPACITORS'}
 def get_worksheet_metadata(sim):
     if sim == 'capacitor':

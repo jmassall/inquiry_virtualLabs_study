@@ -511,8 +511,9 @@ def fix_laser(values,coords):
 #     newcoords = list(chain.from_iterable(izip(coords,coords)))
 #     return newvalues,newcoords
 
-def plot(df,to_plot,family_name_to_code,function_to_use,colors):
-    ax = plt.subplot()
+def plot(df,to_plot,family_name_to_code,function_to_use,colors,ax=None):
+    if not ax:
+        ax = plt.subplot()
     spacing = 10
     margin = 0.5
     component_spacer = spacing
