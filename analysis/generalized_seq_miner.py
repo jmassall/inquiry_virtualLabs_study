@@ -26,16 +26,19 @@ def count_use_per_group_per_bin(allfrequencies, frequencies_by_bin, num_bins, st
     groups = [students_by_attribute[level] for level in levels]
     number_of_groups = len(levels)
 
+    group_by_student = {}
+
+    for i,level in enumerate(levels):
+        group_by_student.update({s:i for s in students_by_attribute[level]})
+
     counts = {seq : np.zeros((number_of_groups,num_bins)) for seq in sequences} #initialize empty array for each sequence
-    
+
     for student,f_by_bin in frequencies_by_bin.iteritems():
         for b,counter in enumerate(f_by_bin): 
             for seq in counter: 
                 if seq in sequences:
-                    for i,student_group in enumerate(groups):
-                        if student in student_group: 
-                            group = i
-                        counts[seq][group][b] += 1
+                    group = group_by_student[student]
+                    counts[seq][group][b] += 1
     return counts
 
 
