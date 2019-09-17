@@ -93,7 +93,7 @@ def remove_model_events_from_df(df):
     return df[df['User or Model'] != 'model']
 
 def prep_parsing_data(parsing_file,remove_model_events=True):
-    df = pd.read_table(parsing_file, sep='\t')
+    df = pd.read_csv(parsing_file, sep='\t')
     if remove_model_events:
         df = remove_model_events_from_df(df)
         if len(df)==0:
