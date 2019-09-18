@@ -134,8 +134,52 @@ class Sequence():
         #if merged actions were previously blocked, we rerun blocking
         if set(self.blocked_actions) & set(actions_to_merge):
             self.block_actions(self.blocked_actions)
+        self.update_actions()
         return self        
-            
+
+    def translate_variable_actions(self):
+        regex_pattern_var = re.compile('[VG\_]+(?:axis\_)?([a-z]+)')
+        old_seq = list(self.seq)
+        self.seq = []
+        current_quant = None
+        number_switches = 0 #need to track so we put
+        # "Switch_quant" action at the right time coordinate
+        for i,s in enumerate(old_seq):
+            if 'V_' in s or 'G_axis_' in s:
+                var = regex_pattern_var.match(s).group(1)
+                action = s
+                action = action.replace(var,'')
+                if var in ['wavelength','battery']:
+                    #translate qual variable
+                    self.seq.append(action+'qual')
+                elif var not in ['area', 'separation','width','concentration']:
+                    #variable is some other (lightbulb, detector, ruler...)
+                    #so we don't change the action
+                    self.seq.append(action+var)
+                elif current_quant == None:
+                    #translate quant variable
+                    #first quant variable encountered
+                    current_quant = var
+                    self.seq.append(action+'quant')
+                elif var == current_quant:
+                    #previous action and current action on same quant variable
+                    self.seq.append(action+'quant')
+                else:
+                    #previous action and current action are different
+                    # so we note the change with a new action
+                    self.seq.extend(['Switch_quant',action+'quant'])
+                    current_quant = var
+                    #need to add a timecoord for this new "action"
+                    if self.timecoords!=None:
+                        self.timecoords.insert(i+number_switches,self.timecoords[i+number_switches]-0.0001)
+                    number_switches += 1
+            else:
+                self.seq.append(s)
+        self.update_actions()
+        if self.timecoords!=None:
+            self.check_lengths_seq_timecoords()
+        return self
+
     def parameters(self):
         '''Prints the parameters of the sequence including previous tranformations'''
         to_print = 'Length:{} actions, sid:{}, sim:{}, blocked actions:{},'.format(len(self.seq),self.sid,self.sim,self.blocked_actions)
@@ -168,6 +212,21 @@ def run_Sequence_acless_checks():
     print a.extend_seq(['X','Y','Z'],timecoords_to_add=[10,20,30])
     print a.merge_actions(['A','X','Z'])
     print a.remove_actions('Y')
+
+    print "\nTranslating qual and quant variables"  
+    original = ['V_concentration','P','V_concentration','P','V_detector','P','V_concentration','P','V_width','P','V_width','T_add','V_concentration','T_add','G_axis_width','T_add','P']
+    S = Sequence(original)
+    S.translate_variable_actions();
+    for a,b in zip(original+['-','-','-','-'],S.seq):
+        print a,b
+
+    print "\nTranslating qual and quant variables with time coordinates"  
+    original = ['V_concentration','V_width','G_axis_concentration']
+    coords = range(len(original))
+    S = Sequence(original,timecoords=coords)
+    S.translate_variable_actions();
+    for a,b in zip(S.timecoords,zip(S.seq+[''],original+['','','',''])):
+        print a,b
 
 
 def converter(row,rules_as_dict):
