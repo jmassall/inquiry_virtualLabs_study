@@ -4,7 +4,13 @@ import re
 class Sequence():
 #     actions = set()
 #         actions.update(self.seq)
-    
+# Action = namedtuple('Action', ['action', 'target', 'sim, 'time'])
+
+# * parameters change name or stuff
+# * block -> collapse
+# * merge -> change A to C; change('A','C') #method signature (input) should not be ambiguous.
+
+
     def __init__(self,seq, sid=None, sim=None, timecoords=None):
         '''Store a sequence of actions for a particular student (sid)
             in a particular simulation (sim) and optionally with 
@@ -92,9 +98,12 @@ class Sequence():
             self.timecoords = []
         else:
             updating_timecoords = False
-        
+
+        #zipped = zip(self.seq,self.timecoords)
+        #for key, group in groupby(zipped, lambda x: x[0]):
+
         i=0 #index of where we are in the sequence
-        for key,group in groupby(self.unblocked_seq):
+        for key, group in groupby(self.unblocked_seq):
             group_copy = list(group) #make a copy because it's a generator element?
             if key in actions_to_block:
                 #append the one blocked action
