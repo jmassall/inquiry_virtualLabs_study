@@ -146,15 +146,88 @@ class Sequence():
         self.update_actions()
         return self        
 
+    def translate_cvs(self):
+        regex_pattern_var = re.compile('V\_([a-z]+)')
+        old_seq = list(self.seq)
+        self.seq = []
+        old_times = list(self.timecoords)
+        self.timecoords = []
+        
+        cvs_var = None
+        cvs_sequence = []
+        cvs_times = []
+        
+        for timecoord,action in zip(old_times,old_seq):
+            # print action, cvs_var, cvs_sequence, self.seq[-5:]
+            if 'V_' in action:
+                var = regex_pattern_var.match(action).group(1)
+                if var == cvs_var:
+                    cvs_sequence.append(action)
+                    cvs_times.append(timecoord)
+                    #dont append action yet
+                    continue                
+                elif var in ['wavelength','battery','area', 'separation','width','concentration']:
+                    if cvs_var == None:
+                        cvs_var = var
+                        cvs_sequence.append(action)
+                        cvs_times.append(timecoord)
+                        continue
+                    else:
+                        #we know var != cvs_var
+                        #check if we have cvs in withheld actions
+                        if cvs_sequence.count('T_add')>=2:
+                            self.seq.append('C_'+cvs_var)
+                            self.timecoords.append(cvs_times[0]) #we only need the first tmecoordinated when CVS started
+                        else:
+                            #add previous actions and current action to sequence and reset
+                            self.seq.extend(cvs_sequence)
+                            self.timecoords.extend(cvs_times)
+                        #keep track current var
+                        # and dont append action yet
+                        cvs_var = var
+                        cvs_sequence = [action]
+                        cvs_times = [timecoord]
+                        continue           
+                else:
+                    cvs_var = None
+            elif 'T_add' in action:
+                cvs_sequence.append(action)
+                cvs_times.append(timecoord)
+                continue
+            #check if we have cvs in withheld actions
+            if cvs_sequence.count('T_add')>=2 and cvs_var:
+                self.seq.append('C_'+cvs_var)
+                self.timecoords.append(cvs_times[0]) #we only need the first tmecoordinated when CVS started
+                cvs_var = None
+            else:
+                #add previous actions and current action to sequence and reset
+                self.seq.extend(cvs_sequence)
+                self.timecoords.extend(cvs_times)
+            cvs_sequence = []
+            cvs_times = []
+            self.seq.append(action)
+            self.timecoords.append(timecoord)
+        
+        #if last sequence of actions was CVS, we add it:
+        if cvs_sequence.count('T_add')>=2:
+                self.seq.append('C_'+cvs_var)
+                self.timecoords.append(cvs_times[0]) #we only need the first tmecoordinated when CVS started
+        else:
+            #withheld actions are added
+            self.seq.extend(cvs_sequence)
+            self.timecoords.extend(cvs_times)
+        self.update_actions()
+        return self
+
     def translate_variable_actions(self):
-        regex_pattern_var = re.compile('[VG\_]+(?:axis\_)?([a-z]+)')
+        regex_pattern_var = re.compile('[CVG\_]+(?:axis\_)?([a-z]+)')
         old_seq = list(self.seq)
         self.seq = []
         current_quant = None
         number_switches = 0 #need to track so we put
         # "Switch_quant" action at the right time coordinate
         for i,s in enumerate(old_seq):
-            if 'V_' in s or 'G_axis_' in s:
+            if 'V_' in s or 'G_axis_' in s or 'C_' in s:
                 var = regex_pattern_var.match(s).group(1)
                 action = s
                 action = action.replace(var,'')
@@ -194,6 +267,19 @@ class Sequence():
         to_print = 'Length:{} actions, sid:{}, sim:{}, blocked actions:{},'.format(len(self.seq),self.sid,self.sim,self.blocked_actions)
         to_print += 'actions removed: {}, merged_actions: {}, has timecoords: {}'.format(self.removed_actions,self.sets_merged_actions,self.timecoords!=None)
         print to_print
+
+    def standard_transformation(self):
+        #the order matters here
+        self.remove_actions('ignore')
+        self.remove_actions('T_restore')
+        self.remove_actions('V_ruler')
+        self.merge_actions(['P','P_notes'])
+        self.block_actions(['P','V_area', 'V_battery', 'V_lightbulb', 'V_separation','V_other','V_width','V_concentration','V_wavelength','V_detector','V_laser'])
+        self.block_actions(['G_add','G_add_fail','G_remove','T_remove','T_add','T_move'])
+        self.translate_cvs()
+        self.translate_variable_actions()
+        self.check_lengths_seq_timecoords()
+        return self
 
 
 def run_Sequence_acless_checks():
@@ -256,55 +342,55 @@ def converter(row,rules_as_dict):
         return 'no_match_found'
 
 
-def check_cvs_graph(row):
-    table = json.loads(row['Table'])
-    points = get_pts(table,in_graph=True) #grab all points in graph
-    if len(points)==1:
-        return "G_add_first"
-#     if row['X axis'] not in ["charge","absorbance"] and row['Y axis'] not in ["charge","absorbance"]:
+# def check_cvs_graph(row):
+#     table = json.loads(row['Table'])
+#     points = get_pts(table,in_graph=True) #grab all points in graph
+#     if len(points)==1:
+#         return "G_add_first"
+# #     if row['X axis'] not in ["charge","absorbance"] and row['Y axis'] not in ["charge","absorbance"]:
+# #         return "G_add_messy"
+#     values = get_values_per_variable(points)
+#     confounded = pts_are_confounded(values)
+# #     print points
+#     if not confounded and 0 not in values["Laser toggle"] and "LIGHT_BULB_CONNECTED" not in values["Connection"]:
+#         #We could do some complex things here to check if the right axis was chosen
+# #         print 'cvs!'
+#         return "G_add_cvs"
+#     else:
+# #         print 'not!'
 #         return "G_add_messy"
-    values = get_values_per_variable(points)
-    confounded = pts_are_confounded(values)
-#     print points
-    if not confounded and 0 not in values["Laser toggle"] and "LIGHT_BULB_CONNECTED" not in values["Connection"]:
-        #We could do some complex things here to check if the right axis was chosen
-#         print 'cvs!'
-        return "G_add_cvs"
-    else:
-#         print 'not!'
-        return "G_add_messy"
 
-regex_pattern_trial = re.compile('trialNumber (\d+)')
-def check_cvs_table(row):
-    trial_number = int(regex_pattern_trial.match(row['Item']).group(1))
-    table = json.loads(row['Table'])
+# regex_pattern_trial = re.compile('trialNumber (\d+)')
+# def check_cvs_table(row):
+#     trial_number = int(regex_pattern_trial.match(row['Item']).group(1))
+#     table = json.loads(row['Table'])
 
-    # if it's the first trial added or the table only has one trial, no possibility for doing cvs
-    if trial_number == 1 or len(table)==1:
-        return "T_add_first"
-    else:
-        current_trial = table[str(trial_number)]
-        # get trials in table
-        all_trial_numbers = table.keys()
-        #we iterate through the other trials and check if there is cvs with the current trial
-        i=0
-        while len(all_trial_numbers)>0:
-            some_trial_number = all_trial_numbers.pop()
-            if str(some_trial_number) == str(trial_number):
-                continue
-#                 print some_trial_number, trial_number
-            some_trial = table[str(some_trial_number)]
-            #we make sets of the all the values of variables between both trials
-            values_of_2_points = get_values_per_variable([current_trial, some_trial])
-            confounded = pts_are_confounded(values_of_2_points)
-            outcomes = get_outcome_values([current_trial, some_trial])
-            outcome1,outcome2 = outcomes[0],outcomes[1]
-            #we check that only one variable is changed (confounded = False)
-            # that the laser was not off, and that the connection wasn't to lightbulb
-            # and that the outcome values are not null but floats
-            if not confounded and 0 not in values_of_2_points["Laser toggle"] and "LIGHT_BULB_CONNECTED" not in values_of_2_points["Connection"] and isinstance(outcome1, float) and isinstance(outcome2, float):
-                return "T_add_cvs"
-        return "T_add_messy"
+#     # if it's the first trial added or the table only has one trial, no possibility for doing cvs
+#     if trial_number == 1 or len(table)==1:
+#         return "T_add_first"
+#     else:
+#         current_trial = table[str(trial_number)]
+#         # get trials in table
+#         all_trial_numbers = table.keys()
+#         #we iterate through the other trials and check if there is cvs with the current trial
+#         i=0
+#         while len(all_trial_numbers)>0:
+#             some_trial_number = all_trial_numbers.pop()
+#             if str(some_trial_number) == str(trial_number):
+#                 continue
+# #                 print some_trial_number, trial_number
+#             some_trial = table[str(some_trial_number)]
+#             #we make sets of the all the values of variables between both trials
+#             values_of_2_points = get_values_per_variable([current_trial, some_trial])
+#             confounded = pts_are_confounded(values_of_2_points)
+#             outcomes = get_outcome_values([current_trial, some_trial])
+#             outcome1,outcome2 = outcomes[0],outcomes[1]
+#             #we check that only one variable is changed (confounded = False)
+#             # that the laser was not off, and that the connection wasn't to lightbulb
+#             # and that the outcome values are not null but floats
+#             if not confounded and 0 not in values_of_2_points["Laser toggle"] and "LIGHT_BULB_CONNECTED" not in values_of_2_points["Connection"] and isinstance(outcome1, float) and isinstance(outcome2, float):
+#                 return "T_add_cvs"
+#         return "T_add_messy"
 
 
 # PARSER FOR CONSECTUIVE TABLE ACTIONS
@@ -337,3 +423,31 @@ def check_cvs_table(row):
 #             else:
 #                 return "table_add_messy"
 #     else: return row['Sequence Action']
+
+
+    # def translate_cvs_collect(self):
+    #     regex_pattern_cvs_quant = re.compile('(({1},{0},{1},{0},?){{1,}}|({0},{1},{0},{1},?){{1,}}){{1,}}{1}?{0}?{1}?,?{1}?,?{0}?,?,?{1}?'.format('X','Y'))
+    #     regex_pattern_cvs_qual = re.compile('(({1},{0},{1},{0},?){{1,}}|({0},{1},{0},{1},?){{1,}}){{1,}}{1}?{0}?{1}?,?{1}?,?{0}?,?,?{1}?'.format('X','Z'))
+    #     #WE MUST block these three actions before doing anything
+    #     for action in ['T_add','V_qual','V_quant']:
+    #         if action not in self.blocked_actions:
+    #             self.block_actions(action)
+
+    #     #turn seq into a string
+    #     old_seq = ','.join(list(self.seq))
+    #     #simplifies things
+    #     old_seq = re.sub('T_add','X',old_seq)
+    #     old_seq = re.sub('V_quant','Y',old_seq)
+    #     old_seq = re.sub('V_qual','Z',old_seq)
+    #     #replace to cvs
+    #     old_seq = re.sub(regex_pattern_cvs_quant,'CVS_quant,',old_seq)
+    #     old_seq = re.sub(regex_pattern_cvs_qual,'CVS_qual,',old_seq)
+
+    #     old_seq = re.sub('X','T_add',old_seq)
+    #     old_seq = re.sub('Y','V_quant',old_seq)
+    #     old_seq = re.sub('Z','V_qual',old_seq)
+    #     #remake seq
+    #     old_seq = old_seq.replace(',,',',') 
+    #     self.seq = old_seq.split(',')
+    #     return self
+
