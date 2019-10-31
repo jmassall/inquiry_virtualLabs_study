@@ -196,7 +196,13 @@ class Sequence():
                 continue
             #check if we have cvs in withheld actions
             if cvs_sequence.count('T_add')>=2 and cvs_var:
-                self.seq.append('C_'+cvs_var)
+                if cvs_sequence.count('T_add')==2:
+                    cvs_count = '2'
+                elif cvs_sequence.count('T_add')==3:
+                    cvs_count = '3'
+                if cvs_sequence.count('T_add')>3:
+                    cvs_count = 'm' #m for many
+                self.seq.append('C'+cvs_count+'_'+cvs_var)
                 self.timecoords.append(cvs_times[0]) #we only need the first tmecoordinated when CVS started
                 cvs_var = None
             else:
@@ -210,8 +216,14 @@ class Sequence():
         
         #if last sequence of actions was CVS, we add it:
         if cvs_sequence.count('T_add')>=2:
-                self.seq.append('C_'+cvs_var)
-                self.timecoords.append(cvs_times[0]) #we only need the first tmecoordinated when CVS started
+            if cvs_sequence.count('T_add')==2:
+                cvs_count = '2'
+            elif cvs_sequence.count('T_add')==3:
+                cvs_count = '3'
+            if cvs_sequence.count('T_add')>3:
+                cvs_count = 'm' #m for many
+            self.seq.append('C'+cvs_count+'_'+cvs_var)
+            self.timecoords.append(cvs_times[0]) #we only need the first tmecoordinated when CVS started
         else:
             #withheld actions are added
             self.seq.extend(cvs_sequence)
@@ -220,14 +232,14 @@ class Sequence():
         return self
 
     def translate_variable_actions(self):
-        regex_pattern_var = re.compile('[CVG\_]+(?:axis\_)?([a-z]+)')
+        regex_pattern_var = re.compile('[CVG\_23m]+(?:axis\_)?([a-z]+)')
         old_seq = list(self.seq)
         self.seq = []
         current_quant = None
         number_switches = 0 #need to track so we put
         # "Switch_quant" action at the right time coordinate
         for i,s in enumerate(old_seq):
-            if 'V_' in s or 'G_axis_' in s or 'C_' in s:
+            if 'V_' in s or 'G_axis_' in s or 'C2_' in s or 'C3_' in s or 'Cm_' in s:
                 var = regex_pattern_var.match(s).group(1)
                 action = s
                 action = action.replace(var,'')
